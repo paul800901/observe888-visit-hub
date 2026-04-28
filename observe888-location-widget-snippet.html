@@ -1,0 +1,989 @@
+<section class="observe-locator" aria-labelledby="observeLocatorTitle">
+  <style>
+    .observe-locator {
+      --locator-bg: linear-gradient(180deg, #fbf6ef 0%, #f4ede4 100%);
+      --locator-surface: rgba(255, 255, 255, 0.9);
+      --locator-surface-strong: #fffdf9;
+      --locator-line: rgba(120, 92, 72, 0.16);
+      --locator-text: #4d3a2d;
+      --locator-muted: #7c6655;
+      --locator-accent: #8a6249;
+      --locator-accent-strong: #6f4d37;
+      --locator-chip: #efe4d7;
+      --locator-shadow: 0 22px 48px rgba(78, 55, 40, 0.12);
+      position: relative;
+      overflow: hidden;
+      width: calc(100% - 40px);
+      max-width: 1220px;
+      margin: 28px auto 56px;
+      padding: 32px;
+      border: 1px solid var(--locator-line);
+      border-radius: 28px;
+      background: var(--locator-bg);
+      color: var(--locator-text);
+      box-shadow: var(--locator-shadow);
+      font-family: "Noto Serif TC", "Microsoft JhengHei UI", serif;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    .observe-locator::before,
+    .observe-locator::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .observe-locator::before {
+      top: -120px;
+      right: -70px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(173, 132, 96, 0.32) 0%, rgba(173, 132, 96, 0) 72%);
+    }
+
+    .observe-locator::after {
+      bottom: -140px;
+      left: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(214, 192, 170, 0.42) 0%, rgba(214, 192, 170, 0) 74%);
+    }
+
+    .observe-locator * {
+      box-sizing: border-box;
+    }
+
+    .observe-locator a,
+    .observe-locator button,
+    .observe-locator input {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .observe-locator__shell {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 24px;
+    }
+
+    .observe-locator__hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .observe-locator__intro,
+    .observe-locator__assistant,
+    .observe-locator__map,
+    .observe-locator__details {
+      border: 1px solid var(--locator-line);
+      border-radius: 24px;
+      background: var(--locator-surface);
+      backdrop-filter: blur(12px);
+    }
+
+    .observe-locator__intro {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .observe-locator__eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(138, 98, 73, 0.12);
+      color: var(--locator-accent-strong);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .observe-locator__title {
+      margin: 0;
+      font-size: clamp(30px, 3.2vw, 42px);
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+    }
+
+    .observe-locator__lead {
+      margin: 0;
+      color: var(--locator-muted);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .observe-locator__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .observe-locator__chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--locator-chip);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 13px;
+      color: var(--locator-accent-strong);
+    }
+
+    .observe-locator__chip::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--locator-accent);
+      box-shadow: 0 0 0 4px rgba(138, 98, 73, 0.12);
+    }
+
+    .observe-locator__assistant {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .observe-locator__assistant h3,
+    .observe-locator__map h3,
+    .observe-locator__details h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .observe-locator__assistant p,
+    .observe-locator__helper,
+    .observe-locator__store-note,
+    .observe-locator__meta,
+    .observe-locator__list,
+    .observe-locator__suggestion-empty {
+      margin: 0;
+      color: var(--locator-muted);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .observe-locator__planner {
+      display: grid;
+      gap: 10px;
+    }
+
+    .observe-locator__label {
+      display: grid;
+      gap: 8px;
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 13px;
+      color: var(--locator-accent-strong);
+    }
+
+    .observe-locator__input-wrap {
+      position: relative;
+    }
+
+    .observe-locator__input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(111, 77, 55, 0.18);
+      border-radius: 16px;
+      background: var(--locator-surface-strong);
+      color: var(--locator-text);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 15px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .observe-locator__input:focus {
+      outline: none;
+      border-color: rgba(138, 98, 73, 0.4);
+      box-shadow: 0 0 0 4px rgba(138, 98, 73, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .observe-locator__suggestions {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: none;
+      padding: 8px;
+      border: 1px solid rgba(111, 77, 55, 0.16);
+      border-radius: 18px;
+      background: rgba(255, 251, 246, 0.98);
+      box-shadow: 0 18px 30px rgba(78, 55, 40, 0.16);
+    }
+
+    .observe-locator__suggestions.is-open {
+      display: grid;
+      gap: 6px;
+    }
+
+    .observe-locator__suggestion {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      background: transparent;
+      padding: 12px 14px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--locator-text);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      transition: background 0.18s ease, transform 0.18s ease;
+    }
+
+    .observe-locator__suggestion:hover,
+    .observe-locator__suggestion.is-active {
+      background: rgba(138, 98, 73, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .observe-locator__suggestion strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .observe-locator__suggestion span {
+      display: block;
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--locator-muted);
+    }
+
+    .observe-locator__actions,
+    .observe-locator__store-actions,
+    .observe-locator__toggle-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .observe-locator__button,
+    .observe-locator__tab {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .observe-locator__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--locator-accent);
+      color: #fff;
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 12px 24px rgba(111, 77, 55, 0.18);
+    }
+
+    .observe-locator__button:hover,
+    .observe-locator__tab:hover {
+      transform: translateY(-1px);
+    }
+
+    .observe-locator__button--ghost {
+      background: rgba(138, 98, 73, 0.08);
+      color: var(--locator-accent-strong);
+      box-shadow: none;
+    }
+
+    .observe-locator__button--line {
+      background: #2c8661;
+    }
+
+    .observe-locator__layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .observe-locator__details {
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .observe-locator__toggle-row {
+      align-items: center;
+    }
+
+    .observe-locator__tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(138, 98, 73, 0.08);
+      color: var(--locator-accent-strong);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .observe-locator__tab.is-active {
+      background: var(--locator-accent-strong);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(111, 77, 55, 0.18);
+    }
+
+    .observe-locator__store-card {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(111, 77, 55, 0.1);
+    }
+
+    .observe-locator__store-topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .observe-locator__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(138, 98, 73, 0.1);
+      color: var(--locator-accent-strong);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .observe-locator__store-name {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .observe-locator__address {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(111, 77, 55, 0.1);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 14px;
+      color: var(--locator-text);
+    }
+
+    .observe-locator__list {
+      padding-left: 1.2em;
+      list-style: disc;
+    }
+
+    .observe-locator__list li {
+      list-style: disc;
+    }
+
+    .observe-locator__meta {
+      display: grid;
+      gap: 8px;
+    }
+
+    .observe-locator__meta strong {
+      color: var(--locator-accent-strong);
+      font-weight: 700;
+    }
+
+    .observe-locator__map {
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .observe-locator__map-frame {
+      width: 100%;
+      min-height: 420px;
+      border: 0;
+      border-radius: 22px;
+      background: #eadfd2;
+    }
+
+    .observe-locator__map-caption {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .observe-locator__map-caption p {
+      margin: 0;
+      color: var(--locator-muted);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 13px;
+    }
+
+    .observe-locator__hint {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(138, 98, 73, 0.08);
+      color: var(--locator-muted);
+      font-family: "Microsoft JhengHei UI", sans-serif;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 980px) {
+      .observe-locator {
+        width: calc(100% - 28px);
+        padding: 24px;
+      }
+
+      .observe-locator__hero,
+      .observe-locator__layout {
+        grid-template-columns: 1fr;
+      }
+
+      .observe-locator__map-frame {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .observe-locator {
+        width: calc(100% - 16px);
+        margin: 20px auto 36px;
+        padding: max(14px, env(safe-area-inset-top)) 14px max(18px, env(safe-area-inset-bottom));
+        border-radius: 24px;
+        box-shadow: 0 12px 28px rgba(78, 55, 40, 0.1);
+      }
+
+      .observe-locator__shell {
+        gap: 16px;
+      }
+
+      .observe-locator__intro,
+      .observe-locator__assistant,
+      .observe-locator__details,
+      .observe-locator__map {
+        padding: 16px;
+        border-radius: 20px;
+        backdrop-filter: none;
+      }
+
+      .observe-locator::before,
+      .observe-locator::after {
+        opacity: 0.2;
+      }
+
+      .observe-locator__title {
+        font-size: clamp(24px, 8vw, 30px);
+      }
+
+      .observe-locator__lead {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .observe-locator__chips,
+      .observe-locator__actions,
+      .observe-locator__store-actions,
+      .observe-locator__toggle-row,
+      .observe-locator__map-caption {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .observe-locator__chip {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .observe-locator__store-card {
+        padding: 16px;
+      }
+
+      .observe-locator__store-name {
+        font-size: 22px;
+      }
+
+      .observe-locator__address,
+      .observe-locator__input {
+        width: 100%;
+        font-size: 16px;
+      }
+
+      .observe-locator__helper,
+      .observe-locator__assistant p,
+      .observe-locator__store-note,
+      .observe-locator__meta,
+      .observe-locator__list,
+      .observe-locator__hint,
+      .observe-locator__map-caption p {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .observe-locator__button,
+      .observe-locator__tab {
+        width: 100%;
+        min-height: 50px;
+        font-size: 16px;
+      }
+
+      .observe-locator__map-frame {
+        min-height: 280px;
+      }
+    }
+  </style>
+
+  <div class="observe-locator__shell" data-observe-locator>
+    <div class="observe-locator__hero">
+      <div class="observe-locator__intro">
+        <span class="observe-locator__eyebrow">Visit Planner</span>
+        <h2 id="observeLocatorTitle" class="observe-locator__title">雙店導航與到店規劃，一頁完成。</h2>
+        <p class="observe-locator__lead">想前往北區店或南區工作室，可以先在這裡查看店址、停車提醒與地圖，再輸入出發地，直接開啟最順手的導航路線。</p>
+        <div class="observe-locator__chips">
+          <span class="observe-locator__chip">雙店嵌入地圖</span>
+          <span class="observe-locator__chip">一鍵開啟導航</span>
+          <span class="observe-locator__chip">地址建議輸入</span>
+        </div>
+      </div>
+
+      <aside class="observe-locator__assistant" aria-labelledby="observePlannerTitle">
+        <h3 id="observePlannerTitle">來店導航助手</h3>
+        <p>先輸入你的出發地址，系統會先提供接近的台南地址建議；真正開啟路線時會直接用 Google Maps 導航到你選的分店。</p>
+
+        <div class="observe-locator__planner">
+          <label class="observe-locator__label" for="observeLocatorOrigin">
+            你的出發地址
+            <div class="observe-locator__input-wrap">
+              <input
+                id="observeLocatorOrigin"
+                class="observe-locator__input"
+                type="text"
+                inputmode="search"
+                autocomplete="street-address"
+                placeholder="例如：台南火車站、永康區中華路 100 號"
+                aria-describedby="observeLocatorHelper"
+              >
+              <div class="observe-locator__suggestions" id="observeLocatorSuggestions" role="listbox" aria-label="地址建議"></div>
+            </div>
+          </label>
+          <p id="observeLocatorHelper" class="observe-locator__helper">地址建議只是輔助你快速輸入；實際路線會直接開啟 Google Maps。若沒有出現完整門牌，保留你的輸入內容一樣可以開導航。</p>
+        </div>
+
+        <div class="observe-locator__actions">
+          <button class="observe-locator__button" type="button" data-locator-action="route-selected">Google Maps 導航到目前分店</button>
+          <button class="observe-locator__button observe-locator__button--ghost" type="button" data-locator-action="route-current-location">用現在位置開導航</button>
+        </div>
+
+        <div class="observe-locator__hint" id="observeLocatorStatus" aria-live="polite">先選擇要前往的分店，再輸入出發地即可規劃路線。</div>
+      </aside>
+    </div>
+
+    <div class="observe-locator__layout">
+      <section class="observe-locator__details" aria-labelledby="observeStoreTitle">
+        <div class="observe-locator__toggle-row" role="tablist" aria-label="分店切換">
+          <button class="observe-locator__tab is-active" type="button" role="tab" aria-selected="true" data-locator-tab="north">北區店</button>
+          <button class="observe-locator__tab" type="button" role="tab" aria-selected="false" data-locator-tab="south">南區工作室</button>
+        </div>
+
+        <article class="observe-locator__store-card">
+          <div class="observe-locator__store-topline">
+            <span class="observe-locator__badge" id="observeLocatorBadge">門市型 / 預約優先</span>
+          </div>
+
+          <h3 id="observeStoreTitle" class="observe-locator__store-name">見觀結構調理整復所-北區店</h3>
+          <div class="observe-locator__address" id="observeLocatorAddress">704 台南市北區北安路一段 211 號</div>
+          <p class="observe-locator__store-note" id="observeLocatorNote">北區店以一對一預約為主，也可視現場狀況接待未預約來店；如果北區離你較近，就直接選北區，第一次來建議先開地圖確認入口。</p>
+
+          <div class="observe-locator__meta" id="observeLocatorMeta"></div>
+
+          <ul class="observe-locator__list" id="observeLocatorParking"></ul>
+
+          <div class="observe-locator__store-actions">
+            <a class="observe-locator__button" id="observeLocatorPrimaryMap" href="#" target="_blank" rel="noreferrer noopener">Google 地圖</a>
+            <a class="observe-locator__button observe-locator__button--ghost" id="observeLocatorDirections" href="#" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
+            <a class="observe-locator__button observe-locator__button--line" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="observe-locator__map" aria-labelledby="observeMapTitle">
+        <div class="observe-locator__map-caption">
+          <div>
+            <h3 id="observeMapTitle">分店地圖</h3>
+            <p id="observeLocatorMapNote">可直接放大查看門口、轉彎點與周邊停車位置。</p>
+          </div>
+          <a class="observe-locator__button observe-locator__button--ghost" id="observeLocatorExternalMap" href="#" target="_blank" rel="noreferrer noopener">在 Google Maps 開啟</a>
+        </div>
+        <iframe class="observe-locator__map-frame" id="observeLocatorFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="about:blank" title="分店地圖"></iframe>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const host = document.currentScript.closest('.observe-locator');
+      const root = host?.querySelector('[data-observe-locator]');
+      if (!root) {
+        return;
+      }
+
+      const stores = {
+        north: {
+          id: 'north',
+          shortName: '北區店',
+          name: '見觀結構調理整復所-北區店',
+          badge: '門市型 / 預約優先',
+          address: '704 台南市北區北安路一段 211 號',
+          addressQuery: '台南市北區北安路一段211號',
+          phoneLabel: '(06) 251-0677',
+          phoneHref: 'tel:062510677',
+          hours: '週一公休，週二至週日 11:00-21:00',
+          note: '北區店以一對一預約為主，也可視現場狀況接待未預約來店；如果北區離你較近，就直接選北區，第一次來店建議先開地圖看入口。',
+          mapEmbed: 'https://www.google.com/maps?q=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E5%8C%97%E5%AE%89%E8%B7%AF%E4%B8%80%E6%AE%B5211%E8%99%9F&hl=zh-TW&z=17&output=embed',
+          mapUrl: 'https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E5%8C%97%E5%AE%89%E8%B7%AF%E4%B8%80%E6%AE%B5211%E8%99%9F',
+          directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E5%8C%97%E5%AE%89%E8%B7%AF%E4%B8%80%E6%AE%B5211%E8%99%9F&travelmode=driving',
+          parking: [
+            '北安路一段 212 巷收費路外停車場，步行約 2 分鐘。',
+            'CITY PARKING 城市車旅停車場北安站，步行約 3 分鐘。',
+            'CITY PARKING 城市車旅停車場台南文成三站，步行約 5 分鐘。'
+          ],
+          mapNote: '北區店第一次來建議先放大地圖，確認門口與轉彎位置再出發。'
+        },
+        south: {
+          id: 'south',
+          shortName: '南區工作室',
+          name: '見觀結構調理整復所-南區店',
+          badge: '工作室型 / 完全預約制',
+          address: '702 台南市南區明興路 673 號',
+          addressQuery: '台南市南區明興路673號',
+          phoneLabel: '0973-728-670',
+          phoneHref: 'tel:0973728670',
+          hours: '工作室預約制，建議先以 LINE 確認可安排時段。',
+          note: '南區採工作室預約制；如果南區離你較近，就直接選南區，周邊空地與路邊停車通常比想像中更寬鬆。',
+          mapEmbed: 'https://www.google.com/maps?q=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F&hl=zh-TW&z=17&output=embed',
+          mapUrl: 'https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F',
+          directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F&travelmode=driving',
+          parking: [
+            '喜樹路停車場，步行約 7 分鐘。',
+            '門口周邊可臨停，建議依現場路況與鄰里動線停放。',
+            '從喜樂路轉入明興路後可直接對照地圖辨識門牌。'
+          ],
+          mapNote: '南區工作室周邊空地與路邊停車較寬鬆，先確認路口位置後再切換導航即可。'
+        }
+      };
+
+      const tabButtons = Array.from(root.querySelectorAll('[data-locator-tab]'));
+      const originInput = root.querySelector('#observeLocatorOrigin');
+      const suggestionBox = root.querySelector('#observeLocatorSuggestions');
+      const status = root.querySelector('#observeLocatorStatus');
+      const mapFrame = root.querySelector('#observeLocatorFrame');
+      const badge = root.querySelector('#observeLocatorBadge');
+      const title = root.querySelector('#observeStoreTitle');
+      const address = root.querySelector('#observeLocatorAddress');
+      const note = root.querySelector('#observeLocatorNote');
+      const meta = root.querySelector('#observeLocatorMeta');
+      const parking = root.querySelector('#observeLocatorParking');
+      const mapNote = root.querySelector('#observeLocatorMapNote');
+      const primaryMap = root.querySelector('#observeLocatorPrimaryMap');
+      const externalMap = root.querySelector('#observeLocatorExternalMap');
+      const directionsLink = root.querySelector('#observeLocatorDirections');
+      const routeSelectedButton = root.querySelector('[data-locator-action="route-selected"]');
+      const routeCurrentButton = root.querySelector('[data-locator-action="route-current-location"]');
+
+      const storeAliases = {
+        north: 'north',
+        northstore: 'north',
+        northshop: 'north',
+        south: 'south',
+        southstore: 'south',
+        southstudio: 'south',
+        studio: 'south'
+      };
+
+      function resolveInitialStore() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const rawValue = String(params.get('store') || params.get('location') || '').trim().toLowerCase();
+          const resolvedKey = storeAliases[rawValue];
+          return stores[resolvedKey] || stores.north;
+        } catch {
+          return stores.north;
+        }
+      }
+
+      let activeStore = resolveInitialStore();
+      let suggestions = [];
+      let highlightedIndex = -1;
+      let debounceTimer = null;
+      let requestSerial = 0;
+      let currentSelection = null;
+
+      const htmlEscape = (value) => String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+      function setStatus(message) {
+        status.textContent = message;
+      }
+
+      function openDirections(originValue, destinationStore) {
+        const origin = String(originValue || '').trim();
+        const params = new URLSearchParams({
+          api: '1',
+          destination: destinationStore.addressQuery,
+          travelmode: 'driving'
+        });
+
+        if (origin) {
+          params.set('origin', origin);
+        }
+
+        window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener');
+      }
+
+      function renderStore(store) {
+        activeStore = store;
+        badge.textContent = store.badge;
+        title.textContent = store.name;
+        address.textContent = store.address;
+        note.textContent = store.note;
+        mapFrame.src = store.mapEmbed;
+        mapFrame.title = `${store.shortName} 地圖`;
+        mapNote.textContent = store.mapNote;
+        primaryMap.href = store.mapUrl;
+        externalMap.href = store.mapUrl;
+        directionsLink.href = store.directionsUrl;
+        routeSelectedButton.textContent = `Google Maps 導航到${store.shortName}`;
+        meta.innerHTML = `
+          <div><strong>營業 / 服務方式：</strong>${htmlEscape(store.hours)}</div>
+          <div><strong>聯絡電話：</strong><a href="${htmlEscape(store.phoneHref)}" style="color: inherit;">${htmlEscape(store.phoneLabel)}</a></div>
+        `;
+        parking.innerHTML = store.parking.map((item) => `<li>${htmlEscape(item)}</li>`).join('');
+
+        tabButtons.forEach((button) => {
+          const isActive = button.dataset.locatorTab === store.id;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-selected', String(isActive));
+        });
+
+        setStatus(`目前前往 ${store.shortName}。你可以直接規劃路線，也可以先輸入自己的出發地址。`);
+      }
+
+      function closeSuggestions() {
+        suggestions = [];
+        highlightedIndex = -1;
+        suggestionBox.classList.remove('is-open');
+        suggestionBox.innerHTML = '';
+      }
+
+      function chooseSuggestion(index) {
+        const item = suggestions[index];
+        if (!item) {
+          return;
+        }
+        currentSelection = item;
+        originInput.value = item.label;
+        closeSuggestions();
+        setStatus(`已選擇出發地：${item.label}`);
+      }
+
+      function renderSuggestions(items, query) {
+        suggestions = items;
+        highlightedIndex = -1;
+
+        if (!items.length) {
+          suggestionBox.innerHTML = `
+            <div class="observe-locator__suggestion-empty">找不到接近的地址建議。你仍可直接用「${htmlEscape(query)}」規劃導航。</div>
+          `;
+          suggestionBox.classList.add('is-open');
+          return;
+        }
+
+        suggestionBox.innerHTML = items.map((item, index) => `
+          <button class="observe-locator__suggestion" type="button" role="option" data-suggestion-index="${index}">
+            <strong>${htmlEscape(item.title)}</strong>
+            <span>${htmlEscape(item.subtitle)}</span>
+          </button>
+        `).join('');
+        suggestionBox.classList.add('is-open');
+      }
+
+      async function fetchSuggestions(query) {
+        const currentRequest = ++requestSerial;
+        try {
+          const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&countrycodes=tw&accept-language=zh-TW&q=${encodeURIComponent(query)}`;
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`地址建議服務回應 ${response.status}`);
+          }
+
+          const payload = await response.json();
+          if (currentRequest !== requestSerial) {
+            return;
+          }
+
+          const normalized = Array.isArray(payload)
+            ? payload
+              .filter((item) => /台南|臺南|tainan/i.test(item.display_name || ''))
+              .slice(0, 5)
+              .map((item) => ({
+                label: item.display_name,
+                title: item.name || item.display_name.split(',')[0],
+                subtitle: item.display_name,
+                lat: item.lat,
+                lon: item.lon
+              }))
+            : [];
+
+          renderSuggestions(normalized, query);
+          if (normalized.length) {
+            setStatus('已載入地址建議，可直接點選其中一筆。');
+          } else {
+            setStatus('目前沒有抓到接近的台南地址，仍可直接用手動輸入規劃路線。');
+          }
+        } catch (error) {
+          if (currentRequest !== requestSerial) {
+            return;
+          }
+          renderSuggestions([], query);
+          setStatus(`地址建議暫時無法使用，但你仍可直接輸入地址導航。`);
+        }
+      }
+
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const nextStore = stores[button.dataset.locatorTab];
+          if (nextStore) {
+            renderStore(nextStore);
+          }
+        });
+      });
+
+      originInput.addEventListener('input', () => {
+        const query = originInput.value.trim();
+        currentSelection = null;
+
+        if (debounceTimer) {
+          clearTimeout(debounceTimer);
+        }
+
+        if (query.length < 3) {
+          closeSuggestions();
+          setStatus('輸入至少 3 個字，再幫你找接近的台南地址。');
+          return;
+        }
+
+        debounceTimer = setTimeout(() => {
+          fetchSuggestions(query);
+        }, 260);
+      });
+
+      originInput.addEventListener('keydown', (event) => {
+        const items = Array.from(suggestionBox.querySelectorAll('[data-suggestion-index]'));
+        if (!items.length) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            openDirections(originInput.value, activeStore);
+          }
+          return;
+        }
+
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          highlightedIndex = (highlightedIndex + 1) % items.length;
+        } else if (event.key === 'ArrowUp') {
+          event.preventDefault();
+          highlightedIndex = highlightedIndex <= 0 ? items.length - 1 : highlightedIndex - 1;
+        } else if (event.key === 'Enter') {
+          event.preventDefault();
+          if (highlightedIndex >= 0) {
+            chooseSuggestion(highlightedIndex);
+          } else {
+            openDirections(originInput.value, activeStore);
+          }
+          return;
+        } else if (event.key === 'Escape') {
+          closeSuggestions();
+          return;
+        } else {
+          return;
+        }
+
+        items.forEach((item, index) => {
+          const active = index === highlightedIndex;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-selected', String(active));
+        });
+      });
+
+      suggestionBox.addEventListener('mousedown', (event) => {
+        const button = event.target.closest('[data-suggestion-index]');
+        if (!button) {
+          return;
+        }
+        event.preventDefault();
+        chooseSuggestion(Number(button.dataset.suggestionIndex));
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!root.contains(event.target)) {
+          closeSuggestions();
+        }
+      });
+
+      routeSelectedButton.addEventListener('click', () => {
+        const origin = currentSelection?.label || originInput.value;
+        openDirections(origin, activeStore);
+      });
+
+      routeCurrentButton.addEventListener('click', () => {
+        if (!navigator.geolocation) {
+          openDirections('', activeStore);
+          setStatus('目前裝置不支援定位，已直接開啟目的地導航。');
+          return;
+        }
+
+        setStatus('正在取得你的位置，稍候會自動開啟導航。');
+        navigator.geolocation.getCurrentPosition(
+          ({ coords }) => {
+            openDirections(`${coords.latitude},${coords.longitude}`, activeStore);
+            setStatus('已用你目前的位置開啟導航。');
+          },
+          () => {
+            openDirections('', activeStore);
+            setStatus('定位權限未開啟，已直接開啟目的地導航。');
+          },
+          { enableHighAccuracy: true, timeout: 7000, maximumAge: 60000 }
+        );
+      });
+
+      renderStore(activeStore);
+    })();
+  </script>
+</section>

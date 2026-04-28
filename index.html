@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <title>見觀結構調理整復所 | 北區店與南區工作室導航、預約與到店說明</title>
+  <meta name="description" content="見觀的簡潔版官網入口。如果你常常覺得痠、痛、卡、緊，或哪裡怪怪的，這裡先帶你理解見觀以手法處理搭配訓練改善的方向，再直接導航或 LINE 預約。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5ecdf;
+      --paper: rgba(255, 251, 245, 0.84);
+      --line: rgba(87, 63, 48, 0.14);
+      --text: #3f2e22;
+      --muted: #6f5a49;
+      --accent: #a14f2a;
+      --forest: #2e5e4b;
+      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Microsoft JhengHei UI", "PingFang TC", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 32%),
+        radial-gradient(circle at 82% 14%, rgba(241, 194, 121, 0.3), rgba(241, 194, 121, 0) 20%),
+        linear-gradient(180deg, #fbf6ee 0%, var(--bg) 48%, #f0e4d4 100%);
+    }
+
+    a {
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .hub-shell {
+      width: min(1240px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-copy {
+      display: grid;
+      gap: 6px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-point {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(161, 79, 42, 0.08);
+      color: #7e381d;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-point::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(161, 79, 42, 0.12);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(161, 79, 42, 0.1);
+      color: #7e381d;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(161, 79, 42, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Noto Serif TC", "PMingLiU", serif;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    .topbar-copy p,
+    .footer-note {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 16px 28px rgba(126, 56, 29, 0.2);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .button.is-forest {
+      background: var(--forest);
+      box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22);
+    }
+
+    .button.is-ghost {
+      background: rgba(161, 79, 42, 0.08);
+      color: #7e381d;
+      box-shadow: none;
+    }
+
+    .widget-frame {
+      min-height: 420px;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .signal-card {
+      display: grid;
+      gap: 12px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .signal-label {
+      display: inline-flex;
+      width: fit-content;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .signal-card h2 {
+      margin: 0;
+      font-family: "Noto Serif TC", "PMingLiU", serif;
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+    }
+
+    .first-visit {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 251, 245, 0.96) 0%, rgba(248, 239, 228, 0.94) 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .first-visit-copy {
+      display: grid;
+      gap: 8px;
+    }
+
+    .first-visit-copy h2 {
+      margin: 0;
+      font-family: "Noto Serif TC", "PMingLiU", serif;
+      font-size: clamp(24px, 3vw, 32px);
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+    }
+
+    .first-visit-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .first-visit-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .first-visit-step {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border: 1px solid rgba(87, 63, 48, 0.1);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .first-visit-step strong {
+      color: #7e381d;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .first-visit-step span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .first-visit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .state-band {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 251, 245, 0.92) 0%, rgba(248, 239, 228, 0.92) 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .state-copy {
+      display: grid;
+      gap: 8px;
+    }
+
+    .state-copy h2 {
+      margin: 0;
+      font-family: "Noto Serif TC", "PMingLiU", serif;
+      font-size: clamp(24px, 3vw, 32px);
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+    }
+
+    .state-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .state-item {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border: 1px solid rgba(87, 63, 48, 0.1);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .state-item strong {
+      color: #7e381d;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .state-item span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .signal-card p,
+    .signal-list {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .signal-list {
+      padding-left: 1.2em;
+    }
+
+    .signal-list li + li {
+      margin-top: 8px;
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 720px) {
+      .hub-shell {
+        width: min(100vw - 16px, 1240px);
+        padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
+      }
+
+      .topbar {
+        padding: 16px;
+        border-radius: 22px;
+        backdrop-filter: none;
+      }
+
+      .topbar-copy {
+        gap: 8px;
+      }
+
+      .hero-points {
+        gap: 8px;
+      }
+
+      .hero-point {
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: clamp(24px, 8vw, 34px);
+      }
+
+      .topbar-copy p,
+      .footer-note,
+      .button {
+        font-size: 16px;
+      }
+
+      .button {
+        width: 100%;
+        min-height: 50px;
+      }
+
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .first-visit {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .first-visit-copy h2 {
+        font-size: 22px;
+      }
+
+      .first-visit-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .state-band {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .state-copy h2 {
+        font-size: 22px;
+      }
+
+      .signal-card {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .signal-card h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="widgetZone" class="hub-shell">
+    <section class="topbar">
+      <div class="topbar-copy">
+        <span id="heroEyebrow" class="eyebrow">見觀微縮官網 / 到店導航站</span>
+        <h1 id="heroTitle">先看懂見觀在做什麼，再選最近的店，直接導航或預約。</h1>
+        <p id="heroLead">如果你常常覺得這裡痠、那裡痛、身體卡卡的，或就是說不上來哪裡怪怪的，這頁先用最短路徑讓你理解見觀在做什麼：以手法處理搭配訓練改善，再直接選最近的分店完成導航、來電或 LINE 預約。</p>
+        <div class="hero-points" aria-label="這頁可以做什麼">
+          <span id="heroPoint1" class="hero-point">手法處理 + 訓練改善</span>
+          <span id="heroPoint2" class="hero-point">先選離你最近的店</span>
+          <span id="heroPoint3" class="hero-point">直接導航 / 電話 / LINE</span>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a id="heroPrimaryCta" class="button" href="#firstVisitSection">第一次來先看這裡</a>
+        <a id="heroSecondaryCta" class="button is-forest" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+        <a id="heroTertiaryCta" class="button is-ghost" href="tel:062510677">北區電話</a>
+        <a id="heroQuaternaryCta" class="button is-ghost" href="tel:0973728670">南區電話</a>
+      </div>
+    </section>
+
+    <section id="firstVisitSection" class="first-visit" aria-labelledby="firstVisitTitle">
+      <div class="first-visit-copy">
+        <span id="firstVisitLabel" class="signal-label">第一次來，先看這裡</span>
+        <h2 id="firstVisitTitle">先看哪一間離你近，再看入口、停車與預約方式。</h2>
+        <p id="firstVisitLead">如果你是第一次來，不用先研究很多，先確認分店、入口和聯絡方式就夠了。看完這一段，再往下直接導航。</p>
+      </div>
+
+      <div class="first-visit-steps">
+        <article class="first-visit-step">
+          <strong id="firstVisitStep1Title">先選最近的店</strong>
+          <span id="firstVisitStep1Body">北區店和南區工作室都能處理，但先選離你近的那一間，來店體驗通常會更順。</span>
+        </article>
+
+        <article class="first-visit-step">
+          <strong id="firstVisitStep2Title">再看入口與停車</strong>
+          <span id="firstVisitStep2Body">第一次來不必硬記地址，先對一下門口、路口和停車提醒，出發時比較安心。</span>
+        </article>
+
+        <article class="first-visit-step">
+          <strong id="firstVisitStep3Title">最後決定怎麼聯絡</strong>
+          <span id="firstVisitStep3Body">你可以直接 Google Maps 導航，也可以先用 LINE 或電話確認，找到最適合自己的節奏。</span>
+        </article>
+      </div>
+
+      <div class="first-visit-actions">
+        <a id="firstVisitPrimaryAction" class="button" href="#widgetMount">看雙店導航</a>
+        <a id="firstVisitSecondaryAction" class="button is-ghost" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+      </div>
+    </section>
+
+    <section class="signal-grid" aria-label="見觀快速說明">
+      <article class="signal-card">
+        <span class="signal-label">我們在做什麼</span>
+        <h2>把專業說清楚，但不講成又硬又遠的醫療術語。</h2>
+        <p>見觀主要是以手法處理搭配訓練改善，協助面對那些常見卻說不太清楚的不舒服，像是痠、痛、緊、卡，或總覺得哪裡怪怪的。這頁先讓第一次來的人快速知道方向、聯絡方式和分店差異。</p>
+      </article>
+
+      <article class="signal-card">
+        <span class="signal-label">你現在怎麼做</span>
+        <h2>先選最近的店，再看入口、停車與導航方式。</h2>
+        <ol class="signal-list">
+          <li>先看北區店或南區工作室哪一間離你近。</li>
+          <li>查看地圖、地址、停車提醒與入口辨識資訊。</li>
+          <li>直接用導航、打電話，或先以 LINE 預約確認。</li>
+        </ol>
+      </article>
+
+      <article class="signal-card">
+        <span class="signal-label">這頁的角色</span>
+        <h2>它同時是引流頁、導航頁，也是簡潔版官網。</h2>
+        <p>不論你是從 Google 商家、社群、朋友轉傳還是搜尋進來，這裡都能先幫你理解見觀在做什麼，然後直接走到下一步，不用再進又長又雜的舊網站。</p>
+      </article>
+    </section>
+
+    <section class="state-band" aria-labelledby="stateBandTitle">
+      <div class="state-copy">
+        <span class="signal-label">你可能是這樣才會來</span>
+        <h2 id="stateBandTitle">很多人不是先想找某個名詞，而是先覺得身體越來越不對勁。</h2>
+        <p>不一定是很明確的大問題，更多時候是生活裡反覆出現的痠、緊、卡、怪。這裡先幫你對一下感受，如果有中，再往下看哪一間離你近、怎麼走最順。</p>
+      </div>
+
+      <div class="state-grid">
+        <article class="state-item">
+          <strong>坐一整天後肩頸很緊，頭一轉就覺得卡卡的。</strong>
+          <span>不是不能動，但總覺得越忙越僵，休息一下也不一定能完全鬆開。</span>
+        </article>
+
+        <article class="state-item">
+          <strong>腰背、臀腿或某個部位常常痠，說不上嚴重，卻一直反覆。</strong>
+          <span>有時像累積太久，有時像姿勢一變就怪，讓你開始想找人幫忙整理看看。</span>
+        </article>
+
+        <article class="state-item">
+          <strong>運動、工作或帶小孩之後，身體明顯不順，出力方式也怪怪的。</strong>
+          <span>你不一定想先聽一堆術語，只想知道能不能先把不順的感覺處理掉，再慢慢改善。</span>
+        </article>
+
+        <article class="state-item">
+          <strong>不是單純想按摩放鬆，而是想知道為什麼一直卡、一直緊。</strong>
+          <span>這時比較需要的是有人用手法先處理，再搭配訓練方向，幫你把日常動作慢慢拉回來。</span>
+        </article>
+      </div>
+    </section>
+
+    <div id="widgetMount" class="widget-frame"></div>
+
+    <p id="footerNote" class="footer-note">這是見觀的簡潔入口版網站：先理解以手法處理搭配訓練改善的方向，再選北區店或南區工作室，最後完成導航、來電或 LINE 預約。</p>
+  </main>
+
+  <script>
+    const lineBookingUrl = 'https://line.me/ti/p/~@483yvmiw';
+
+    const storeAliases = {
+      north: 'north',
+      northstore: 'north',
+      northshop: 'north',
+      south: 'south',
+      southstore: 'south',
+      southstudio: 'south',
+      studio: 'south'
+    };
+
+    function resolveEntryVariant() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const rawValue = String(params.get('store') || params.get('location') || '').trim().toLowerCase();
+        return storeAliases[rawValue] || 'default';
+      } catch {
+        return 'default';
+      }
+    }
+
+    function buildStoreUrl(storeKey) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('location');
+      url.searchParams.set('store', storeKey);
+      url.hash = '';
+      return `${url.pathname}${url.search}`;
+    }
+
+    function applyLink(anchor, config) {
+      if (!anchor || !config) {
+        return;
+      }
+
+      anchor.textContent = config.label;
+      anchor.href = config.href;
+
+      if (config.target) {
+        anchor.target = config.target;
+      } else {
+        anchor.removeAttribute('target');
+      }
+
+      if (config.rel) {
+        anchor.rel = config.rel;
+      } else {
+        anchor.removeAttribute('rel');
+      }
+    }
+
+    const entryVariants = {
+      default: {
+        pageTitle: '見觀結構調理整復所 | 北區店與南區工作室導航、預約與到店說明',
+        pageDescription: '見觀的簡潔版官網入口。如果你常常覺得痠、痛、卡、緊，或哪裡怪怪的，這裡先帶你理解見觀以手法處理搭配訓練改善的方向，再直接導航或 LINE 預約。',
+        hero: {
+          eyebrow: '見觀微縮官網 / 到店導航站',
+          title: '先看懂見觀在做什麼，再選最近的店，直接導航或預約。',
+          lead: '如果你常常覺得這裡痠、那裡痛、身體卡卡的，或就是說不上來哪裡怪怪的，這頁先用最短路徑讓你理解見觀在做什麼：以手法處理搭配訓練改善，再直接選最近的分店完成導航、來電或 LINE 預約。',
+          points: ['手法處理 + 訓練改善', '先選離你最近的店', '直接導航 / 電話 / LINE'],
+          ctas: [
+            { label: '第一次來先看這裡', href: '#firstVisitSection' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
+            { label: '北區電話', href: 'tel:062510677' },
+            { label: '南區電話', href: 'tel:0973728670' }
+          ]
+        },
+        firstVisit: {
+          label: '第一次來，先看這裡',
+          title: '先看哪一間離你近，再看入口、停車與預約方式。',
+          lead: '如果你是第一次來，不用先研究很多，先確認分店、入口和聯絡方式就夠了。看完這一段，再往下直接導航。',
+          steps: [
+            { title: '先選最近的店', body: '北區店和南區工作室都能處理，但先選離你近的那一間，來店體驗通常會更順。' },
+            { title: '再看入口與停車', body: '第一次來不必硬記地址，先對一下門口、路口和停車提醒，出發時比較安心。' },
+            { title: '最後決定怎麼聯絡', body: '你可以直接 Google Maps 導航，也可以先用 LINE 或電話確認，找到最適合自己的節奏。' }
+          ],
+          actions: [
+            { label: '看雙店導航', href: '#widgetMount' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' }
+          ]
+        },
+        footer: '這是見觀的簡潔入口版網站：先理解以手法處理搭配訓練改善的方向，再選北區店或南區工作室，最後完成導航、來電或 LINE 預約。'
+      },
+      north: {
+        pageTitle: '見觀北區店入口 | 見觀結構調理整復所',
+        pageDescription: '北區店入口頁。先快速理解見觀以手法處理搭配訓練改善的方向，再看北區店門口、停車與導航方式，直接來電或 LINE 預約。',
+        hero: {
+          eyebrow: '見觀北區店入口 / 微縮官網',
+          title: '第一次來北區店，先看入口，再決定導航或預約。',
+          lead: '如果你是從北區店的 Google 商家或搜尋進來，這頁先幫你快速看懂北區店怎麼來、門口在哪裡、附近怎麼停，然後直接導航、來電或 LINE 預約。',
+          points: ['北區店入口先看', '附近停車 2 到 5 分鐘', '來電 / LINE / Google Maps'],
+          ctas: [
+            { label: '第一次來先看這裡', href: '#firstVisitSection' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
+            { label: '北區直接來電', href: 'tel:062510677' },
+            { label: '也看看南區工作室', href: buildStoreUrl('south') }
+          ]
+        },
+        firstVisit: {
+          label: '第一次來，先看北區',
+          title: '北區店比較像門市入口，第一次來先對一下門口與轉彎位置。',
+          lead: '如果北區離你比較近，先把入口、停車和聯絡方式看一遍，再往下直接 Google Maps 導航，會比臨時邊開邊找順很多。',
+          steps: [
+            { title: '先看門口位置', body: '北安路一段車流比較明顯，第一次來先對一下門牌和轉彎點，進場會更安心。' },
+            { title: '再選停車點', body: '附近 2 到 5 分鐘內就有幾個停車選項，先看哪個對你最順。' },
+            { title: '最後直接聯絡或導航', body: '想快一點就直接導航；想先確認時間或狀況，也可以先打電話或用 LINE。' }
+          ],
+          actions: [
+            { label: '看北區導航與停車', href: '#widgetMount' },
+            { label: '北區直接來電', href: 'tel:062510677' }
+          ]
+        },
+        footer: '這是見觀北區店入口版網站：先理解見觀以手法處理搭配訓練改善的方向，再看北區店入口、停車與導航方式，最後完成來電或 LINE 預約。'
+      },
+      south: {
+        pageTitle: '見觀南區工作室入口 | 見觀結構調理整復所',
+        pageDescription: '南區工作室入口頁。先快速理解見觀以手法處理搭配訓練改善的方向，再看南區工作室預約方式、停車與導航方式，直接來電或 LINE 預約。',
+        hero: {
+          eyebrow: '見觀南區工作室入口 / 微縮官網',
+          title: '第一次來南區工作室，先看怎麼走，再直接預約或導航。',
+          lead: '如果你是從南區工作室的 Google 商家或搜尋進來，這頁先幫你快速看懂工作室預約方式、周邊停車和導航入口，再決定直接導航、來電或 LINE 預約。',
+          points: ['工作室預約制', '周邊停車相對寬鬆', 'LINE / 電話 / Google Maps'],
+          ctas: [
+            { label: '第一次來先看這裡', href: '#firstVisitSection' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
+            { label: '南區直接來電', href: 'tel:0973728670' },
+            { label: '也看看北區店', href: buildStoreUrl('north') }
+          ]
+        },
+        firstVisit: {
+          label: '第一次來，先看南區',
+          title: '南區工作室先確認預約方式和路口位置，再出發就夠了。',
+          lead: '如果南區離你比較近，先看明白預約制、路口和停車提醒，再往下直接導航，整體會比想像中更順。',
+          steps: [
+            { title: '先知道是工作室預約制', body: '南區不是一般門市走法，建議先把預約方式和聯絡節奏看清楚。' },
+            { title: '再看路口與停車', body: '周邊空地和路邊停車通常比想像中寬鬆，第一次來先對一下轉入路口就好。' },
+            { title: '最後直接導航或預約', body: '已經確定要來，就直接 Google Maps；想先抓時間，就用 LINE 或電話確認。' }
+          ],
+          actions: [
+            { label: '看南區導航與入口', href: '#widgetMount' },
+            { label: '南區直接來電', href: 'tel:0973728670' }
+          ]
+        },
+        footer: '這是見觀南區工作室入口版網站：先理解見觀以手法處理搭配訓練改善的方向，再看南區工作室預約方式、停車與導航方式，最後完成來電或 LINE 預約。'
+      }
+    };
+
+    function applyEntryVariant() {
+      const variantKey = resolveEntryVariant();
+      const variant = entryVariants[variantKey] || entryVariants.default;
+      const descriptionMeta = document.querySelector('meta[name="description"]');
+
+      document.title = variant.pageTitle;
+      if (descriptionMeta) {
+        descriptionMeta.setAttribute('content', variant.pageDescription);
+      }
+
+      document.querySelector('#heroEyebrow').textContent = variant.hero.eyebrow;
+      document.querySelector('#heroTitle').textContent = variant.hero.title;
+      document.querySelector('#heroLead').textContent = variant.hero.lead;
+      document.querySelector('#heroPoint1').textContent = variant.hero.points[0];
+      document.querySelector('#heroPoint2').textContent = variant.hero.points[1];
+      document.querySelector('#heroPoint3').textContent = variant.hero.points[2];
+      applyLink(document.querySelector('#heroPrimaryCta'), variant.hero.ctas[0]);
+      applyLink(document.querySelector('#heroSecondaryCta'), variant.hero.ctas[1]);
+      applyLink(document.querySelector('#heroTertiaryCta'), variant.hero.ctas[2]);
+      applyLink(document.querySelector('#heroQuaternaryCta'), variant.hero.ctas[3]);
+
+      document.querySelector('#firstVisitLabel').textContent = variant.firstVisit.label;
+      document.querySelector('#firstVisitTitle').textContent = variant.firstVisit.title;
+      document.querySelector('#firstVisitLead').textContent = variant.firstVisit.lead;
+      document.querySelector('#firstVisitStep1Title').textContent = variant.firstVisit.steps[0].title;
+      document.querySelector('#firstVisitStep1Body').textContent = variant.firstVisit.steps[0].body;
+      document.querySelector('#firstVisitStep2Title').textContent = variant.firstVisit.steps[1].title;
+      document.querySelector('#firstVisitStep2Body').textContent = variant.firstVisit.steps[1].body;
+      document.querySelector('#firstVisitStep3Title').textContent = variant.firstVisit.steps[2].title;
+      document.querySelector('#firstVisitStep3Body').textContent = variant.firstVisit.steps[2].body;
+      applyLink(document.querySelector('#firstVisitPrimaryAction'), variant.firstVisit.actions[0]);
+      applyLink(document.querySelector('#firstVisitSecondaryAction'), variant.firstVisit.actions[1]);
+
+      document.querySelector('#footerNote').textContent = variant.footer;
+    }
+
+    applyEntryVariant();
+
+    async function mountWidget() {
+      const mount = document.querySelector('#widgetMount');
+      const widgetUrl = new URL('./observe888-location-widget-snippet.html', window.location.href);
+      const response = await fetch(widgetUrl);
+      if (!response.ok) {
+        throw new Error(`載入導航元件失敗：${response.status}`);
+      }
+
+      mount.innerHTML = await response.text();
+
+      const scripts = Array.from(mount.querySelectorAll('script'));
+      for (const oldScript of scripts) {
+        const newScript = document.createElement('script');
+        for (const attribute of oldScript.attributes) {
+          newScript.setAttribute(attribute.name, attribute.value);
+        }
+        newScript.textContent = oldScript.textContent;
+        oldScript.replaceWith(newScript);
+      }
+    }
+
+    mountWidget().catch((error) => {
+      const mount = document.querySelector('#widgetMount');
+      mount.innerHTML = `<p style="margin:0;padding:20px;border-radius:18px;background:rgba(161,79,42,0.08);color:#7e381d;line-height:1.8;">${String(error.message || error)}</p>`;
+    });
+  </script>
+</body>
+</html>
