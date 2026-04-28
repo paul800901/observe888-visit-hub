@@ -596,7 +596,7 @@
       <div class="observe-locator__intro">
         <span id="observeLocatorEyebrow" class="observe-locator__eyebrow">Visit Planner</span>
         <h2 id="observeLocatorTitle" class="observe-locator__title">雙店導航與到店規劃，一頁完成。</h2>
-        <p id="observeLocatorLead" class="observe-locator__lead">想前往北區店或南區工作室，可以先在這裡查看店址、停車提醒與地圖，再輸入出發地，直接開啟最順手的導航路線。</p>
+        <p id="observeLocatorLead" class="observe-locator__lead">想前往北區店或南區工作室，可以先在這裡查看店址、入口資訊與地圖，再輸入出發地，直接開啟最順手的導航路線。</p>
         <div class="observe-locator__chips">
           <span id="observeLocatorChip1" class="observe-locator__chip">雙店嵌入地圖</span>
           <span id="observeLocatorChip2" class="observe-locator__chip">一鍵開啟導航</span>
@@ -637,7 +637,7 @@
         <div class="observe-locator__map-caption">
           <div>
             <h3 id="observeMapTitle">分店地圖</h3>
-            <p id="observeLocatorMapNote">可直接放大查看門口、轉彎點與周邊停車位置。</p>
+            <p id="observeLocatorMapNote">可直接放大查看門口、轉彎點與周邊位置。</p>
           </div>
           <a class="observe-locator__button observe-locator__button--ghost" id="observeLocatorExternalMap" href="#" target="_blank" rel="noreferrer noopener">在 Google Maps 開啟</a>
         </div>
@@ -680,13 +680,13 @@
           id: 'south',
           shortName: '南區工作室',
           name: '見觀結構調理整復所-南區店',
-          badge: '工作室型 / 完全預約制',
+          badge: '到店入口 / 建議先聯絡',
           address: '702 台南市南區明興路 673 號',
           addressQuery: '台南市南區明興路673號',
           phoneLabel: '0973-728-670',
           phoneHref: 'tel:0973728670',
-          hours: '工作室預約制，建議先以 LINE 確認可安排時段。',
-          note: '南區採工作室預約制；如果南區離你較近，就直接選南區，周邊空地與路邊停車通常比想像中更寬鬆。',
+          hours: '建議先以 LINE 或電話確認可安排時段。',
+          note: '南區到店方式和一般店面差不多；建議先確認可安排時段，再看路口和門牌位置。',
           mapEmbed: 'https://www.google.com/maps?q=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F&hl=zh-TW&z=17&output=embed',
           mapUrl: 'https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F',
           directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F&travelmode=driving',
@@ -695,7 +695,7 @@
             '門口周邊可臨停，建議依現場路況與鄰里動線停放。',
             '從喜樂路轉入明興路後可直接對照地圖辨識門牌。'
           ],
-          mapNote: '南區工作室周邊空地與路邊停車較寬鬆，先確認路口位置後再切換導航即可。'
+          mapNote: '南區工作室先確認路口和門牌位置，再切換導航即可。'
         }
       };
 
@@ -786,17 +786,17 @@
 
         if (store.id === 'north') {
           introEyebrow.textContent = '北區店導航入口';
-          introTitle.textContent = '北區店先看門口與停車，再直接導航或來電。';
-          introLead.textContent = '先看門口、轉彎點和停車資訊，再直接開 Google Maps、來電或 LINE 預約。';
+          introTitle.textContent = '北區店先看門口與入口資訊，再直接導航或來電。';
+          introLead.textContent = '先看門口、轉彎點和入口資訊，再直接開 Google Maps、來電或 LINE 預約。';
           introChip1.textContent = '北區店門市型入口';
-          introChip2.textContent = '停車約 2 到 5 分鐘';
+          introChip2.textContent = '先看門口與轉彎點';
           introChip3.textContent = '輸入出發地直接導航';
         } else {
           introEyebrow.textContent = '南區工作室導航入口';
-          introTitle.textContent = '南區工作室先看預約方式與路口，再直接導航或聯絡。';
-          introLead.textContent = '先看預約方式、路口和停車提醒，再直接開 Google Maps、來電或 LINE 預約。';
-          introChip1.textContent = '南區工作室預約制';
-          introChip2.textContent = '周邊停車相對寬鬆';
+          introTitle.textContent = '南區工作室先看路口與聯絡方式，再直接導航或聯絡。';
+          introLead.textContent = '先看路口、聯絡方式和可安排時段，再直接開 Google Maps、來電或 LINE 預約。';
+          introChip1.textContent = '先確認可安排時段';
+          introChip2.textContent = '先看路口與門牌';
           introChip3.textContent = '輸入出發地直接導航';
         }
       }
