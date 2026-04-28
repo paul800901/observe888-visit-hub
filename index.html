@@ -446,9 +446,10 @@
 
       <div class="cta-row">
         <a id="heroPrimaryCta" class="button" href="#widgetMount">直接看導航</a>
-        <a id="heroSecondaryCta" class="button is-forest" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
-        <a id="heroTertiaryCta" class="button is-ghost" href="tel:062510677">北區電話</a>
-        <a id="heroQuaternaryCta" class="button is-ghost" href="tel:0973728670">南區電話</a>
+        <a id="heroSecondaryCta" class="button is-ghost" href="#whatWeDoSection">我們在做什麼</a>
+        <a id="heroTertiaryCta" class="button is-forest" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+        <a id="heroQuaternaryCta" class="button is-ghost" href="tel:062510677">北區電話</a>
+        <a id="heroQuinaryCta" class="button is-ghost" href="tel:0973728670">南區電話</a>
       </div>
     </section>
 
@@ -484,7 +485,7 @@
       </div>
     </section>
 
-    <section class="signal-grid" aria-label="見觀快速說明">
+    <section id="whatWeDoSection" class="signal-grid" aria-label="見觀快速說明">
       <article class="signal-card">
         <span class="signal-label">我們在做什麼</span>
         <h2>把專業說清楚，但不講成又硬又遠的醫療術語。</h2>
@@ -573,6 +574,7 @@
           },
           ctas: [
             { label: '直接看導航', href: '#widgetMount' },
+            { label: '我們在做什麼', href: '#whatWeDoSection' },
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
             { label: '北區電話', href: 'tel:062510677' },
             { label: '南區電話', href: 'tel:0973728670' }
@@ -609,6 +611,7 @@
           },
           ctas: [
             { label: '直接看導航', href: '#widgetMount' },
+            { label: '我們在做什麼', href: '#whatWeDoSection' },
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
             { label: '北區直接來電', href: 'tel:062510677' },
             { label: '也看看南區工作室', href: buildStoreUrl('south') }
@@ -645,6 +648,7 @@
           },
           ctas: [
             { label: '直接看導航', href: '#widgetMount' },
+            { label: '我們在做什麼', href: '#whatWeDoSection' },
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
             { label: '南區直接來電', href: 'tel:0973728670' },
             { label: '也看看北區店', href: buildStoreUrl('north') }
@@ -693,6 +697,7 @@
       applyLink(document.querySelector('#heroSecondaryCta'), variant.hero.ctas[1]);
       applyLink(document.querySelector('#heroTertiaryCta'), variant.hero.ctas[2]);
       applyLink(document.querySelector('#heroQuaternaryCta'), variant.hero.ctas[3]);
+      applyLink(document.querySelector('#heroQuinaryCta'), variant.hero.ctas[4]);
 
       document.querySelector('#firstVisitLabel').textContent = variant.firstVisit.label;
       document.querySelector('#firstVisitTitle').textContent = variant.firstVisit.title;
