@@ -72,9 +72,13 @@
 
     .observe-locator__hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
       gap: 20px;
       align-items: stretch;
+    }
+
+    .observe-locator.is-single-store .observe-locator__toggle-row {
+      display: none;
     }
 
     .observe-locator__intro,
@@ -558,17 +562,6 @@
 
   <div class="observe-locator__shell" data-observe-locator>
     <div class="observe-locator__hero">
-      <div class="observe-locator__intro">
-        <span class="observe-locator__eyebrow">Visit Planner</span>
-        <h2 id="observeLocatorTitle" class="observe-locator__title">雙店導航與到店規劃，一頁完成。</h2>
-        <p class="observe-locator__lead">想前往北區店或南區工作室，可以先在這裡查看店址、停車提醒與地圖，再輸入出發地，直接開啟最順手的導航路線。</p>
-        <div class="observe-locator__chips">
-          <span class="observe-locator__chip">雙店嵌入地圖</span>
-          <span class="observe-locator__chip">一鍵開啟導航</span>
-          <span class="observe-locator__chip">地址建議輸入</span>
-        </div>
-      </div>
-
       <aside class="observe-locator__assistant" aria-labelledby="observePlannerTitle">
         <h3 id="observePlannerTitle">來店導航助手</h3>
         <p>先輸入你的出發地址，系統會先提供接近的台南地址建議；真正開啟路線時會直接用 Google Maps 導航到你選的分店。</p>
@@ -599,6 +592,17 @@
 
         <div class="observe-locator__hint" id="observeLocatorStatus" aria-live="polite">先選擇要前往的分店，再輸入出發地即可規劃路線。</div>
       </aside>
+
+      <div class="observe-locator__intro">
+        <span id="observeLocatorEyebrow" class="observe-locator__eyebrow">Visit Planner</span>
+        <h2 id="observeLocatorTitle" class="observe-locator__title">雙店導航與到店規劃，一頁完成。</h2>
+        <p id="observeLocatorLead" class="observe-locator__lead">想前往北區店或南區工作室，可以先在這裡查看店址、停車提醒與地圖，再輸入出發地，直接開啟最順手的導航路線。</p>
+        <div class="observe-locator__chips">
+          <span id="observeLocatorChip1" class="observe-locator__chip">雙店嵌入地圖</span>
+          <span id="observeLocatorChip2" class="observe-locator__chip">一鍵開啟導航</span>
+          <span id="observeLocatorChip3" class="observe-locator__chip">地址建議輸入</span>
+        </div>
+      </div>
     </div>
 
     <div class="observe-locator__layout">
@@ -696,6 +700,12 @@
       };
 
       const tabButtons = Array.from(root.querySelectorAll('[data-locator-tab]'));
+      const introEyebrow = root.querySelector('#observeLocatorEyebrow');
+      const introTitle = root.querySelector('#observeLocatorTitle');
+      const introLead = root.querySelector('#observeLocatorLead');
+      const introChip1 = root.querySelector('#observeLocatorChip1');
+      const introChip2 = root.querySelector('#observeLocatorChip2');
+      const introChip3 = root.querySelector('#observeLocatorChip3');
       const originInput = root.querySelector('#observeLocatorOrigin');
       const suggestionBox = root.querySelector('#observeLocatorSuggestions');
       const status = root.querySelector('#observeLocatorStatus');
@@ -723,6 +733,16 @@
         studio: 'south'
       };
 
+      function resolveEntryStoreKey() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const rawValue = String(params.get('store') || params.get('location') || '').trim().toLowerCase();
+          return storeAliases[rawValue] || null;
+        } catch {
+          return null;
+        }
+      }
+
       function resolveInitialStore() {
         try {
           const params = new URLSearchParams(window.location.search);
@@ -732,6 +752,13 @@
         } catch {
           return stores.north;
         }
+      }
+
+      const entryStoreKey = resolveEntryStoreKey();
+      const isSingleStoreMode = Boolean(entryStoreKey);
+
+      if (isSingleStoreMode) {
+        host.classList.add('is-single-store');
       }
 
       let activeStore = resolveInitialStore();
@@ -750,6 +777,28 @@
 
       function setStatus(message) {
         status.textContent = message;
+      }
+
+      function applySingleStoreIntro(store) {
+        if (!isSingleStoreMode) {
+          return;
+        }
+
+        if (store.id === 'north') {
+          introEyebrow.textContent = '北區店導航入口';
+          introTitle.textContent = '北區店先看門口與停車，再直接導航或來電。';
+          introLead.textContent = '這裡只處理北區店入口。先看門口、轉彎點和停車資訊，再直接開 Google Maps、來電或 LINE 預約。';
+          introChip1.textContent = '北區店門市型入口';
+          introChip2.textContent = '停車約 2 到 5 分鐘';
+          introChip3.textContent = '輸入出發地直接導航';
+        } else {
+          introEyebrow.textContent = '南區工作室導航入口';
+          introTitle.textContent = '南區工作室先看預約方式與路口，再直接導航或聯絡。';
+          introLead.textContent = '這裡只處理南區工作室入口。先看預約方式、路口和停車提醒，再直接開 Google Maps、來電或 LINE 預約。';
+          introChip1.textContent = '南區工作室預約制';
+          introChip2.textContent = '周邊停車相對寬鬆';
+          introChip3.textContent = '輸入出發地直接導航';
+        }
       }
 
       function openDirections(originValue, destinationStore) {
@@ -779,6 +828,9 @@
         primaryMap.href = store.mapUrl;
         externalMap.href = store.mapUrl;
         directionsLink.href = store.directionsUrl;
+        primaryMap.textContent = `${store.shortName} 位置`;
+        externalMap.textContent = `在 Google Maps 開啟${store.shortName}`;
+        directionsLink.textContent = `導航到${store.shortName}`;
         routeSelectedButton.textContent = `Google Maps 導航到${store.shortName}`;
         meta.innerHTML = `
           <div><strong>營業 / 服務方式：</strong>${htmlEscape(store.hours)}</div>
@@ -792,7 +844,12 @@
           button.setAttribute('aria-selected', String(isActive));
         });
 
-        setStatus(`目前前往 ${store.shortName}。你可以直接規劃路線，也可以先輸入自己的出發地址。`);
+        if (isSingleStoreMode) {
+          applySingleStoreIntro(store);
+          setStatus(`已為你選好 ${store.shortName}。輸入出發地即可直接規劃路線。`);
+        } else {
+          setStatus(`目前前往 ${store.shortName}。你可以直接規劃路線，也可以先輸入自己的出發地址。`);
+        }
       }
 
       function closeSuggestions() {

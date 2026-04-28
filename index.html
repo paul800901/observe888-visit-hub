@@ -190,6 +190,21 @@
       gap: 10px;
     }
 
+    body[data-entry-mode="root"] .hero-points,
+    body[data-entry-mode="root"] .hero-journey,
+    body[data-entry-mode="root"] #widgetMount,
+    body[data-entry-mode="root"] #firstVisitSection {
+      display: none;
+    }
+
+    body[data-entry-mode="store"] #whatWeDoSection {
+      display: none;
+    }
+
+    body[data-entry-mode="root"] .topbar {
+      align-items: flex-start;
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -488,17 +503,17 @@
     <section id="whatWeDoSection" class="signal-grid" aria-label="見觀快速說明">
       <article class="signal-card">
         <span class="signal-label">我們在做什麼</span>
-        <h2>把專業說清楚，但不講成又硬又遠的醫療術語。</h2>
-        <p>見觀主要是以手法處理搭配訓練改善，協助面對那些常見卻說不太清楚的不舒服，像是痠、痛、緊、卡，或總覺得哪裡怪怪的。這頁先讓第一次來的人快速知道方向、聯絡方式和分店差異。</p>
+        <h2>先用手法處理目前卡住的地方，再帶簡單活動或訓練方向。</h2>
+        <p>見觀主要是以手法處理搭配訓練改善，協助面對那些常見卻說不太清楚的不舒服，像是痠、痛、緊、卡，或總覺得哪裡怪怪的。你不用先懂很多術語，先知道方向，再決定要去哪一間就夠了。</p>
       </article>
 
       <article class="signal-card">
-        <span class="signal-label">你現在怎麼做</span>
-        <h2>先選最近的店，再看入口、停車與導航方式。</h2>
+        <span class="signal-label">怎麼選哪一間</span>
+        <h2>北區比較像門市入口，南區是工作室預約制。</h2>
         <ol class="signal-list">
-          <li>先看北區店或南區工作室哪一間離你近。</li>
-          <li>查看地圖、地址、停車提醒與入口辨識資訊。</li>
-          <li>直接用導航、打電話，或先以 LINE 預約確認。</li>
+          <li>北區店比較像門市型入口，先看門口、轉彎點和附近停車。</li>
+          <li>南區工作室是預約制，先確認聯絡方式、路口和周邊停車。</li>
+          <li>選好分店後，再進單店頁看導航、電話和 LINE 預約。</li>
         </ol>
       </article>
     </section>
@@ -558,26 +573,74 @@
       }
     }
 
+    function applyButtonTone(anchor, tone) {
+      if (!anchor) {
+        return;
+      }
+
+      anchor.classList.remove('is-forest', 'is-ghost');
+
+      if (tone === 'forest') {
+        anchor.classList.add('is-forest');
+      } else if (tone === 'ghost') {
+        anchor.classList.add('is-ghost');
+      }
+    }
+
+    function applyHeroCtas(configs) {
+      const anchors = [
+        document.querySelector('#heroPrimaryCta'),
+        document.querySelector('#heroSecondaryCta'),
+        document.querySelector('#heroTertiaryCta'),
+        document.querySelector('#heroQuaternaryCta'),
+        document.querySelector('#heroQuinaryCta')
+      ];
+      const row = document.querySelector('.cta-row');
+
+      anchors.forEach((anchor, index) => {
+        const config = configs[index];
+        if (!anchor) {
+          return;
+        }
+
+        if (!config) {
+          anchor.hidden = true;
+          anchor.removeAttribute('href');
+          anchor.removeAttribute('target');
+          anchor.removeAttribute('rel');
+          anchor.textContent = '';
+          applyButtonTone(anchor, 'accent');
+          return;
+        }
+
+        anchor.hidden = false;
+        applyLink(anchor, config);
+        applyButtonTone(anchor, config.tone || 'accent');
+      });
+
+      if (row) {
+        row.hidden = !configs.length;
+      }
+    }
+
     const entryVariants = {
       default: {
-        pageTitle: '見觀結構調理整復所 | 北區店與南區工作室導航、預約與到店說明',
-        pageDescription: '見觀的簡潔版官網入口。如果你常常覺得痠、痛、卡、緊，這裡先讓你知道第一次來大概會怎麼進行，再理解見觀以手法處理搭配訓練改善的方向，最後直接導航或 LINE 預約。',
+        mode: 'root',
+        pageTitle: '見觀結構調理整復所 | 北區店與南區工作室入口',
+        pageDescription: '見觀的雙店入口頁。先看懂見觀以手法處理搭配訓練改善的方向，再選北區店或南區工作室入口。',
         hero: {
-          eyebrow: '見觀微縮官網 / 到店導航站',
-          title: '先看懂見觀在做什麼，再選最近的店，直接導航或預約。',
-          lead: '如果你常常覺得痠、痛、緊、卡，這頁先讓你知道第一次來見觀大概會怎麼進行，再直接選最近的分店導航、來電或 LINE 預約。',
-          points: ['手法處理 + 訓練改善', '先選離你最近的店', '直接導航 / 電話 / LINE'],
+          eyebrow: '見觀結構調理整復所',
+          title: '先選你要去北區店，還是南區工作室。',
+          lead: '見觀主要是以手法處理搭配訓練改善。根頁只先幫你看懂我們在做什麼，再選離你近的分店入口。',
+          points: ['手法處理搭配訓練改善', '北區門市 / 南區工作室', '選好分店再進單店頁'],
           journey: {
-            label: '第一次來，通常會這樣開始',
-            lead: '你不用先懂很多術語。通常會先聽你最近最困擾的是哪裡、哪些動作最不舒服，再以手法處理目前卡住的地方，最後補上簡單的活動或訓練方向，讓你知道回去之後怎麼延續。',
-            steps: ['先說目前困擾', '手法先處理', '帶回簡單方向']
+            label: '根頁先幫你做兩件事',
+            lead: '先知道見觀大概在做什麼，再選北區店或南區工作室；真正的導航、電話與預約入口，留在各自的單店頁處理。',
+            steps: ['先看方向', '再選分店', '進單店頁看入口']
           },
           ctas: [
-            { label: '直接看導航', href: '#widgetMount' },
-            { label: '我們在做什麼', href: '#whatWeDoSection' },
-            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
-            { label: '北區電話', href: 'tel:062510677' },
-            { label: '南區電話', href: 'tel:0973728670' }
+            { label: '北區店入口', href: buildStoreUrl('north'), tone: 'accent' },
+            { label: '南區工作室入口', href: buildStoreUrl('south'), tone: 'forest' }
           ]
         },
         firstVisit: {
@@ -594,27 +657,26 @@
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' }
           ]
         },
-        footer: '這是見觀的簡潔入口版網站：先理解以手法處理搭配訓練改善的方向，再選北區店或南區工作室，最後完成導航、來電或 LINE 預約。'
+        footer: '先看懂見觀在做什麼，再選北區店或南區工作室入口。真正的導航、電話與預約，交給各自的單店頁處理。'
       },
       north: {
+        mode: 'store',
         pageTitle: '見觀北區店入口 | 見觀結構調理整復所',
         pageDescription: '北區店入口頁。先了解第一次來北區店大概會怎麼進行，再看北區店門口、停車與導航方式，直接來電或 LINE 預約。',
         hero: {
-          eyebrow: '見觀北區店入口 / 微縮官網',
-          title: '第一次來北區店，先看入口，再決定導航或預約。',
-          lead: '如果你是從北區店的 Google 商家進來，這頁先讓你知道第一次來大概會怎麼進行，再看懂門口、停車和聯絡方式。',
-          points: ['北區店入口先看', '附近停車 2 到 5 分鐘', '來電 / LINE / Google Maps'],
+          eyebrow: '見觀北區店入口',
+          title: '北區店入口。先看門口與停車，再直接導航或聯絡。',
+          lead: '如果你是從北區店 Google 商家進來，這頁只處理北區店入口：先看門口、停車和電話，再直接導航或 LINE 預約。',
+          points: ['北區門市型入口', '附近停車 2 到 5 分鐘', '導航 / 電話 / LINE'],
           journey: {
             label: '第一次來北區店，通常會這樣開始',
             lead: '北區店第一次來，多半會先了解你現在最困擾的部位、哪些動作最卡，再以手法處理目前不舒服的地方，最後給你簡單的活動或訓練方向。',
             steps: ['先說卡在哪裡', '先處理不舒服處', '帶回簡單方向']
           },
           ctas: [
-            { label: '直接看導航', href: '#widgetMount' },
-            { label: '我們在做什麼', href: '#whatWeDoSection' },
-            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
-            { label: '北區直接來電', href: 'tel:062510677' },
-            { label: '也看看南區工作室', href: buildStoreUrl('south') }
+            { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
+            { label: '北區直接來電', href: 'tel:062510677', tone: 'ghost' }
           ]
         },
         firstVisit: {
@@ -631,27 +693,26 @@
             { label: '北區直接來電', href: 'tel:062510677' }
           ]
         },
-        footer: '這是見觀北區店入口版網站：先理解見觀以手法處理搭配訓練改善的方向，再看北區店入口、停車與導航方式，最後完成來電或 LINE 預約。'
+        footer: '這是見觀北區店入口頁：先看門口、停車與導航方式，再直接來電或 LINE 預約。'
       },
       south: {
+        mode: 'store',
         pageTitle: '見觀南區工作室入口 | 見觀結構調理整復所',
         pageDescription: '南區工作室入口頁。先了解第一次來南區工作室大概會怎麼進行，再看預約方式、停車與導航方式，直接來電或 LINE 預約。',
         hero: {
-          eyebrow: '見觀南區工作室入口 / 微縮官網',
-          title: '第一次來南區工作室，先看怎麼走，再直接預約或導航。',
-          lead: '如果你是從南區工作室的 Google 商家進來，這頁先讓你知道第一次來大概會怎麼進行，再看懂預約方式、路口和停車。',
-          points: ['工作室預約制', '周邊停車相對寬鬆', 'LINE / 電話 / Google Maps'],
+          eyebrow: '見觀南區工作室入口',
+          title: '南區工作室入口。先看預約方式與路口，再直接導航或聯絡。',
+          lead: '如果你是從南區工作室 Google 商家進來，這頁只處理南區工作室入口：先看預約方式、路口和停車，再直接導航或 LINE 預約。',
+          points: ['南區工作室預約制', '周邊停車相對寬鬆', '導航 / 電話 / LINE'],
           journey: {
             label: '第一次來南區，通常會這樣開始',
             lead: '南區工作室第一次來，通常也會先了解你最近最困擾的地方與身體哪裡最不順，再以手法處理目前卡住的地方，最後給你簡單的活動或訓練方向。',
             steps: ['先說最近困擾', '手法先處理', '帶回簡單方向']
           },
           ctas: [
-            { label: '直接看導航', href: '#widgetMount' },
-            { label: '我們在做什麼', href: '#whatWeDoSection' },
-            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
-            { label: '南區直接來電', href: 'tel:0973728670' },
-            { label: '也看看北區店', href: buildStoreUrl('north') }
+            { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
+            { label: '南區直接來電', href: 'tel:0973728670', tone: 'ghost' }
           ]
         },
         firstVisit: {
@@ -668,7 +729,7 @@
             { label: '南區直接來電', href: 'tel:0973728670' }
           ]
         },
-        footer: '這是見觀南區工作室入口版網站：先理解見觀以手法處理搭配訓練改善的方向，再看南區工作室預約方式、停車與導航方式，最後完成來電或 LINE 預約。'
+        footer: '這是見觀南區工作室入口頁：先看預約方式、路口與導航方式，再直接來電或 LINE 預約。'
       }
     };
 
@@ -676,6 +737,9 @@
       const variantKey = resolveEntryVariant();
       const variant = entryVariants[variantKey] || entryVariants.default;
       const descriptionMeta = document.querySelector('meta[name="description"]');
+
+      document.body.dataset.entryMode = variant.mode;
+      document.body.dataset.entryVariant = variantKey;
 
       document.title = variant.pageTitle;
       if (descriptionMeta) {
@@ -693,11 +757,7 @@
       document.querySelector('#heroJourneyStep1').textContent = variant.hero.journey.steps[0];
       document.querySelector('#heroJourneyStep2').textContent = variant.hero.journey.steps[1];
       document.querySelector('#heroJourneyStep3').textContent = variant.hero.journey.steps[2];
-      applyLink(document.querySelector('#heroPrimaryCta'), variant.hero.ctas[0]);
-      applyLink(document.querySelector('#heroSecondaryCta'), variant.hero.ctas[1]);
-      applyLink(document.querySelector('#heroTertiaryCta'), variant.hero.ctas[2]);
-      applyLink(document.querySelector('#heroQuaternaryCta'), variant.hero.ctas[3]);
-      applyLink(document.querySelector('#heroQuinaryCta'), variant.hero.ctas[4]);
+      applyHeroCtas(variant.hero.ctas);
 
       document.querySelector('#firstVisitLabel').textContent = variant.firstVisit.label;
       document.querySelector('#firstVisitTitle').textContent = variant.firstVisit.title;
@@ -737,10 +797,12 @@
       }
     }
 
-    mountWidget().catch((error) => {
-      const mount = document.querySelector('#widgetMount');
-      mount.innerHTML = `<p style="margin:0;padding:20px;border-radius:18px;background:rgba(161,79,42,0.08);color:#7e381d;line-height:1.8;">${String(error.message || error)}</p>`;
-    });
+    if (document.body.dataset.entryMode === 'store') {
+      mountWidget().catch((error) => {
+        const mount = document.querySelector('#widgetMount');
+        mount.innerHTML = `<p style="margin:0;padding:20px;border-radius:18px;background:rgba(161,79,42,0.08);color:#7e381d;line-height:1.8;">${String(error.message || error)}</p>`;
+      });
+    }
   </script>
 </body>
 </html>
