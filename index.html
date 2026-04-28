@@ -79,6 +79,50 @@
       gap: 10px;
     }
 
+    .hero-journey {
+      display: grid;
+      gap: 10px;
+      padding: 16px 18px;
+      border: 1px solid rgba(87, 63, 48, 0.12);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255, 252, 248, 0.94) 0%, rgba(248, 239, 228, 0.86) 100%);
+    }
+
+    .hero-journey p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .hero-journey-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-journey-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(46, 94, 75, 0.08);
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-journey-step::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--forest);
+      box-shadow: 0 0 0 4px rgba(46, 94, 75, 0.12);
+    }
+
     .hero-point {
       display: inline-flex;
       align-items: center;
@@ -182,7 +226,7 @@
 
     .signal-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 14px;
     }
 
@@ -324,6 +368,16 @@
         font-size: 12px;
       }
 
+      .hero-journey {
+        padding: 14px;
+        border-radius: 18px;
+      }
+
+      .hero-journey p,
+      .hero-journey-step {
+        font-size: 13px;
+      }
+
       h1 {
         font-size: clamp(24px, 8vw, 34px);
       }
@@ -373,11 +427,20 @@
       <div class="topbar-copy">
         <span id="heroEyebrow" class="eyebrow">見觀微縮官網 / 到店導航站</span>
         <h1 id="heroTitle">先看懂見觀在做什麼，再選最近的店，直接導航或預約。</h1>
-        <p id="heroLead">如果你常常覺得痠、痛、緊、卡，這頁先幫你快速看懂見觀在做什麼，再直接選最近的分店導航、來電或 LINE 預約。</p>
+        <p id="heroLead">如果你常常覺得痠、痛、緊、卡，這頁先讓你知道第一次來見觀大概會怎麼進行，再直接選最近的分店導航、來電或 LINE 預約。</p>
         <div class="hero-points" aria-label="這頁可以做什麼">
           <span id="heroPoint1" class="hero-point">手法處理 + 訓練改善</span>
           <span id="heroPoint2" class="hero-point">先選離你最近的店</span>
           <span id="heroPoint3" class="hero-point">直接導航 / 電話 / LINE</span>
+        </div>
+        <div class="hero-journey" aria-label="第一次來通常會怎麼開始">
+          <span id="heroJourneyLabel" class="signal-label">第一次來，通常會這樣開始</span>
+          <p id="heroJourneyLead">你不用先懂很多術語。通常會先聽你最近最困擾的是哪裡、哪些動作最不舒服，再以手法處理目前卡住的地方，最後補上簡單的活動或訓練方向，讓你知道回去之後怎麼延續。</p>
+          <div class="hero-journey-steps">
+            <span id="heroJourneyStep1" class="hero-journey-step">先說目前困擾</span>
+            <span id="heroJourneyStep2" class="hero-journey-step">手法先處理</span>
+            <span id="heroJourneyStep3" class="hero-journey-step">帶回簡單方向</span>
+          </div>
         </div>
       </div>
 
@@ -497,12 +560,17 @@
     const entryVariants = {
       default: {
         pageTitle: '見觀結構調理整復所 | 北區店與南區工作室導航、預約與到店說明',
-        pageDescription: '見觀的簡潔版官網入口。如果你常常覺得痠、痛、卡、緊，或哪裡怪怪的，這裡先帶你理解見觀以手法處理搭配訓練改善的方向，再直接導航或 LINE 預約。',
+        pageDescription: '見觀的簡潔版官網入口。如果你常常覺得痠、痛、卡、緊，這裡先讓你知道第一次來大概會怎麼進行，再理解見觀以手法處理搭配訓練改善的方向，最後直接導航或 LINE 預約。',
         hero: {
           eyebrow: '見觀微縮官網 / 到店導航站',
           title: '先看懂見觀在做什麼，再選最近的店，直接導航或預約。',
-          lead: '如果你常常覺得痠、痛、緊、卡，這頁先幫你快速看懂見觀在做什麼，再直接選最近的分店導航、來電或 LINE 預約。',
+          lead: '如果你常常覺得痠、痛、緊、卡，這頁先讓你知道第一次來見觀大概會怎麼進行，再直接選最近的分店導航、來電或 LINE 預約。',
           points: ['手法處理 + 訓練改善', '先選離你最近的店', '直接導航 / 電話 / LINE'],
+          journey: {
+            label: '第一次來，通常會這樣開始',
+            lead: '你不用先懂很多術語。通常會先聽你最近最困擾的是哪裡、哪些動作最不舒服，再以手法處理目前卡住的地方，最後補上簡單的活動或訓練方向，讓你知道回去之後怎麼延續。',
+            steps: ['先說目前困擾', '手法先處理', '帶回簡單方向']
+          },
           ctas: [
             { label: '直接看導航', href: '#widgetMount' },
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
@@ -528,12 +596,17 @@
       },
       north: {
         pageTitle: '見觀北區店入口 | 見觀結構調理整復所',
-        pageDescription: '北區店入口頁。先快速理解見觀以手法處理搭配訓練改善的方向，再看北區店門口、停車與導航方式，直接來電或 LINE 預約。',
+        pageDescription: '北區店入口頁。先了解第一次來北區店大概會怎麼進行，再看北區店門口、停車與導航方式，直接來電或 LINE 預約。',
         hero: {
           eyebrow: '見觀北區店入口 / 微縮官網',
           title: '第一次來北區店，先看入口，再決定導航或預約。',
-          lead: '如果你是從北區店的 Google 商家進來，這頁先幫你看懂門口、停車和聯絡方式，然後直接導航或來電。',
+          lead: '如果你是從北區店的 Google 商家進來，這頁先讓你知道第一次來大概會怎麼進行，再看懂門口、停車和聯絡方式。',
           points: ['北區店入口先看', '附近停車 2 到 5 分鐘', '來電 / LINE / Google Maps'],
+          journey: {
+            label: '第一次來北區店，通常會這樣開始',
+            lead: '北區店第一次來，多半會先了解你現在最困擾的部位、哪些動作最卡，再以手法處理目前不舒服的地方，最後給你簡單的活動或訓練方向。',
+            steps: ['先說卡在哪裡', '先處理不舒服處', '帶回簡單方向']
+          },
           ctas: [
             { label: '直接看導航', href: '#widgetMount' },
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
@@ -559,12 +632,17 @@
       },
       south: {
         pageTitle: '見觀南區工作室入口 | 見觀結構調理整復所',
-        pageDescription: '南區工作室入口頁。先快速理解見觀以手法處理搭配訓練改善的方向，再看南區工作室預約方式、停車與導航方式，直接來電或 LINE 預約。',
+        pageDescription: '南區工作室入口頁。先了解第一次來南區工作室大概會怎麼進行，再看預約方式、停車與導航方式，直接來電或 LINE 預約。',
         hero: {
           eyebrow: '見觀南區工作室入口 / 微縮官網',
           title: '第一次來南區工作室，先看怎麼走，再直接預約或導航。',
-          lead: '如果你是從南區工作室的 Google 商家進來，這頁先幫你看懂預約方式、路口和停車，再直接導航或來電。',
+          lead: '如果你是從南區工作室的 Google 商家進來，這頁先讓你知道第一次來大概會怎麼進行，再看懂預約方式、路口和停車。',
           points: ['工作室預約制', '周邊停車相對寬鬆', 'LINE / 電話 / Google Maps'],
+          journey: {
+            label: '第一次來南區，通常會這樣開始',
+            lead: '南區工作室第一次來，通常也會先了解你最近最困擾的地方與身體哪裡最不順，再以手法處理目前卡住的地方，最後給你簡單的活動或訓練方向。',
+            steps: ['先說最近困擾', '手法先處理', '帶回簡單方向']
+          },
           ctas: [
             { label: '直接看導航', href: '#widgetMount' },
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' },
@@ -606,6 +684,11 @@
       document.querySelector('#heroPoint1').textContent = variant.hero.points[0];
       document.querySelector('#heroPoint2').textContent = variant.hero.points[1];
       document.querySelector('#heroPoint3').textContent = variant.hero.points[2];
+      document.querySelector('#heroJourneyLabel').textContent = variant.hero.journey.label;
+      document.querySelector('#heroJourneyLead').textContent = variant.hero.journey.lead;
+      document.querySelector('#heroJourneyStep1').textContent = variant.hero.journey.steps[0];
+      document.querySelector('#heroJourneyStep2').textContent = variant.hero.journey.steps[1];
+      document.querySelector('#heroJourneyStep3').textContent = variant.hero.journey.steps[2];
       applyLink(document.querySelector('#heroPrimaryCta'), variant.hero.ctas[0]);
       applyLink(document.querySelector('#heroSecondaryCta'), variant.hero.ctas[1]);
       applyLink(document.querySelector('#heroTertiaryCta'), variant.hero.ctas[2]);
