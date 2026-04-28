@@ -779,6 +779,12 @@
     async function mountWidget() {
       const mount = document.querySelector('#widgetMount');
       const widgetUrl = new URL('./observe888-location-widget-snippet.html', window.location.href);
+      const buildStamp = Date.parse(document.lastModified || '');
+
+      if (!Number.isNaN(buildStamp)) {
+        widgetUrl.searchParams.set('v', String(buildStamp));
+      }
+
       const response = await fetch(widgetUrl);
       if (!response.ok) {
         throw new Error(`載入導航元件失敗：${response.status}`);
