@@ -168,6 +168,31 @@
       box-shadow: 0 0 0 4px rgba(161, 79, 42, 0.12);
     }
 
+    body[data-entry-variant="south"] .eyebrow {
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+    }
+
+    body[data-entry-variant="south"] .eyebrow::before {
+      background: var(--forest);
+      box-shadow: 0 0 0 4px rgba(46, 94, 75, 0.12);
+    }
+
+    body[data-entry-variant="south"] .hero-point {
+      background: rgba(46, 94, 75, 0.08);
+      color: var(--forest);
+    }
+
+    body[data-entry-variant="south"] .hero-point::before {
+      background: var(--forest);
+      box-shadow: 0 0 0 4px rgba(46, 94, 75, 0.12);
+    }
+
+    body[data-entry-variant="south"] .signal-label {
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+    }
+
     h1 {
       margin: 0;
       font-family: "Noto Serif TC", "PMingLiU", serif;
@@ -197,12 +222,19 @@
       display: none;
     }
 
-    body[data-entry-mode="store"] #whatWeDoSection {
+    body[data-entry-mode="store"] #whatWeDoSection,
+    body[data-entry-mode="store"] .hero-journey,
+    body[data-entry-mode="store"] .footer-note,
+    body[data-entry-mode="root"] .footer-note {
       display: none;
     }
 
     body[data-entry-mode="root"] .topbar {
       align-items: flex-start;
+    }
+
+    .button[hidden] {
+      display: none;
     }
 
     .button {
@@ -665,7 +697,7 @@
         pageDescription: '北區店入口頁。先了解第一次來北區店大概會怎麼進行，再看北區店門口、入口資訊與導航方式，直接來電或 LINE 預約。',
         hero: {
           eyebrow: '見觀北區店入口',
-          title: '北區店入口。先看門口與入口資訊，再直接導航或聯絡。',
+          title: '北區店，先看入口再直接出發。',
           lead: '北區店第一次來，先看門口、入口資訊和電話，再直接導航或 LINE 預約。',
           points: ['北區門市型入口', '先看門口與轉彎點', '導航 / 電話 / LINE'],
           journey: {
@@ -681,12 +713,12 @@
         },
         firstVisit: {
           label: '第一次來，先看北區',
-          title: '北區店比較像門市入口，第一次來先對一下門口與轉彎位置。',
-          lead: '如果北區離你比較近，先把入口、路口和聯絡方式看一遍，出發會比臨時邊開邊找順很多。',
+          title: '來了就說哪裡不舒服，不用先做功課。',
+          lead: '北區是門市型入口，走進來直接說症狀就好，不需要準備資料或事前了解太多。',
           steps: [
-            { title: '先看門口位置', body: '北安路一段車流比較明顯，第一次來先對一下門牌和轉彎點，進場會更安心。' },
-            { title: '再看入口資訊', body: '先把門口、路口和店址資訊看一遍，出發時比較不容易邊找邊繞。' },
-            { title: '最後直接聯絡或導航', body: '想快一點就直接導航；想先確認時間或狀況，也可以先打電話或用 LINE。' }
+            { title: '說清楚哪裡不對勁', body: '不用醫學詞彙，就說哪裡痠、緊、卡、怪，你的主觀感受最有參考價值。' },
+            { title: '以手法先處理', body: '說完狀況後直接開始，多半在同一次就能感覺到一點差異。' },
+            { title: '帶幾個方向回去', body: '最後補上活動或訓練方向，讓你知道這次做完之後怎麼延續。' }
           ],
           actions: [
             { label: '看北區導航與入口', href: '#widgetMount' },
@@ -701,7 +733,7 @@
         pageDescription: '南區工作室入口頁。先了解第一次來南區工作室大概會怎麼進行，再看路口、聯絡與導航方式，直接來電或 LINE 預約。',
         hero: {
           eyebrow: '見觀南區工作室入口',
-          title: '南區工作室入口。先看路口與聯絡方式，再直接導航或聯絡。',
+          title: '南區工作室，先確認時段再直接出發。',
           lead: '南區工作室第一次來，先看路口、聯絡方式和可安排時段，再直接導航或 LINE 預約。',
           points: ['先確認可安排時段', '先看路口與門牌', '導航 / 電話 / LINE'],
           journey: {
@@ -717,12 +749,12 @@
         },
         firstVisit: {
           label: '第一次來，先看南區',
-          title: '南區工作室先確認路口位置和可安排時段，再出發就夠了。',
-          lead: '如果南區離你比較近，先看清楚路口、聯絡方式和可安排時段，整體會比想像中更順。',
+          title: '先確認時段，來了一樣說哪裡不舒服就好。',
+          lead: '南區是工作室形式，一對一比較細；建議先確認可安排時段，其他跟一般來店一樣。',
           steps: [
-            { title: '先確認可安排時段', body: '出發前先確認聯絡方式和可安排時段，會比臨時到了才等更順。' },
-            { title: '再看路口與門牌', body: '第一次來先對一下轉入路口和門牌位置，出發時會更直覺。' },
-            { title: '最後直接導航或預約', body: '已經確定要來，就直接 Google Maps；想先抓時間，就用 LINE 或電話確認。' }
+            { title: '先確認有位子', body: '出發前先 LINE 或電話確認時段，省去臨時等候的情況。' },
+            { title: '來了說清楚症狀', body: '說哪裡卡、哪裡不順就夠了，不需要準備太多，接下來交給手法。' },
+            { title: '帶回幾個延續方向', body: '調整完會補幾個簡單的活動方向，讓你知道回去之後怎麼繼續。' }
           ],
           actions: [
             { label: '看南區導航與入口', href: '#widgetMount' },
