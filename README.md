@@ -7,7 +7,9 @@
 - index.html：主落地頁
 - observe888-location-widget-snippet.html：雙店導航元件
 - north/index.html：直接跳到北區版
+- north/pricing/index.html：北區店服務與費用頁
 - south/index.html：直接跳到南區版
+- south/pricing/index.html：南區工作室預約說明頁
 - .nojekyll：避免 GitHub Pages 套 Jekyll 處理
 
 ## 建議 repo 名稱
@@ -30,13 +32,17 @@
 則建議這樣使用：
 
 - 北區店：https://<github-username>.github.io/observe888-visit-hub/north/
+- 北區費用：https://<github-username>.github.io/observe888-visit-hub/north/pricing/
 - 南區工作室：https://<github-username>.github.io/observe888-visit-hub/south/
+- 南區預約：https://<github-username>.github.io/observe888-visit-hub/south/pricing/
 - 通用頁：https://<github-username>.github.io/observe888-visit-hub/
 
 如果之後改成自訂網域，路徑維持相同：
 
 - https://你的網域/north/
+- https://你的網域/north/pricing/
 - https://你的網域/south/
+- https://你的網域/south/pricing/
 - https://你的網域/
 
 ## 重新產生方式
