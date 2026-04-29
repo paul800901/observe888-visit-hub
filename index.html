@@ -33,7 +33,7 @@
       margin: 0;
       min-height: 100vh;
       color: var(--text);
-      font-family: "Microsoft JhengHei UI", "PingFang TC", sans-serif;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
       background:
         radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 32%),
         radial-gradient(circle at 82% 14%, rgba(241, 194, 121, 0.3), rgba(241, 194, 121, 0) 20%),
@@ -77,50 +77,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-    }
-
-    .hero-journey {
-      display: grid;
-      gap: 10px;
-      padding: 16px 18px;
-      border: 1px solid rgba(87, 63, 48, 0.12);
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255, 252, 248, 0.94) 0%, rgba(248, 239, 228, 0.86) 100%);
-    }
-
-    .hero-journey p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 14px;
-    }
-
-    .hero-journey-steps {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .hero-journey-step {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 13px;
-      border-radius: 999px;
-      background: rgba(46, 94, 75, 0.08);
-      color: var(--forest);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .hero-journey-step::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--forest);
-      box-shadow: 0 0 0 4px rgba(46, 94, 75, 0.12);
     }
 
     .hero-point {
@@ -195,14 +151,13 @@
 
     h1 {
       margin: 0;
-      font-family: "Noto Serif TC", "PMingLiU", serif;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
       font-size: clamp(28px, 4vw, 42px);
       line-height: 1.2;
       letter-spacing: 0.02em;
     }
 
-    .topbar-copy p,
-    .footer-note {
+    .topbar-copy p {
       margin: 0;
       color: var(--muted);
       line-height: 1.75;
@@ -216,16 +171,12 @@
     }
 
     body[data-entry-mode="root"] .hero-points,
-    body[data-entry-mode="root"] .hero-journey,
     body[data-entry-mode="root"] #widgetMount,
     body[data-entry-mode="root"] #firstVisitSection {
       display: none;
     }
 
-    body[data-entry-mode="store"] #whatWeDoSection,
-    body[data-entry-mode="store"] .hero-journey,
-    body[data-entry-mode="store"] .footer-note,
-    body[data-entry-mode="root"] .footer-note {
+    body[data-entry-mode="store"] #whatWeDoSection {
       display: none;
     }
 
@@ -301,7 +252,7 @@
 
     .signal-card h2 {
       margin: 0;
-      font-family: "Noto Serif TC", "PMingLiU", serif;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
       font-size: 22px;
       line-height: 1.35;
       letter-spacing: 0.02em;
@@ -324,7 +275,7 @@
 
     .first-visit-copy h2 {
       margin: 0;
-      font-family: "Noto Serif TC", "PMingLiU", serif;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
       font-size: clamp(24px, 3vw, 32px);
       line-height: 1.3;
       letter-spacing: 0.02em;
@@ -386,11 +337,6 @@
       margin-top: 8px;
     }
 
-    .footer-note {
-      text-align: center;
-      padding: 0 10px;
-    }
-
     @media (max-width: 720px) {
       .hub-shell {
         width: min(100vw - 16px, 1240px);
@@ -415,22 +361,11 @@
         font-size: 12px;
       }
 
-      .hero-journey {
-        padding: 14px;
-        border-radius: 18px;
-      }
-
-      .hero-journey p,
-      .hero-journey-step {
-        font-size: 13px;
-      }
-
       h1 {
         font-size: clamp(24px, 8vw, 34px);
       }
 
       .topbar-copy p,
-      .footer-note,
       .button {
         font-size: 16px;
       }
@@ -479,15 +414,6 @@
           <span id="heroPoint1" class="hero-point">手法處理 + 訓練改善</span>
           <span id="heroPoint2" class="hero-point">先選離你最近的店</span>
           <span id="heroPoint3" class="hero-point">直接導航 / 電話 / LINE</span>
-        </div>
-        <div class="hero-journey" aria-label="第一次來通常會怎麼開始">
-          <span id="heroJourneyLabel" class="signal-label">第一次來，通常會這樣開始</span>
-          <p id="heroJourneyLead">你不用先懂很多術語。通常會先聽你最近最困擾的是哪裡、哪些動作最不舒服，再以手法處理目前卡住的地方，最後補上簡單的活動或訓練方向，讓你知道回去之後怎麼延續。</p>
-          <div class="hero-journey-steps">
-            <span id="heroJourneyStep1" class="hero-journey-step">先說目前困擾</span>
-            <span id="heroJourneyStep2" class="hero-journey-step">手法先處理</span>
-            <span id="heroJourneyStep3" class="hero-journey-step">帶回簡單方向</span>
-          </div>
         </div>
       </div>
 
@@ -549,8 +475,6 @@
         </ol>
       </article>
     </section>
-
-    <p id="footerNote" class="footer-note">這是見觀的簡潔入口版網站：先理解以手法處理搭配訓練改善的方向，再選北區店或南區工作室，最後完成導航、來電或 LINE 預約。</p>
   </main>
 
   <script>
@@ -665,11 +589,6 @@
           title: '先選你要去北區店，還是南區工作室。',
           lead: '見觀主要是以手法處理搭配訓練改善。根頁只先幫你看懂我們在做什麼，再選離你近的分店入口。',
           points: ['手法處理搭配訓練改善', '北區門市 / 南區工作室', '選好分店再進單店頁'],
-          journey: {
-            label: '根頁先幫你做兩件事',
-            lead: '先知道見觀大概在做什麼，再選北區店或南區工作室；真正的導航、電話與預約入口，留在各自的單店頁處理。',
-            steps: ['先看方向', '再選分店', '進單店頁看入口']
-          },
           ctas: [
             { label: '北區店入口', href: buildStoreUrl('north'), tone: 'accent' },
             { label: '南區工作室入口', href: buildStoreUrl('south'), tone: 'forest' }
@@ -688,8 +607,7 @@
             { label: '看雙店導航', href: '#widgetMount' },
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' }
           ]
-        },
-        footer: '先看懂見觀在做什麼，再選北區店或南區工作室入口。真正的導航、電話與預約，交給各自的單店頁處理。'
+        }
       },
       north: {
         mode: 'store',
@@ -700,16 +618,12 @@
           title: '北區店，先看入口再直接出發。',
           lead: '北區店第一次來，先看門口、入口資訊和電話，再直接導航或 LINE 預約。',
           points: ['北區門市型入口', '先看門口與轉彎點', '導航 / 電話 / LINE'],
-          journey: {
-            label: '第一次來北區店，通常會這樣開始',
-            lead: '北區店第一次來，多半會先了解你現在最困擾的部位、哪些動作最卡，再以手法處理目前不舒服的地方，最後給你簡單的活動或訓練方向。',
-            steps: ['先說卡在哪裡', '先處理不舒服處', '帶回簡單方向']
-          },
           ctas: [
             { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
             { label: '北區直接來電', href: 'tel:062510677', tone: 'ghost' },
-            { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' }
+            { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
+            { label: '服務與費用', href: 'north/pricing/', tone: 'ghost' }
           ]
         },
         firstVisit: {
@@ -725,8 +639,7 @@
             { label: '看北區導航與入口', href: '#widgetMount' },
             { label: '北區直接來電', href: 'tel:062510677' }
           ]
-        },
-        footer: '這是見觀北區店入口頁：先看門口、入口與導航方式，再直接來電或 LINE 預約。'
+        }
       },
       south: {
         mode: 'store',
@@ -737,16 +650,12 @@
           title: '南區工作室，先確認時段再直接出發。',
           lead: '南區工作室第一次來，先看路口、聯絡方式和可安排時段，再直接導航或 LINE 預約。',
           points: ['先確認可安排時段', '先看路口與門牌', '導航 / 電話 / LINE'],
-          journey: {
-            label: '第一次來南區，通常會這樣開始',
-            lead: '南區工作室第一次來，通常也會先了解你最近最困擾的地方與身體哪裡最不順，再以手法處理目前卡住的地方，最後給你簡單的活動或訓練方向。',
-            steps: ['先說最近困擾', '手法先處理', '帶回簡單方向']
-          },
           ctas: [
             { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
             { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
             { label: '南區直接來電', href: 'tel:0973728670', tone: 'ghost' },
-            { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' }
+            { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
+            { label: '服務與費用', href: 'south/pricing/', tone: 'ghost' }
           ]
         },
         firstVisit: {
@@ -762,8 +671,7 @@
             { label: '看南區導航與入口', href: '#widgetMount' },
             { label: '南區直接來電', href: 'tel:0973728670' }
           ]
-        },
-        footer: '這是見觀南區工作室入口頁：先看路口、聯絡與導航方式，再直接來電或 LINE 預約。'
+        }
       }
     };
 
@@ -786,11 +694,6 @@
       document.querySelector('#heroPoint1').textContent = variant.hero.points[0];
       document.querySelector('#heroPoint2').textContent = variant.hero.points[1];
       document.querySelector('#heroPoint3').textContent = variant.hero.points[2];
-      document.querySelector('#heroJourneyLabel').textContent = variant.hero.journey.label;
-      document.querySelector('#heroJourneyLead').textContent = variant.hero.journey.lead;
-      document.querySelector('#heroJourneyStep1').textContent = variant.hero.journey.steps[0];
-      document.querySelector('#heroJourneyStep2').textContent = variant.hero.journey.steps[1];
-      document.querySelector('#heroJourneyStep3').textContent = variant.hero.journey.steps[2];
       applyHeroCtas(variant.hero.ctas);
 
       document.querySelector('#firstVisitLabel').textContent = variant.firstVisit.label;
@@ -804,8 +707,6 @@
       document.querySelector('#firstVisitStep3Body').textContent = variant.firstVisit.steps[2].body;
       applyLink(document.querySelector('#firstVisitPrimaryAction'), variant.firstVisit.actions[0]);
       applyLink(document.querySelector('#firstVisitSecondaryAction'), variant.firstVisit.actions[1]);
-
-      document.querySelector('#footerNote').textContent = variant.footer;
     }
 
     applyEntryVariant();

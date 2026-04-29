@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <title>工作室預約｜見觀南區</title>
+  <meta name="description" content="見觀南區工作室預約說明。工作室一對一、預約制。單次 30–40 分鐘，500–800 元，實際時段與內容以 LINE 確認。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5ecdf;
+      --paper: rgba(255, 251, 245, 0.84);
+      --line: rgba(87, 63, 48, 0.14);
+      --text: #3f2e22;
+      --muted: #6f5a49;
+      --accent: #a14f2a;
+      --forest: #2e5e4b;
+      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 32%),
+        radial-gradient(circle at 82% 14%, rgba(241, 194, 121, 0.3), rgba(241, 194, 121, 0) 20%),
+        linear-gradient(180deg, #fbf6ee 0%, var(--bg) 48%, #f0e4d4 100%);
+    }
+
+    a {
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .shell {
+      width: min(1240px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .topnav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(87, 63, 48, 0.07);
+    }
+
+    .back-link:hover,
+    .back-link:focus {
+      background: rgba(87, 63, 48, 0.13);
+    }
+
+    .topnav-brand {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 28px 24px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 12px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--forest);
+      box-shadow: 0 0 0 4px rgba(46, 94, 75, 0.12);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: clamp(24px, 3.5vw, 36px);
+      line-height: 1.25;
+      letter-spacing: 0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .info-card {
+      display: grid;
+      gap: 16px;
+      padding: 24px;
+      border: 1px solid rgba(46, 94, 75, 0.18);
+      border-radius: 24px;
+      background: rgba(46, 94, 75, 0.04);
+      box-shadow: 0 8px 28px rgba(46, 94, 75, 0.06);
+    }
+
+    .info-card-label {
+      display: inline-flex;
+      width: fit-content;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .info-card h2 {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .price-block {
+      display: grid;
+      gap: 12px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: 0 8px 28px rgba(68, 45, 30, 0.08);
+    }
+
+    .price-block-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .price-range {
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+
+    .price-range .currency {
+      font-size: 16px;
+      font-weight: 800;
+      vertical-align: top;
+      margin-top: 5px;
+      display: inline-block;
+    }
+
+    .price-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .price-tag {
+      display: inline-flex;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(46, 94, 75, 0.08);
+      color: var(--forest);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .price-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .notice {
+      margin: 0;
+      padding: 16px 20px;
+      border-radius: 18px;
+      background: rgba(87, 63, 48, 0.05);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .cta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 22px 24px;
+      border: 1px solid rgba(46, 94, 75, 0.18);
+      border-radius: 28px;
+      background: rgba(46, 94, 75, 0.04);
+      box-shadow: var(--shadow);
+      align-items: center;
+    }
+
+    .cta-strip-copy {
+      flex: 1 1 160px;
+    }
+
+    .cta-strip-copy strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .cta-strip-copy p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--forest);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .button.is-ghost {
+      background: rgba(46, 94, 75, 0.08);
+      color: var(--forest);
+      box-shadow: none;
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100vw - 16px, 1240px);
+        padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
+      }
+
+      .topnav {
+        border-radius: 22px;
+        padding: 12px 16px;
+      }
+
+      .hero {
+        padding: 20px 18px;
+        border-radius: 22px;
+      }
+
+      .info-card,
+      .price-block {
+        border-radius: 20px;
+        padding: 20px 18px;
+      }
+
+      .cta-strip {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .button {
+        width: 100%;
+        min-height: 50px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <nav class="topnav" aria-label="頁面導覽">
+      <a class="back-link" href="../../?store=south">← 返回南區工作室</a>
+      <span class="topnav-brand">見觀結構調理整復所</span>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">南區工作室・預約說明</span>
+      <h1>南區工作室預約</h1>
+      <p>南區為工作室形式，一對一、預約制。時段與內容彈性安排，以 LINE 確認為主。</p>
+    </header>
+
+    <div class="info-card">
+      <span class="info-card-label">工作室說明</span>
+      <h2>一對一・預約制・獨立空間</h2>
+      <p>南區工作室不設固定排班，採預約制安排。適合希望一對一處理、節奏較慢、環境較安靜的朋友。來店前先以 LINE 確認時段，其餘進行方式與北區相同。</p>
+    </div>
+
+    <div class="price-block">
+      <span class="price-block-label">費用參考</span>
+      <div class="price-range"><span class="currency">NT$</span>500–800</div>
+      <div class="price-meta">
+        <span class="price-tag">單次預約</span>
+        <span class="price-tag">30–40 分鐘</span>
+      </div>
+      <p>實際費用依預約內容與時段確認。以上為一般單次到店的費用參考範圍。</p>
+    </div>
+
+    <p class="notice">時段、費用與服務內容以 LINE 確認為主。本頁費用為參考範圍，不代表固定收費。如有任何疑問，歡迎先 LINE 詢問。</p>
+
+    <div class="cta-strip">
+      <div class="cta-strip-copy">
+        <strong>先 LINE 確認時段</strong>
+        <p>預約前先 LINE 說明需求與時段，會比直接來電更順。</p>
+      </div>
+      <a class="button" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約確認</a>
+      <a class="button is-ghost" href="tel:0973728670">南區直接來電</a>
+    </div>
+  </main>
+</body>
+</html>
