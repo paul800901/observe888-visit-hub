@@ -6,6 +6,8 @@
 
 - index.html：主落地頁
 - observe888-location-widget-snippet.html：雙店導航元件
+- observe888-tracking-config.js：事件接收器設定
+- observe888-tracking.js：公開頁互動計數器
 - north/index.html：直接跳到北區版
 - north/pricing/index.html：北區店服務與費用頁
 - south/index.html：直接跳到南區版
@@ -55,3 +57,4 @@ npm run build:observe888-public
 
 - 這個公開 repo 只放公開落地頁，不要混入 AdsControl 後端、docs、reports、.env 或任何內部資料。
 - north/ 和 south/ 是乾淨捷徑入口，實際上會導向同一份主頁並自動切到對應分店。
+- 若要啟用公開頁互動計數，請在 observe888-tracking-config.js 內填入 GAS Web App endpoint。

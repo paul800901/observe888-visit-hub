@@ -23,8 +23,6 @@
 
     html {
       scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
     }
 
     body {
@@ -368,9 +366,36 @@
         <strong>先 LINE 確認時段</strong>
         <p>預約前先 LINE 說明需求與時段，會比直接來電更順。</p>
       </div>
-      <a class="button" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約確認</a>
-      <a class="button is-ghost" href="tel:0973728670">南區直接來電</a>
+      <a id="southPricingLineCta" class="button" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約確認</a>
+      <a id="southPricingCallCta" class="button is-ghost" href="tel:0973728670">南區直接來電</a>
     </div>
   </main>
+
+  <script src="../../observe888-tracking-config.js"></script>
+  <script src="../../observe888-tracking.js"></script>
+  <script>
+    const southPricingTracker = window.Observe888Tracker;
+
+    if (southPricingTracker) {
+      southPricingTracker.trackPageView('page_view_south_pricing', {
+        store: 'south',
+        page_role: 'south_pricing'
+      });
+
+      southPricingTracker.bindTrackClick(document.querySelector('#southPricingLineCta'), {
+        eventName: 'click_line_south',
+        store: 'south',
+        page_role: 'south_pricing',
+        cta_type: 'line'
+      });
+
+      southPricingTracker.bindTrackClick(document.querySelector('#southPricingCallCta'), {
+        eventName: 'click_call_south',
+        store: 'south',
+        page_role: 'south_pricing',
+        cta_type: 'call'
+      });
+    }
+  </script>
 </body>
 </html>
