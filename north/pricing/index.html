@@ -23,8 +23,6 @@
 
     html {
       scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
     }
 
     body {
@@ -412,9 +410,36 @@
         <strong>準備好了？</strong>
         <p>直接 LINE 預約或來電確認，不需要事先準備太多。</p>
       </div>
-      <a class="button is-forest" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
-      <a class="button is-ghost" href="tel:062510677">北區直接來電</a>
+      <a id="northPricingLineCta" class="button is-forest" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+      <a id="northPricingCallCta" class="button is-ghost" href="tel:062510677">北區直接來電</a>
     </div>
   </main>
+
+  <script src="../../observe888-tracking-config.js"></script>
+  <script src="../../observe888-tracking.js"></script>
+  <script>
+    const northPricingTracker = window.Observe888Tracker;
+
+    if (northPricingTracker) {
+      northPricingTracker.trackPageView('page_view_north_pricing', {
+        store: 'north',
+        page_role: 'north_pricing'
+      });
+
+      northPricingTracker.bindTrackClick(document.querySelector('#northPricingLineCta'), {
+        eventName: 'click_line_north',
+        store: 'north',
+        page_role: 'north_pricing',
+        cta_type: 'line'
+      });
+
+      northPricingTracker.bindTrackClick(document.querySelector('#northPricingCallCta'), {
+        eventName: 'click_call_north',
+        store: 'north',
+        page_role: 'north_pricing',
+        cta_type: 'call'
+      });
+    }
+  </script>
 </body>
 </html>

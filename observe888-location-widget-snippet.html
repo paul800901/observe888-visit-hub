@@ -23,8 +23,6 @@
       color: var(--locator-text);
       box-shadow: var(--locator-shadow);
       font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
     }
 
     .observe-locator::before,
@@ -88,6 +86,7 @@
       border: 1px solid var(--locator-line);
       border-radius: 24px;
       background: var(--locator-surface);
+      -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
     }
 
@@ -491,6 +490,7 @@
       .observe-locator__map {
         padding: 16px;
         border-radius: 20px;
+        -webkit-backdrop-filter: none;
         backdrop-filter: none;
       }
 
@@ -628,7 +628,7 @@
           <div class="observe-locator__store-actions">
             <a class="observe-locator__button" id="observeLocatorPrimaryMap" href="#" target="_blank" rel="noreferrer noopener">Google 地圖</a>
             <a class="observe-locator__button observe-locator__button--ghost" id="observeLocatorDirections" href="#" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
-            <a class="observe-locator__button observe-locator__button--line" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+            <a class="observe-locator__button observe-locator__button--line" id="observeLocatorLineCta" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
           </div>
         </article>
       </section>
@@ -641,7 +641,7 @@
           </div>
           <a class="observe-locator__button observe-locator__button--ghost" id="observeLocatorExternalMap" href="#" target="_blank" rel="noreferrer noopener">在 Google Maps 開啟</a>
         </div>
-        <iframe class="observe-locator__map-frame" id="observeLocatorFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="about:blank" title="分店地圖"></iframe>
+        <iframe class="observe-locator__map-frame" id="observeLocatorFrame" loading="lazy" src="about:blank" title="分店地圖"></iframe>
       </section>
     </div>
   </div>
@@ -720,6 +720,7 @@
       const primaryMap = root.querySelector('#observeLocatorPrimaryMap');
       const externalMap = root.querySelector('#observeLocatorExternalMap');
       const directionsLink = root.querySelector('#observeLocatorDirections');
+      const lineLink = root.querySelector('#observeLocatorLineCta');
       const routeSelectedButton = root.querySelector('[data-locator-action="route-selected"]');
       const routeCurrentButton = root.querySelector('[data-locator-action="route-current-location"]');
 
@@ -816,6 +817,19 @@
         window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener');
       }
 
+      function trackStoreEvent(eventName, extra) {
+        const tracker = window.Observe888Tracker;
+        if (!tracker || typeof tracker.track !== 'function') {
+          return;
+        }
+
+        tracker.track(eventName, Object.assign({
+          event_category: 'cta_click',
+          store: activeStore.id,
+          page_role: 'locator_widget'
+        }, extra || {}));
+      }
+
       function renderStore(store) {
         activeStore = store;
         badge.textContent = store.badge;
@@ -834,9 +848,19 @@
         routeSelectedButton.textContent = `Google Maps 導航到${store.shortName}`;
         meta.innerHTML = `
           <div><strong>營業 / 服務方式：</strong>${htmlEscape(store.hours)}</div>
-          <div><strong>聯絡電話：</strong><a href="${htmlEscape(store.phoneHref)}" style="color: inherit;">${htmlEscape(store.phoneLabel)}</a></div>
+          <div><strong>聯絡電話：</strong><a href="${htmlEscape(store.phoneHref)}" data-observe-phone-link="1" style="color: inherit;">${htmlEscape(store.phoneLabel)}</a></div>
         `;
         parking.innerHTML = store.parking.map((item) => `<li>${htmlEscape(item)}</li>`).join('');
+
+        const phoneLink = meta.querySelector('[data-observe-phone-link]');
+        if (phoneLink) {
+          phoneLink.addEventListener('click', () => {
+            trackStoreEvent(`click_call_${activeStore.id}`, {
+              cta_type: 'call',
+              href: phoneLink.href || ''
+            });
+          });
+        }
 
         tabButtons.forEach((button) => {
           const isActive = button.dataset.locatorTab === store.id;
@@ -1015,11 +1039,19 @@
       });
 
       routeSelectedButton.addEventListener('click', () => {
+        trackStoreEvent(`click_map_${activeStore.id}`, {
+          cta_type: 'directions_from_origin',
+          href: activeStore.directionsUrl
+        });
         const origin = currentSelection?.label || originInput.value;
         openDirections(origin, activeStore);
       });
 
       routeCurrentButton.addEventListener('click', () => {
+        trackStoreEvent(`click_map_${activeStore.id}`, {
+          cta_type: 'directions_current_location',
+          href: activeStore.directionsUrl
+        });
         if (!navigator.geolocation) {
           openDirections('', activeStore);
           setStatus('目前裝置不支援定位，已直接開啟目的地導航。');
@@ -1038,6 +1070,34 @@
           },
           { enableHighAccuracy: true, timeout: 7000, maximumAge: 60000 }
         );
+      });
+
+      primaryMap.addEventListener('click', () => {
+        trackStoreEvent(`click_map_${activeStore.id}`, {
+          cta_type: 'map',
+          href: primaryMap.href || ''
+        });
+      });
+
+      externalMap.addEventListener('click', () => {
+        trackStoreEvent(`click_map_${activeStore.id}`, {
+          cta_type: 'map_external',
+          href: externalMap.href || ''
+        });
+      });
+
+      directionsLink.addEventListener('click', () => {
+        trackStoreEvent(`click_map_${activeStore.id}`, {
+          cta_type: 'directions',
+          href: directionsLink.href || ''
+        });
+      });
+
+      lineLink.addEventListener('click', () => {
+        trackStoreEvent(`click_line_${activeStore.id}`, {
+          cta_type: 'line',
+          href: lineLink.href || ''
+        });
       });
 
       renderStore(activeStore);

@@ -25,8 +25,6 @@
 
     html {
       scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
     }
 
     body {
@@ -65,6 +63,7 @@
       border-radius: 28px;
       background: var(--paper);
       box-shadow: var(--shadow);
+      -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
     }
 
@@ -346,6 +345,7 @@
       .topbar {
         padding: 16px;
         border-radius: 22px;
+        -webkit-backdrop-filter: none;
         backdrop-filter: none;
       }
 
@@ -477,6 +477,8 @@
     </section>
   </main>
 
+  <script src="./observe888-tracking-config.js"></script>
+  <script src="./observe888-tracking.js"></script>
   <script>
     const lineBookingUrl = 'https://line.me/ti/p/~@483yvmiw';
 
@@ -541,6 +543,112 @@
       } else if (tone === 'ghost') {
         anchor.classList.add('is-ghost');
       }
+    }
+
+    function bindTrackedClick(anchor, options) {
+      const tracker = window.Observe888Tracker;
+      if (!anchor || !tracker || typeof tracker.bindTrackClick !== 'function') {
+        return;
+      }
+
+      tracker.bindTrackClick(anchor, options);
+    }
+
+    function trackVariantPageView(variantKey) {
+      const tracker = window.Observe888Tracker;
+      if (!tracker || typeof tracker.trackPageView !== 'function') {
+        return;
+      }
+
+      if (variantKey === 'north') {
+        tracker.trackPageView('page_view_north', { store: 'north', page_role: 'north_entry' });
+        return;
+      }
+
+      if (variantKey === 'south') {
+        tracker.trackPageView('page_view_south', { store: 'south', page_role: 'south_entry' });
+        return;
+      }
+
+      tracker.trackPageView('page_view_home', { store: '', page_role: 'home' });
+    }
+
+    function bindVariantTracking(variantKey) {
+      const sharedHomeLine = {
+        eventName: 'click_line_home',
+        store: '',
+        page_role: 'home',
+        cta_type: 'line'
+      };
+
+      trackVariantPageView(variantKey);
+
+      if (variantKey === 'north') {
+        bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
+          eventName: 'click_line_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'line',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
+          eventName: 'click_call_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'call',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), {
+          eventName: 'click_call_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'call',
+          cta_position: 'first_visit'
+        });
+        return;
+      }
+
+      if (variantKey === 'south') {
+        bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
+          eventName: 'click_line_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'line',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
+          eventName: 'click_call_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'call',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), {
+          eventName: 'click_call_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'call',
+          cta_position: 'first_visit'
+        });
+        return;
+      }
+
+      bindTrackedClick(document.querySelector('#heroTertiaryCta'), Object.assign({ cta_position: 'hero' }, sharedHomeLine));
+      bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
+        eventName: 'click_call_north',
+        store: 'north',
+        page_role: 'home',
+        cta_type: 'call',
+        cta_position: 'hero'
+      });
+      bindTrackedClick(document.querySelector('#heroQuinaryCta'), {
+        eventName: 'click_call_south',
+        store: 'south',
+        page_role: 'home',
+        cta_type: 'call',
+        cta_position: 'hero'
+      });
+      bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), Object.assign({ cta_position: 'first_visit' }, sharedHomeLine));
     }
 
     function applyHeroCtas(configs) {
@@ -707,6 +815,7 @@
       document.querySelector('#firstVisitStep3Body').textContent = variant.firstVisit.steps[2].body;
       applyLink(document.querySelector('#firstVisitPrimaryAction'), variant.firstVisit.actions[0]);
       applyLink(document.querySelector('#firstVisitSecondaryAction'), variant.firstVisit.actions[1]);
+      bindVariantTracking(variantKey);
     }
 
     applyEntryVariant();
