@@ -12,7 +12,8 @@
 - sitemap.xml：公開頁索引清單
 - about/index.html：認識見觀結構
 - observations/index.html：身體觀察案例入口
-- notes/index.html：身體觀察筆記入口
+- notes/index.html：身體觀察筆記入口與文章列表
+- notes/<article>/index.html：身體觀察筆記文章
 - north/index.html：直接跳到北區版
 - north/pricing/index.html：北區店服務與費用頁
 - south/index.html：直接跳到南區版
