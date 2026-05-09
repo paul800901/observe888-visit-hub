@@ -8,6 +8,11 @@
 - observe888-location-widget-snippet.html：雙店導航元件
 - observe888-tracking-config.js：事件接收器設定
 - observe888-tracking.js：公開頁互動計數器
+- robots.txt：搜尋引擎允許規則與 sitemap 位置
+- sitemap.xml：公開頁索引清單
+- about/index.html：認識見觀結構
+- observations/index.html：身體觀察案例入口
+- notes/index.html：身體觀察筆記入口
 - north/index.html：直接跳到北區版
 - north/pricing/index.html：北區店服務與費用頁
 - south/index.html：直接跳到南區版
