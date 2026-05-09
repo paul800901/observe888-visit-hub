@@ -8,7 +8,11 @@
   <meta http-equiv="refresh" content="0; url=../?store=south">
   <link rel="canonical" href="../?store=south">
   <script>
-    window.location.replace(new URL('../?store=south', window.location.href));
+    const targetUrl = new URL('../', window.location.href);
+    const targetParams = new URLSearchParams(window.location.search);
+    targetParams.set('store', 'south');
+    targetUrl.search = targetParams.toString();
+    window.location.replace(targetUrl);
   </script>
 </head>
 <body>
