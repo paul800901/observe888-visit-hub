@@ -102,6 +102,7 @@
 
     h1,
     h2,
+    h3,
     p {
       margin: 0;
     }
@@ -114,6 +115,11 @@
     h2 {
       font-size: 20px;
       line-height: 1.45;
+    }
+
+    h3 {
+      font-size: 16px;
+      line-height: 1.55;
     }
 
     .hero-copy,
@@ -145,6 +151,38 @@
     .article-list {
       display: grid;
       gap: 10px;
+    }
+
+    .topic-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .topic-group {
+      display: grid;
+      gap: 10px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(87, 63, 48, 0.07);
+    }
+
+    .topic-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .topic-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 251, 245, 0.75);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
     }
 
     .article-link {
@@ -242,8 +280,55 @@
     </header>
 
     <section class="content-card">
-      <h2>目前公開的身體觀察筆記</h2>
-      <p>以下文章是目前已整理完成並公開的版本，先從常見搜尋名詞與日常感受切入，協助把模糊的身體狀態整理成可觀察線索。</p>
+      <h2>依主題找文章</h2>
+      <p>這些分類不是診斷結果，而是讓讀者、搜尋引擎與 AI 搜尋更容易理解：每篇文章主要在整理哪一種身體感受、日常情境與觀察入口。</p>
+      <div class="topic-grid">
+        <div class="topic-group">
+          <h3>腰背、骨盆與坐久起身</h3>
+          <p>適合從久坐腰痠、腰椎退化、屁股腿麻、檢查名詞焦慮開始整理的人。</p>
+          <div class="topic-links" aria-label="腰背骨盆相關文章">
+            <a href="sitting-low-back-soreness/">久坐腰痠</a>
+            <a href="lumbar-degeneration-observation/">腰椎退化</a>
+            <a href="butt-leg-numb-sciatica-observation/">屁股痛腿麻</a>
+            <a href="bone-spur-observation/">骨刺觀察</a>
+          </div>
+        </div>
+        <div class="topic-group">
+          <h3>肩頸、肩膀與手臂</h3>
+          <p>適合從肩頸卡卡、手舉不高、手麻、手腕拇指過度使用開始觀察的人。</p>
+          <div class="topic-links" aria-label="肩頸手臂相關文章">
+            <a href="shoulder-neck-stuck-observation/">肩頸卡卡</a>
+            <a href="shoulder-lift-frozen-observation/">手舉不高</a>
+            <a href="hand-numbness-observation/">手麻情境</a>
+            <a href="wrist-thumb-overuse-observation/">手腕拇指</a>
+          </div>
+        </div>
+        <div class="topic-group">
+          <h3>髖、膝、腳底與走路承重</h3>
+          <p>適合從走路卡卡、上下樓膝蓋痛、腳底累、左右重心不平均開始整理的人。</p>
+          <div class="topic-links" aria-label="下肢承重相關文章">
+            <a href="hip-groin-walking-observation/">髖與鼠蹊部</a>
+            <a href="knee-stairs-weight-bearing-observation/">膝蓋上下樓</a>
+            <a href="tight-feet-observation/">腳底承重</a>
+            <a href="one-side-walking-fatigue/">走路左右差</a>
+          </div>
+        </div>
+        <div class="topic-group">
+          <h3>麻、緊、痠與檢查名詞</h3>
+          <p>適合已經搜尋骨刺、神經壓迫、坐骨神經痛等名稱，但想回到身體線索的人。</p>
+          <div class="topic-links" aria-label="麻痛與檢查名詞相關文章">
+            <a href="nerve-compression-observation/">神經壓迫</a>
+            <a href="hand-numbness-observation/">手麻</a>
+            <a href="butt-leg-numb-sciatica-observation/">坐骨神經痛搜尋</a>
+            <a href="bone-spur-observation/">骨刺</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <h2>完整文章清單</h2>
+      <p>以下文章是目前已整理完成並公開的 13 篇版本，先從常見搜尋名詞與日常感受切入，協助把模糊的身體狀態整理成可觀察線索。</p>
         
         <div class="article-list">
         <a class="article-link" href="bone-spur-observation/">
