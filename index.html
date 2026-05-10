@@ -53,10 +53,8 @@
     }
 
     .topbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
+      position: relative;
+      display: grid;
       gap: 14px;
       padding: 18px 20px;
       border: 1px solid var(--line);
@@ -70,6 +68,37 @@
     .topbar-copy {
       display: grid;
       gap: 6px;
+    }
+
+    .topbar-kicker-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .topbar-kicker-row .eyebrow,
+    .topbar-kicker-row .brand-site-link {
+      min-height: 34px;
+      padding: 0 10px;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .brand-site-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
     .hero-points {
@@ -174,6 +203,7 @@
     .cta-row {
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-end;
       gap: 10px;
     }
 
@@ -188,7 +218,7 @@
     }
 
     body[data-entry-mode="root"] .topbar {
-      align-items: flex-start;
+      align-items: start;
     }
 
     .button[hidden] {
@@ -344,42 +374,6 @@
       margin-top: 8px;
     }
 
-    .site-links {
-      display: grid;
-      gap: 12px;
-      padding: 18px 20px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .site-links h2 {
-      margin: 0;
-      font-size: 18px;
-      line-height: 1.4;
-    }
-
-    .site-link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .site-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 14px;
-      border-radius: 999px;
-      background: rgba(87, 63, 48, 0.07);
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
     @media (max-width: 720px) {
       .hub-shell {
         width: min(100vw - 16px, 1240px);
@@ -395,6 +389,12 @@
 
       .topbar-copy {
         gap: 8px;
+      }
+
+      .topbar-kicker-row .eyebrow,
+      .topbar-kicker-row .brand-site-link {
+        padding: 0 8px;
+        font-size: 11px;
       }
 
       .hero-points {
@@ -500,10 +500,13 @@
   <main id="widgetZone" class="hub-shell">
     <section class="topbar">
       <div class="topbar-copy">
-        <span id="heroEyebrow" class="eyebrow">見觀微縮官網 / 到店導航站</span>
+        <div class="topbar-kicker-row">
+          <span id="heroEyebrow" class="eyebrow">見觀微縮官網 / 到店導航站</span>
+          <a class="brand-site-link" href="notes/" aria-label="前往品牌官網與身體觀察筆記">品牌官網 / 身體觀察筆記</a>
+        </div>
         <h1 id="heroTitle">見觀結構</h1>
         <p id="heroSubtitle" class="hero-subtitle">身體結構觀察、傳統整復推拿與姿勢承重線索整理</p>
-        <p id="heroLead">見觀結構協助把身體感受、姿勢、承重、張力與生活負荷，整理成較清楚的觀察線索。請選擇方便前往的地點，或先閱讀服務方式與身體觀察筆記。</p>
+        <p id="heroLead">見觀結構協助把身體感受、姿勢、承重、張力與生活負荷，整理成較清楚的觀察線索。請選擇方便前往的地點；想先理解見觀怎麼整理身體線索，可前往品牌官網 / 身體觀察筆記。</p>
         <div class="hero-points" aria-label="這頁可以做什麼">
           <span id="heroPoint1" class="hero-point">身體結構觀察</span>
           <span id="heroPoint2" class="hero-point">傳統整復推拿</span>
@@ -570,16 +573,6 @@
       </article>
     </section>
 
-    <section class="site-links" aria-labelledby="siteLinksTitle">
-      <h2 id="siteLinksTitle">先閱讀服務方式與身體觀察筆記</h2>
-      <div class="site-link-row">
-        <a class="site-link" href="about/">認識見觀結構</a>
-        <a class="site-link" href="observations/">身體觀察案例</a>
-        <a class="site-link" href="notes/">身體觀察筆記</a>
-        <a class="site-link" href="north/pricing/">北區服務與費用</a>
-        <a class="site-link" href="south/pricing/">南區服務與費用</a>
-      </div>
-    </section>
   </main>
 
   <script src="./observe888-tracking-config.js"></script>
@@ -801,7 +794,7 @@
           eyebrow: '見觀微縮官網 / 到店導航站',
           title: '見觀結構',
           subtitle: '身體結構觀察、傳統整復推拿與姿勢承重線索整理',
-          lead: '見觀結構協助把身體感受、姿勢、承重、張力與生活負荷，整理成較清楚的觀察線索。請選擇方便前往的地點，或先閱讀服務方式與身體觀察筆記。',
+          lead: '見觀結構協助把身體感受、姿勢、承重、張力與生活負荷，整理成較清楚的觀察線索。請選擇方便前往的地點；想先理解見觀怎麼整理身體線索，可前往品牌官網 / 身體觀察筆記。',
           points: ['身體結構觀察', '傳統整復推拿', '姿勢與承重線索整理'],
           ctas: [
             { label: '北區店入口', href: buildStoreUrl('north'), tone: 'accent' },
