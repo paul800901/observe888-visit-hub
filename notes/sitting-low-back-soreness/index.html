@@ -4,284 +4,107 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>久坐腰痠，是不是核心太弱？先整理坐姿和起身狀態｜見觀結構</title>
-  <meta name="description" content="久坐腰痠不急著歸因核心太弱，可先整理坐姿、起身、骨盆承重、左右差、工作節奏與生活負荷線索。">
+  <title>久坐腰痠，是不是核心太弱？先看你怎麼坐，以及站起來那一瞬間｜見觀結構</title>
+  <meta name="description" content="久坐腰痠不一定只有核心太弱，可先觀察坐姿、骨盆位置、起身轉換、左右差與日常身體使用方式。">
   <style>
-    :root {
-      color-scheme: light;
-      --bg: #f5ecdf;
-      --paper: rgba(255, 251, 245, 0.9);
-      --line: rgba(87, 63, 48, 0.14);
-      --text: #3f2e22;
-      --muted: #6f5a49;
-      --accent: #a14f2a;
-      --forest: #2e5e4b;
-      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
-    }
-
+    :root { color-scheme: light; --bg: #f5ecdf; --paper: rgba(255, 251, 245, 0.9); --line: rgba(87, 63, 48, 0.14); --text: #3f2e22; --muted: #6f5a49; --accent: #a14f2a; --forest: #2e5e4b; --shadow: 0 24px 60px rgba(68, 45, 30, 0.12); }
     * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 32%),
-        linear-gradient(180deg, #fbf6ee 0%, var(--bg) 52%, #f0e4d4 100%);
-    }
-
-    a {
-      color: inherit;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-    }
-
-    .shell {
-      width: min(960px, calc(100vw - 28px));
-      margin: 0 auto;
-      padding: 22px 0 56px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .topnav,
-    .hero,
-    .content-card,
-    .cta-strip {
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .topnav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 0 12px;
-      border-radius: 999px;
-      background: rgba(87, 63, 48, 0.07);
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .topnav-brand {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .hero {
-      padding: 24px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      width: fit-content;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(161, 79, 42, 0.1);
-      color: #7e381d;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-    }
-
-    h1,
-    h2,
-    p {
-      margin: 0;
-    }
-
-    h1 {
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: 20px;
-      line-height: 1.45;
-    }
-
-    .hero-copy,
-    .content-card {
-      display: grid;
-      gap: 12px;
-    }
-
-    p,
-    li {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.85;
-    }
-
-    .content-card {
-      padding: 20px;
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 1.2em;
-    }
-
-    li + li {
-      margin-top: 8px;
-    }
-
-    .article-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .article-link {
-      display: grid;
-      gap: 6px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(87, 63, 48, 0.07);
-      text-decoration: none;
-    }
-
-    .article-link span {
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 800;
-      line-height: 1.55;
-    }
-
-    .article-link small {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .cta-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 16px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 16px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 16px 28px rgba(126, 56, 29, 0.2);
-    }
-
-    .button.is-forest {
-      background: var(--forest);
-      box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22);
-    }
-
-    .button.is-ghost {
-      background: rgba(87, 63, 48, 0.07);
-      color: var(--text);
-      box-shadow: none;
-    }
-
-    @media (max-width: 720px) {
-      .shell {
-        width: min(100vw - 16px, 960px);
-        padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
-      }
-
-      .hero,
-      .content-card,
-      .cta-strip {
-        border-radius: 22px;
-        padding: 18px;
-      }
-
-      .button {
-        width: 100%;
-        min-height: 50px;
-        font-size: 16px;
-      }
-    }
+    body { margin: 0; min-height: 100vh; color: var(--text); font-family: "Microsoft JhengHei", "PingFang TC", sans-serif; background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 32%), linear-gradient(180deg, #fbf6ee 0%, var(--bg) 52%, #f0e4d4 100%); }
+    a { color: inherit; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    .shell { width: min(960px, calc(100vw - 28px)); margin: 0 auto; padding: 22px 0 56px; display: grid; gap: 18px; }
+    .topnav, .hero, .content-card, .cta-strip { border: 1px solid var(--line); border-radius: 24px; background: var(--paper); box-shadow: var(--shadow); }
+    .topnav { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 14px 16px; }
+    .back-link { display: inline-flex; align-items: center; min-height: 38px; padding: 0 12px; border-radius: 999px; background: rgba(87, 63, 48, 0.07); color: var(--muted); font-size: 13px; font-weight: 800; text-decoration: none; }
+    .topnav-brand { color: var(--muted); font-size: 13px; font-weight: 800; }
+    .hero, .content-card { display: grid; gap: 14px; padding: 24px; }
+    .eyebrow { display: inline-flex; width: fit-content; padding: 7px 12px; border-radius: 999px; background: rgba(161, 79, 42, 0.1); color: #7e381d; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; }
+    h1, h2, p { margin: 0; }
+    h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.2; }
+    h2 { font-size: 20px; line-height: 1.45; }
+    .hero-copy { display: grid; gap: 12px; }
+    p, li { color: var(--muted); font-size: 15px; line-height: 1.85; }
+    ul { margin: 0; padding-left: 1.2em; }
+    li + li { margin-top: 8px; }
+    .cta-strip { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 16px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 14px; font-weight: 800; text-decoration: none; box-shadow: 0 16px 28px rgba(126, 56, 29, 0.2); }
+    .button.is-forest { background: var(--forest); box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22); }
+    .button.is-ghost { background: rgba(87, 63, 48, 0.07); color: var(--text); box-shadow: none; }
+    @media (max-width: 720px) { .shell { width: min(100vw - 16px, 960px); padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom)); } .hero, .content-card, .cta-strip { border-radius: 22px; padding: 18px; } .button { width: 100%; min-height: 50px; font-size: 16px; } }
   </style>
   <link rel="canonical" href="https://paul800901.github.io/observe888-visit-hub/notes/sitting-low-back-soreness/">
 </head>
 <body>
   <main class="shell">
     <nav class="topnav" aria-label="頁面導覽">
-      <a class="back-link" href="../">回到筆記列表</a>
+      <a class="back-link" href="../">回到身體觀察筆記</a>
       <span class="topnav-brand">見觀結構</span>
     </nav>
 
     <header class="hero">
-      <span class="eyebrow">生活情境觀察</span>
+      <span class="eyebrow">久坐腰痠觀察</span>
       <div class="hero-copy">
-        <h1>久坐腰痠，是不是核心太弱？先整理坐姿和起身狀態</h1>
-        <p>「我久坐腰痠，是不是核心太弱？」很多人會這樣問。</p>
-        <p>這個問法看起來合理，但它太快把問題收斂成一個答案。久坐腰痠不一定只是某個部位不夠力，也可能和坐姿、骨盆承重、起身方式、工作節奏和整天活動量有關。</p>
-        <p>有些人坐著還好，是起身那一下卡住；有些人坐半小時開始沉；有些人開車比坐辦公椅更明顯；有些人上午還好，下午工作量一多就整個腰背緊起來。這些生活感很普通，卻很重要，因為它們才是身體每天真正在經歷的狀態。</p>
+        <h1>久坐腰痠，是不是核心太弱？先看你怎麼坐，以及站起來那一瞬間</h1>
+        <p>「我久坐腰很痠，是不是核心太弱？」</p>
+        <p>這個問題，在上班族裡非常常見。很多人坐久了腰開始不舒服，第一個反應就是：我是不是該練核心？是不是深層肌肉沒力？是不是要趕快找一套腹部訓練來做？</p>
+        <p>核心訓練本身不是問題。但如果還沒有先看清楚自己是怎麼坐的、怎麼起身的，就直接跳進訓練課表，有時候反而會繞遠路。</p>
       </div>
     </header>
 
     <section class="content-card">
-        <h2>久坐不是只有時間長短</h2>
-        <p>久坐腰痠可以看時間，也要看坐法。骨盆是不是常歪一邊？腳是不是固定翹同一側？螢幕和桌面讓身體往前掛多久？起身時是不是總要扶一下？</p>
-        <p>這些問題不是雞毛蒜皮。它們會讓「久坐腰痠」從一個模糊感覺，變成可以整理的身體狀態。</p>
-        <p>見觀結構會把「久坐腰痠」拆成坐姿、骨盆承重、起身方式、左右張力和工作節奏。不是先判斷你哪裡不好，而是先把身體怎麼累積負荷整理出來。</p>
-        
-        
-      </section>
+      <h2>久坐腰痠的線索，不一定只有核心一個變項</h2>
+      <p>一講到腰痠，很多人會直接把原因指向「核心沒力」。但同樣是久坐，不同人的身體反應，可能很不一樣。</p>
+      <p>有些人坐久了腰痠，是骨盆容易往後滑，腰長時間停在比較被動的弧度裡。有些人起身那瞬間腰最不舒服，是身體從靜態轉到動態的過程不太順。有些人離開椅子走幾步就鬆了，有些人走到後面更痠。有些人只有坐著的時候腰痠，站著反而比較舒服；有些人則是站著腰也會跟著繃。</p>
+      <p>這些不同的反應，不是只用「核心太弱」一個標籤就能解釋清楚的。</p>
+    </section>
 
-      <section class="content-card">
-        <h2>不要只問核心太弱，可以這樣問</h2>
-        <p>不要只問：「久坐腰痠是不是核心太弱？」可以改成：「我坐三十分鐘後腰會沉，起身前幾步比較卡，走一走會比較鬆。這樣可以先看哪些坐姿和承重線索？」</p>
-        <p>不要只問：「要做哪個核心動作？」可以改成：「我坐辦公椅比坐硬椅更容易痠，下午比早上明顯，最近工作量也比較大。這種狀態可以怎麼整理？」</p>
-        <p>這樣問，身體照顧就不是只練某個部位，而是知道先調整坐站節奏、承重習慣，還是需要把腰背和骨盆張力一起整理。</p>
-        
-        
-      </section>
+    <section class="content-card">
+      <h2>先觀察你怎麼坐，比先找一個動作更重要</h2>
+      <p>比較有幫助的，不是在網路上找「久坐腰痠練這幾招」，而是先觀察：</p>
+      <ul>
+        <li>坐著的時候，骨盆比較接近直立，還是容易往後滑、腰往後塌？</li>
+        <li>腰痠是坐著的時候就開始，還是起身那一刻最明顯？</li>
+        <li>痠的位置是只有腰椎那一帶，還是臀部、髖部、大腿後側也有一起緊？</li>
+        <li>痠的感覺是集中在正中間，還是某一側比較明顯？</li>
+        <li>坐多久開始有感覺？是半小時、一小時，還是下午特定時段？</li>
+      </ul>
+      <p>這些細節，才是下一步整理身體狀態時更有價值的線索。</p>
+    </section>
 
-      <section class="content-card">
-        <h2>見觀結構會先看什麼</h2>
-        <p>第一，是腰痠出現的時間。坐多久開始明顯？是早上就有，還是下午才出現？</p>
-        <p>第二，是坐著和起身的差異。有些人坐著當下不明顯，但起身那一下卡。有些人起身後走幾步就變鬆，這代表動作轉換很值得觀察。</p>
-        <p>第三，是生活負荷。工作時數、開車時間、睡眠、壓力、運動量和久坐間隔，都會影響腰背張力怎麼累積。</p>
-        
-        
-      </section>
+    <section class="content-card">
+      <h2>起身那一瞬間，其實很值得觀察</h2>
+      <p>很多人沒有注意到，腰最不舒服的時刻，往往不是坐著的時候，而是站起來那一瞬間。</p>
+      <p>坐著的時候，身體處在比較靜止的狀態。站起來時，腰、骨盆和髖部需要一起完成轉換。如果這一段轉換不順，起身那幾步就可能特別卡、特別緊。</p>
+      <p>有些人會下意識用手撐膝蓋才能站起來；有些人會先把身體往前傾，腰才慢慢跟上；有些人則是站起來之後，要走幾步才覺得比較鬆。</p>
+      <p>所以，與其只問「是不是核心太弱」，不如先觀察：你起身的時候，是哪裡先出力？是腿、是腰，還是手？那一瞬間腰的感覺是痠、是卡，還是緊？站起來走幾步之後，腰是變鬆了，還是更沉？</p>
+    </section>
 
-      <section class="content-card">
-        <h2>久坐腰痠不是只靠一個答案被理解</h2>
-        <p>如果有外傷、發燒、明顯腿部無力或大小便控制變化，這類情況要先安排醫療檢查。</p>
-        <p>如果是反覆型久坐腰痠，比較有幫助的不是急著套一個動作，而是整理坐姿、起身、骨盆承重、左右差與工作節奏。</p>
-        <p>線索整理清楚後，身體照顧才會從「到底是不是核心太弱」變成可理解、可執行、有次序的方向。</p>
-        
-        
-      </section>
+    <section class="content-card">
+      <h2>核心不是只有訓練，而是要看它能不能在日常動作裡參與</h2>
+      <p>核心不是沒有功能。它的作用，是讓身體在坐、站、走、彎腰、轉身這些日常動作裡，可以比較平穩地轉換和承接力量。</p>
+      <p>但核心不是只靠做腹部訓練，就會自動在坐著或起身時發揮作用。你更需要觀察的是：它在你的日常使用裡，有沒有機會參與。</p>
+      <p>一個人在做捲腹的時候核心很會收，和他坐著的時候身體能不能維持比較省力的排列，是兩件不同的事。</p>
+      <p>所以與其只問「要不要練核心」，不如問：「我平常的坐姿、起身、站姿，是不是讓身體有機會比較穩定地承接力量？」</p>
+    </section>
+
+    <section class="content-card">
+      <h2>不要只問是不是核心太弱，可以這樣問</h2>
+      <p>不要只問：「久坐腰痠，是不是核心太弱？」</p>
+      <p>可以改成：「我坐辦公室大概一小時之後，腰就開始痠。痠的位置比較接近腰椎那一段，有時候連右邊臀部也會一起緊。起身那瞬間會特別卡，站起來走幾步就會好一點。這樣可以先從哪些坐姿和起身方式開始觀察？」</p>
+      <p>這樣的問法，會讓協助你的人更清楚，你的腰痠不是憑空出現的，而是和你的坐姿習慣、起身轉換、日常生活節奏交織在一起。</p>
+    </section>
+
+    <section class="content-card">
+      <h2>把腰痠從「核心太弱」，還原成身體使用方式</h2>
+      <p>腰痠會讓人挫折，尤其是你明明沒有做什麼特別重的勞動，只是坐著上班，為什麼腰還是會不舒服？</p>
+      <p>但腰痠不是只有「沒力」這一種解釋。它也可能是在提醒你：某個坐姿維持太久了，起身轉換還不夠順，或今天坐的時間太長，身體已經長時間停在比較費力的位置。</p>
+      <p>把這些感受一段一段整理出來，久坐腰痠這四個字就不會只剩下「核心太弱」這個標籤。它會慢慢變成一個可以被理解、可以被觀察、可以被整理的使用線索，而不是一個只能被標籤的身體問題。</p>
+    </section>
 
     <div class="cta-strip" aria-label="頁面入口">
-        <a class="button is-ghost" href="../">回到身體觀察筆記</a>
-        <a class="button" href="../../about/">認識見觀結構</a>
-        <a class="button is-ghost" href="../../north/">北區店</a>
-        <a class="button is-forest" href="../../south/">南區工作室</a>
+      <a class="button is-ghost" href="../">回到身體觀察筆記</a>
+      <a class="button" href="../../about/">認識見觀結構</a>
+      <a class="button is-ghost" href="../../north/">北區店</a>
+      <a class="button is-forest" href="../../south/">南區工作室</a>
     </div>
   </main>
 
