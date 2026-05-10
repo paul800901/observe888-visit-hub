@@ -1,66 +1,52 @@
-# Observe888 GitHub Pages Bundle
+# ObserveGeoPages 品牌與文章官網
 
-這個資料夾是由 AdsControl 的原始頁面自動產生的公開版 bundle，適合直接放到 GitHub Pages 的公開 repo 根目錄。
+這個專案目前承接 `ObserveGeoPages` 的品牌與文章官網；另一邊的微縮官網 / 到店導航官網則維持在 `AdsControl` 產線。
 
-## 建議公開 repo 結構
+## 雙官網分工
 
-- index.html：主落地頁
-- observe888-location-widget-snippet.html：雙店導航元件
-- observe888-tracking-config.js：事件接收器設定
-- observe888-tracking.js：公開頁互動計數器
-- robots.txt：搜尋引擎允許規則與 sitemap 位置
-- sitemap.xml：公開頁索引清單
-- about/index.html：認識見觀結構
-- observations/index.html：身體觀察案例入口
-- notes/index.html：身體觀察筆記入口與文章列表
-- notes/<article>/index.html：身體觀察筆記文章
-- north/index.html：直接跳到北區版
-- north/pricing/index.html：北區店服務與費用頁
-- south/index.html：直接跳到南區版
-- south/pricing/index.html：南區工作室預約說明頁
-- .nojekyll：避免 GitHub Pages 套 Jekyll 處理
+- 到店導航官網：原本的微縮官網，維持在 `D:\AdsControl\frontend\observe888-visit-hub.html`
+- 品牌與文章官網：這個專案 `D:\ObserveGeoPages\observe888-visit-hub`
+- 兩邊都是官網，只是功能不同，而且會互相連結
 
-## 建議 repo 名稱
+## 為什麼資料夾名字還像舊專案
 
-- observe888-visit-hub
+- 這份工作樹是從舊的 `observe888-visit-hub` 歷史快照拉下來的
+- 目前 `origin` 仍是 `paul800901/observe888-visit-hub`
+- 不要只看 repo 名稱判斷專案角色；以目前文件與首頁定位為準
 
-## 發布步驟
+## 目前這個官網放什麼
 
-1. 建立一個新的公開 GitHub repo。
-2. 把這個資料夾內的所有檔案直接放到公開 repo 根目錄。
-3. 到 GitHub repo 的 Settings > Pages，選擇從 main branch / root 發布。
-4. 等 GitHub Pages 完成部署後，再把最終網址填回 Google 商家網站欄位。
+- `index.html`：品牌內容庫首頁
+- `about/index.html`：品牌理解入口
+- `observations/index.html`：觀察案例入口
+- `notes/index.html`：身體觀察筆記列表
+- `notes/<article>/index.html`：公開文章頁
+- `drafts/second-batch/`：第二批 Markdown 工作稿來源，`09` 到 `13` 已轉成公開頁
 
-## 建議網址格式
+## 保留的互連入口
 
-如果 GitHub Pages 網址為：
+- `north/`、`south/`、`north/pricing/`、`south/pricing/`
+- `observe888-location-widget-snippet.html`
+- `observe888-tracking-config.js`
+- `observe888-tracking.js`
 
-- https://<github-username>.github.io/observe888-visit-hub/
+這些檔案目前保留作為雙官網互連與既有路徑相容用途。到店導航官網主 source 仍在 `AdsControl`。
 
-則建議這樣使用：
+## 內容工作原則
 
-- 北區店：https://<github-username>.github.io/observe888-visit-hub/north/
-- 北區費用：https://<github-username>.github.io/observe888-visit-hub/north/pricing/
-- 南區工作室：https://<github-username>.github.io/observe888-visit-hub/south/
-- 南區預約：https://<github-username>.github.io/observe888-visit-hub/south/pricing/
-- 通用頁：https://<github-username>.github.io/observe888-visit-hub/
+- 文章以品牌理解、身體觀察線索、搜尋入口內容為主
+- 不把單一病名直接寫成確定結論或療效承諾
+- 後續草稿先在 `drafts/second-batch/` 潤色，再決定是否逐篇公開
+- 若要改到店導航官網互動、導航、追蹤主流程，請回 `AdsControl`
 
-如果之後改成自訂網域，路徑維持相同：
+## 目前狀態
 
-- https://你的網域/north/
-- https://你的網域/north/pricing/
-- https://你的網域/south/
-- https://你的網域/south/pricing/
-- https://你的網域/
+- 首頁已校正為品牌與文章官網首頁
+- `notes/` 已公開第二批後共 13 篇文章
+- 第二批 `09` 到 `13` 已補進公開列表與 sitemap
 
-## 重新產生方式
+## 接手時先讀
 
-請回原始 repo 執行下列指令重新產生：
-
-npm run build:observe888-public
-
-## 備註
-
-- 這個公開 repo 只放公開落地頁，不要混入 AdsControl 後端、docs、reports、.env 或任何內部資料。
-- north/ 和 south/ 是乾淨捷徑入口，實際上會導向同一份主頁並自動切到對應分店。
-- 若要啟用公開頁互動計數，請在 observe888-tracking-config.js 內填入 GAS Web App endpoint。
+1. `PROJECT_CONTEXT.md`
+2. `HANDOFF.md`
+3. `SOUTH_HANDOFF.md`
