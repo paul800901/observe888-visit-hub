@@ -23,6 +23,7 @@
 ## 目前結構
 
 - `index.html`：品牌與文章官網首頁
+- `visit/index.html`：到店導航官網入口
 - `about/index.html`：品牌介紹入口
 - `observations/index.html`：舊入口過渡頁，會導向 `notes/`
 - `notes/index.html`：公開文章列表
@@ -34,7 +35,7 @@
 
 - 文件已改回正確分工：`AdsControl` 那邊是到店導航官網，這邊是品牌與文章官網
 - 根首頁已改成品牌與文章官網首頁
-- 舊的 `?store=north` / `?store=south` 連結仍可導回對應店別入口
+- 舊的 `?store=north` / `?store=south` 連結會導回 `visit/?store=north` 或 `visit/?store=south`
 - `notes/` 已補到第二批，公開列表現為 13 篇文章
 - 第二批 `09` 到 `13` 已建立公開頁，並補進 `notes/index.html` 與 `sitemap.xml`
 

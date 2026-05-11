@@ -44,6 +44,7 @@
 ## 目前這個品牌與文章官網實際放了什麼
 
 - `index.html`：品牌內容庫首頁
+- `visit/index.html`：到店導航官網入口，承接 AdsControl 產線的微縮官網 / 雙店導航
 - `about/`：品牌介紹入口
 - `observations/`：舊入口過渡頁，會導向 `notes/`
 - `notes/`：公開文章列表與文章頁
@@ -53,6 +54,7 @@
 
 這個工作目錄雖然已改成品牌與文章官網，但目前仍保留：
 
+- `visit/`
 - `north/`
 - `south/`
 - `north/pricing/`
@@ -68,8 +70,9 @@
 ## 目前首頁與路徑策略
 
 - 根首頁 `index.html` 現在應該是品牌與文章官網首頁，不再是到店導航官網首頁
+- `visit/` 是目前公開的到店導航入口；不要把「回到導航頁」連到舊官網 `observe888.com`
 - `notes/` 是目前公開文章庫入口
-- 若有人仍使用舊的 `?store=north` / `?store=south` 連結，首頁會轉回對應 `north/` 或 `south/` 入口，避免舊流量直接失效
+- 若有人仍使用舊的 `?store=north` / `?store=south` 連結，首頁會轉回 `visit/?store=north` 或 `visit/?store=south`，避免舊流量直接失效
 - 文章頁與品牌頁只保留回到導航官網入口，不直接鋪北區 / 南區 / LINE / 電話按鈕
 
 ## 內容現況

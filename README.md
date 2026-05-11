@@ -17,6 +17,7 @@
 ## 目前這個官網放什麼
 
 - `index.html`：品牌內容庫首頁
+- `visit/index.html`：到店導航官網入口
 - `about/index.html`：品牌理解入口
 - `observations/index.html`：舊入口過渡頁，會導向 `notes/`
 - `notes/index.html`：身體觀察筆記列表
@@ -26,6 +27,7 @@
 ## 保留的互連入口
 
 - `north/`、`south/`、`north/pricing/`、`south/pricing/`
+- `visit/`
 - `observe888-location-widget-snippet.html`
 - `observe888-tracking-config.js`
 - `observe888-tracking.js`

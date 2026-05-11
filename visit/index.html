@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <title>見觀結構｜身體結構觀察與傳統整復推拿</title>
+  <meta name="description" content="見觀結構提供身體結構觀察、傳統整復推拿、姿勢與承重線索整理，協助把身體感受、張力變化與生活負荷整理成更清楚的觀察方向。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5ecdf;
+      --paper: rgba(255, 251, 245, 0.84);
+      --line: rgba(87, 63, 48, 0.14);
+      --text: #3f2e22;
+      --muted: #6f5a49;
+      --accent: #a14f2a;
+      --forest: #2e5e4b;
+      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 32%),
+        radial-gradient(circle at 82% 14%, rgba(241, 194, 121, 0.3), rgba(241, 194, 121, 0) 20%),
+        linear-gradient(180deg, #fbf6ee 0%, var(--bg) 48%, #f0e4d4 100%);
+    }
+
+    a {
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .hub-shell {
+      width: min(1240px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-copy {
+      display: grid;
+      gap: 6px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-point {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(161, 79, 42, 0.08);
+      color: #7e381d;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-point::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(161, 79, 42, 0.12);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(161, 79, 42, 0.1);
+      color: #7e381d;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(161, 79, 42, 0.12);
+    }
+
+    body[data-entry-variant="south"] .eyebrow {
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+    }
+
+    body[data-entry-variant="south"] .eyebrow::before {
+      background: var(--forest);
+      box-shadow: 0 0 0 4px rgba(46, 94, 75, 0.12);
+    }
+
+    body[data-entry-variant="south"] .hero-point {
+      background: rgba(46, 94, 75, 0.08);
+      color: var(--forest);
+    }
+
+    body[data-entry-variant="south"] .hero-point::before {
+      background: var(--forest);
+      box-shadow: 0 0 0 4px rgba(46, 94, 75, 0.12);
+    }
+
+    body[data-entry-variant="south"] .signal-label {
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      color: #7e381d;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .topbar-copy p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    body[data-entry-mode="root"] .hero-points,
+    body[data-entry-mode="root"] #widgetMount,
+    body[data-entry-mode="root"] #firstVisitSection {
+      display: none;
+    }
+
+    body[data-entry-mode="store"] #whatWeDoSection {
+      display: none;
+    }
+
+    body[data-entry-mode="root"] .topbar {
+      align-items: flex-start;
+    }
+
+    .button[hidden] {
+      display: none;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 16px 28px rgba(126, 56, 29, 0.2);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .button.is-forest {
+      background: var(--forest);
+      box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22);
+    }
+
+    .button.is-ghost {
+      background: rgba(161, 79, 42, 0.08);
+      color: #7e381d;
+      box-shadow: none;
+    }
+
+    .widget-frame {
+      min-height: 420px;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .signal-card {
+      display: grid;
+      gap: 12px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .signal-label {
+      display: inline-flex;
+      width: fit-content;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .signal-card h2 {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+    }
+
+    .first-visit {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 251, 245, 0.96) 0%, rgba(248, 239, 228, 0.94) 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .first-visit-copy {
+      display: grid;
+      gap: 8px;
+    }
+
+    .first-visit-copy h2 {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: clamp(24px, 3vw, 32px);
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+    }
+
+    .first-visit-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .first-visit-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .first-visit-step {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border: 1px solid rgba(87, 63, 48, 0.1);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .first-visit-step strong {
+      color: #7e381d;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .first-visit-step span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .first-visit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .signal-card p,
+    .signal-list {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .signal-list {
+      padding-left: 1.2em;
+    }
+
+    .signal-list li + li {
+      margin-top: 8px;
+    }
+
+    .site-links {
+      display: grid;
+      gap: 12px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .site-links h2 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .site-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .site-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(87, 63, 48, 0.07);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .hub-shell {
+        width: min(100vw - 16px, 1240px);
+        padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
+      }
+
+      .topbar {
+        padding: 16px;
+        border-radius: 22px;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+      }
+
+      .topbar-copy {
+        gap: 8px;
+      }
+
+      .hero-points {
+        gap: 8px;
+      }
+
+      .hero-point {
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: clamp(24px, 8vw, 34px);
+      }
+
+      .topbar-copy p,
+      .hero-subtitle,
+      .button {
+        font-size: 16px;
+      }
+
+      .button {
+        width: 100%;
+        min-height: 50px;
+      }
+
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .first-visit {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .first-visit-copy h2 {
+        font-size: 22px;
+      }
+
+      .first-visit-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .signal-card {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .signal-card h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+  <link rel="canonical" href="https://paul800901.github.io/observe888-visit-hub/visit/">
+  <script type="application/ld+json" id="observe888-local-business-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "見觀結構",
+  "alternateName": "見觀結構調理整復所",
+  "description": "見觀結構提供身體結構觀察、傳統整復推拿、姿勢與承重線索整理。",
+  "url": "https://paul800901.github.io/observe888-visit-hub/visit/",
+  "areaServed": {
+    "@type": "Country",
+    "name": "台灣"
+  },
+  "department": [
+    {
+      "@type": "LocalBusiness",
+      "name": "見觀結構調理整復所-北區店",
+      "url": "https://paul800901.github.io/observe888-visit-hub/north/",
+      "telephone": "+886-6-251-0677",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "704",
+        "addressRegion": "台南市",
+        "addressLocality": "北區",
+        "streetAddress": "北安路一段 211 號",
+        "addressCountry": "TW"
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E5%8C%97%E5%AE%89%E8%B7%AF%E4%B8%80%E6%AE%B5211%E8%99%9F",
+      "openingHours": "Tu-Su 11:00-21:00"
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "見觀結構調理整復所-南區店",
+      "url": "https://paul800901.github.io/observe888-visit-hub/south/",
+      "telephone": "+886-973-728-670",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "702",
+        "addressRegion": "台南市",
+        "addressLocality": "南區",
+        "streetAddress": "明興路 673 號",
+        "addressCountry": "TW"
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <main id="widgetZone" class="hub-shell">
+    <section class="topbar">
+      <div class="topbar-copy">
+        <span id="heroEyebrow" class="eyebrow">見觀微縮官網 / 到店導航站</span>
+        <h1 id="heroTitle">見觀結構</h1>
+        <p id="heroSubtitle" class="hero-subtitle">身體結構觀察、傳統整復推拿與姿勢承重線索整理</p>
+        <p id="heroLead">見觀結構協助把身體感受、姿勢、承重、張力與生活負荷，整理成較清楚的觀察線索。請選擇方便前往的地點，或先閱讀服務方式與身體觀察筆記。</p>
+        <div class="hero-points" aria-label="這頁可以做什麼">
+          <span id="heroPoint1" class="hero-point">身體結構觀察</span>
+          <span id="heroPoint2" class="hero-point">傳統整復推拿</span>
+          <span id="heroPoint3" class="hero-point">姿勢與承重線索整理</span>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a id="heroPrimaryCta" class="button" href="#widgetMount">直接看導航</a>
+        <a id="heroSecondaryCta" class="button is-ghost" href="#whatWeDoSection">我們在做什麼</a>
+        <a id="heroTertiaryCta" class="button is-forest" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+        <a id="heroQuaternaryCta" class="button is-ghost" href="tel:062510677">北區電話</a>
+        <a id="heroQuinaryCta" class="button is-ghost" href="tel:0973728670">南區電話</a>
+      </div>
+    </section>
+
+    <div id="widgetMount" class="widget-frame"></div>
+
+    <section id="firstVisitSection" class="first-visit" aria-labelledby="firstVisitTitle">
+      <div class="first-visit-copy">
+        <span id="firstVisitLabel" class="signal-label">第一次來，先看這裡</span>
+        <h2 id="firstVisitTitle">先看哪一間離你近，再看入口、聯絡方式與導航方式。</h2>
+        <p id="firstVisitLead">如果你是第一次來，不用研究很多，先確認分店、入口和聯絡方式就夠了。</p>
+      </div>
+
+      <div class="first-visit-steps">
+        <article class="first-visit-step">
+          <strong id="firstVisitStep1Title">先選最近的店</strong>
+          <span id="firstVisitStep1Body">北區店和南區工作室都能處理，但先選離你近的那一間，來店體驗通常會更順。</span>
+        </article>
+
+        <article class="first-visit-step">
+          <strong id="firstVisitStep2Title">再看入口資訊</strong>
+          <span id="firstVisitStep2Body">第一次來不必硬記地址，先對一下門口、路口和門牌資訊，出發時比較安心。</span>
+        </article>
+
+        <article class="first-visit-step">
+          <strong id="firstVisitStep3Title">最後決定怎麼聯絡</strong>
+          <span id="firstVisitStep3Body">你可以直接 Google Maps 導航，也可以先用 LINE 或電話確認，找到最適合自己的節奏。</span>
+        </article>
+      </div>
+
+      <div class="first-visit-actions">
+        <a id="firstVisitPrimaryAction" class="button" href="#widgetMount">看雙店導航</a>
+        <a id="firstVisitSecondaryAction" class="button is-ghost" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+      </div>
+    </section>
+
+    <section id="whatWeDoSection" class="signal-grid" aria-label="見觀快速說明">
+      <article class="signal-card">
+        <span class="signal-label">我們在做什麼</span>
+        <h2>以身體結構觀察、傳統整復推拿與姿勢承重線索整理為核心。</h2>
+        <p>見觀結構協助把常見卻說不太清楚的身體感受，連同姿勢、承重、張力與生活負荷一起整理。你不用先懂很多術語，先知道服務方式，再決定要去哪一間就夠了。</p>
+      </article>
+
+      <article class="signal-card">
+        <span class="signal-label">怎麼選哪一間</span>
+        <h2>兩間都能到店，先選離你近、聯絡方便的一間。</h2>
+        <ol class="signal-list">
+          <li>北區店比較像門市型入口，先看門口、轉彎點和入口資訊。</li>
+          <li>南區工作室先看路口、門牌和可安排時段，再出發會更順。</li>
+          <li>選好分店後，再進單店頁看導航、電話和 LINE 預約。</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="site-links" aria-labelledby="siteLinksTitle">
+      <h2 id="siteLinksTitle">先閱讀服務方式與身體觀察筆記</h2>
+      <div class="site-link-row">
+        <a class="site-link" href="../about/">認識見觀結構</a>
+        <a class="site-link" href="../observations/">身體觀察案例</a>
+        <a class="site-link" href="../notes/">身體觀察筆記</a>
+        <a class="site-link" href="../north/pricing/">北區服務與費用</a>
+        <a class="site-link" href="../south/pricing/">南區服務與費用</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="../observe888-tracking-config.js"></script>
+  <script src="../observe888-tracking.js"></script>
+  <script>
+    const lineBookingUrl = 'https://line.me/ti/p/~@483yvmiw';
+
+    const storeAliases = {
+      north: 'north',
+      northstore: 'north',
+      northshop: 'north',
+      south: 'south',
+      southstore: 'south',
+      southstudio: 'south',
+      studio: 'south'
+    };
+
+    function resolveEntryVariant() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const rawValue = String(params.get('store') || params.get('location') || '').trim().toLowerCase();
+        return storeAliases[rawValue] || 'default';
+      } catch {
+        return 'default';
+      }
+    }
+
+    function buildStoreUrl(storeKey) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('location');
+      url.searchParams.set('store', storeKey);
+      url.hash = '';
+      return `${url.pathname}${url.search}`;
+    }
+
+    function applyLink(anchor, config) {
+      if (!anchor || !config) {
+        return;
+      }
+
+      anchor.textContent = config.label;
+      anchor.href = config.href;
+
+      if (config.target) {
+        anchor.target = config.target;
+      } else {
+        anchor.removeAttribute('target');
+      }
+
+      if (config.rel) {
+        anchor.rel = config.rel;
+      } else {
+        anchor.removeAttribute('rel');
+      }
+    }
+
+    function applyButtonTone(anchor, tone) {
+      if (!anchor) {
+        return;
+      }
+
+      anchor.classList.remove('is-forest', 'is-ghost');
+
+      if (tone === 'forest') {
+        anchor.classList.add('is-forest');
+      } else if (tone === 'ghost') {
+        anchor.classList.add('is-ghost');
+      }
+    }
+
+    function bindTrackedClick(anchor, options) {
+      const tracker = window.Observe888Tracker;
+      if (!anchor || !tracker || typeof tracker.bindTrackClick !== 'function') {
+        return;
+      }
+
+      tracker.bindTrackClick(anchor, options);
+    }
+
+    function trackVariantPageView(variantKey) {
+      const tracker = window.Observe888Tracker;
+      if (!tracker || typeof tracker.trackPageView !== 'function') {
+        return;
+      }
+
+      if (variantKey === 'north') {
+        tracker.trackPageView('page_view_north', { store: 'north', page_role: 'north_entry' });
+        return;
+      }
+
+      if (variantKey === 'south') {
+        tracker.trackPageView('page_view_south', { store: 'south', page_role: 'south_entry' });
+        return;
+      }
+
+      tracker.trackPageView('page_view_home', { store: '', page_role: 'home' });
+    }
+
+    function bindVariantTracking(variantKey) {
+      const sharedHomeLine = {
+        eventName: 'click_line_home',
+        store: '',
+        page_role: 'home',
+        cta_type: 'line'
+      };
+
+      trackVariantPageView(variantKey);
+
+      if (variantKey === 'north') {
+        bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
+          eventName: 'click_line_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'line',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
+          eventName: 'click_call_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'call',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), {
+          eventName: 'click_call_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'call',
+          cta_position: 'first_visit'
+        });
+        return;
+      }
+
+      if (variantKey === 'south') {
+        bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
+          eventName: 'click_line_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'line',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
+          eventName: 'click_call_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'call',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), {
+          eventName: 'click_call_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'call',
+          cta_position: 'first_visit'
+        });
+        return;
+      }
+
+      bindTrackedClick(document.querySelector('#heroTertiaryCta'), Object.assign({ cta_position: 'hero' }, sharedHomeLine));
+      bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
+        eventName: 'click_call_north',
+        store: 'north',
+        page_role: 'home',
+        cta_type: 'call',
+        cta_position: 'hero'
+      });
+      bindTrackedClick(document.querySelector('#heroQuinaryCta'), {
+        eventName: 'click_call_south',
+        store: 'south',
+        page_role: 'home',
+        cta_type: 'call',
+        cta_position: 'hero'
+      });
+      bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), Object.assign({ cta_position: 'first_visit' }, sharedHomeLine));
+    }
+
+    function applyHeroCtas(configs) {
+      const anchors = [
+        document.querySelector('#heroPrimaryCta'),
+        document.querySelector('#heroSecondaryCta'),
+        document.querySelector('#heroTertiaryCta'),
+        document.querySelector('#heroQuaternaryCta'),
+        document.querySelector('#heroQuinaryCta')
+      ];
+      const row = document.querySelector('.cta-row');
+
+      anchors.forEach((anchor, index) => {
+        const config = configs[index];
+        if (!anchor) {
+          return;
+        }
+
+        if (!config) {
+          anchor.hidden = true;
+          anchor.removeAttribute('href');
+          anchor.removeAttribute('target');
+          anchor.removeAttribute('rel');
+          anchor.textContent = '';
+          applyButtonTone(anchor, 'accent');
+          return;
+        }
+
+        anchor.hidden = false;
+        applyLink(anchor, config);
+        applyButtonTone(anchor, config.tone || 'accent');
+      });
+
+      if (row) {
+        row.hidden = !configs.length;
+      }
+    }
+
+    const entryVariants = {
+      default: {
+        mode: 'root',
+        pageTitle: '見觀結構｜身體結構觀察與傳統整復推拿',
+        pageDescription: '見觀結構提供身體結構觀察、傳統整復推拿、姿勢與承重線索整理，協助把身體感受、張力變化與生活負荷整理成更清楚的觀察方向。',
+        hero: {
+          eyebrow: '見觀微縮官網 / 到店導航站',
+          title: '見觀結構',
+          subtitle: '身體結構觀察、傳統整復推拿與姿勢承重線索整理',
+          lead: '見觀結構協助把身體感受、姿勢、承重、張力與生活負荷，整理成較清楚的觀察線索。請選擇方便前往的地點，或先閱讀服務方式與身體觀察筆記。',
+          points: ['身體結構觀察', '傳統整復推拿', '姿勢與承重線索整理'],
+          ctas: [
+            { label: '北區店入口', href: buildStoreUrl('north'), tone: 'accent' },
+            { label: '南區工作室入口', href: buildStoreUrl('south'), tone: 'forest' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
+            { label: '北區電話', href: 'tel:062510677', tone: 'ghost' },
+            { label: '南區電話', href: 'tel:0973728670', tone: 'ghost' }
+          ]
+        },
+        firstVisit: {
+          label: '第一次來，先看這裡',
+          title: '先看哪一間離你近，再看入口、聯絡方式與導航方式。',
+          lead: '如果你是第一次來，不用研究很多，先確認分店、入口和聯絡方式就夠了。',
+          steps: [
+            { title: '先選最近的店', body: '北區店和南區工作室都能處理，但先選離你近的那一間，來店體驗通常會更順。' },
+            { title: '再看入口資訊', body: '第一次來不必硬記地址，先對一下門口、路口和門牌資訊，出發時比較安心。' },
+            { title: '最後決定怎麼聯絡', body: '你可以直接 Google Maps 導航，也可以先用 LINE 或電話確認，找到最適合自己的節奏。' }
+          ],
+          actions: [
+            { label: '看雙店導航', href: '#widgetMount' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' }
+          ]
+        }
+      },
+      north: {
+        mode: 'store',
+        pageTitle: '見觀北區店入口 | 見觀結構調理整復所',
+        pageDescription: '北區店入口頁。先了解第一次來北區店大概會怎麼進行，再看北區店門口、入口資訊與導航方式，直接來電或 LINE 預約。',
+        hero: {
+          eyebrow: '見觀北區店入口',
+          title: '北區店，先看入口再直接出發。',
+          subtitle: '門市型入口，先看地圖、電話與 LINE 預約方式',
+          lead: '北區店第一次來，先看門口、入口資訊和電話，再直接導航或 LINE 預約。',
+          points: ['北區門市型入口', '先看門口與轉彎點', '導航 / 電話 / LINE'],
+          ctas: [
+            { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
+            { label: '北區直接來電', href: 'tel:062510677', tone: 'ghost' },
+            { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
+            { label: '服務與費用', href: '../north/pricing/', tone: 'ghost' }
+          ]
+        },
+        firstVisit: {
+          label: '第一次來，先看北區',
+          title: '來了就說哪裡不舒服，不用先做功課。',
+          lead: '北區是門市型入口，走進來直接說身體感受就好，不需要準備資料或事前了解太多。',
+          steps: [
+            { title: '說清楚哪裡不對勁', body: '不用醫學詞彙，就說哪裡痠、緊、卡、怪，你的主觀感受最有參考價值。' },
+            { title: '以手法先處理', body: '說完狀況後直接開始，多半在同一次就能感覺到一點差異。' },
+            { title: '帶幾個方向回去', body: '最後補上活動或訓練方向，讓你知道這次做完之後怎麼延續。' }
+          ],
+          actions: [
+            { label: '看北區導航與入口', href: '#widgetMount' },
+            { label: '北區直接來電', href: 'tel:062510677' }
+          ]
+        }
+      },
+      south: {
+        mode: 'store',
+        pageTitle: '見觀南區工作室入口 | 見觀結構調理整復所',
+        pageDescription: '南區工作室入口頁。先了解第一次來南區工作室大概會怎麼進行，再看路口、聯絡與導航方式，直接來電或 LINE 預約。',
+        hero: {
+          eyebrow: '見觀南區工作室入口',
+          title: '南區工作室，先確認時段再直接出發。',
+          subtitle: '預約制工作室，先確認可安排時段與到店方式',
+          lead: '南區工作室第一次來，先看路口、聯絡方式和可安排時段，再直接導航或 LINE 預約。',
+          points: ['先確認可安排時段', '先看路口與門牌', '導航 / 電話 / LINE'],
+          ctas: [
+            { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
+            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
+            { label: '南區直接來電', href: 'tel:0973728670', tone: 'ghost' },
+            { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
+            { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
+          ]
+        },
+        firstVisit: {
+          label: '第一次來，先看南區',
+          title: '先確認時段，來了一樣說哪裡不舒服就好。',
+          lead: '南區是工作室形式，一對一比較細；建議先確認可安排時段，其他跟一般來店一樣。',
+          steps: [
+            { title: '先確認有位子', body: '出發前先 LINE 或電話確認時段，省去臨時等候的情況。' },
+            { title: '來了說清楚感受', body: '說哪裡卡、哪裡不順就夠了，不需要準備太多，接下來依現場狀態整理。' },
+            { title: '帶回幾個延續方向', body: '調整完會補幾個簡單的活動方向，讓你知道回去之後怎麼繼續。' }
+          ],
+          actions: [
+            { label: '看南區導航與入口', href: '#widgetMount' },
+            { label: '南區直接來電', href: 'tel:0973728670' }
+          ]
+        }
+      }
+    };
+
+    function applyEntryVariant() {
+      const variantKey = resolveEntryVariant();
+      const variant = entryVariants[variantKey] || entryVariants.default;
+      const descriptionMeta = document.querySelector('meta[name="description"]');
+
+      document.body.dataset.entryMode = variant.mode;
+      document.body.dataset.entryVariant = variantKey;
+
+      document.title = variant.pageTitle;
+      if (descriptionMeta) {
+        descriptionMeta.setAttribute('content', variant.pageDescription);
+      }
+
+      document.querySelector('#heroEyebrow').textContent = variant.hero.eyebrow;
+      document.querySelector('#heroTitle').textContent = variant.hero.title;
+      document.querySelector('#heroSubtitle').textContent = variant.hero.subtitle;
+      document.querySelector('#heroLead').textContent = variant.hero.lead;
+      document.querySelector('#heroPoint1').textContent = variant.hero.points[0];
+      document.querySelector('#heroPoint2').textContent = variant.hero.points[1];
+      document.querySelector('#heroPoint3').textContent = variant.hero.points[2];
+      applyHeroCtas(variant.hero.ctas);
+
+      document.querySelector('#firstVisitLabel').textContent = variant.firstVisit.label;
+      document.querySelector('#firstVisitTitle').textContent = variant.firstVisit.title;
+      document.querySelector('#firstVisitLead').textContent = variant.firstVisit.lead;
+      document.querySelector('#firstVisitStep1Title').textContent = variant.firstVisit.steps[0].title;
+      document.querySelector('#firstVisitStep1Body').textContent = variant.firstVisit.steps[0].body;
+      document.querySelector('#firstVisitStep2Title').textContent = variant.firstVisit.steps[1].title;
+      document.querySelector('#firstVisitStep2Body').textContent = variant.firstVisit.steps[1].body;
+      document.querySelector('#firstVisitStep3Title').textContent = variant.firstVisit.steps[2].title;
+      document.querySelector('#firstVisitStep3Body').textContent = variant.firstVisit.steps[2].body;
+      applyLink(document.querySelector('#firstVisitPrimaryAction'), variant.firstVisit.actions[0]);
+      applyLink(document.querySelector('#firstVisitSecondaryAction'), variant.firstVisit.actions[1]);
+      bindVariantTracking(variantKey);
+    }
+
+    applyEntryVariant();
+
+    async function mountWidget() {
+      const mount = document.querySelector('#widgetMount');
+      const widgetUrl = new URL('../observe888-location-widget-snippet.html', window.location.href);
+      const buildStamp = Date.parse(document.lastModified || '');
+
+      if (!Number.isNaN(buildStamp)) {
+        widgetUrl.searchParams.set('v', String(buildStamp));
+      }
+
+      const response = await fetch(widgetUrl);
+      if (!response.ok) {
+        throw new Error(`載入導航元件失敗：${response.status}`);
+      }
+
+      mount.innerHTML = await response.text();
+
+      const scripts = Array.from(mount.querySelectorAll('script'));
+      for (const oldScript of scripts) {
+        const newScript = document.createElement('script');
+        for (const attribute of oldScript.attributes) {
+          newScript.setAttribute(attribute.name, attribute.value);
+        }
+        newScript.textContent = oldScript.textContent;
+        oldScript.replaceWith(newScript);
+      }
+    }
+
+    if (document.body.dataset.entryMode === 'store') {
+      mountWidget().catch((error) => {
+        const mount = document.querySelector('#widgetMount');
+        mount.innerHTML = `<p style="margin:0;padding:20px;border-radius:18px;background:rgba(161,79,42,0.08);color:#7e381d;line-height:1.8;">${String(error.message || error)}</p>`;
+      });
+    }
+  </script>
+</body>
+</html>
