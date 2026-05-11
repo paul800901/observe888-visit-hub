@@ -39,13 +39,13 @@
 - 工作目錄：`D:\ObserveGeoPages\observe888-visit-hub`
 - 主要任務：承載品牌理解、身體觀察筆記、搜尋入口內容、AI 搜尋可讀內容
 - 公開定位：見觀結構｜身體觀察筆記
-- 內容類型：品牌介紹、觀察案例入口、公開文章、後續主題群與長尾文章
+- 內容類型：品牌介紹、公開文章、主題總整理頁、後續主題群與長尾文章
 
 ## 目前這個品牌與文章官網實際放了什麼
 
 - `index.html`：品牌內容庫首頁
 - `about/`：品牌介紹入口
-- `observations/`：觀察案例入口
+- `observations/`：舊入口過渡頁，會導向 `notes/`
 - `notes/`：公開文章列表與文章頁
 - `drafts/second-batch/`：第二批草稿與公開前工作稿來源
 
@@ -87,7 +87,7 @@
 
 - `index.html`
 - `about/`
-- `observations/`
+- `observations/`（舊入口過渡頁）
 - `notes/`
 - `drafts/second-batch/`
 

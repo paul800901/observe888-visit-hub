@@ -24,7 +24,7 @@
 
 - `index.html`：品牌與文章官網首頁
 - `about/index.html`：品牌介紹入口
-- `observations/index.html`：觀察案例入口
+- `observations/index.html`：舊入口過渡頁，會導向 `notes/`
 - `notes/index.html`：公開文章列表
 - `notes/*/index.html`：公開文章頁
 - `drafts/second-batch/`：第二批草稿
@@ -42,14 +42,14 @@
 
 - `notes/` 目前已公開 13 篇文章
 - `drafts/second-batch/` 仍保留第二批 Markdown 工作稿
-- 品牌內容首頁、`about/`、`observations/`、`notes/` 是目前主工作面
+- 品牌內容首頁、`about/`、`notes/` 是目前主工作面；`observations/` 只保留舊入口過渡用途
 
 ## 如果接下來要做什麼
 
 ### 要做品牌內容工作
 
 - 直接在這個工作目錄內續做
-- 優先改 `index.html`、`about/`、`observations/`、`notes/`
+- 優先改 `index.html`、`about/`、`notes/`；若碰到舊連結相容性再看 `observations/`
 - 後續新草稿公開前先做最終潤色與安全化
 
 ### 要做到店導航官網主流程

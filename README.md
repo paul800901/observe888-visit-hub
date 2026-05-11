@@ -18,7 +18,7 @@
 
 - `index.html`：品牌內容庫首頁
 - `about/index.html`：品牌理解入口
-- `observations/index.html`：觀察案例入口
+- `observations/index.html`：舊入口過渡頁，會導向 `notes/`
 - `notes/index.html`：身體觀察筆記列表
 - `notes/<article>/index.html`：公開文章頁
 - `drafts/second-batch/`：第二批 Markdown 工作稿來源，`09` 到 `13` 已轉成公開頁
