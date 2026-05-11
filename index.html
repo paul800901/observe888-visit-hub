@@ -430,7 +430,7 @@
         <p>見觀結構目前採雙官網分工：這裡承接品牌與文章內容；若要選店、看到店方式或找聯絡入口，再回到原本的導航官網即可。</p>
       </div>
       <div class="bridge-actions">
-        <a class="button is-forest" href="https://www.observe888.com/">回到導航頁</a>
+        <a class="button is-forest" href="visit/">回到導航頁</a>
       </div>
     </section>
 
@@ -443,14 +443,13 @@
     (function () {
       const params = new URLSearchParams(window.location.search);
       const store = params.get('store');
-      const navigationBaseUrl = 'https://www.observe888.com/';
 
       if (store === 'north' || store === 'south') {
-        const target = new URL(store + '/', navigationBaseUrl);
+        const target = new URL('visit/', window.location.href);
+        target.searchParams.set('store', store);
         params.delete('store');
-        const remaining = params.toString();
-        if (remaining) {
-          target.search = remaining;
+        for (const [key, value] of params.entries()) {
+          target.searchParams.append(key, value);
         }
         window.location.replace(target.toString());
         return;
