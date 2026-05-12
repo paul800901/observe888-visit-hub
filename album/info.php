@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.observe888.com/notes/">
+  <title>內容已整理｜見觀結構</title>
+</head>
+<body>
+  <main>
+    <h1>舊內容頁已整理到身體觀察筆記</h1>
+    <p>舊站案例與知識分享內容已整理到新版身體觀察筆記與品牌內容。</p>
+    <p><a href="/notes/">身體觀察筆記</a>｜<a href="/about/">品牌介紹</a>｜<a href="/">新版首頁</a></p>
+  </main>
+  <script>
+    window.location.replace('/notes/');
+  </script>
+</body>
+</html>
