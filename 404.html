@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <title>頁面已整理｜見觀結構</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f1e8;
+      --paper: #fffaf3;
+      --text: #3f2e22;
+      --muted: #745f4e;
+      --accent: #a14f2a;
+      --forest: #2e5e4b;
+      --line: rgba(87, 63, 48, 0.16);
+      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0) 34%),
+        linear-gradient(180deg, #fbf6ee 0%, var(--bg) 100%);
+    }
+
+    main {
+      width: min(680px, 100%);
+      padding: 28px;
+      display: grid;
+      gap: 18px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    p,
+    h1 {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.25;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a.secondary {
+      background: var(--forest);
+    }
+
+    a.ghost {
+      color: var(--text);
+      background: rgba(87, 63, 48, 0.08);
+    }
+
+    @media (max-width: 560px) {
+      main {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>這個舊頁面已經整理到新版網站</h1>
+    <p>如果你是從 Google 舊分頁點進來，內容已經改放在新版首頁、身體觀察筆記與導覽入口。舊站連結會等 Google 重新整理後逐步淡出。</p>
+    <div class="actions" aria-label="新版網站入口">
+      <a href="/">回新版首頁</a>
+      <a class="secondary" href="/visit/">前往導覽入口</a>
+      <a class="ghost" href="/notes/">看身體觀察筆記</a>
+    </div>
+  </main>
+  <script>
+    (function () {
+      const legacyPath = window.location.pathname;
+      const isLegacyPaperPath = legacyPath.indexOf('/paper/') === 0 || legacyPath.slice(-4) === '.php';
+
+      if (!isLegacyPaperPath) {
+        return;
+      }
+
+      const target = new URL('/visit/', window.location.origin);
+      const passthroughKeys = ['gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'];
+      const incoming = new URLSearchParams(window.location.search);
+
+      incoming.forEach(function (value, key) {
+        const lowerKey = key.toLowerCase();
+        if (lowerKey.indexOf('utm_') === 0 || passthroughKeys.indexOf(lowerKey) !== -1) {
+          target.searchParams.append(key, value);
+        }
+      });
+
+      window.location.replace(target.toString());
+    }());
+  </script>
+</body>
+</html>
