@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://paul800901.github.io/observe888-visit-hub/sitemap.xml
+Sitemap: https://www.observe888.com/sitemap.xml
