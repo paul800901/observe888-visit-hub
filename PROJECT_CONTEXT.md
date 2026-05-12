@@ -1,6 +1,6 @@
 # ObserveGeoPages 雙官網脈絡
 
-最後更新：2026-05-11
+最後更新：2026-05-12
 
 ## 一句話定位
 
@@ -77,7 +77,7 @@
 
 ## 內容現況
 
-- `notes/` 目前已公開 13 篇文章
+- `notes/` 目前已公開 19 篇文章與 4 頁主題總整理
 - `tight-feet-observation` 已恢復公開
 - 第二批 `drafts/second-batch/09` 到 `13` 已同步建立公開頁
 - 第二批已補進 `notes/index.html` 與 `sitemap.xml`，草稿仍保留在 `drafts/second-batch/`
