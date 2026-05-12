@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <meta http-equiv="refresh" content="0; url=/visit/">
+  <title>舊站分頁已整理｜見觀結構</title>
+</head>
+<body>
+  <p>舊站分頁已整理到新版導覽入口，正在前往 <a href="/visit/">新版導覽入口</a>。</p>
+  <script>
+    (function () {
+      const target = new URL('/visit/', window.location.origin);
+      const passthroughKeys = ['gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'];
+      const incoming = new URLSearchParams(window.location.search);
+
+      incoming.forEach(function (value, key) {
+        const lowerKey = key.toLowerCase();
+        if (lowerKey.indexOf('utm_') === 0 || passthroughKeys.indexOf(lowerKey) !== -1) {
+          target.searchParams.append(key, value);
+        }
+      });
+
+      window.location.replace(target.toString());
+    }());
+  </script>
+</body>
+</html>
