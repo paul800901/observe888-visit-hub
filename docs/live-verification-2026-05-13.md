@@ -32,7 +32,7 @@ Verified by direct HTTP readback after push:
 Public Google Maps search URLs responded with HTTP 200 and returned content containing `見觀` for both queries:
 
 - `見觀結構調理整復所-北區店`
-- `見觀結構調理整復所-南區工作室`
+- South location query used the then-current site label. Current visible Google Business name readback is recorded in `docs/google-business-visible-readback-2026-05-13.md`.
 
 This is only a public smoke check. It is not a Google Business Profile backend readback.
 

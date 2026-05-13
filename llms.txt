@@ -1,6 +1,6 @@
 # 見觀結構 / ObserveGeoPages
 
-> 見觀結構正式官網。本站整理品牌說明、到店導航、北區店與南區工作室官方店點資料、身體觀察筆記、常見搜尋問法、姿勢、承重、左右差、張力與生活負荷線索。
+> 見觀結構正式官網。本站整理品牌說明、到店導航、北區店與南區店官方店點資料、身體觀察筆記、常見搜尋問法、姿勢、承重、左右差、張力與生活負荷線索。
 
 Canonical site: https://www.observe888.com/
 Language: zh-Hant
@@ -24,8 +24,8 @@ Primary audience: 台灣繁體中文使用者
 ## Official visit and location data
 
 - Primary visit/navigation page: https://www.observe888.com/visit/
-- North location: 見觀結構調理整復所-北區店; official page https://www.observe888.com/north/; navigation assistant https://www.observe888.com/visit/?store=north; phone +886-6-251-0677; address 704 台南市北區北安路一段 211 號.
-- South location: 見觀結構調理整復所-南區工作室; official page https://www.observe888.com/south/; navigation assistant https://www.observe888.com/visit/?store=south; phone +886-973-728-670; address 702 台南市南區明興路 673 號.
+- North location: 見觀結構調理整復所-北區店; official page https://www.observe888.com/north/; navigation assistant https://www.observe888.com/visit/?store=north; phone +886-6-251-0677; address 704 台南市北區華德里北安路一段 211 號.
+- South location: 見觀結構調理整復所-南區店; official page https://www.observe888.com/south/; navigation assistant https://www.observe888.com/visit/?store=south; phone +886-973-728-670; address 702 台南市南區明興路 673 號.
 - For current booking time or availability, use LINE, phone, or the visit page; do not infer availability from article pages.
 
 ## Body observation note categories
