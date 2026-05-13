@@ -43,6 +43,12 @@
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
     }
+    p a {
+      color: var(--accent);
+      font-weight: 800;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.18em;
+    }
     .shell {
       width: min(980px, calc(100vw - 28px));
       margin: 0 auto;
@@ -66,8 +72,8 @@
     .back-link, .topnav-link {
       display: inline-flex;
       align-items: center;
-      min-height: 38px;
-      padding: 0 12px;
+      min-height: 44px;
+      padding: 0 14px;
       border-radius: 999px;
       background: rgba(87, 63, 48, 0.07);
       color: var(--muted);
@@ -115,7 +121,7 @@
     p, li {
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.85;
+      line-height: 1.95;
     }
     .faq-grid {
       display: grid;
@@ -145,8 +151,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 0 16px;
+      min-height: 52px;
+      padding: 0 18px;
       border-radius: 999px;
       background: var(--accent);
       color: #fff;
@@ -175,7 +181,7 @@
       font-size: 13px;
       line-height: 1.75;
     }
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
       .shell {
         width: min(100vw - 16px, 980px);
         padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
@@ -187,9 +193,13 @@
       .faq-grid {
         grid-template-columns: 1fr;
       }
+      .link-list,
+      .cta-strip {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
       .button {
         width: 100%;
-        min-height: 50px;
         font-size: 16px;
       }
       .topnav-brand {
