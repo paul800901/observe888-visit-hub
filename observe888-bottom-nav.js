@@ -18,6 +18,7 @@
     home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path></svg>',
     notes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 3h9l3 3v15H6z"></path><path d="M14 3v4h4"></path><path d="M8.5 11h7"></path><path d="M8.5 15h7"></path></svg>',
     about: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 10v7"></path><path d="M12 7h.01"></path></svg>',
+    faq: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.6 2.6 0 0 1 5 1c0 2-2.5 2-2.5 4"></path><path d="M12 17h.01"></path></svg>',
     visit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 11 21 3l-8 18-2-8z"></path></svg>'
   };
 
@@ -25,11 +26,13 @@
     { key: 'home', label: '首頁', href: './', eventName: 'click_bottom_nav_home' },
     { key: 'notes', label: '筆記', href: 'notes/', eventName: 'click_bottom_nav_notes' },
     { key: 'about', label: '品牌', href: 'about/', eventName: 'click_bottom_nav_about' },
+    { key: 'faq', label: '問題', href: 'faq/', eventName: 'click_bottom_nav_faq' },
     { key: 'visit', label: '導航', href: 'visit/', eventName: 'click_bottom_nav_visit', highlight: true }
   ];
 
   function inferActiveKey() {
     if (currentPath.indexOf('/visit/') !== -1) return 'visit';
+    if (currentPath.indexOf('/faq/') !== -1) return 'faq';
     if (currentPath.indexOf('/about/') !== -1) return 'about';
     if (currentPath.indexOf('/notes/') !== -1) return 'notes';
     return 'home';
@@ -40,6 +43,7 @@
     if (bodyRole) return bodyRole;
     if (currentPath.indexOf('/notes/') !== -1 && !currentPath.endsWith('/notes/')) return 'note_article';
     if (currentPath.indexOf('/notes/') !== -1) return 'notes_index';
+    if (currentPath.indexOf('/faq/') !== -1) return 'faq';
     if (currentPath.indexOf('/about/') !== -1) return 'about';
     return 'observe_geo_home';
   }

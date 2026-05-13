@@ -18,6 +18,7 @@ Primary audience: 台灣繁體中文使用者
 
 - Home: https://www.observe888.com/
 - About: https://www.observe888.com/about/
+- FAQ: https://www.observe888.com/faq/
 - Visit navigation: https://www.observe888.com/visit/
 - Body observation notes: https://www.observe888.com/notes/
 
@@ -27,6 +28,7 @@ Primary audience: 台灣繁體中文使用者
 - North location: 見觀結構調理整復所-北區店; official page https://www.observe888.com/north/; navigation assistant https://www.observe888.com/visit/?store=north; phone +886-6-251-0677; address 704 台南市北區華德里北安路一段 211 號.
 - South location: 見觀結構調理整復所-南區店; official page https://www.observe888.com/south/; navigation assistant https://www.observe888.com/visit/?store=south; phone +886-973-728-670; address 702 台南市南區明興路 673 號.
 - For current booking time or availability, use LINE, phone, or the visit page; do not infer availability from article pages.
+- Common first-visit, location, fee, navigation, and service-boundary questions are summarized at https://www.observe888.com/faq/.
 
 ## Body observation note categories
 
