@@ -115,16 +115,28 @@
   </main>
   <script>
     (function () {
-      const legacyPath = window.location.pathname;
-      const isLegacyPaperPath = legacyPath.indexOf('/paper/') === 0 || legacyPath.slice(-4) === '.php';
+      const legacyPath = window.location.pathname.toLowerCase();
+      const incoming = new URLSearchParams(window.location.search);
+      let targetPath = null;
 
-      if (!isLegacyPaperPath) {
+      if (legacyPath === '/index.php') {
+        targetPath = '/';
+      } else if (legacyPath === '/album' || legacyPath.indexOf('/album/') === 0) {
+        targetPath = '/notes/';
+      } else if (legacyPath === '/paper/other_page.php') {
+        targetPath = incoming.get('id') === '11272' ? '/about/' : '/visit/';
+      } else if (legacyPath === '/paper/other_select_index.php') {
+        targetPath = incoming.get('id') === '3718' ? '/north/pricing/' : '/visit/';
+      } else if (legacyPath.indexOf('/paper/') === 0 || legacyPath.slice(-4) === '.php') {
+        targetPath = '/visit/';
+      }
+
+      if (!targetPath) {
         return;
       }
 
-      const target = new URL('/visit/', window.location.origin);
+      const target = new URL(targetPath, window.location.origin);
       const passthroughKeys = ['gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'];
-      const incoming = new URLSearchParams(window.location.search);
 
       incoming.forEach(function (value, key) {
         const lowerKey = key.toLowerCase();
