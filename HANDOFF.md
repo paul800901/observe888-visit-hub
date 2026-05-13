@@ -5,76 +5,48 @@
 ## 先讀什麼
 
 1. `PROJECT_CONTEXT.md`
-2. `README.md`
-3. `SOUTH_HANDOFF.md`
+2. `docs/website-operations.md`
+3. `README.md`
 
-## 這個工作目錄現在是什麼
+## 現在這個工作目錄是什麼
 
-- 這裡現在是 `ObserveGeoPages` 的品牌與文章官網
-- 另一邊的到店導航官網 source 保持在 `D:\AdsControl\frontend\observe888-visit-hub.html`
-- 兩邊是雙官網，不是同一個頁面硬切兩種用途
+這裡是見觀結構正式官網與網站營運資料主專案。網站、到店導航、北區 / 南區店點資料、Google 商家檔案一致性、地圖資料、FAQ、GEO / AEO 與公開內容安全邊界，都以這裡為主。
 
-## 為什麼容易看錯
-
-- 目前資料夾與 remote 仍沿用 `observe888-visit-hub`
-- 這是歷史名稱，不是現在的專案定位
-- 若只看 repo 名稱，很容易把角色判反
+舊分工「AdsControl 是到店導航官網 source、ObserveGeoPages 是品牌與文章官網」已作廢。AdsControl 仍可做廣告、事件匯入、lead sync、監測與報表，但不再主控官網頁面。
 
 ## 目前結構
 
-- `index.html`：品牌與文章官網首頁
-- `visit/index.html`：到店導航官網入口
-- `about/index.html`：品牌介紹入口
-- `observations/index.html`：舊入口過渡頁，會導向 `notes/`
-- `notes/index.html`：身體觀察筆記分類入口
-- `notes/search-terms-overview/index.html`：檢查名詞與常見搜尋問法分類入口
-- `notes/*/index.html`：公開文章頁
-- `llms.txt`：AI/答案引擎用的站點導覽、官方店點資料與公開內容安全邊界
-- `drafts/second-batch/`：第二批草稿
-- `north/`、`south/`：北區店與南區工作室的可讀店點入口頁；`north/pricing/`、`south/pricing/`：服務與費用入口
+- `index.html`：正式官網首頁。
+- `visit/index.html`：到店導航入口。
+- `north/index.html`、`south/index.html`：店點頁。
+- `north/pricing/index.html`、`south/pricing/index.html`：服務與費用 / 預約說明。
+- `about/index.html`：品牌介紹。
+- `notes/index.html`：身體觀察筆記分類入口。
+- `notes/search-terms-overview/index.html`：檢查名詞與搜尋問法分類入口。
+- `notes/*/index.html`：公開文章頁。
+- `docs/website-operations.md`：Google 商家、地圖、FAQ、GEO / AEO 與驗證規格。
+- `llms.txt`：AI / 答案引擎補充導覽。
+- `assets/gmb/`：Google 商家可用圖片素材。
 
-## 2026-05-11 這輪已校正的事
+## 2026-05-13 已校正
 
-- 文件已改回正確分工：`AdsControl` 那邊是到店導航官網，這邊是品牌與文章官網
-- 根首頁已改成品牌與文章官網首頁
-- 舊的 `?store=north` / `?store=south` 連結會導回 `visit/?store=north` 或 `visit/?store=south`
-- `notes/` 當時已補到第二批，公開面曾是 19 篇文章與 4 個 overview 頁；2026-05-13 已改為 5 個分類入口
-- 第二批 `09` 到 `13` 已建立公開頁，並補進 `notes/index.html` 與 `sitemap.xml`
+- 專案定位改成正式官網總控，不再只是品牌與文章官網。
+- 到店導航 `visit/`、北區 / 南區店點頁與服務頁改由本專案主控。
+- Google 商家檔案、地圖一致性、FAQ、GEO / AEO 與服務邊界納入本專案責任。
+- 新增 `docs/website-operations.md` 作為網站營運規格與檢查清單。
+- AdsControl 舊 public bundle 產線改成 legacy 防呆，不再預設可產出官網 bundle。
 
-## 2026-05-13 這輪已校正的事
+## 後續工作方向
 
-- `notes/index.html` 已從文章清單頁改成 5 個分類入口
-- 5 個入口為：頭頸與肩頸、脊椎/腰背/骨盆、手臂/手腕/手麻、髖/膝/腳與走路承重、檢查名詞與常見搜尋問法
-- 新增 `notes/search-terms-overview/index.html`，承接骨刺、神經壓迫、坐骨神經痛、椎間盤突出、腰椎退化、腕隧道症候群等搜尋問法
-- 原本 4 個 overview 頁已改成第二層分類入口語氣，不再稱為「主題總整理」
-- 19 篇文章頁的回流段落已改成「所屬分類入口」
-- `index.html` 與 `observations/index.html` 已同步改成先導向分類入口，不再把訪客直接導向完整文章清單
-- 新增 `llms.txt`，作為 AI/答案引擎可讀的補充導覽，並列入官方店點資料；不代表保證被任何平台採用
+- 補 Google 商家檔案 live 回讀紀錄：名稱、分類、服務項目、描述、照片、網站 URL。
+- 補北區與南區照片素材盤點。
+- 補 FAQ 頁或 FAQ 區塊，優先回答第一次來、北區 / 南區怎麼選、費用、導航、服務邊界。
+- 新增文章前，先做安全化與最終潤色，再補進分類入口、`sitemap.xml`、`llms.txt`。
+- 若改店點資料，同步檢查 `index.html`、`visit/`、`north/`、`south/`、widget、JSON-LD、`llms.txt`。
 
-## 目前內容狀態
+## 不能做的事
 
-- `notes/` 目前已公開 19 篇文章與 5 個分類入口
-- `llms.txt` 已列出主入口、官方店點資料、5 個分類入口、19 篇文章與安全文案邊界
-- `drafts/second-batch/` 仍保留第二批 Markdown 工作稿
-- 品牌內容首頁、`about/`、`notes/` 是目前主工作面；`observations/` 只保留舊入口過渡用途
-
-## 如果接下來要做什麼
-
-### 要做品牌內容工作
-
-- 直接在這個工作目錄內續做
-- 優先改 `index.html`、`about/`、`notes/`；若碰到舊連結相容性再看 `observations/`
-- `notes/` 第一層要維持分類入口，不要退回直接列出全部文章
-- 後續新草稿公開前先做最終潤色與安全化
-
-### 要做到店導航官網主流程
-
-- 回 `D:\AdsControl`
-- 尤其是 `frontend/observe888-visit-hub.html`
-
-## 建議先驗證
-
-- 首頁是否已呈現品牌內容庫定位
-- `notes/` 5 個分類入口、19 篇文章與 `search-terms-overview/` 是否可正常開啟
-- 北區 / 南區橋接入口是否仍可正常導流
-- LINE / 電話 CTA 是否仍指向正確目標
+- 不要把 AdsControl 的 `frontend/observe888-public` 或舊 build 輸出覆蓋回本專案。
+- 不要把 `notes/` 退回完整文章清單；第一層維持分類入口。
+- 不要把搜尋問法寫成治療承諾、醫療診斷或保證改善。
+- 不要只改本地檔案就宣稱 Google 商家 live 已完成；商家後台資料必須回讀驗證。

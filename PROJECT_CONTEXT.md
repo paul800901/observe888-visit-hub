@@ -1,128 +1,66 @@
-# ObserveGeoPages 雙官網脈絡
+# ObserveGeoPages 專案脈絡
 
 最後更新：2026-05-13
 
 ## 一句話定位
 
-見觀結構目前是雙官網分工：`D:\AdsControl` 那邊是到店導航官網；`D:\ObserveGeoPages\observe888-visit-hub` 這邊是品牌與文章官網。兩邊功能不同，但可互連。
+`C:\ObserveGeoPages\observe888-visit-hub` 是見觀結構正式官網、到店導航、品牌內容、身體觀察筆記、Google 商家資料一致性與 GEO / AEO 內容的主專案。
 
-## 先釐清不要再混掉的事
+`C:\AdsControl` 是廣告與營運監測專案，不再是官網 source。它可以同步與分析官網事件，但不能作為正式官網頁面或 Google 商家資料的主控端。
 
-- `AdsControl/frontend/observe888-visit-hub.html`：到店導航官網 source
-- `AdsControl`：廣告、追蹤、導流、公開 bundle 產出
-- 這個工作目錄：品牌與文章官網、文章庫、公開內容整理
+## 這次主責轉移的背景
 
-如果之後換電腦、換 session 或新 AI 接手，請記住一句話：
+見觀結構已從網路公司取回網站處理權限，原本的微縮官網不再只是臨時導流頁，而要升級成正式官網。後續網站、Google 商家檔案、地圖資料、品牌說明、FAQ、GEO / AEO 與服務邊界都應集中在本專案維護。
 
-- 一邊是到店導航官網
-- 一邊是品牌與文章官網
+舊文件曾寫成雙官網分工：AdsControl 是到店導航官網，ObserveGeoPages 是品牌與文章官網。這個分工現在作廢。新的 source of truth 是：
 
-## 為什麼這個工作目錄名字還像舊 repo
+- 官網、到店導航、店點頁、服務頁、文章、Google 商家資料：本專案。
+- 廣告、追蹤事件匯入、lead sync、報表、監測：AdsControl。
 
-- 目前這份工作樹是從 `paul800901/observe888-visit-hub` 拉下來的歷史快照
-- `origin` 還沿用 `observe888-visit-hub` 的 remote
-- 因此資料夾名稱、部分路徑、canonical 與舊檔名仍會帶有 `observe888-visit-hub`
+## 目前公開網站角色
 
-這不代表這個工作目錄現在仍然是到店導航官網專案。專案定位以本文件與首頁內容為準，不以舊 repo 名稱為準。
+- `index.html`：正式官網首頁，承接品牌理解、分類入口與到店入口。
+- `visit/index.html`：到店導航入口，處理北區 / 南區選店、LINE、電話與 Google Maps。
+- `north/index.html`：北區店官方店點頁。
+- `south/index.html`：南區工作室官方店點頁。
+- `north/pricing/index.html`：北區服務與費用。
+- `south/pricing/index.html`：南區預約與費用。
+- `about/index.html`：品牌介紹與服務方式。
+- `notes/index.html`：身體觀察筆記分類入口。
+- `notes/search-terms-overview/index.html`：檢查名詞與常見搜尋問法分類入口。
+- `notes/*/index.html`：公開文章頁。
+- `llms.txt`：AI / 答案引擎可讀導覽。
+- `assets/gmb/`：Google 商家檔案與地圖曝光用圖片素材。
 
-## 雙官網的正確分工
+## 官方店點資料
 
-### 1. 到店導航官網
+這些資料應與官網頁面、JSON-LD、Google 商家檔案、地圖入口、FAQ 與 `llms.txt` 保持一致。
 
-- source：`D:\AdsControl\frontend\observe888-visit-hub.html`
-- 主要任務：北區 / 南區到店導流、LINE、電話、地圖、追蹤
-- 主要使用情境：手機使用者快速知道去哪裡、怎麼預約、北區 / 南區怎麼選
-- 對外角色：北區 / 南區 / LINE / 電話 / pricing / 到店導航
+### 北區店
 
-### 2. ObserveGeoPages / 品牌與文章官網
+- 對外名稱：見觀結構調理整復所-北區店
+- 短名稱：北區店
+- 地址：704 台南市北區北安路一段 211 號
+- 電話：(06) 251-0677
+- 電話連結：`tel:062510677`
+- 網站頁：`https://www.observe888.com/north/`
+- 導航頁：`https://www.observe888.com/visit/?store=north`
+- 服務與費用：`https://www.observe888.com/north/pricing/`
+- 營業 / 服務方式：週一公休，週二至週日 11:00-21:00
 
-- 工作目錄：`D:\ObserveGeoPages\observe888-visit-hub`
-- 主要任務：承載品牌理解、身體觀察筆記、搜尋入口內容、AI 搜尋可讀內容
-- 公開定位：見觀結構｜身體觀察筆記
-- 內容類型：品牌介紹、分類入口、公開文章、搜尋問法整理、後續主題群與長尾文章
+### 南區工作室
 
-## 目前這個品牌與文章官網實際放了什麼
+- 對外名稱：見觀結構調理整復所-南區工作室
+- 短名稱：南區工作室
+- 地址：702 台南市南區明興路 673 號
+- 電話：0973-728-670
+- 電話連結：`tel:0973728670`
+- 網站頁：`https://www.observe888.com/south/`
+- 導航頁：`https://www.observe888.com/visit/?store=south`
+- 預約與費用：`https://www.observe888.com/south/pricing/`
+- 營業 / 服務方式：建議先以 LINE 或電話確認可安排時段
 
-- `index.html`：品牌內容庫首頁
-- `visit/index.html`：到店導航官網入口，承接 AdsControl 產線的微縮官網 / 雙店導航
-- `about/`：品牌介紹入口
-- `observations/`：舊入口過渡頁，會導向 `notes/`
-- `notes/`：身體觀察筆記分類入口與文章頁
-- `notes/search-terms-overview/`：檢查名詞與常見搜尋問法分類入口
-- `llms.txt`：給 AI/答案引擎讀取的站點導覽、官方店點資料與公開內容安全邊界
-- `drafts/second-batch/`：第二批草稿與公開前工作稿來源
-
-## 為什麼還保留 north / south / pricing
-
-這個工作目錄雖然已改成品牌與文章官網，但目前仍保留：
-
-- `visit/`
-- `north/`
-- `south/`
-- `north/pricing/`
-- `south/pricing/`
-
-原因只有兩個：
-
-1. 品牌頁與文章頁仍需要保留回到導航官網的入口
-2. 舊連結與既有到店入口暫時不能直接斷掉
-
-因此這些頁面現在是雙官網互連入口，不是這個專案的主身分，也不是 AdsControl 的主要 source。`north/` 與 `south/` 已作為可讀店點入口頁保留，`visit/` 仍是到店導航助手。
-
-## 目前首頁與路徑策略
-
-- 根首頁 `index.html` 現在應該是品牌與文章官網首頁，不再是到店導航官網首頁
-- `visit/` 是目前公開的到店導航入口；不要把「回到導航頁」連到舊官網 `observe888.com`
-- `north/`、`south/` 是北區店與南區工作室的可讀店點入口頁，不再只是立即跳轉頁
-- `notes/` 是目前公開文章庫入口，但第一層必須是分類入口，不是直接攤開完整文章清單
-- `notes/` 第一層目前固定為 5 個入口：頭頸與肩頸、脊椎/腰背/骨盆、手臂/手腕/手麻、髖/膝/腳與走路承重、檢查名詞與常見搜尋問法
-- 既有的四個 overview 頁現在是第二層分類入口，不再稱為「主題總整理」
-- 若有人仍使用舊的 `?store=north` / `?store=south` 連結，首頁會轉回 `visit/?store=north` 或 `visit/?store=south`，避免舊流量直接失效
-- 文章頁與品牌頁只保留回到導航官網入口，不直接鋪北區 / 南區 / LINE / 電話按鈕
-
-## 內容現況
-
-- `notes/` 目前已公開 19 篇文章與 5 個分類入口
-- 新增 `notes/search-terms-overview/`，承接骨刺、神經壓迫、坐骨神經痛、椎間盤突出、腰椎退化、腕隧道症候群等搜尋問法
-- 新增 `llms.txt`，整理主入口、官方店點資料、分類入口、19 篇文章與公開內容安全邊界，作為 AI/答案引擎的補充導覽
-- `tight-feet-observation` 已恢復公開
-- 第二批 `drafts/second-batch/09` 到 `13` 已同步建立公開頁
-- 第二批已補進公開文章與 `sitemap.xml`，草稿仍保留在 `drafts/second-batch/`
-- 2026-05-13 已把 `index.html`、`observations/`、`notes/`、分類頁與文章頁導覽統一成「先選分類，再看感受/搜尋詞/文章」的架構
-
-## 如果要改什麼，先分清楚去哪里改
-
-### 要改品牌內容、文章、公開理解頁
-
-請改這個工作目錄：
-
-- `index.html`
-- `about/`
-- `observations/`（舊入口過渡頁）
-- `notes/`
-- `drafts/second-batch/`
-
-### 要改到店導航官網主流程、店別切換、到店 widget、廣告追蹤主 source
-
-請回 `D:\AdsControl`：
-
-- `frontend/observe888-visit-hub.html`
-- 相關追蹤與輸出流程
-
-## ObserveGeoPages 的內容來源
-
-ObserveGeoPages 的文章不是一般 SEO 文章。來源包含：
-
-- CaseAgent 去識別化案例
-- CaseKnowledgeBase / 臨床決策邏輯庫
-- 論文 / 專業資料庫
-- 見觀品牌語言與法規風險邊界
-- AdsControl 廣告策略與追蹤
-- ObserveSocialAutopilot 社群內容系統
-
-「臨床決策邏輯庫 v3.1」是內部判讀參考資料，不是對外醫療承諾文件，不能直接公開成醫療結論。
-
-## 公開內容安全邊界
+## 內容安全邊界
 
 可以使用醫療詞彙，但只能作為：
 
@@ -131,9 +69,17 @@ ObserveGeoPages 的文章不是一般 SEO 文章。來源包含：
 - 搜尋入口
 - 身體觀察起點
 
-可作為入口的詞包含：骨刺、手麻、腳麻、腰椎退化、神經壓迫、頸椎、腰椎、隧道症候群、梨狀肌。
+可公開使用的方向：
 
-不能寫成：
+- 身體結構觀察
+- 傳統整復推拿
+- 姿勢與承重線索整理
+- 張力與生活負荷觀察
+- 整理身體線索
+- 看懂身體狀態
+- 可能、可先留意、暫時看起來、仍需觀察
+
+不可寫成：
 
 - 見觀結構治療骨刺
 - 改善神經壓迫
@@ -144,55 +90,41 @@ ObserveGeoPages 的文章不是一般 SEO 文章。來源包含：
 - 醫生沒告訴你的真相
 - 不用開刀就能治好
 
-固定使用的安全方向：
+## 網站營運責任
 
-- 身體結構觀察
-- 傳統整復推拿
-- 姿勢與承重線索整理
-- 張力與生活負荷觀察
-- 整理身體線索
-- 看懂身體狀態
-- 較清楚的調整方向
-- 可能、可先留意、暫時看起來、仍需觀察
+本專案應維護下列事項：
 
-## 技術與觀察文案寫法
+- Google 商家檔案與官網 NAP 一致性。
+- 北區 / 南區名稱、地址、電話、網站 URL、服務方式一致性。
+- 商家分類、服務項目、照片、描述草案。
+- 地圖與導航連結一致性。
+- FAQ、品牌說明、服務邊界、到店資訊。
+- `sitemap.xml`、`robots.txt`、`llms.txt` 與主要頁面 canonical。
+- 文章分類入口與搜尋問法頁。
 
-可公開寫法：
+具體清單維護在 `docs/website-operations.md`。
 
-- 先從主訴、動作、姿勢、承重、左右差與生活負荷整理線索
-- 痛點是入口，不直接把痛點當成答案
-- 先看局部反應，再看是否還有殘留線索指向更上游或下游的連動
-- 依當次反應、回測與生活情境逐步收斂方向
-- 所有判讀都只是當下較符合的暫時性推論，不包裝成絕對定論
+## AdsControl 仍可做什麼
 
-避免寫成：
+AdsControl 可以保留：
 
-- 一看就知道根因
-- 一摸就知道是哪裡造成
-- 某個遠端結構一定造成某個局部問題
-- 根因已確認在骨盆 / 髖 / 脊椎 / 足部
-- 局部有效就代表問題已解決
-- 遠端有效就代表局部不重要
-- 幫你把錯位喬回去 / 歸位 / 校正完成
+- Google Ads API 同步與監測。
+- 公開站事件匯入。
+- `observe888_public` LINE / 電話 / 地圖弱訊號分析。
+- 廣告報表與營運告警。
 
-## 文章母型
+AdsControl 不應再主控：
 
-ObserveGeoPages 的文章應以這個母型為主：
-
-1. 常見錯誤問法
-2. 說明這個問法為什麼不完整
-3. 去識別化生活情境
-4. 作者視角：看到這些資訊會先看什麼
-5. 多軸觀察推理：左右差、坐站走、承重、張力、生活負荷
-6. 問法重構
-7. 什麼情況不適合只觀察，需要分流
-8. 收束到見觀結構定位
+- 正式官網頁面。
+- 到店導航頁 source。
+- Google 商家檔案資料。
+- `sitemap.xml`、`robots.txt`、`llms.txt`。
+- GEO / AEO FAQ 與品牌內容。
 
 ## 接手時最重要的幾條
 
-- 不要把雙官網其中一邊誤判成另一邊
-- 不要因為 repo 名稱還叫 `observe888-visit-hub` 就把角色判反
-- 不要把後續 Markdown 草稿直接塞進公開列表
-- 不要把 `notes/` 退回成 19 篇文章直接攤開的列表；第一層要維持 5 個分類入口
-- 若要繼續發文章，先做安全化與最終潤色，再逐篇公開
-- 若要改北區 / 南區到店導航官網主流程，請回 `AdsControl`
+- 先讀 `README.md`、本文件、`docs/website-operations.md`。
+- 改任何店點資料時，同步檢查 `index.html`、`visit/`、`north/`、`south/`、JSON-LD、`llms.txt`。
+- `notes/` 第一層維持分類入口，不退回完整文章清單。
+- 新文章公開前先做安全化與最終潤色，再補進分類入口與 sitemap。
+- 不要把 AdsControl 舊 public bundle 覆蓋回本專案。

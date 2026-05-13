@@ -4,44 +4,40 @@
 
 ## 先講最重要的
 
-- 這個工作目錄現在是品牌與文章官網，不是南區到店導航官網 source
-- 原本的到店導航官網 source 保持在 `D:\AdsControl\frontend\observe888-visit-hub.html`
-- 兩邊是雙官網，這裡只是在保留南區互連入口與文章導流
+這個工作目錄現在是正式官網總控，也包含南區工作室的官方店點頁、到店導航、預約與費用頁、Google 商家資料一致性與照片素材盤點。
 
-## 如果你今晚是從南區角度接手
+舊規則「南區到店導航官網 source 在 AdsControl」已作廢。AdsControl 只保留廣告、事件匯入、lead sync、監測與報表。
 
-### 你要做的是品牌內容
+## 南區相關主檔
 
-先看：
+- `south/index.html`：南區工作室官方店點頁。
+- `south/pricing/index.html`：南區預約與費用說明。
+- `visit/index.html`：到店導航入口，`?store=south` 會切到南區。
+- `observe888-location-widget-snippet.html`：雙店導航元件，含南區地址、電話、地圖與路線資料。
+- `assets/gmb/`：目前已放入部分南區 Google 商家圖片素材。
+- `docs/website-operations.md`：南區資料一致性與 Google 商家工作清單。
 
-1. `PROJECT_CONTEXT.md`
-2. `HANDOFF.md`
-3. `drafts/second-batch/09-knee-stairs-weight-bearing-observation.md` 到 `13-hip-groin-walking-observation.md`
+## 南區正式資料
 
-### 你要做的是南區到店導航官網主流程
+- 對外名稱：見觀結構調理整復所-南區工作室
+- 地址：702 台南市南區明興路 673 號
+- 電話：0973-728-670
+- 電話連結：`tel:0973728670`
+- 店點頁：`https://www.observe888.com/south/`
+- 導航助手：`https://www.observe888.com/visit/?store=south`
+- 預約與費用：`https://www.observe888.com/south/pricing/`
+- 服務方式：建議先以 LINE 或電話確認可安排時段
 
-不要在這裡當 source 改，請回：
+## 南區下一步
 
-- `D:\AdsControl\frontend\observe888-visit-hub.html`
+- 回讀 Google 商家後台，確認南區名稱、分類、服務項目、描述、照片、網站 URL 是否與官網一致。
+- 補足南區實景照片素材盤點：路口、門牌、入口、室內、動線、可辨識但不誇張修飾的照片。
+- 若改地址、電話、地圖或預約文案，必須同步檢查 `south/`、`south/pricing/`、`visit/`、widget、`llms.txt`。
+- FAQ 若提到南區，應以「預約制工作室、先 LINE 或電話確認時段」為核心，不寫成固定排班。
 
-## 目前已完成
+## 不能做的事
 
-- 根首頁已改成品牌與文章官網首頁
-- `notes/` 目前公開面已改成 5 個分類入口與 19 篇文章
-- 新增 `notes/search-terms-overview/`，承接檢查名詞與常見搜尋問法
-- 第二批 `09` 到 `13` 五篇草稿已同步建立公開頁，Markdown 工作稿仍保留在 `drafts/second-batch/`
-- 南區 `south/` 與 `south/pricing/` 仍保留為雙官網互連入口
-
-## 南區視角下，這裡下一步應怎麼做
-
-- 若只是要維持導流：確認 `south/`、`south/pricing/`、LINE / 電話 CTA 正常即可
-- 若是做內容：續寫或潤色草稿，或延續 `notes/` 已公開內容
-- 若要做後續批次公開：沿用逐篇建立頁面、補分類入口或文章頁回流、補 `sitemap.xml`，最後再驗證
-
-## 不能再混掉的線
-
-- 不要把這個工作目錄誤判成南區到店導航官網專案
-- 不要把後續 Markdown 草稿直接塞進公開列表
-- 不要把 `notes/` 退回成文章直接攤開的列表；第一層目前是分類入口
-- 不要用治療、保證改善、根因確認這類確定式文案
-- 不要因為還有 `south/` 目錄，就把這裡當成南區站務 source
+- 不要用 AdsControl 舊 bundle 覆蓋南區頁面。
+- 不要只改南區頁，卻忘記同步 widget、`llms.txt` 或 JSON-LD。
+- 不要在南區文案中使用治療、根治、保證改善、成功案例前後對比。
+- 不要在未回讀 Google 商家後台前宣稱商家檔案已完成。
