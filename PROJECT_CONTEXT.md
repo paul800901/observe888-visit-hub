@@ -26,6 +26,7 @@
 - `north/pricing/index.html`：北區服務與費用。
 - `south/pricing/index.html`：南區預約與費用。
 - `about/index.html`：品牌介紹與服務方式。
+- `faq/index.html`：第一次來、北區 / 南區選擇、費用、導航與服務邊界常見問題。
 - `notes/index.html`：身體觀察筆記分類入口。
 - `notes/search-terms-overview/index.html`：檢查名詞與常見搜尋問法分類入口。
 - `notes/*/index.html`：公開文章頁。
@@ -98,7 +99,7 @@
 - 北區 / 南區名稱、地址、電話、網站 URL、服務方式一致性。
 - 商家分類、服務項目、照片、描述草案。
 - 地圖與導航連結一致性。
-- FAQ、品牌說明、服務邊界、到店資訊。
+- FAQ、品牌說明、服務邊界、到店資訊；目前 FAQ 入口為 `faq/index.html`。
 - `sitemap.xml`、`robots.txt`、`llms.txt` 與主要頁面 canonical。
 - 文章分類入口與搜尋問法頁。
 

@@ -40,7 +40,7 @@
 
 - 補 Google 商家檔案 live 回讀紀錄：名稱、分類、服務項目、描述、照片、網站 URL。
 - 補北區與南區照片素材盤點。
-- 補 FAQ 頁或 FAQ 區塊，優先回答第一次來、北區 / 南區怎麼選、費用、導航、服務邊界。
+- 維護 `faq/index.html`，目前已回答第一次來、北區 / 南區怎麼選、費用、導航、服務邊界；後續若 Google 商家後台欄位變更，要同步更新 FAQ。
 - 新增文章前，先做安全化與最終潤色，再補進分類入口、`sitemap.xml`、`llms.txt`。
 - 若改店點資料，同步檢查 `index.html`、`visit/`、`north/`、`south/`、widget、JSON-LD、`llms.txt`。
 
