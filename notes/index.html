@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>身體觀察筆記｜骨刺、手麻、腰痠與姿勢承重線索｜見觀結構</title>
-  <meta name="description" content="見觀結構身體觀察筆記整理 19 篇文章，從骨刺、手麻、腰椎退化、神經壓迫、久坐腰痠、腳底緊、肩頸卡等問法，回到姿勢、承重與生活情境觀察。">
+  <title>身體觀察筆記｜依身體區域找文章｜見觀結構</title>
+  <meta name="description" content="見觀結構身體觀察筆記先依頭頸肩頸、脊椎腰背骨盆、手臂手腕、髖膝腳承重與常見搜尋問法分類，再進入各主題文章。">
   <link rel="canonical" href="https://www.observe888.com/notes/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:site_name" content="見觀結構">
-  <meta property="og:title" content="身體觀察筆記｜骨刺、手麻、腰痠與姿勢承重線索">
-  <meta property="og:description" content="19 篇身體觀察筆記，從常見搜尋名詞與日常感受切入，整理姿勢、承重、左右差與生活負荷線索。">
+  <meta property="og:title" content="身體觀察筆記｜依身體區域找文章">
+  <meta property="og:description" content="先從身體區域選方向，再看感受、動作情境、檢查名詞與文章。">
   <meta property="og:url" content="https://www.observe888.com/notes/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="身體觀察筆記｜骨刺、手麻、腰痠與姿勢承重線索">
-  <meta name="twitter:description" content="從骨刺、手麻、腰痠、腳底緊、肩頸卡等問法，整理成可觀察的身體線索。">
+  <meta name="twitter:title" content="身體觀察筆記｜依身體區域找文章">
+  <meta name="twitter:description" content="先依頭頸肩頸、脊椎腰背骨盆、手臂手腕、髖膝腳承重與搜尋問法分類。">
   <style>
     :root {
       color-scheme: light;
@@ -50,7 +50,7 @@
       display: grid;
       gap: 18px;
     }
-    .topnav, .hero, .content-card, .cta-strip {
+    .topnav, .hero, .content-card, .category-card, .cta-strip {
       border: 1px solid var(--line);
       border-radius: 24px;
       background: var(--paper);
@@ -80,7 +80,7 @@
       font-size: 13px;
       font-weight: 800;
     }
-    .hero {
+    .hero, .content-card {
       padding: 24px;
       display: grid;
       gap: 14px;
@@ -94,7 +94,7 @@
       color: #7e381d;
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: 0.08em;
+      letter-spacing: 0;
     }
     h1, h2, h3, p {
       margin: 0;
@@ -108,10 +108,10 @@
       line-height: 1.45;
     }
     h3 {
-      font-size: 16px;
-      line-height: 1.55;
+      font-size: 18px;
+      line-height: 1.5;
     }
-    .hero-copy, .content-card {
+    .hero-copy {
       display: grid;
       gap: 12px;
     }
@@ -120,9 +120,6 @@
       font-size: 15px;
       line-height: 1.85;
     }
-    .content-card {
-      padding: 20px;
-    }
     ul {
       margin: 0;
       padding-left: 1.2em;
@@ -130,56 +127,36 @@
     li + li {
       margin-top: 8px;
     }
-    .article-list {
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .category-card {
       display: grid;
       gap: 10px;
+      padding: 18px 20px;
+      text-decoration: none;
+      min-height: 150px;
     }
-    .topic-grid {
-      display: grid;
-      gap: 12px;
+    .category-card:hover,
+    .category-card:focus-visible {
+      border-color: rgba(161, 79, 42, 0.42);
+      outline: none;
+      box-shadow: 0 24px 60px rgba(126, 56, 29, 0.16);
     }
-    .topic-group {
-      display: grid;
-      gap: 10px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(87, 63, 48, 0.07);
-    }
-    .topic-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .topic-links a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 0 12px;
-      border-radius: 999px;
-      background: rgba(255, 251, 245, 0.75);
-      color: var(--text);
+    .category-card small {
+      color: var(--accent);
       font-size: 13px;
-      font-weight: 800;
-      text-decoration: none;
-    }
-    .article-link {
-      display: grid;
-      gap: 6px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(87, 63, 48, 0.07);
-      text-decoration: none;
-    }
-    .article-link span {
-      color: var(--text);
-      font-size: 15px;
       font-weight: 800;
       line-height: 1.55;
     }
-    .article-link small {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
+    .category-card p {
+      font-size: 14px;
+      line-height: 1.75;
+    }
+    .category-card.is-wide {
+      grid-column: 1 / -1;
     }
     .cta-strip {
       display: flex;
@@ -215,9 +192,15 @@
         width: min(100vw - 16px, 960px);
         padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
       }
-      .hero, .content-card, .cta-strip {
+      .hero, .content-card, .category-card, .cta-strip {
         border-radius: 22px;
         padding: 18px;
+      }
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-card {
+        min-height: auto;
       }
       .button {
         width: 100%;
@@ -234,8 +217,8 @@
       "@type": "CollectionPage",
       "@id": "https://www.observe888.com/notes/#webpage",
       "url": "https://www.observe888.com/notes/",
-      "name": "身體觀察筆記｜骨刺、手麻、腰痠與姿勢承重線索",
-      "description": "見觀結構身體觀察筆記整理 19 篇文章，從常見搜尋名詞與日常感受切入，回到姿勢、承重、左右差與生活負荷觀察。",
+      "name": "身體觀察筆記｜依身體區域找文章",
+      "description": "見觀結構身體觀察筆記先依身體區域分類，再進入各主題文章、感受問法與檢查名詞整理。",
       "inLanguage": "zh-Hant",
       "isPartOf": {
         "@type": "WebSite",
@@ -250,123 +233,39 @@
     {
       "@type": "ItemList",
       "@id": "https://www.observe888.com/notes/#itemlist",
-      "name": "身體觀察筆記文章清單",
-      "numberOfItems": 19,
+      "name": "身體觀察筆記分類入口",
+      "numberOfItems": 5,
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "我有骨刺，要做什麼？先不急著把所有感覺都歸給骨刺",
-          "url": "https://www.observe888.com/notes/bone-spur-observation/"
+          "name": "頭頸與肩頸",
+          "url": "https://www.observe888.com/notes/neck-jaw-breathing-overview/"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "我手麻，要練哪個動作？先整理你手麻的情境",
-          "url": "https://www.observe888.com/notes/hand-numbness-observation/"
+          "name": "脊椎、腰背與骨盆",
+          "url": "https://www.observe888.com/notes/low-back-butt-leg-overview/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "腰椎退化，是不是不能動？先整理久坐、起身、走路這些時候腰的感覺",
-          "url": "https://www.observe888.com/notes/lumbar-degeneration-observation/"
+          "name": "手臂、手腕與手麻",
+          "url": "https://www.observe888.com/notes/hand-wrist-forearm-overview/"
         },
         {
           "@type": "ListItem",
           "position": 4,
-          "name": "一直覺得是不是神經壓迫？先把麻、緊、痠分開看",
-          "url": "https://www.observe888.com/notes/nerve-compression-observation/"
+          "name": "髖、膝、腳與走路承重",
+          "url": "https://www.observe888.com/notes/asymmetry-walking-load-overview/"
         },
         {
           "@type": "ListItem",
           "position": 5,
-          "name": "久坐腰痠，是不是核心太弱？先看你怎麼坐，以及站起來那一瞬間",
-          "url": "https://www.observe888.com/notes/sitting-low-back-soreness/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "name": "走路慢比快累，是不是長短腳？先觀察你重心都壓在哪一側",
-          "url": "https://www.observe888.com/notes/one-side-walking-fatigue/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 7,
-          "name": "肩頸卡卡，是不是要一直拉脖子？先整理你的低頭時間與呼吸",
-          "url": "https://www.observe888.com/notes/shoulder-neck-stuck-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 8,
-          "name": "腳底很累，是足底筋膜炎嗎？先觀察你的站立習慣與承重",
-          "url": "https://www.observe888.com/notes/tight-feet-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 9,
-          "name": "我膝蓋痛，是不是退化？先觀察上下樓梯與蹲起時怎麼承重",
-          "url": "https://www.observe888.com/notes/knee-stairs-weight-bearing-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 10,
-          "name": "屁股痛、腿麻就是坐骨神經痛嗎？先看久坐、彎腰和走路時的變化",
-          "url": "https://www.observe888.com/notes/butt-leg-numb-sciatica-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 11,
-          "name": "手舉不高就是五十肩嗎？先觀察肩胛、胸口和拿東西的路徑",
-          "url": "https://www.observe888.com/notes/shoulder-lift-frozen-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 12,
-          "name": "手腕痛是媽媽手還是滑鼠手？先看拇指、握力和重複使用習慣",
-          "url": "https://www.observe888.com/notes/wrist-thumb-overuse-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 13,
-          "name": "鼠蹊部痛、走路卡卡是髖關節問題嗎？先觀察左右承重與跨步",
-          "url": "https://www.observe888.com/notes/hip-groin-walking-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 14,
-          "name": "椎間盤突出就是不能彎腰嗎？先整理腰、屁股和腿的變化",
-          "url": "https://www.observe888.com/notes/disc-herniation-bending-leg-numb-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 15,
-          "name": "脊椎側彎就代表身體偏掉了嗎？先看肩膀高低、骨盆與走路左右差",
-          "url": "https://www.observe888.com/notes/scoliosis-shoulder-pelvis-walking-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 16,
-          "name": "腕隧道症候群不一定只看手腕：先整理手麻、夜間感覺和打字使用方式",
-          "url": "https://www.observe888.com/notes/carpal-tunnel-typing-hand-numb-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 17,
-          "name": "網球肘不打球也會有嗎？先看握力、前臂出力和手腕一起參與",
-          "url": "https://www.observe888.com/notes/tennis-elbow-grip-forearm-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 18,
-          "name": "顳顎關節卡卡只是下巴的事嗎？先整理咬緊、肩頸和呼吸",
-          "url": "https://www.observe888.com/notes/jaw-click-neck-breathing-observation/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 19,
-          "name": "產後骨盆的困擾，先從抱小孩、起身和左右承重開始觀察",
-          "url": "https://www.observe888.com/notes/postpartum-pelvis-carrying-hip-observation/"
+          "name": "檢查名詞與常見搜尋問法",
+          "url": "https://www.observe888.com/notes/search-terms-overview/"
         }
       ]
     }
@@ -386,186 +285,50 @@
       <span class="eyebrow">觀察筆記</span>
       <div class="hero-copy">
         <h1>身體觀察筆記</h1>
-        <p>整理 19 篇常見身體感受、檢查名詞、姿勢、承重與生活負荷的觀察線索。</p>
-        <p>有些人會從骨刺、手麻、腰椎退化、神經壓迫等名詞開始搜尋；也有人是從久坐腰痠、走路一邊比較累、腳底緊、肩頸卡等感受開始注意。</p>
+        <p>先從身體區域選一個方向，再進去看感受、動作情境、檢查名詞與文章。</p>
         <p>本站不把單一名稱直接等同於身體狀態，而是把出現情境、左右差、姿勢、承重、張力與生活負荷，整理成可以觀察的線索。</p>
       </div>
     </header>
 
     <section class="content-card">
-      <h2>主題總整理頁</h2>
-      <p>如果你不想先一篇篇找，可以先從這 4 頁主題總整理切入，先把同一條身體路徑裡常一起出現的問題收在一起看。</p>
-      <div class="article-list">
-        <a class="article-link" href="low-back-butt-leg-overview/">
-          <span>腰背、屁股、腿麻總整理：先把久坐、彎腰、起身與走路線索排開</span>
-          <small>適合把久坐腰痠、腰椎退化、坐骨神經痛、椎間盤突出與產後腰髖負荷先放回同一條生活情境裡看。</small>
-        </a>
-        <a class="article-link" href="asymmetry-walking-load-overview/">
-          <span>左右差、脊椎側彎、走路承重總整理：先看肩膀高低、骨盆與跨步</span>
-          <small>適合先整理肩膀高低、骨盆偏一邊、走路左右差、髖膝腳底承重的人。</small>
-        </a>
-        <a class="article-link" href="hand-wrist-forearm-overview/">
-          <span>手麻、腕隧道、網球肘、手腕總整理：先把手指位置、夜間感覺與前臂出力分開</span>
-          <small>適合先把手麻、手腕、前臂、手肘外側和肩頸一起拆開的人。</small>
-        </a>
-        <a class="article-link" href="neck-jaw-breathing-overview/">
-          <span>肩頸、顳顎、呼吸總整理：先看低頭、咬緊與頭頸張力</span>
-          <small>適合先從肩頸卡、下巴喀喀響、手舉不高與呼吸節奏一起整理的人。</small>
-        </a>
-      </div>
+      <h2>先從哪個身體區域開始看？</h2>
+      <p>不用先在 19 篇文章裡一篇篇找。先選一個最接近的位置，下一層再看常見感受、搜尋詞與文章整理。</p>
+    </section>
+
+    <section class="category-grid" aria-label="身體觀察筆記分類">
+      <a class="category-card" href="neck-jaw-breathing-overview/">
+        <small>頭頸與肩頸</small>
+        <h3>肩頸、頭頸、顳顎與呼吸</h3>
+        <p>適合從肩頸卡、下巴喀喀響、手舉不高、低頭時間與呼吸節奏開始看。</p>
+      </a>
+      <a class="category-card" href="low-back-butt-leg-overview/">
+        <small>脊椎、腰背與骨盆</small>
+        <h3>腰背、屁股、腿麻與骨盆負荷</h3>
+        <p>適合從久坐腰痠、腰椎退化、屁股腿麻、椎間盤突出與產後腰髖開始看。</p>
+      </a>
+      <a class="category-card" href="hand-wrist-forearm-overview/">
+        <small>手臂、手腕與手麻</small>
+        <h3>手麻、手腕、前臂與重複使用</h3>
+        <p>適合從手麻、腕隧道、網球肘、手腕拇指與夜間感覺開始看。</p>
+      </a>
+      <a class="category-card" href="asymmetry-walking-load-overview/">
+        <small>髖、膝、腳與走路承重</small>
+        <h3>左右差、髖膝腳與走路路徑</h3>
+        <p>適合從肩膀高低、骨盆偏一邊、走路左右差、膝蓋上下樓與腳底累開始看。</p>
+      </a>
+      <a class="category-card is-wide" href="search-terms-overview/">
+        <small>檢查名詞與常見搜尋問法</small>
+        <h3>骨刺、神經壓迫、坐骨神經痛等搜尋入口</h3>
+        <p>適合已經帶著檢查名詞或搜尋詞進來，但想先回到身體感受與生活情境整理的人。</p>
+      </a>
     </section>
 
     <section class="content-card">
-      <h2>依主題找文章</h2>
-      <p>這些分類不是診斷結果，而是讓讀者、搜尋引擎與 AI 搜尋更容易理解：每篇文章主要在整理哪一種身體感受、日常情境與觀察入口。</p>
-      <div class="topic-grid">
-        <div class="topic-group">
-          <h3>腰背、骨盆與坐久起身</h3>
-          <p>適合從久坐腰痠、腰椎退化、屁股腿麻、椎間盤突出與產後腰髖負荷開始整理的人。</p>
-          <div class="topic-links" aria-label="腰背骨盆相關文章">
-            <a href="low-back-butt-leg-overview/">主題總整理</a>
-            <a href="sitting-low-back-soreness/">久坐腰痠</a>
-            <a href="lumbar-degeneration-observation/">腰椎退化</a>
-            <a href="butt-leg-numb-sciatica-observation/">屁股痛腿麻</a>
-            <a href="disc-herniation-bending-leg-numb-observation/">椎間盤突出</a>
-            <a href="postpartum-pelvis-carrying-hip-observation/">產後骨盆</a>
-          </div>
-        </div>
-        <div class="topic-group">
-          <h3>左右差、骨盆與走路承重</h3>
-          <p>適合從肩膀高低、骨盆偏一邊、走路左右差、髖鼠蹊與膝蓋承重開始整理的人。</p>
-          <div class="topic-links" aria-label="左右差與承重相關文章">
-            <a href="asymmetry-walking-load-overview/">主題總整理</a>
-            <a href="scoliosis-shoulder-pelvis-walking-observation/">脊椎側彎與左右差</a>
-            <a href="one-side-walking-fatigue/">走路左右差</a>
-            <a href="hip-groin-walking-observation/">髖與鼠蹊部</a>
-            <a href="knee-stairs-weight-bearing-observation/">膝蓋上下樓</a>
-            <a href="tight-feet-observation/">腳底承重</a>
-          </div>
-        </div>
-        <div class="topic-group">
-          <h3>肩頸、頭頸與呼吸</h3>
-          <p>適合從肩頸卡卡、下巴喀喀響、手舉不高與上半身緊繃開始觀察的人。</p>
-          <div class="topic-links" aria-label="肩頸頭頸相關文章">
-            <a href="neck-jaw-breathing-overview/">主題總整理</a>
-            <a href="shoulder-neck-stuck-observation/">肩頸卡卡</a>
-            <a href="jaw-click-neck-breathing-observation/">顳顎關節卡卡</a>
-            <a href="shoulder-lift-frozen-observation/">手舉不高</a>
-          </div>
-        </div>
-        <div class="topic-group">
-          <h3>手麻、手腕與前臂重複使用</h3>
-          <p>適合從手麻、腕隧道、網球肘、手腕拇指過度使用開始整理的人。</p>
-          <div class="topic-links" aria-label="手麻手腕前臂相關文章">
-            <a href="hand-wrist-forearm-overview/">主題總整理</a>
-            <a href="hand-numbness-observation/">手麻情境</a>
-            <a href="carpal-tunnel-typing-hand-numb-observation/">腕隧道症候群</a>
-            <a href="tennis-elbow-grip-forearm-observation/">網球肘</a>
-            <a href="wrist-thumb-overuse-observation/">手腕拇指</a>
-          </div>
-        </div>
-        <div class="topic-group">
-          <h3>麻、緊、痠與檢查名詞</h3>
-          <p>適合已經搜尋骨刺、神經壓迫、坐骨神經痛、椎間盤突出等名稱，但想回到身體線索的人。</p>
-          <div class="topic-links" aria-label="麻痛與檢查名詞相關文章">
-            <a href="nerve-compression-observation/">神經壓迫</a>
-            <a href="bone-spur-observation/">骨刺</a>
-            <a href="butt-leg-numb-sciatica-observation/">坐骨神經痛搜尋</a>
-            <a href="disc-herniation-bending-leg-numb-observation/">椎間盤突出</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-card">
-      <h2>完整文章清單</h2>
-      <p>以下文章是目前已整理完成並公開的 19 篇版本，先從常見搜尋名詞與日常感受切入，協助把模糊的身體狀態整理成可觀察線索。</p>
-      <div class="article-list">
-        <a class="article-link" href="bone-spur-observation/">
-          <span>我有骨刺，要做什麼？先不急著把所有感覺都歸給骨刺</span>
-          <small>骨刺可以是一個參考線索，但不一定是全部答案；先把痠、麻、緊、卡、承重與生活負荷整理出來。</small>
-        </a>
-        <a class="article-link" href="hand-numbness-observation/">
-          <span>我手麻，要練哪個動作？先整理你手麻的情境</span>
-          <small>手麻不是只有一種麻，也不是只有一種出現方式；先整理什麼時候麻、哪裡麻，以及和哪些姿勢或動作有關。</small>
-        </a>
-        <a class="article-link" href="lumbar-degeneration-observation/">
-          <span>腰椎退化，是不是不能動？先整理久坐、起身、走路這些時候腰的感覺</span>
-          <small>退化是一個描述，不是一個禁令；比起只問能不能動，先整理腰在坐、站、走、起身時的真實反應。</small>
-        </a>
-        <a class="article-link" href="nerve-compression-observation/">
-          <span>一直覺得是不是神經壓迫？先把麻、緊、痠分開看</span>
-          <small>不急著把身體感覺套進神經壓迫這個名稱，先把麻、緊、痠出現的時間、姿勢和情境分開整理。</small>
-        </a>
-        <a class="article-link" href="sitting-low-back-soreness/">
-          <span>久坐腰痠，是不是核心太弱？先看你怎麼坐，以及站起來那一瞬間</span>
-          <small>久坐腰痠不一定只有核心一個變項；先觀察坐姿、骨盆位置、起身轉換與日常使用方式。</small>
-        </a>
-        <a class="article-link" href="one-side-walking-fatigue/">
-          <span>走路慢比快累，是不是長短腳？先觀察你重心都壓在哪一側</span>
-          <small>走路慢比快累不一定先等於長短腳；先看站立與走路時的重心偏向、鞋底磨耗與左右承重差異。</small>
-        </a>
-        <a class="article-link" href="shoulder-neck-stuck-observation/">
-          <span>肩頸卡卡，是不是要一直拉脖子？先整理你的低頭時間與呼吸</span>
-          <small>肩頸卡卡不一定只要一直拉脖子；先整理低頭時間、螢幕位置、呼吸深淺與是否常憋氣。</small>
-        </a>
-        <a class="article-link" href="tight-feet-observation/">
-          <span>腳底很累，是足底筋膜炎嗎？先觀察你的站立習慣與承重</span>
-          <small>腳底很累不一定先等於足底筋膜炎；先整理早上第一步、站立重心、鞋底磨耗與小腿後側張力。</small>
-        </a>
-        <a class="article-link" href="knee-stairs-weight-bearing-observation/">
-          <span>我膝蓋痛，是不是退化？先觀察上下樓梯與蹲起時怎麼承重</span>
-          <small>膝蓋痛先別只往退化下結論；先看上下樓梯、蹲起、痛點位置與左右腳承重差異。</small>
-        </a>
-        <a class="article-link" href="butt-leg-numb-sciatica-observation/">
-          <span>屁股痛、腿麻就是坐骨神經痛嗎？先看久坐、彎腰和走路時的變化</span>
-          <small>屁股痛腿麻不急著直接套進坐骨神經痛；先整理久坐、彎腰、起身與走路時怎麼變化。</small>
-        </a>
-        <a class="article-link" href="shoulder-lift-frozen-observation/">
-          <span>手舉不高就是五十肩嗎？先觀察肩胛、胸口和拿東西的路徑</span>
-          <small>手舉不高不一定只剩五十肩；先看肩胛、胸口、角度限制與日常拿東西的路徑。</small>
-        </a>
-        <a class="article-link" href="wrist-thumb-overuse-observation/">
-          <span>手腕痛是媽媽手還是滑鼠手？先看拇指、握力和重複使用習慣</span>
-          <small>手腕痛不急著只分媽媽手或滑鼠手；先整理拇指根部、握力方式與重複使用習慣。</small>
-        </a>
-        <a class="article-link" href="hip-groin-walking-observation/">
-          <span>鼠蹊部痛、走路卡卡是髖關節問題嗎？先觀察左右承重與跨步</span>
-          <small>鼠蹊部痛與走路卡卡不急著只懷疑髖關節；先看左右承重、跨步與單腳穩定。</small>
-        </a>
-        <a class="article-link" href="disc-herniation-bending-leg-numb-observation/">
-          <span>椎間盤突出就是不能彎腰嗎？先整理腰、屁股和腿的變化</span>
-          <small>椎間盤突出先別直接當成唯一答案；先把腰、屁股、腿麻在坐、彎腰、起身與走路時怎麼變化整理出來。</small>
-        </a>
-        <a class="article-link" href="scoliosis-shoulder-pelvis-walking-observation/">
-          <span>脊椎側彎就代表身體偏掉了嗎？先看肩膀高低、骨盆與走路左右差</span>
-          <small>看到肩膀高低或骨盆偏一邊，不急著只貼脊椎側彎標籤；先看站姿、走路和左右承重差。</small>
-        </a>
-        <a class="article-link" href="carpal-tunnel-typing-hand-numb-observation/">
-          <span>腕隧道症候群不一定只看手腕：先整理手麻、夜間感覺和打字使用方式</span>
-          <small>手麻先別全部往腕隧道症候群靠；先整理哪些手指麻、夜裡還是白天、以及打字和手腕角度。</small>
-        </a>
-        <a class="article-link" href="tennis-elbow-grip-forearm-observation/">
-          <span>網球肘不打球也會有嗎？先看握力、前臂出力和手腕一起參與</span>
-          <small>手肘外側痛不必先只想到網球肘；先看抓握、提拿、手腕出力和前臂是不是一直很緊。</small>
-        </a>
-        <a class="article-link" href="jaw-click-neck-breathing-observation/">
-          <span>顳顎關節卡卡只是下巴的事嗎？先整理咬緊、肩頸和呼吸</span>
-          <small>下巴卡卡和喀喀響不一定只剩顳顎關節這個名字；先看咬緊、肩頸、壓力和呼吸有沒有一起參與。</small>
-        </a>
-        <a class="article-link" href="postpartum-pelvis-carrying-hip-observation/">
-          <span>產後骨盆的困擾，先從抱小孩、起身和左右承重開始觀察</span>
-          <small>產後骨盆不舒服先別只剩骨盆鬆掉；先整理抱小孩、起身、走路和左右承重怎麼變化。</small>
-        </a>
-      </div>
-    </section>
-
-    <section class="content-card">
-      <h2>文章庫方向</h2>
+      <h2>閱讀方式</h2>
       <ul>
-        <li>這裡是見觀結構品牌與文章官網的一部分，負責承接公開文章內容。</li>
-        <li>文章從身體感受與生活情境開始整理，不直接把名詞等同於身體狀態。</li>
-        <li>文章頁只保留回到導航頁入口，但主體仍以內容理解為先。</li>
+        <li>第一層先選身體區域，不急著找單一名稱。</li>
+        <li>第二層會整理常見感受、動作情境、搜尋詞與文章入口。</li>
+        <li>每篇文章只作為身體觀察起點，不作為診斷或保證結果。</li>
       </ul>
     </section>
 
