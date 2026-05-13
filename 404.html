@@ -127,7 +127,11 @@
         targetPath = incoming.get('id') === '11272' ? '/about/' : '/visit/';
       } else if (legacyPath === '/paper/other_select_index.php') {
         targetPath = incoming.get('id') === '3718' ? '/north/pricing/' : '/visit/';
-      } else if (legacyPath.indexOf('/paper/') === 0 || legacyPath.slice(-4) === '.php') {
+      } else if (legacyPath === '/paper/promotions_index.php') {
+        targetPath = '/visit/';
+      } else if (legacyPath.indexOf('/paper/') === 0) {
+        targetPath = '/notes/';
+      } else if (legacyPath.slice(-4) === '.php') {
         targetPath = '/visit/';
       }
 
