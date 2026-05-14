@@ -683,6 +683,87 @@
       tracker.trackPageView('page_view_home', { store: '', page_role: 'home' });
     }
 
+    function bindDecisionCtaTracking(variantKey) {
+      if (variantKey === 'north') {
+        bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
+          eventName: 'click_visit_locator_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'locator_anchor',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
+          eventName: 'click_visit_first_visit_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'section_anchor',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroQuinaryCta'), {
+          eventName: 'click_pricing_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'pricing',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#firstVisitPrimaryAction'), {
+          eventName: 'click_visit_locator_north',
+          store: 'north',
+          page_role: 'north_entry',
+          cta_type: 'locator_anchor',
+          cta_position: 'first_visit'
+        });
+        return;
+      }
+
+      if (variantKey === 'south') {
+        bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
+          eventName: 'click_visit_locator_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'locator_anchor',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
+          eventName: 'click_visit_first_visit_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'section_anchor',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroQuinaryCta'), {
+          eventName: 'click_pricing_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'pricing',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#firstVisitPrimaryAction'), {
+          eventName: 'click_visit_locator_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'locator_anchor',
+          cta_position: 'first_visit'
+        });
+        return;
+      }
+
+      bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
+        eventName: 'click_visit_store_north',
+        store: 'north',
+        page_role: 'home',
+        cta_type: 'store_entry',
+        cta_position: 'hero'
+      });
+      bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
+        eventName: 'click_visit_store_south',
+        store: 'south',
+        page_role: 'home',
+        cta_type: 'store_entry',
+        cta_position: 'hero'
+      });
+    }
+
     function bindVariantTracking(variantKey) {
       const sharedHomeLine = {
         eventName: 'click_line_home',
@@ -692,6 +773,7 @@
       };
 
       trackVariantPageView(variantKey);
+      bindDecisionCtaTracking(variantKey);
 
       if (variantKey === 'north') {
         bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
