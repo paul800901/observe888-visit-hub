@@ -62,6 +62,15 @@
 - Google 搜尋 / Maps 公開面可能因審核與快取延遲尚未顯示新貼文；沒有讀回前不要宣稱公開面已更新，也不要把延遲誤判成貼文未上架。
 - Google Business Profile API scope 仍未修復；今天是靠已登入瀏覽器後台完成，不代表 `business.manage` API 或 connector 已可用。
 
+## 2026-05-15 Google Ads 代理轉換追蹤
+
+- 已在本 repo 的正式官網追蹤碼加入 Google Ads conversion tag，commit `f6de3fe`。
+- 修改檔案：`observe888-tracking-config.js`、`observe888-tracking.js`。
+- LINE click 送 `AW-17875250530/QwVXCKOYxIccEOLaystC`。
+- 電話 click 送 `AW-17875250530/G5IPCJXLu4ccEOLaystC`。
+- 正式站已回讀到 conversion labels 與 `gtag('event', 'conversion')`；這是代理學習訊號，不是 booked / visited。
+- Google Ads 帳戶端 live 變更與讀回紀錄保存在 AdsControl：`D:\見觀營運資料夾\02_廣告_AdsControl\docs\ads-operation-log-2026-05-15.md`。
+
 ## 後續工作方向
 
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。
