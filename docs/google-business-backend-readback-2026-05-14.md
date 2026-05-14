@@ -139,4 +139,4 @@ Observed current Google Business Profile booking links and target policy:
 - Resolve the `1 筆 Google 資訊更新` item for each location. Current click-through opened `商家資訊` with no accept/reject UI, so the actual Google-proposed update still needs a safer review path.
 - Recheck the North `商家資訊` detail panel later if Google still reports `1 筆 Google 資訊更新`; manager list and public managed profile now use `華德里`.
 - Re-open field-level edit dialogs before acting on categories, hours, attributes, service areas, products, services, or photos.
-- Recheck public Google surfaces later because backend booking/address changes may have review/cache lag.
+- Recheck public Google Search, public business panels, and Search Console later. This is intentionally deferred because backend booking/address changes may have review/cache lag; next pass should read back North address, North/South booking links, and indexing state before calling the public side complete.

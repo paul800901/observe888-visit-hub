@@ -53,7 +53,7 @@
 
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 補欄位編輯器層級的完整營業時間、屬性與服務範圍；主副分類、服務、產品、預訂欄位與照片盤點已先讀回。
-- 晚點再回讀 Google 公開面，因地址/預訂欄位可能有審核或快取延遲。
+- Google 公開搜尋結果、商家公開面與 Search Console 先延後，不列為立即故障；下一次接續時先等審核/快取時間，再回讀北區地址、南北區預訂連結與索引狀態。
 - 維護 `faq/index.html`，目前已回答第一次來、北區 / 南區怎麼選、費用、導航、服務邊界；後續若 Google 商家後台欄位變更，要同步更新 FAQ。
 - 新增文章前，先做安全化與最終潤色，再補進分類入口、`sitemap.xml`、`llms.txt`。
 - 若改店點資料，同步檢查 `index.html`、`visit/`、`north/`、`south/`、widget、JSON-LD、`llms.txt`。
