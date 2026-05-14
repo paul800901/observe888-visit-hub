@@ -52,6 +52,15 @@
 - 已重查 Google 搜尋公開/管理混合面板：北區地址公開欄位已顯示 `華德里`，南北區 `網站` 按鈕已分別顯示 `https://www.observe888.com/visit/?store=north` / `https://www.observe888.com/visit/?store=south`；但北區公開面板的 `預約` 區塊仍可見舊 LINE `https://line.me/ti/p/~@483yvmiw`，且自然搜尋仍可見舊 Boostime 結果，不能宣稱公開面完全更新。
 - 已做 2026-05-14 公開 HTTP 讀回：`https://www.observe888.com/`、`robots.txt`、`sitemap.xml`、Search Console 驗證檔與南北分流頁皆為 `200 OK`；正式官網 canonical 與頁面內容未讀到 Boostime 舊路徑。
 - 舊站 `https://observe.boostime.me/` 仍回應 `200 OK`，title 仍是 `見觀結構整復所`，canonical 仍指向 `https://observe.boostime.me/`，且未讀到 `noindex`；這是公開搜尋仍不乾淨的主要外部阻塞點。
+- 2026-05-14 晚間已完成 Google Business Profile 短漫貼文上架紀錄，詳見 `docs/google-business-short-comics-post-pack-2026-05-14.md`：北區、南區各 1 則第 1 集腳底篇貼文已上架，CTA 為「瞭解詳情」，連到 `https://www.observe888.com/comics/`。使用者已在外部 Chrome 手動補上封面圖 `0.png`；Codex 工具端未能獨立讀回縮圖 DOM，所以圖片狀態以使用者操作回報為準。不要重發貼文、不要再複製貼文到另一店。
+
+## 2026-05-15 北區電腦接手提醒
+
+- 明天換北區電腦處理時，先在 `D:\見觀營運資料夾\01_官網_ObserveGeoPages` 或該機實際 clone 路徑執行同步，以 `origin/main` 最新狀態為準。
+- 先讀本檔、`PROJECT_CONTEXT.md`、`docs/website-operations.md`、`docs/google-business-short-comics-post-pack-2026-05-14.md`，再動手。
+- GMB 短漫貼文今天已完成，不要重發、不刪除、不複製。若要查，只做後台或公開面讀回。
+- Google 搜尋 / Maps 公開面可能因審核與快取延遲尚未顯示新貼文；沒有讀回前不要宣稱公開面已更新，也不要把延遲誤判成貼文未上架。
+- Google Business Profile API scope 仍未修復；今天是靠已登入瀏覽器後台完成，不代表 `business.manage` API 或 connector 已可用。
 
 ## 後續工作方向
 
