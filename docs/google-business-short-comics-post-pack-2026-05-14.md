@@ -97,6 +97,8 @@ CTA：立即預約
 | 2026-05-14 | Google Business Profile | 北區店 | 第 1 集腳底篇貼文 | 已上架：文字與連結 | 23:24 Asia/Taipei 使用已登入 `observe88888@gmail.com` 的 Google Business Profile 瀏覽器後台建立；貼文列表讀回新文案，發布時間顯示「25 秒前」；CTA 設定為「瞭解詳情」，連結 `https://www.observe888.com/comics/`；圖片未上傳，因 Codex in-app browser 回報不支援檔案上傳 |
 | 2026-05-14 | Google Business Profile | 南區店 | 第 1 集腳底篇貼文 | 已上架：文字與連結 | 23:24 Asia/Taipei 使用已登入 `observe88888@gmail.com` 的 Google Business Profile 瀏覽器後台建立；貼文列表讀回新文案，發布時間顯示「25 秒前」；CTA 設定為「瞭解詳情」，連結 `https://www.observe888.com/comics/`；Google 顯示「複製貼文」到北區時已選「略過」，避免重複發布；圖片未上傳，因 Codex in-app browser 回報不支援檔案上傳 |
 
+2026-05-14 23:44 Asia/Taipei 補充：使用者在外部 Chrome 手動進入南北區貼文編輯頁，為本輪貼文補上封面圖 `D:\見觀營運資料夾\03_社群_ObserveSocialAutopilot\data\AI短漫劇 第一部\第01集 腳底篇\0.png`。Codex 工具端當下只能在南區 Google Business Profile 貼文列表讀回文字貼文，未能獨立讀回縮圖 DOM，因此圖片狀態以使用者操作回報為準；不要因此重發貼文或重複複製到另一店。
+
 ## 權限檢查紀錄
 
 2026-05-14 22:31 Asia/Taipei 已檢查：
