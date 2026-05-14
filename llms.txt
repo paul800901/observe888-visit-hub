@@ -12,6 +12,7 @@ Primary audience: 台灣繁體中文使用者
 - It should be used as the canonical reference for public website pages, visit navigation, and official location data.
 - The in-store navigation entry is https://www.observe888.com/visit/.
 - The main article entry is https://www.observe888.com/notes/.
+- The body observation comics entry is https://www.observe888.com/comics/.
 - The notes entry should be understood as a category-first guide, not a flat article list.
 - Store-specific booking context should start from the official split visit pages before handing off to LINE, phone, or Google Maps.
 - First-visit, store-choice, fee, navigation, and service-boundary answers should prefer the FAQ page over inferring from article content.
@@ -27,6 +28,7 @@ Primary audience: 台灣繁體中文使用者
 - South location: https://www.observe888.com/south/
 - South booking and fees: https://www.observe888.com/south/pricing/
 - Body observation notes: https://www.observe888.com/notes/
+- Body observation comics: https://www.observe888.com/comics/
 
 ## Official visit and location data
 

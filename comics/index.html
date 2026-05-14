@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <title>身體觀察短劇｜陪伴你看懂自己的身體｜見觀結構</title>
+  <meta name="description" content="用短漫劇的形式，將身體感受、代償路線與結構調理的日常驗證呈現出來。我們在這裡陪伴你看懂自己的身體。">
+  <link rel="canonical" href="https://www.observe888.com/comics/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="見觀結構">
+  <meta property="og:title" content="身體觀察短劇｜陪伴你看懂自己的身體">
+  <meta property="og:description" content="將身體感受、代償路線與日常驗證轉化為好懂的短篇圖文。">
+  <meta property="og:url" content="https://www.observe888.com/comics/">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5ecdf;
+      --paper: rgba(255, 251, 245, 0.9);
+      --line: rgba(87, 63, 48, 0.14);
+      --text: #3f2e22;
+      --muted: #6f5a49;
+      --accent: #a14f2a;
+      --forest: #2e5e4b;
+      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 32%),
+        linear-gradient(180deg, #fbf6ee 0%, var(--bg) 52%, #f0e4d4 100%);
+    }
+    a {
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .shell {
+      width: min(960px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+      display: grid;
+      gap: 18px;
+    }
+    .topnav, .hero, .content-card, .category-card, .cta-strip {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(87, 63, 48, 0.07);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .topnav-brand {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .hero, .content-card {
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(161, 79, 42, 0.1);
+      color: #7e381d;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    h1, h2, h3, p {
+      margin: 0;
+    }
+    h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 20px;
+      line-height: 1.45;
+    }
+    h3 {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    .hero-copy {
+      display: grid;
+      gap: 12px;
+    }
+    p, li {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+    .content-card {
+      padding: 20px;
+    }
+    .cta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 16px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 16px 28px rgba(126, 56, 29, 0.2);
+    }
+    .button.is-forest {
+      background: var(--forest);
+      box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22);
+    }
+    .button.is-ghost {
+      background: rgba(87, 63, 48, 0.07);
+      color: var(--text);
+      box-shadow: none;
+    }
+    .social-links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .social-box {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      background: var(--paper);
+    }
+    .social-box strong {
+      display: block;
+      color: var(--text);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .social-box span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100vw - 16px, 960px);
+        padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
+      }
+      .hero, .content-card, .cta-strip {
+        border-radius: 22px;
+        padding: 18px;
+      }
+      .social-links-grid {
+        grid-template-columns: 1fr;
+      }
+      .button {
+        width: 100%;
+        min-height: 50px;
+        font-size: 16px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../observe888-bottom-nav.css">
+</head>
+<body>
+  <main class="shell">
+    <nav class="topnav" aria-label="頁面導覽">
+      <a class="back-link" href="../">回到首頁</a>
+      <span class="topnav-brand">見觀結構｜身體觀察短劇</span>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">身體觀察短劇</span>
+      <div class="hero-copy">
+        <h1>陪伴你看懂自己的身體</h1>
+        <p>你是不是也常覺得自己的身體有些地方卡卡的，甚至反覆出現同一種感覺？</p>
+        <p>見觀結構將長期的評估與調理經驗，轉化為溫暖寫實的「身體觀察短劇」。透過這些生活情境的故事，我們希望能幫助你在前來調理之前，先了解自己身體的「代償路線」與「承重機制」。</p>
+      </div>
+    </header>
+
+    <section class="content-card">
+      <h2>把常見的困惑，變成好懂的圖文</h2>
+      <p>我們的短漫劇不宣稱神奇療效，也不會只叫你處理痛點。我們著重於紀錄：在日常生活中，哪一個步驟觸發了這些感覺？殘留下來的卡感又暗示了什麼線索？</p>
+      <p>你可以前往我們的社群平台，這裡完整收錄了每一集的連載與觀察觀點：</p>
+
+      <div class="social-links-grid">
+        <a class="social-box" href="https://www.threads.net/@sl800901" target="_blank" rel="noopener noreferrer">
+          <strong>Threads 實時筆記</strong>
+          <span>觀看最新的短劇與深入的身體重點解析。</span>
+        </a>
+        <a class="social-box" href="https://www.facebook.com/profile.php?id=61589375001647" target="_blank" rel="noopener noreferrer">
+          <strong>Facebook 粉絲專頁</strong>
+          <span>適合大螢幕閱讀，適合分享給家人朋友的圖文整理。</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="cta-strip">
+      <a class="button is-forest" href="../visit/">直接進入到店導航</a>
+      <a class="button is-ghost" href="../notes/">查看身體觀察文字筆記</a>
+    </div>
+  </main>
+
+  <script src="../observe888-tracking-config.js"></script>
+  <script src="../observe888-tracking.js"></script>
+  <script src="../observe888-bottom-nav.js"></script>
+</body>
+</html>
