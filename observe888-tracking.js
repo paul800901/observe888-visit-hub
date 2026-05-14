@@ -13,6 +13,11 @@
     return String(getConfig().endpoint || '').trim();
   }
 
+  function getGoogleAdsConversionConfig() {
+    const config = getConfig();
+    return config.googleAdsConversion || {};
+  }
+
   function logDebug(message, payload) {
     const config = getConfig();
     if (!config.debug) {
@@ -350,8 +355,86 @@
       });
   }
 
-  function track(eventName, extra) {
-    return sendPayload(buildPayload(eventName, extra));
+  function ensureGoogleAdsTag() {
+    const conversionConfig = getGoogleAdsConversionConfig();
+    const conversionId = String(conversionConfig.conversionId || '').trim();
+    if (!conversionId) {
+      return false;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag() {
+      window.dataLayer.push(arguments);
+    };
+
+    if (!document.querySelector(`script[data-observe888-google-ads="${conversionId}"]`)) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(conversionId)}`;
+      script.dataset.observe888GoogleAds = conversionId;
+      document.head.appendChild(script);
+    }
+
+    if (!window.__observe888GoogleAdsConfigured) {
+      window.gtag('js', new Date());
+      window.gtag('config', conversionId);
+      window.__observe888GoogleAdsConfigured = true;
+    }
+
+    return typeof window.gtag === 'function';
+  }
+
+  function getGoogleAdsSendTo(eventName, extra, payload) {
+    const conversionConfig = getGoogleAdsConversionConfig();
+    const sendTo = conversionConfig.sendTo || {};
+    const normalizedName = String(eventName || '').trim().toLowerCase();
+    const ctaType = String(extra && extra.cta_type || payload && payload.cta_type || '').trim().toLowerCase();
+    const contactChannel = String(payload && payload.contact_channel || '').trim().toUpperCase();
+
+    if (ctaType === 'line' || contactChannel === 'LINE' || normalizedName.startsWith('click_line')) {
+      return String(sendTo.line_click || '').trim();
+    }
+    if (ctaType === 'call' || contactChannel === 'PHONE' || normalizedName.startsWith('click_call')) {
+      return String(sendTo.phone_click || '').trim();
+    }
+    return '';
+  }
+
+  function reportGoogleAdsConversion(eventName, extra, payload, callback) {
+    const sendTo = getGoogleAdsSendTo(eventName, extra, payload);
+    if (!sendTo || !ensureGoogleAdsTag()) {
+      if (typeof callback === 'function') {
+        callback();
+      }
+      return false;
+    }
+
+    let callbackDone = false;
+    const done = () => {
+      if (callbackDone) {
+        return;
+      }
+      callbackDone = true;
+      if (typeof callback === 'function') {
+        callback();
+      }
+    };
+
+    window.gtag('event', 'conversion', {
+      send_to: sendTo,
+      event_callback: done,
+      event_timeout: 1000
+    });
+    window.setTimeout(done, 1100);
+    logDebug('google ads conversion sent', { eventName, send_to: sendTo });
+    return true;
+  }
+
+  function track(eventName, extra, options) {
+    const payload = buildPayload(eventName, extra);
+    const result = sendPayload(payload);
+    reportGoogleAdsConversion(eventName, extra, payload, options && options.googleAdsCallback);
+    return result;
   }
 
   function trackPageView(eventName, extra) {
@@ -378,17 +461,43 @@
     delete payloadOptions.eventName;
 
     element.dataset.observeBound = '1';
-    element.addEventListener('click', () => {
-      track(eventName, Object.assign({
+    element.addEventListener('click', (event) => {
+      const payloadOptionsForClick = Object.assign({
         event_category: 'cta_click',
         store: '',
         page_role: '',
         cta_type: '',
         cta_position: '',
         href: element.href || ''
-      }, payloadOptions));
+      }, payloadOptions);
+      const href = String(element.href || '').trim();
+      const target = String(element.target || '').trim().toLowerCase();
+      const shouldDelayNavigation = Boolean(
+        href
+        && target !== '_blank'
+        && getGoogleAdsSendTo(eventName, payloadOptionsForClick)
+      );
+
+      if (!shouldDelayNavigation) {
+        track(eventName, payloadOptionsForClick);
+        return;
+      }
+
+      event.preventDefault();
+      let navigated = false;
+      const navigate = () => {
+        if (navigated) {
+          return;
+        }
+        navigated = true;
+        window.location.href = href;
+      };
+      track(eventName, payloadOptionsForClick, { googleAdsCallback: navigate });
+      window.setTimeout(navigate, 1200);
     });
   }
+
+  ensureGoogleAdsTag();
 
   window.Observe888Tracker = {
     track,
