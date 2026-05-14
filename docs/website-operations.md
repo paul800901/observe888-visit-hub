@@ -102,7 +102,8 @@
 - 產品項目：北區讀到 `貼紮服務`、`全身結構評估調理+客製化功能性訓練`、`全身結構評估調理+姿態訓練`、`單一部位評估調理`；南區讀到 `單次預約 30 至 40 分鐘`、`工作室預約`。
 - 照片素材：北區 `相片和影片` 對話框可見封面、標誌、31 個 numbered photo items 與 1 個 numbered video item；南區可見封面、標誌、27 個 numbered photo items，未見影片。這是可見後台項目數，不是底層檔案去重數。
 - 預訂欄位：LINE 是共同聯絡端點，但官網已用 `https://www.observe888.com/visit/?store=north` 與 `https://www.observe888.com/visit/?store=south` 分流南北區；2026-05-14 已回讀正式網址，兩個 URL 會分別渲染北區 / 南區入口且都保留 LINE CTA。Google 商家 `預訂` 欄位已改為北區 `https://www.observe888.com/visit/?store=north`、南區 `https://www.observe888.com/visit/?store=south`。
-- 尚未完整處理：兩店 `1 筆 Google 資訊更新`、營業時間欄位編輯器、屬性與服務範圍欄位編輯器；Google 公開面可能因審核或快取延遲，需要晚點再回讀。
+- 公開搜尋面另以 `docs/google-public-surface-readback-2026-05-14.md` 為準：正式官網、`robots.txt`、`sitemap.xml`、Search Console 驗證檔與南北分流頁已公開讀回正常；舊 Boostime 站 `https://observe.boostime.me/` 仍公開回應 `200 OK`、canonical 指向自己且未讀到 `noindex`。
+- 尚未完整處理：兩店 `1 筆 Google 資訊更新`、營業時間欄位編輯器、屬性與服務範圍欄位編輯器、北區公開 `預約` 快取回讀、舊 Boostime 站外部 301/noindex、Search Console 索引/移除讀回；Google 公開面可能因審核或快取延遲，需要晚點再回讀。
 
 ## GEO / AEO 內容方向
 

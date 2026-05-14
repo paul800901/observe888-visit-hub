@@ -39,6 +39,7 @@
 ## 2026-05-14 已補
 
 - 建立 `docs/google-business-backend-readback-2026-05-14.md`，作為 Google 商家後台編輯畫面逐欄讀回表。
+- 建立 `docs/google-public-surface-readback-2026-05-14.md`，作為 Google 搜尋公開面、正式官網與舊 Boostime 站的公開讀回表。
 - `docs/website-operations.md` 已校正南區目前正式入口：`D:\見觀營運資料夾\01_官網_ObserveGeoPages` 與 `D:\見觀營運資料夾\02_廣告_AdsControl`。
 - 用登入狀態讀回 Google Business Profile 管理清單、商家面板、產品區、網站按鈕、`商家資訊` 詳細面板、相片工具、服務、產品與預訂對話框；未送出任何後台修改。
 - 南北區 `1 筆 Google 資訊更新` 點開後只進入 `商家資訊` 詳細面板，沒有看到 `接受`、`拒絕` 或 `套用` 按鈕；目前仍視為未解決。
@@ -49,12 +50,14 @@
 - 已回讀 Google Business 管理清單：北區地址顯示 `704台南市北區華德里北安路一段 211 號`。
 - 已更新並回讀 Google 商家 `預訂` 連結：北區 `https://www.observe888.com/visit/?store=north`，南區 `https://www.observe888.com/visit/?store=south`。
 - 已重查 Google 搜尋公開/管理混合面板：北區地址公開欄位已顯示 `華德里`，南北區 `網站` 按鈕已分別顯示 `https://www.observe888.com/visit/?store=north` / `https://www.observe888.com/visit/?store=south`；但北區公開面板的 `預約` 區塊仍可見舊 LINE `https://line.me/ti/p/~@483yvmiw`，且自然搜尋仍可見舊 Boostime 結果，不能宣稱公開面完全更新。
+- 已做 2026-05-14 公開 HTTP 讀回：`https://www.observe888.com/`、`robots.txt`、`sitemap.xml`、Search Console 驗證檔與南北分流頁皆為 `200 OK`；正式官網 canonical 與頁面內容未讀到 Boostime 舊路徑。
+- 舊站 `https://observe.boostime.me/` 仍回應 `200 OK`，title 仍是 `見觀結構整復所`，canonical 仍指向 `https://observe.boostime.me/`，且未讀到 `noindex`；這是公開搜尋仍不乾淨的主要外部阻塞點。
 
 ## 後續工作方向
 
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 補欄位編輯器層級的完整營業時間、屬性與服務範圍；主副分類、服務、產品、預訂欄位與照片盤點已先讀回。
-- Google 公開搜尋結果與商家公開面已做一次快取後讀回，但仍未完全乾淨；下一輪需重查北區公開 `預約` 是否已從 LINE 更新為官方分流頁、舊 Boostime 自然結果是否退場，以及 Search Console 索引狀態。
+- Google 公開搜尋結果與商家公開面仍未完全乾淨；下一輪先推動 Boostime / 網路公司把 `https://observe.boostime.me/` 做 301 redirect 或 `noindex, follow`，再重查北區公開 `預約` 是否已從 LINE 更新為官方分流頁、舊 Boostime 自然結果是否退場，以及 Search Console 索引狀態。
 - 維護 `faq/index.html`，目前已回答第一次來、北區 / 南區怎麼選、費用、導航、服務邊界；後續若 Google 商家後台欄位變更，要同步更新 FAQ。
 - 新增文章前，先做安全化與最終潤色，再補進分類入口、`sitemap.xml`、`llms.txt`。
 - 若改店點資料，同步檢查 `index.html`、`visit/`、`north/`、`south/`、widget、JSON-LD、`llms.txt`。
