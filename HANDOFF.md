@@ -39,7 +39,7 @@
 ## 2026-05-14 已補
 
 - 建立 `docs/google-business-backend-readback-2026-05-14.md`，作為 Google 商家後台編輯畫面逐欄讀回表。
-- `docs/website-operations.md` 已補南區此電腦實際路徑：`D:\ObserveGeoPages\observe888-visit-hub` 與 `D:\AdsControl`。
+- `docs/website-operations.md` 已校正南區目前正式入口：`D:\見觀營運資料夾\01_官網_ObserveGeoPages` 與 `D:\見觀營運資料夾\02_廣告_AdsControl`。
 - 用登入狀態讀回 Google Business Profile 管理清單、商家面板、產品區、網站按鈕、`商家資訊` 詳細面板、相片工具、服務、產品與預訂對話框；未送出任何後台修改。
 - 南北區 `1 筆 Google 資訊更新` 點開後只進入 `商家資訊` 詳細面板，沒有看到 `接受`、`拒絕` 或 `套用` 按鈕；目前仍視為未解決。
 - 補 Google 商家後台可見盤點：北區相片工具可見封面、標誌、31 張相片與 1 支影片；南區可見封面、標誌、27 張相片；兩店服務對話框皆讀到 `結構評估`、`動作與姿勢觀察`、`徒手調理`。

@@ -12,7 +12,7 @@
 
 這次同時整理了兩個專案，但責任邊界已經切清楚：
 
-- 官網、到店導航、北區 / 南區店點頁、Google 商家資料一致性、FAQ、GEO / AEO、`llms.txt`：全部回到 `C:\ObserveGeoPages\observe888-visit-hub`。
+- 官網、到店導航、北區 / 南區店點頁、Google 商家資料一致性、FAQ、GEO / AEO、`llms.txt`：全部回到 `D:\見觀營運資料夾\01_官網_ObserveGeoPages`。
 - AdsControl：只保留 Google Ads、追蹤事件匯入、lead sync、監測、報表與廣告素材流程。
 - 不要再從 AdsControl 產出或覆蓋正式官網頁面。
 
@@ -69,7 +69,7 @@ AdsControl 這次只做邊界收斂，不再負責正式官網：
 - `README.md` 已補上 Observe888 官網邊界。
 - `tools/build-observe888-public.js` 已加防呆，預設執行會失敗，避免舊 bundle 蓋回官網。
 - 只有明確要檢查舊資料時，才可設定 `ADSCONTROL_ALLOW_LEGACY_OBSERVE888_BUILD=1`。
-- 南區店開發機若使用舊路徑，依 AdsControl README 仍是 `D:\AdsControl`；本次北區這台實際操作路徑是 `C:\AdsControl`。
+- 南區店目前統一從新工作區操作，AdsControl 正式入口為 `D:\見觀營運資料夾\02_廣告_AdsControl`；舊 `D:\AdsControl` 與 `C:\AdsControl` 只保留作歷史語境或回復點，不再作日常入口。
 
 ## 不能做的事
 
