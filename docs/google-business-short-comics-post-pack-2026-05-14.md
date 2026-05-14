@@ -94,8 +94,8 @@ CTA：立即預約
 
 | 日期 | 平台 | 店點 | 內容 | 狀態 | 讀回 / 證據 |
 | --- | --- | --- | --- | --- | --- |
-| 2026-05-14 | Google Business Profile | 北區店 | 第 1 集腳底篇貼文 | 未上架：權限阻塞 | 本機沒有 GBP/GMB 寫入 connector；現有 Google OAuth token scope 只有 `https://www.googleapis.com/auth/adwords`，呼叫 `mybusinessaccountmanagement.googleapis.com/v1/accounts` 回 `403 ACCESS_TOKEN_SCOPE_INSUFFICIENT` |
-| 2026-05-14 | Google Business Profile | 南區店 | 第 1 集腳底篇貼文 | 未上架：權限阻塞 | 本機沒有 GBP/GMB 寫入 connector；現有 Google OAuth token scope 只有 `https://www.googleapis.com/auth/adwords`，呼叫 `mybusinessaccountmanagement.googleapis.com/v1/accounts` 回 `403 ACCESS_TOKEN_SCOPE_INSUFFICIENT` |
+| 2026-05-14 | Google Business Profile | 北區店 | 第 1 集腳底篇貼文 | 已上架：文字與連結 | 23:24 Asia/Taipei 使用已登入 `observe88888@gmail.com` 的 Google Business Profile 瀏覽器後台建立；貼文列表讀回新文案，發布時間顯示「25 秒前」；CTA 設定為「瞭解詳情」，連結 `https://www.observe888.com/comics/`；圖片未上傳，因 Codex in-app browser 回報不支援檔案上傳 |
+| 2026-05-14 | Google Business Profile | 南區店 | 第 1 集腳底篇貼文 | 已上架：文字與連結 | 23:24 Asia/Taipei 使用已登入 `observe88888@gmail.com` 的 Google Business Profile 瀏覽器後台建立；貼文列表讀回新文案，發布時間顯示「25 秒前」；CTA 設定為「瞭解詳情」，連結 `https://www.observe888.com/comics/`；Google 顯示「複製貼文」到北區時已選「略過」，避免重複發布；圖片未上傳，因 Codex in-app browser 回報不支援檔案上傳 |
 
 ## 權限檢查紀錄
 
@@ -106,11 +106,13 @@ CTA：立即預約
 - 使用 AdsControl OAuth refresh token 換取 access token 後，`tokeninfo` 回讀 scope 只有 `https://www.googleapis.com/auth/adwords`。
 - 使用該 token 呼叫 Google Business Profile Account Management API：`403 ACCESS_TOKEN_SCOPE_INSUFFICIENT`。
 
-結論：目前這台工作區可以實際寫 Google Ads，但不能實際發 Google Business Profile 貼文。GMB 上架需要其中一種條件：
+結論：目前這台工作區可以實際寫 Google Ads，但不能透過現有 OAuth/API token 寫 Google Business Profile。GMB API 上架需要其中一種條件：
 
 - 可操作的已登入 Google Business Profile 後台瀏覽器控制權；或
 - 具備 `https://www.googleapis.com/auth/business.manage` scope 的 OAuth token / API flow；或
 - 已安裝並授權的 Google Business Profile connector。
+
+2026-05-14 23:24 Asia/Taipei 後續已使用第一種條件完成本輪南北區貼文上架：可操作的已登入 Google Business Profile 後台瀏覽器控制權。這不代表 API scope 已修復；後續若要自動化仍需 `business.manage` scope 或專用 connector。
 
 ## 注意事項
 
