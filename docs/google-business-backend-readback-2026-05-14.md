@@ -24,6 +24,27 @@
 - No product, service, photo, category, attribute, service-area, hours, or Google Ads setting was changed during this post-change pass.
 - Google public surfaces can lag behind backend changes; treat the post-change state above as authenticated backend readback, not as proof that every public Google surface has refreshed.
 
+## Public Google readback after cache wait
+
+Source and caveat:
+
+- Read from Google Search in the Codex in-app browser with the manager account still signed in, so the page also contained owner-only panels and Google Ads summaries. The fields below were visible in the business/search result surfaces, but this is not a clean anonymous/incognito ranking audit.
+
+Exact business-name searches:
+
+- North exact query `見觀結構調理整復所-北區店`: business panel address now shows `704臺南市北區華德里北安路一段211 號`; no `成德里` string was visible in the captured panel text.
+- North exact query: business panel `網站` button points to `https://www.observe888.com/visit/?store=north`.
+- North exact query: public/visible `聯絡` area still showed `預約: https://line.me/ti/p/~@483yvmiw`; do not call North public booking fully refreshed yet.
+- North exact query: organic results still showed a legacy `boostime.me` result. Treat this as a remaining public-search cleanup/lag item, not as fixed.
+- South exact query `見觀結構調理整復所-南區店`: business panel address shows `702臺南市南區明興路673號`.
+- South exact query: business panel `網站` button points to `https://www.observe888.com/visit/?store=south`.
+- South exact query: no `line.me` or `boostime` match was visible in the captured panel/search text.
+
+Local keyword spot checks:
+
+- Query `台南南區整復` showed `見觀結構調理整復所-南區店` in the visible local results, with website `https://www.observe888.com/visit/?store=south`.
+- Query `台南北區整復` was not a reliable North-ranking read because Google displayed the search location as South-area context and surfaced South local results first. Do not infer stable North Maps ranking from this one query.
+
 Important discrepancy:
 
 - North location list row showed `704台南市北區成德里北安路一段211號`.

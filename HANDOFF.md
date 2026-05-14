@@ -48,12 +48,13 @@
 - 預訂策略已校正並回讀正式網址：LINE 是共同聯絡端點，但 Google 商家 `預訂` 連結若要處理，應優先導到官方南北區分流頁 `https://www.observe888.com/visit/?store=north` / `https://www.observe888.com/visit/?store=south`，再由頁面承接 LINE、電話與地圖。
 - 已回讀 Google Business 管理清單：北區地址顯示 `704台南市北區華德里北安路一段 211 號`。
 - 已更新並回讀 Google 商家 `預訂` 連結：北區 `https://www.observe888.com/visit/?store=north`，南區 `https://www.observe888.com/visit/?store=south`。
+- 已重查 Google 搜尋公開/管理混合面板：北區地址公開欄位已顯示 `華德里`，南北區 `網站` 按鈕已分別顯示 `https://www.observe888.com/visit/?store=north` / `https://www.observe888.com/visit/?store=south`；但北區公開面板的 `預約` 區塊仍可見舊 LINE `https://line.me/ti/p/~@483yvmiw`，且自然搜尋仍可見舊 Boostime 結果，不能宣稱公開面完全更新。
 
 ## 後續工作方向
 
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 補欄位編輯器層級的完整營業時間、屬性與服務範圍；主副分類、服務、產品、預訂欄位與照片盤點已先讀回。
-- Google 公開搜尋結果、商家公開面與 Search Console 先延後，不列為立即故障；下一次接續時先等審核/快取時間，再回讀北區地址、南北區預訂連結與索引狀態。
+- Google 公開搜尋結果與商家公開面已做一次快取後讀回，但仍未完全乾淨；下一輪需重查北區公開 `預約` 是否已從 LINE 更新為官方分流頁、舊 Boostime 自然結果是否退場，以及 Search Console 索引狀態。
 - 維護 `faq/index.html`，目前已回答第一次來、北區 / 南區怎麼選、費用、導航、服務邊界；後續若 Google 商家後台欄位變更，要同步更新 FAQ。
 - 新增文章前，先做安全化與最終潤色，再補進分類入口、`sitemap.xml`、`llms.txt`。
 - 若改店點資料，同步檢查 `index.html`、`visit/`、`north/`、`south/`、widget、JSON-LD、`llms.txt`。
