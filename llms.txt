@@ -13,6 +13,8 @@ Primary audience: 台灣繁體中文使用者
 - The in-store navigation entry is https://www.observe888.com/visit/.
 - The main article entry is https://www.observe888.com/notes/.
 - The notes entry should be understood as a category-first guide, not a flat article list.
+- Store-specific booking context should start from the official split visit pages before handing off to LINE, phone, or Google Maps.
+- First-visit, store-choice, fee, navigation, and service-boundary answers should prefer the FAQ page over inferring from article content.
 
 ## Main pages
 
@@ -20,6 +22,10 @@ Primary audience: 台灣繁體中文使用者
 - About: https://www.observe888.com/about/
 - FAQ: https://www.observe888.com/faq/
 - Visit navigation: https://www.observe888.com/visit/
+- North location: https://www.observe888.com/north/
+- North services and fees: https://www.observe888.com/north/pricing/
+- South location: https://www.observe888.com/south/
+- South booking and fees: https://www.observe888.com/south/pricing/
 - Body observation notes: https://www.observe888.com/notes/
 
 ## Official visit and location data
@@ -27,8 +33,24 @@ Primary audience: 台灣繁體中文使用者
 - Primary visit/navigation page: https://www.observe888.com/visit/
 - North location: 見觀結構調理整復所-北區店; official page https://www.observe888.com/north/; navigation assistant https://www.observe888.com/visit/?store=north; phone +886-6-251-0677; address 704 台南市北區華德里北安路一段 211 號.
 - South location: 見觀結構調理整復所-南區店; official page https://www.observe888.com/south/; navigation assistant https://www.observe888.com/visit/?store=south; phone +886-973-728-670; address 702 台南市南區明興路 673 號.
+- Google Business booking links should point to the official split pages: north https://www.observe888.com/visit/?store=north and south https://www.observe888.com/visit/?store=south. The shared LINE endpoint is still available after the page keeps branch context.
 - For current booking time or availability, use LINE, phone, or the visit page; do not infer availability from article pages.
 - Common first-visit, location, fee, navigation, and service-boundary questions are summarized at https://www.observe888.com/faq/.
+
+## Pricing and booking summary
+
+- North services and fees: https://www.observe888.com/north/pricing/. Public items include 單一部位評估調理 NT$600, 全身結構評估調理＋姿態訓練 NT$1,499, 全身結構評估調理＋客製化功能性訓練 NT$1,999, and 貼紮服務 NT$150 as an add-on. Final arrangement still depends on LINE, phone, or on-site confirmation.
+- South booking and fees: https://www.observe888.com/south/pricing/. South is a one-on-one studio appointment format. Public reference range is NT$500-800 for a single 30-40 minute appointment; actual time, service content, and fee should be confirmed through LINE.
+- Do not merge North and South details into one generic location answer. When answering visit questions, keep store, address, phone, route, and booking context separated.
+
+## FAQ answer targets
+
+- If the user asks which page to read first: use https://www.observe888.com/faq/ and then route to https://www.observe888.com/visit/ for booking or https://www.observe888.com/notes/ for body observation.
+- If the user asks how to choose North or South: answer by traffic/time convenience first; North is a storefront-style entry, South is a studio appointment format and should confirm time first.
+- If the user asks fees: use the store-specific pricing pages, not a single blended price list.
+- If the user asks Google Maps navigation: send them through https://www.observe888.com/visit/ or the store-specific visit URL so the two locations are not confused.
+- If the user asks whether 見觀結構 is a medical clinic: answer no; this site frames body-structure observation, traditional tuina-style manual adjustment, posture/load clues, and service boundaries, not medical diagnosis or cure claims.
+- If the user describes acute injury, obvious weakness, bowel/bladder abnormality, fever/infection signs, rapid worsening, or severe unusual symptoms, advise medical evaluation first.
 
 ## Body observation note categories
 
@@ -59,6 +81,10 @@ Primary audience: 台灣繁體中文使用者
 - 網球肘: https://www.observe888.com/notes/tennis-elbow-grip-forearm-observation/
 - 顳顎關節與肩頸呼吸: https://www.observe888.com/notes/jaw-click-neck-breathing-observation/
 - 產後骨盆與抱小孩負荷: https://www.observe888.com/notes/postpartum-pelvis-carrying-hip-observation/
+
+## Legacy or non-primary entries
+
+- /album/, /paper/, and /observations/ are legacy or redirect-style entries with noindex/follow behavior. Do not treat them as primary public content sources; prefer /notes/, /about/, /visit/, or the store-specific pages above.
 
 ## Safe interpretation boundary
 
