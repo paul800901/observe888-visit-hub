@@ -161,3 +161,32 @@ Observed current Google Business Profile booking links and target policy:
 - Recheck the North `商家資訊` detail panel later if Google still reports `1 筆 Google 資訊更新`; manager list and public managed profile now use `華德里`.
 - Re-open field-level edit dialogs before acting on categories, hours, attributes, service areas, products, services, or photos.
 - Recheck public Google Search, public business panels, and Search Console later. This is intentionally deferred because backend booking/address changes may have review/cache lag; next pass should read back North address, North/South booking links, and indexing state before calling the public side complete.
+
+## 2026-05-15 north-machine authenticated readback
+
+Source:
+
+- Authenticated Codex in-app browser using `observe88888@gmail.com`.
+- This pass was read-only. No Google Business Profile edit, confirmation, save, accept, reject, or apply action was submitted.
+
+Manager list:
+
+- `business.google.com/locations` was no longer blocked by login.
+- The manager showed `2` businesses and `100% 已完成驗證`.
+- Both North and South rows showed `已驗證`.
+- North row showed `見觀結構調理整復所-北區店` with `704台南市北區華德里北安路一段 211 號`.
+- South row showed `見觀結構調理整復所-南區店` with `702台南市南區明興路673號`.
+- Both rows still showed `1 筆 Google 資訊更新`.
+
+Google info update buttons:
+
+- Clicking the North and South `1 筆 Google 資訊更新` buttons kept the page on the `商家資訊` manager list.
+- No visible `接受`, `拒絕`, `套用`, or `確認` control was exposed in the captured DOM.
+- Treat both Google-proposed update items as still unresolved.
+
+Managed/public profile panels:
+
+- North profile panel readback showed the website button as `https://www.observe888.com/visit/?store=north`, product/service link as `https://www.observe888.com/north/pricing/`, address as `704臺南市北區華德里北安路一段211 號`, and phone `06 251 0677`.
+- North profile panel did not show `成德里` or the raw LINE booking URL in the captured business panel text. The surrounding Google search results still showed an old `observe.boostime.me` organic result, so search-result cleanup is not complete until recrawl/readback.
+- South profile panel readback showed the website button as `https://www.observe888.com/visit/?store=south`, product/service link as `https://www.observe888.com/south/pricing/`, address as `702臺南市南區明興路673號`, and phone `0973 728 670`.
+- South profile panel did not show raw LINE booking URL or `observe.boostime.me` in the captured business panel text.

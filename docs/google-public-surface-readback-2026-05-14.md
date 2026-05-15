@@ -61,6 +61,34 @@ Spot checks still showed old Boostime exposure for brand/North-related searches.
 - North public booking/profile links no longer expose the raw LINE URL where the official branch-split booking page should appear.
 - Search Console indexing/removal state has been read back from the owner account.
 
+## 2026-05-15 north-machine update
+
+Source:
+
+- Authenticated Codex in-app browser using `observe88888@gmail.com`.
+- Public HTTP readback from the North computer at `C:\見觀營運資料夾`.
+- This pass was read-only. No Google Business Profile, Search Console, Google Ads, DNS, Boostime, or website source change was submitted.
+
+Official website:
+
+- `https://www.observe888.com/`, `/visit/`, `/north/`, `/south/`, `/faq/`, `/sitemap.xml`, `/robots.txt`, and `/llms.txt` all returned `200`.
+- Homepage, visit page, North page, and South page canonicals all point to `https://www.observe888.com/...`.
+- Checked official pages did not contain `boostime`.
+
+Old Boostime site:
+
+- `https://observe.boostime.me/` now returns `410 Gone`.
+- The returned HTML title is `此商店已停止營運`.
+- The page includes robots meta `noindex, nofollow`.
+- This supersedes the 2026-05-14 blocker that the old Boostime site was still `200 OK` and indexable. Google search results can still lag until recrawl, so do not claim old Boostime search exposure is gone without a fresh search-result readback.
+
+Google Maps public panels:
+
+- North exact place panel readback showed `見觀結構調理整復所-北區店`, address `704臺南市北區華德里北安路一段211 號`, website `https://www.observe888.com/visit/?store=north`, booking link `https://www.observe888.com/visit/?store=north`, service link `https://www.observe888.com/north/pricing/`, and phone `06 251 0677`.
+- North Maps panel did not show `成德里`, raw LINE booking URL, or `observe.boostime.me` in the captured panel text.
+- South exact place panel readback showed `見觀結構調理整復所-南區店`, address `702臺南市南區明興路673號`, website `https://www.observe888.com/visit/?store=south`, booking link `https://www.observe888.com/visit/?store=south`, service link `https://www.observe888.com/south/pricing/`, and phone `0973 728 670`.
+- South Maps panel did not show raw LINE booking URL or `observe.boostime.me` in the captured panel text.
+
 ## Required external action
 
 Send this to Boostime / the network company:
