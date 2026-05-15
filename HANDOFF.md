@@ -56,7 +56,8 @@
 
 ## 2026-05-15 北區電腦接手提醒
 
-- 明天換北區電腦處理時，先在 `D:\見觀營運資料夾\01_官網_ObserveGeoPages` 或該機實際 clone 路徑執行同步，以 `origin/main` 最新狀態為準。
+- 北區電腦正式入口是 `C:\見觀營運資料夾\01_官網_ObserveGeoPages`；南區維持 `D:\見觀營運資料夾\01_官網_ObserveGeoPages`。
+- 換機器處理時，先在該機正式入口執行同步，以 `origin/main` 最新狀態為準。
 - 先讀本檔、`PROJECT_CONTEXT.md`、`docs/website-operations.md`、`docs/google-business-short-comics-post-pack-2026-05-14.md`，再動手。
 - GMB 短漫貼文今天已完成，不要重發、不刪除、不複製。若要查，只做後台或公開面讀回。
 - Google 搜尋 / Maps 公開面可能因審核與快取延遲尚未顯示新貼文；沒有讀回前不要宣稱公開面已更新，也不要把延遲誤判成貼文未上架。

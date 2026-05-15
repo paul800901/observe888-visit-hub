@@ -9,12 +9,14 @@
 ## Source of truth
 
 - 正式官網主專案：
+  - 北區目前正式入口：`C:\見觀營運資料夾\01_官網_ObserveGeoPages`
   - 南區目前正式入口：`D:\見觀營運資料夾\01_官網_ObserveGeoPages`
   - 其他工作站：以該機實際 clone 路徑為準，動手前先確認 repo root。
 - 正式網域：`https://www.observe888.com/`
 - 到店導航：`https://www.observe888.com/visit/`
 - Google / AI 可讀輔助：`sitemap.xml`、`robots.txt`、`llms.txt`
 - 廣告與事件監測：
+  - 北區目前正式入口：`C:\見觀營運資料夾\02_廣告_AdsControl`
   - 南區目前正式入口：`D:\見觀營運資料夾\02_廣告_AdsControl`
   - 其他工作站：以該機實際 clone 路徑為準，AdsControl 不主控官網內容。
 
