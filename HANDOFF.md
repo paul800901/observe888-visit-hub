@@ -72,6 +72,13 @@
 - 正式站已回讀到 conversion labels 與 `gtag('event', 'conversion')`；這是代理學習訊號，不是 booked / visited。
 - Google Ads 帳戶端 live 變更與讀回紀錄保存在 AdsControl：`D:\見觀營運資料夾\02_廣告_AdsControl\docs\ads-operation-log-2026-05-15.md`。
 
+## 2026-05-18 南區機器 UTF-8 / PowerShell 修正
+
+- 南區電腦原本是 Windows PowerShell 5.1，系統 ANSI / OEM code page 皆為 `950`，且沒有 PowerShell profile；讀 UTF-8 無 BOM 的繁體中文 Markdown 時會亂碼。
+- 已在南區電腦建立 `C:\Users\Paulus\Documents\WindowsPowerShell\profile.ps1`，啟動時切到 UTF-8，並設定 Git 全域中文/UTF-8 顯示。
+- 詳細診斷、profile 內容、Git 設定、驗證命令與北區待查事項，見 `docs/south-machine-encoding-handoff-2026-05-18.md`。
+- 北區目前沒有同等級的 PowerShell / code page / profile 診斷紀錄；北區若也遇到亂碼，先依該文件的北區診斷命令讀回，不要直接假設與南區相同。
+
 ## 後續工作方向
 
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。
