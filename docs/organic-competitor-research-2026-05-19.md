@@ -87,6 +87,7 @@
 - 建立本研究檔，作為後續競品與關鍵字追蹤的固定紀錄。
 - 先調整既有官網頁面，不新增新路由、不改追蹤碼、不改 Google Ads。
 - 本輪優先修首頁、北區店、南區店、FAQ 的 title、description、hero 與 FAQ schema。
+- 第二輪新增 `https://www.observe888.com/services/tainan-tuina/`，作為台南整復推拿、北區整復推拿、南區整復推拿與服務邊界的主要承接頁。
 
 ## 公開來源
 
