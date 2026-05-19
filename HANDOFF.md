@@ -28,6 +28,7 @@
 - `services/tainan-tuina/index.html`：台南整復推拿、北區 / 南區整復推拿與服務邊界的主要服務意圖承接頁。
 - `docs/website-operations.md`：Google 商家、地圖、FAQ、GEO / AEO 與驗證規格。
 - `docs/organic-local-serp-radar-2026-05-19.md`：台南在地 SERP 雷達與競品觀察。
+- `docs/organic-search-growth-goal-map-2026-05-19.md`：自然搜尋成長目標地圖，整理競品流量差距、官網、Google 商家、外部曝光、內容群與驗收節奏。
 - `docs/search-console-performance-readback-2026-05-19.md`：Search Console 前 3 個月官方讀回與自然搜尋行動清單。
 - `docs/search-console-full-range-readback-2026-05-19.md`：Search Console 2025-01-18 至 2026-05-16 全期間讀回。
 - `docs/organic-keyword-pool-2026-05-19.csv`：自然搜尋關鍵字池與優先級。
