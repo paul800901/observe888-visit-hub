@@ -26,6 +26,14 @@ symptom_body,P1,肩頸卡 台南,body_situation,https://www.observe888.com/notes
 symptom_body,P1,骨盆歪 台南,body_situation,https://www.observe888.com/notes/scoliosis-shoulder-pelvis-walking-observation/,avoid correction/cure claims,Existing note
 symptom_body,P2,富貴包 台南,body_situation,,monitor; avoid cure framing,Ads terms show click/cost
 symptom_body,P2,高低肩矯正 台南,medical_risk_language,,monitor and reframe as observation; avoid guarantee,Ads terms show impressions
+structure_positioning,P0,身體結構觀察,brand_service_language,https://www.observe888.com/about/,core brand-safe wording; use across GBP and site,Observe-owned positioning
+structure_positioning,P0,身體結構評估,brand_service_language,https://www.observe888.com/services/tainan-tuina/,safe service wording for GBP/service page,GBP current description already uses this
+structure_positioning,P1,結構調理,brand_service_language,https://www.observe888.com/services/tainan-tuina/,safe shorthand for owned positioning; avoid medical promise,Existing product/category language
+structure_positioning,P1,台南結構調理,local_brand_service,https://www.observe888.com/services/tainan-tuina/,can use in site/GBP as safe alternative to structure therapy,Derived owned query
+structure_positioning,P1,徒手調理,brand_service_language,https://www.observe888.com/services/tainan-tuina/,safe service wording; already in GBP services,GBP current service item
+structure_positioning,P2,結構治療,medical_risk_language,https://www.observe888.com/faq/,track as user language only; public rewrite to 身體結構觀察/結構調理,Owner service-language concern
+structure_positioning,P2,台南結構治療,medical_risk_language,https://www.observe888.com/faq/,track only; do not use as GBP service item,Owner service-language concern
+structure_positioning,P2,身體結構治療,medical_risk_language,https://www.observe888.com/faq/,track only; public rewrite to 身體結構觀察/結構調理,Owner service-language concern
 medical_boundary,P1,台南物理治療 徒手治療,medical_comparison,https://www.observe888.com/faq/,keep boundary explanation; do not imply medical service,Public SERP PT clinics strong
 medical_boundary,P1,整復推拿 物理治療 差別,comparison,https://www.observe888.com/faq/,FAQ already added; expand if GSC appears,Strategic comparison query
 competitor_brand,P3,華德整復,competitor_brand,,track only; no competitor attack page,Ads terms competitor_brand
