@@ -30,6 +30,7 @@
 - `docs/website-operations.md`：Google 商家、地圖、FAQ、GEO / AEO 與驗證規格。
 - `docs/organic-local-serp-radar-2026-05-19.md`：台南在地 SERP 雷達與競品觀察。
 - `docs/organic-search-growth-goal-map-2026-05-19.md`：自然搜尋成長目標地圖，整理競品流量差距、官網、Google 商家、外部曝光、內容群、驗收節奏與合夥人溝通版。
+- `docs/maps-tainan-tuina-readback-2026-05-19.md`：`台南推拿` / `台南整復推拿` Google Maps 讀回與 GBP 缺口分析。
 - `docs/search-console-performance-readback-2026-05-19.md`：Search Console 前 3 個月官方讀回與自然搜尋行動清單。
 - `docs/search-console-full-range-readback-2026-05-19.md`：Search Console 2025-01-18 至 2026-05-16 全期間讀回。
 - `docs/organic-keyword-pool-2026-05-19.csv`：自然搜尋關鍵字池與優先級。
@@ -96,6 +97,7 @@
 - 已更新首頁、北區頁、南區頁與 FAQ 的 title / meta / hero / FAQ schema，加入安全的 `台南 + 傳統整復推拿` 語意。
 - 已建立 `docs/organic-local-serp-radar-2026-05-19.md`、`docs/organic-keyword-pool-2026-05-19.csv`、`docs/organic-weekly-checklist.md`、`docs/organic-external-listing-opportunities-2026-05-19.md`。
 - 已建立 `docs/organic-search-growth-goal-map-2026-05-19.md`，把競品流量優勢、官網承接、Google 商家、第三方入口、信任素材、內容群與每週驗收整理成必要工作圖，並補合夥人溝通版。
+- 已建立 `docs/maps-tainan-tuina-readback-2026-05-19.md`，確認 `台南推拿` 是 Maps / Google Business 缺口：無痕截圖第一視窗未見見觀，競品在類別、評論量、服務字與商家名稱命中上更貼近 `推拿` / `整復推拿`；下一步需做乾淨 SERP/Maps 讀回與 GBP 後台只讀比對，不建議立刻亂改主類別或店名。
 - 已建立 `docs/organic-gbp-external-alignment-pack-2026-05-19.md`，整理 Google 商家貼文、第三方名錄與外部平台可用的官方 URL、店點資料、安全介紹文案與欄位建議。
 - 已用登入狀態匯出 Search Console 前 3 個月成效，建立 `docs/search-console-performance-readback-2026-05-19.md`：總點擊 469、總曝光 13,386、平均 CTR 3.5%、平均排名 7.5。
 - 已再匯出 Search Console 全期間成效，建立 `docs/search-console-full-range-readback-2026-05-19.md`：2025-01-18 至 2026-05-16，總點擊 2,235、總曝光 67,599、CTR 3.31%、加權平均排名 9.22。
