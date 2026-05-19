@@ -18,8 +18,19 @@ sports_massage,P1,台南運動按摩推薦,recommendation,https://www.observe888
 sports_massage,P1,肌筋膜放鬆,claimable_adjacent_service,https://www.observe888.com/services/tainan-tuina/,safe if framed as tension/manual conditioning and actually provided; no treatment promise,Keyword universe classification
 sports_massage,P1,筋膜放鬆調理,claimable_adjacent_service,https://www.observe888.com/services/tainan-tuina/,preferred public wording for fascia-related search intent,Owner direction
 sports_massage,P1,台南筋膜放鬆,adjacent_service,https://www.observe888.com/services/tainan-tuina/,route to service and FAQ search-term boundary; avoid treatment promise,Ads terms show impressions/cost
-sports_massage,P2,筋膜刀台南,adjacent_service,,monitor; no page until GSC confirms fit,Ads terms show impressions only
-sports_massage,P2,肩頸按摩台南,broad_massage,,likely broad/low-fit; use Ads exclusion if costly,Ads terms show clicks/cost
+sports_massage,P1,筋膜刀,claimable_adjacent_service,https://www.observe888.com/services/tainan-tuina/,can describe actual tool/manual method; no treatment promise,Owner confirmation
+sports_massage,P1,台南筋膜刀,claimable_adjacent_service,https://www.observe888.com/services/tainan-tuina/,can describe actual tool/manual method; no treatment promise,Owner confirmation
+sports_massage,P1,筋膜刀按摩,claimable_adjacent_service,https://www.observe888.com/services/tainan-tuina/,can describe actual tool/manual method; no treatment promise,Owner confirmation
+sports_massage,P1,台南按摩,broad_claimable_service,https://www.observe888.com/services/tainan-tuina/,claimable but not main positioning; avoid pure spa framing,Owner confirmation
+sports_massage,P1,肩頸按摩,claimable_service_language,https://www.observe888.com/services/tainan-tuina/,claimable as service/search wording; no treatment promise,Owner confirmation
+sports_massage,P1,台南肩頸按摩,claimable_service_language,https://www.observe888.com/services/tainan-tuina/,claimable as service/search wording; no treatment promise,Owner confirmation
+manual_methods,P1,刮痧,claimable_method,https://www.observe888.com/services/tainan-tuina/,claimable method; no treatment promise,Owner confirmation
+manual_methods,P1,拔罐,claimable_method,https://www.observe888.com/services/tainan-tuina/,claimable method; no treatment promise,Owner confirmation
+manual_methods,P1,指壓,claimable_method,https://www.observe888.com/services/tainan-tuina/,claimable method; no treatment promise,Owner confirmation
+manual_methods,P1,經絡調理,claimable_method,https://www.observe888.com/services/tainan-tuina/,claimable service wording; no treatment promise,Owner confirmation
+manual_methods,P1,經絡按摩,claimable_method,https://www.observe888.com/services/tainan-tuina/,claimable service wording; no treatment promise,Owner confirmation
+manual_methods,P1,民俗調理,claimable_industry_language,https://www.observe888.com/services/tainan-tuina/,claimable industry/service wording; no treatment promise,Owner confirmation
+manual_methods,P1,傳統整復推拿業,claimable_industry_language,https://www.observe888.com/services/tainan-tuina/,claimable industry wording; use as background not main ad claim,Owner confirmation
 recommendation,P1,台南整復推拿ptt,recommendation,https://www.observe888.com/services/tainan-tuina/,neutral how-to-choose content only,Ads term has click/cost
 recommendation,P1,台南整骨推薦ptt,recommendation,https://www.observe888.com/services/tainan-tuina/,monitor; no fake UGC,Ads term has click
 recommendation,P2,台南整復推薦dcard,recommendation,https://www.observe888.com/services/tainan-tuina/,monitor external SERP; no fake reviews,Derived query
