@@ -15,7 +15,9 @@ north_south,P2,安南區整復,nearby_area,https://www.observe888.com/services/t
 north_south,P2,永康整復推拿,nearby_area,https://www.observe888.com/services/tainan-tuina/,do not make fake location page; monitor only,Ads terms show impressions
 sports_massage,P1,台南運動按摩,adjacent_service,https://www.observe888.com/services/tainan-tuina/,explain difference; avoid becoming pure massage page,Ads terms show impressions/clicks
 sports_massage,P1,台南運動按摩推薦,recommendation,https://www.observe888.com/services/tainan-tuina/,only compare service boundaries; no fake ranking,Public SERP third-party pages strong
-sports_massage,P2,台南筋膜放鬆,adjacent_service,https://www.observe888.com/services/tainan-tuina/,monitor; consider FAQ segment only,Ads terms show impressions/cost
+sports_massage,P1,肌筋膜放鬆,claimable_adjacent_service,https://www.observe888.com/services/tainan-tuina/,safe if framed as tension/manual conditioning and actually provided; no treatment promise,Keyword universe classification
+sports_massage,P1,筋膜放鬆調理,claimable_adjacent_service,https://www.observe888.com/services/tainan-tuina/,preferred public wording for fascia-related search intent,Owner direction
+sports_massage,P1,台南筋膜放鬆,adjacent_service,https://www.observe888.com/services/tainan-tuina/,route to service and FAQ search-term boundary; avoid treatment promise,Ads terms show impressions/cost
 sports_massage,P2,筋膜刀台南,adjacent_service,,monitor; no page until GSC confirms fit,Ads terms show impressions only
 sports_massage,P2,肩頸按摩台南,broad_massage,,likely broad/low-fit; use Ads exclusion if costly,Ads terms show clicks/cost
 recommendation,P1,台南整復推拿ptt,recommendation,https://www.observe888.com/services/tainan-tuina/,neutral how-to-choose content only,Ads term has click/cost
@@ -31,6 +33,9 @@ structure_positioning,P0,身體結構評估,brand_service_language,https://www.o
 structure_positioning,P1,結構調理,brand_service_language,https://www.observe888.com/services/tainan-tuina/,safe shorthand for owned positioning; avoid medical promise,Existing product/category language
 structure_positioning,P1,台南結構調理,local_brand_service,https://www.observe888.com/services/tainan-tuina/,can use in site/GBP as safe alternative to structure therapy,Derived owned query
 structure_positioning,P1,徒手調理,brand_service_language,https://www.observe888.com/services/tainan-tuina/,safe service wording; already in GBP services,GBP current service item
+structure_positioning,P1,局部痠緊調理,claimable_service_language,https://www.observe888.com/services/tainan-tuina/,safe service wording if actually provided; use instead of pain treatment,GBP service draft
+structure_positioning,P1,身體張力整理,claimable_service_language,https://www.observe888.com/services/tainan-tuina/,safe service wording for tension/load language,GBP service draft
+structure_positioning,P1,運動後張力整理,claimable_service_language,https://www.observe888.com/services/tainan-tuina/,safe adjacent wording for sports massage intent,GBP service draft
 structure_positioning,P2,結構治療,medical_risk_language,https://www.observe888.com/faq/,track as user language only; public rewrite to 身體結構觀察/結構調理,Owner service-language concern
 structure_positioning,P2,台南結構治療,medical_risk_language,https://www.observe888.com/faq/,track only; do not use as GBP service item,Owner service-language concern
 structure_positioning,P2,身體結構治療,medical_risk_language,https://www.observe888.com/faq/,track only; public rewrite to 身體結構觀察/結構調理,Owner service-language concern
