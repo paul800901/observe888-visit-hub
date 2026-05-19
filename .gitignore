@@ -1,0 +1,8 @@
+.env
+.env.*
+.evn
+.evn.*
+!.env.example
+!.env.*.example
+!.evn.example
+!.evn.*.example
