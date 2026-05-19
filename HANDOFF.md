@@ -113,6 +113,13 @@
 - HiNet nameserver 已改成 `nico.ns.cloudflare.com` / `rosa.ns.cloudflare.com` 並在 HiNet 後台讀回；`1.1.1.1` 與 `8.8.8.8` 查 NS 與 `www` A 已回 Cloudflare。Cloudflare HTTPS 邊緣已可回 `200`，8 條優先舊 URL 已用 Cloudflare proxy IP 驗證為 `301` 且目的地正確。本機 / ISP DNS cache 可能短暫仍看到 GitHub Pages 舊紀錄，等快取自然退即可。
 - 2026-05-19 19:10 已用正式網址、不指定 IP 重測：首頁、`robots.txt`、`sitemap.xml` 回 `200`，apex `https://observe888.com/` 回 `301` 到 `https://www.observe888.com/`，8 條舊 URL 全部回 Cloudflare `301` 且目的地正確。本機一度仍連到 GitHub Pages / Fastly 舊 IP；清 DNS cache 後驗收通過。
 
+## 2026-05-19 Google Business 讀回與貼文判斷
+
+- 已建立 `docs/google-business-readback-2026-05-19.md`，記錄登入狀態下的 Google Business 管理清單與公開 / 管理混合面板讀回。
+- 管理清單顯示南北店皆已驗證，地址仍與官網方向一致；兩店仍各有 `1 筆 Google 資訊更新`，點開後沒有看到接受、拒絕、套用、確認或儲存控制，暫不處理。
+- 南北店 Google Business 主面板的 `網站` 與 `預約` 都已指向 `https://www.observe888.com/visit/?store=north` / `https://www.observe888.com/visit/?store=south`，產品和服務分別指向各自 pricing 頁；未在主面板讀到 raw LINE 預約網址。
+- 建議可以在北區、南區各發一則服務頁導流貼文，CTA 為 `瞭解詳情`，連到 `https://www.observe888.com/services/tainan-tuina/`；但這是公開發布動作，必須等使用者明確授權後再執行。
+
 ## 後續工作方向
 
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。

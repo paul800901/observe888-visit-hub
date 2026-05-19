@@ -1,0 +1,86 @@
+# Google Business 讀回與服務頁貼文判斷 - 2026-05-19
+
+## 範圍
+
+- 讀回時間：2026-05-19 19:14-19:17 +08:00。
+- 來源：已登入的 Google Business Profile 管理工具與 Google 搜尋上的已管理商家面板。
+- 帳號畫面顯示：`observe88888@gmail.com`。
+- 本輪只讀回，沒有送出 Google Business Profile 修改、沒有接受或拒絕 Google 資訊更新、沒有新增貼文。
+- 搜尋面板是在登入狀態下讀回，會混合公開搜尋結果與管理者可見面板；不可視為乾淨匿名排名稽核。
+
+## 管理清單
+
+- `business.google.com/locations` 可進入。
+- 管理清單顯示 `2` 個商家、`100% 已完成驗證`。
+- 北區、南區皆顯示 `已驗證`。
+- 北區列：`見觀結構調理整復所-北區店`，地址 `704台南市北區華德里北安路一段 211 號`。
+- 南區列：`見觀結構調理整復所-南區店`，地址 `702台南市南區明興路673號`。
+- 兩店仍各顯示 `1 筆 Google 資訊更新`。
+
+## Google 資訊更新項目
+
+逐一點開兩店的 `1 筆 Google 資訊更新` 後，頁面仍停在 `商家資訊` 管理清單；沒有看到下列可處理控制：
+
+- `接受`
+- `拒絕`
+- `套用`
+- `確認`
+- `儲存`
+
+結論：兩店的 Google 資訊更新項目仍算未解，但目前可見 UI 沒有安全處理入口；不要為了清掉提示而亂改欄位。
+
+## 北區公開 / 管理混合面板
+
+- 商家名稱：`見觀結構調理整復所-北區店`。
+- 地址顯示：`704臺南市北區華德里北安路一段211 號`。
+- 未在面板文字中看到 `成德里`。
+- 電話顯示：`06 251 0677`。
+- `網站` 連到 `https://www.observe888.com/visit/?store=north`。
+- `產品和服務` 連到 `https://www.observe888.com/north/pricing/`。
+- `預約` 連到 `https://www.observe888.com/visit/?store=north`。
+- 未在面板文字中看到 raw LINE 預約網址 `line.me/ti/p/~@483yvmiw`。
+- 搜尋結果區仍可見舊 `https://observe.boostime.me/` 結果與多條舊 `www.observe888.com/*.php` 結果；這是搜尋結果快取 / 重新爬取問題，不代表 Google Business 主面板欄位又倒退。
+
+## 南區公開 / 管理混合面板
+
+- 商家名稱：`見觀結構調理整復所-南區店`。
+- 地址顯示：`702臺南市南區明興路673號`。
+- 電話顯示：`0973 728 670`。
+- `網站` 連到 `https://www.observe888.com/visit/?store=south`。
+- `產品和服務` 連到 `https://www.observe888.com/south/pricing/`。
+- `預約` 連到 `https://www.observe888.com/visit/?store=south`。
+- 未在面板文字中看到 raw LINE 預約網址 `line.me/ti/p/~@483yvmiw`。
+- 未在南區面板文字中看到 `boostime`。
+- 搜尋結果區仍可見舊 `www.observe888.com/*.php` 或非 www 舊 URL 結果，需等 301 後重新爬取。
+
+## 服務頁貼文判斷
+
+建議可以發服務頁導流貼文，但要等店主或使用者明確授權後再按發布。
+
+理由：
+
+- `/services/tainan-tuina/` 已部署並讀回新 title、canonical、H1。
+- 南北店 Google Business 主面板的網站與預約連結已導向官方分店分流頁。
+- 舊 `.php` URL 已由 Cloudflare 回正式 `301`，搜尋結果即使暫時仍顯示舊 URL，也會有正確轉址承接。
+- `1 筆 Google 資訊更新` 沒有可見接受 / 拒絕 UI；不適合把貼文延後到該提示消失。
+- 搜尋結果仍可見舊頁與外部平台結果，服務頁導流貼文有助於把 Google 商家曝光導回新的服務主線。
+
+建議發佈方式：
+
+- 北區、南區各發一則同內容服務頁導流貼文。
+- CTA：`瞭解詳情`。
+- 連結：`https://www.observe888.com/services/tainan-tuina/`。
+- 文案使用 `docs/organic-gbp-external-alignment-pack-2026-05-19.md` 的「服務頁導流」版本。
+- 不改商家名稱、地址、電話、網站 URL、預訂 URL、分類、服務項目、產品、照片或營業時間。
+
+待授權才可執行：
+
+```text
+正在搜尋台南整復推拿或台南整骨推薦時，先不要只看名單。每間店的服務方式、費用、預約方式與服務邊界都不同。見觀結構把北區店、南區店、傳統整復推拿、身體結構觀察與到店前常見問題整理在同一頁，方便你先判斷方向。
+```
+
+## 下一步
+
+1. 若使用者明確授權發布，登入 Google Business Profile，北區與南區各建立一則貼文，CTA 選 `瞭解詳情`，連到 `https://www.observe888.com/services/tainan-tuina/`。
+2. 發布後分別讀回兩店貼文是否出現在商家面板或管理面板，不要只憑送出成功宣稱公開面已更新。
+3. 之後再看 Search Console 是否逐步把舊 `.php` URL 點擊導向新服務頁與 `/visit/`、`/notes/`、`/north/pricing/`。
