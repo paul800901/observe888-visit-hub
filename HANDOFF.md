@@ -137,10 +137,15 @@
 - 已把詞庫明確分成兩類：第一類可公開宣稱的服務 / 定位詞，例如 `傳統整復推拿`、`身體結構觀察`、`結構調理`、`徒手調理`、`運動按摩`、`肌筋膜放鬆`、`筋膜放鬆調理`；第二類不可宣稱為見觀服務，只能用「使用者搜尋詞 / 問法 / 比較說明」承接，例如 `物理治療`、`徒手治療`、`復健`、`結構治療`、`矯正`、症狀與疾病詞。
 - 2026-05-19 店主確認：除治療 / 復健 / 矯正 / 疾病承諾詞外，實際有做的 `台南按摩`、`肩頸按摩`、`民俗調理`、`傳統整復推拿業`、`筋膜刀`、`刮痧`、`拔罐`、`指壓`、`經絡調理`、`經絡按摩` 可列為可公開宣稱或可作服務描述；仍不寫療效、不寫醫療診斷。
 - 2026-05-19 23:42 已依店主授權完成南北店 Google Business Profile 第一輪 Maps 相關性修正：補 `整脊師`、`按摩師`、`運動按摩師`、`健康中心` 服務項目，更新兩店商家描述；未改店名、主類別、地址、電話、網站、預約連結、營業時間、產品或照片。北區一度誤加到 `復健中心` 的 4 個服務項目已刪除並讀回為空。Google 後台顯示修改尚待審核，公開 Maps 排名尚未驗收。
-- 2026-05-20 已完成 Google Business Profile 南北店相片補充：從 AdsControl 既有素材整理出 `assets/gmb/photo-refresh-2026-05-19/`，北區 12 張、南區 12 張，規格為 1080x1080 JPG；後台相片管理區已讀回新圖。南區 `01-south-storefront-building.jpg` 曾因來源 EXIF 方向未套用而橫倒，已重新產出正向版本，需刪除 Google Business Profile 內錯版後補傳。未改封面照、標誌、店名、類別、地址、電話、網站、預約連結或營業時間。公開 Google 搜尋 / Maps 相片排序可能延遲，尚未宣稱公開面已更新。
+- 2026-05-20 已完成 Google Business Profile 南北店相片補充：從 AdsControl 既有素材整理出 `assets/gmb/photo-refresh-2026-05-19/`，北區 12 張、南區 12 張，規格為 1080x1080 JPG；後台相片管理區已讀回新圖。南區 `01-south-storefront-building.jpg` 曾因來源 EXIF 方向未套用而橫倒，已重新產出正向版本；店主已刪除錯版並補傳修正版，後台顯示正在等待審查。未改封面照、標誌、店名、類別、地址、電話、網站、預約連結或營業時間。公開 Google 搜尋 / Maps 相片排序可能延遲，尚未宣稱公開面已更新。
 
 ## 後續工作方向
 
+- 可現在做：把「到店路線」、「停車提示」、「費用 / 預約流程」整理成下一批 Google Business 相片 / 貼文素材；這類不用等 Maps 排名更新。
+- 可現在做：補強第三方名錄與外部曝光資料一致性，依 `docs/organic-external-listing-opportunities-2026-05-19.md` 逐項處理。
+- 可現在做：依 Search Console 與 `docs/organic-keyword-pool-2026-05-19.csv` 補下一批安全搜尋問法內容；不可把物理治療、復健、治療、矯正寫成見觀服務。
+- 暫時等待：Google Business Profile 服務項目、商家描述與南區修正版相片審核；審核通過前不能宣稱 Maps 排名已改善。
+- 暫時等待：Cloudflare 301 已驗收，後續看 Search Console 舊 `.php` URL 轉移，不需再改 DNS 或 HiNet。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 補欄位編輯器層級的完整營業時間、屬性與服務範圍；主副分類、服務、產品、預訂欄位與照片盤點已先讀回。
 - Google 公開搜尋結果與商家公開面仍未完全乾淨；下一輪先推動 Boostime / 網路公司把 `https://observe.boostime.me/` 做 301 redirect 或 `noindex, follow`，再重查北區公開 `預約` 是否已從 LINE 更新為官方分流頁、舊 Boostime 自然結果是否退場，以及 Search Console 索引狀態。
