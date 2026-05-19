@@ -93,14 +93,25 @@
 - 已新增 `services/tainan-tuina/index.html`，作為 `台南整復推拿`、`台南整復推拿推薦`、`北區整復推拿`、`南區整復推拿` 等服務意圖的主要承接頁。
 - 已更新首頁、北區頁、南區頁與 FAQ 的 title / meta / hero / FAQ schema，加入安全的 `台南 + 傳統整復推拿` 語意。
 - 已建立 `docs/organic-local-serp-radar-2026-05-19.md`、`docs/organic-keyword-pool-2026-05-19.csv`、`docs/organic-weekly-checklist.md`、`docs/organic-external-listing-opportunities-2026-05-19.md`。
+- 已建立 `docs/organic-gbp-external-alignment-pack-2026-05-19.md`，整理 Google 商家貼文、第三方名錄與外部平台可用的官方 URL、店點資料、安全介紹文案與欄位建議。
 - 已用登入狀態匯出 Search Console 前 3 個月成效，建立 `docs/search-console-performance-readback-2026-05-19.md`：總點擊 469、總曝光 13,386、平均 CTR 3.5%、平均排名 7.5。
 - 已再匯出 Search Console 全期間成效，建立 `docs/search-console-full-range-readback-2026-05-19.md`：2025-01-18 至 2026-05-16，總點擊 2,235、總曝光 67,599、CTR 3.31%、加權平均排名 9.22。
 - Search Console 顯示服務核心查詢已有 90 clicks / 4,389 impressions，舊 `.php` URL 仍有 183 clicks / 7,257 impressions；這代表下一步不是只寫更多內容，也要處理舊網址轉址或索引清理。
 - 全期間資料確認舊 `.php` URL 不是短期殘留：頁面維度中舊 `.php` URL 有 34 rows、1,045 clicks row sum、125,473 impressions row sum；這個頁面維度 row sum 不能直接等同網站總量，但足以確認舊頁清理是優先任務。
 - 已依 Search Console 實際曝光補強 `/services/tainan-tuina/` 與 `/faq/`，加入台南整骨費用、全身整復費用、台南喬骨、美式整復、整脊等搜尋語言的安全說明。
+- `/services/tainan-tuina/` 已再把 title、description、H1 往 `台南整復推拿推薦怎麼看` 調整，用中立選擇標準承接推薦型查詢，不自稱第一、不做競品比較。
 - `notes/` 與 `notes/search-terms-overview/` 已加內鏈回 `services/tainan-tuina/`，讓身體觀察內容能導回服務意圖頁。
 - Semrush MCP 目前不可用；本輪使用公開搜尋結果、競品官網、第三方推薦頁與 AdsControl paid search terms 交叉判斷，不宣稱競品精準流量。
 - Google Business Profile 編輯、第三方名錄申請與 Semrush / Ahrefs 匯出都需要店主登入、授權或付費帳號，尚未執行；Search Console 第一次讀回已完成。
+
+## 2026-05-19 舊 PHP URL 301 方向
+
+- 已登入 HiNet `domain.hinet.net` 讀回轉址服務後台，未送出任何設定、未改 DNS；HiNet 轉址只支援 `http://[子網域].observe888.com` 轉到目的 URL，沒有 path/query/301 規則欄位，且需把來源 A record 指到 `202.39.161.109`，不適合處理舊 `.php` URL。
+- 已決定採 Cloudflare Free：保留 HiNet registrar，不轉移網域；Cloudflare 只負責 DNS proxy 與 Redirect Rules。
+- Cloudflare 導入、公開 DNS 備份、Redirect Rules 草案與驗收清單已整理到 `docs/cloudflare-redirect-migration-2026-05-19.md`。
+- Cloudflare zone 已建立並讀回：Free plan、DNS 5 筆全部 Proxied、SSL/TLS `Full (strict)`、8 條優先 Redirect Rules Active；指派 nameserver 為 `nico.ns.cloudflare.com` / `rosa.ns.cloudflare.com`。
+- HiNet nameserver 已改成 `nico.ns.cloudflare.com` / `rosa.ns.cloudflare.com` 並在 HiNet 後台讀回；`1.1.1.1` 與 `8.8.8.8` 查 NS 與 `www` A 已回 Cloudflare。Cloudflare HTTPS 邊緣已可回 `200`，8 條優先舊 URL 已用 Cloudflare proxy IP 驗證為 `301` 且目的地正確。本機 / ISP DNS cache 可能短暫仍看到 GitHub Pages 舊紀錄，等快取自然退即可。
+- 2026-05-19 19:10 已用正式網址、不指定 IP 重測：首頁、`robots.txt`、`sitemap.xml` 回 `200`，apex `https://observe888.com/` 回 `301` 到 `https://www.observe888.com/`，8 條舊 URL 全部回 Cloudflare `301` 且目的地正確。本機一度仍連到 GitHub Pages / Fastly 舊 IP；清 DNS cache 後驗收通過。
 
 ## 後續工作方向
 
