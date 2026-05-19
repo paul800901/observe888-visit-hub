@@ -1,12 +1,13 @@
 # ObserveGeoPages 交接
 
-最後更新：2026-05-14
+最後更新：2026-05-19
 
 ## 先讀什麼
 
 1. `PROJECT_CONTEXT.md`
 2. `docs/website-operations.md`
 3. `README.md`
+4. `docs/organic-local-serp-radar-2026-05-19.md`（自然搜尋 / 競品 / 關鍵字工作）
 
 ## 現在這個工作目錄是什麼
 
@@ -24,7 +25,12 @@
 - `notes/index.html`：身體觀察筆記分類入口。
 - `notes/search-terms-overview/index.html`：檢查名詞與搜尋問法分類入口。
 - `notes/*/index.html`：公開文章頁。
+- `services/tainan-tuina/index.html`：台南整復推拿、北區 / 南區整復推拿與服務邊界的主要服務意圖承接頁。
 - `docs/website-operations.md`：Google 商家、地圖、FAQ、GEO / AEO 與驗證規格。
+- `docs/organic-local-serp-radar-2026-05-19.md`：台南在地 SERP 雷達與競品觀察。
+- `docs/organic-keyword-pool-2026-05-19.csv`：自然搜尋關鍵字池與優先級。
+- `docs/organic-weekly-checklist.md`：每週自然搜尋檢查流程。
+- `docs/organic-external-listing-opportunities-2026-05-19.md`：第三方名錄與外部曝光機會清單。
 - `llms.txt`：AI / 答案引擎補充導覽。
 - `assets/gmb/`：Google 商家可用圖片素材。
 
@@ -78,6 +84,16 @@
 - 已在南區電腦建立 `C:\Users\Paulus\Documents\WindowsPowerShell\profile.ps1`，啟動時切到 UTF-8，並設定 Git 全域中文/UTF-8 顯示。
 - 詳細診斷、profile 內容、Git 設定、驗證命令與北區待查事項，見 `docs/south-machine-encoding-handoff-2026-05-18.md`。
 - 北區目前沒有同等級的 PowerShell / code page / profile 診斷紀錄；北區若也遇到亂碼，先依該文件的北區診斷命令讀回，不要直接假設與南區相同。
+
+## 2026-05-19 台南自然搜尋 / 競品雷達
+
+- 已建立 `docs/organic-competitor-research-2026-05-19.md`，整理台南整復推拿、工作室、物理治療所、運動按摩與第三方推薦頁的公開成功模式。
+- 已新增 `services/tainan-tuina/index.html`，作為 `台南整復推拿`、`台南整復推拿推薦`、`北區整復推拿`、`南區整復推拿` 等服務意圖的主要承接頁。
+- 已更新首頁、北區頁、南區頁與 FAQ 的 title / meta / hero / FAQ schema，加入安全的 `台南 + 傳統整復推拿` 語意。
+- 已建立 `docs/organic-local-serp-radar-2026-05-19.md`、`docs/organic-keyword-pool-2026-05-19.csv`、`docs/organic-weekly-checklist.md`、`docs/organic-external-listing-opportunities-2026-05-19.md`。
+- `notes/` 與 `notes/search-terms-overview/` 已加內鏈回 `services/tainan-tuina/`，讓身體觀察內容能導回服務意圖頁。
+- Semrush MCP 目前不可用；本輪使用公開搜尋結果、競品官網、第三方推薦頁與 AdsControl paid search terms 交叉判斷，不宣稱競品精準流量。
+- Search Console 查詢詞、Google Business Profile 編輯、第三方名錄申請與 Semrush / Ahrefs 匯出都需要店主登入、授權或付費帳號，尚未執行。
 
 ## 後續工作方向
 

@@ -1,0 +1,32 @@
+cluster,priority,query,intent,current_observe_page,next_action,source_note
+core_tainan_tuina,P0,台南整復,service,https://www.observe888.com/services/tainan-tuina/,track in Search Console and keep service page fresh,Ads terms high clicks/cost
+core_tainan_tuina,P0,台南整復推拿,service,https://www.observe888.com/services/tainan-tuina/,primary service-intent page,Public SERP competitors use exact phrase
+core_tainan_tuina,P0,台南整復推拿推薦,recommendation,https://www.observe888.com/services/tainan-tuina/,expand FAQ if Search Console shows impressions,Ads term has clicks/cost
+core_tainan_tuina,P0,台南整復推薦,recommendation,https://www.observe888.com/services/tainan-tuina/,avoid ranking claims; use neutral how-to-choose copy,Ads term has proxy conversion
+core_tainan_tuina,P0,台南整骨,service_language_mismatch,https://www.observe888.com/services/tainan-tuina/,explain user wording and map safely to traditional tuina,Ads term high clicks/cost
+core_tainan_tuina,P1,台南推拿,service,https://www.observe888.com/services/tainan-tuina/,keep as secondary phrase; avoid broad massage positioning,Ads term has clicks/cost
+core_tainan_tuina,P1,台南整骨推薦,recommendation,https://www.observe888.com/services/tainan-tuina/,monitor; do not promise ranking or outcome,Ads term has clicks/cost
+north_south,P0,台南北區整復推拿,local_service,https://www.observe888.com/north/,north page already optimized; strengthen internal links,Public SERP competitor exact-match
+north_south,P0,北區整復推拿,local_service,https://www.observe888.com/north/,track GSC page/query pairing,Public SERP competitor exact-match
+north_south,P0,台南南區整復推拿,local_service,https://www.observe888.com/south/,south page already optimized; keep appointment framing,South has studio-specific intent
+north_south,P1,南區整復推拿,local_service,https://www.observe888.com/south/,track GSC page/query pairing,South store target
+north_south,P2,安平整復,nearby_area,https://www.observe888.com/services/tainan-tuina/,do not make fake location page; mention route only if natural,Ads terms show clicks/cost
+north_south,P2,安南區整復,nearby_area,https://www.observe888.com/services/tainan-tuina/,do not make fake location page; mention route only if natural,Ads terms show clicks/cost
+north_south,P2,永康整復推拿,nearby_area,https://www.observe888.com/services/tainan-tuina/,do not make fake location page; monitor only,Ads terms show impressions
+sports_massage,P1,台南運動按摩,adjacent_service,https://www.observe888.com/services/tainan-tuina/,explain difference; avoid becoming pure massage page,Ads terms show impressions/clicks
+sports_massage,P1,台南運動按摩推薦,recommendation,https://www.observe888.com/services/tainan-tuina/,only compare service boundaries; no fake ranking,Public SERP third-party pages strong
+sports_massage,P2,台南筋膜放鬆,adjacent_service,https://www.observe888.com/services/tainan-tuina/,monitor; consider FAQ segment only,Ads terms show impressions/cost
+sports_massage,P2,筋膜刀台南,adjacent_service,,monitor; no page until GSC confirms fit,Ads terms show impressions only
+sports_massage,P2,肩頸按摩台南,broad_massage,,likely broad/low-fit; use Ads exclusion if costly,Ads terms show clicks/cost
+recommendation,P1,台南整復推拿ptt,recommendation,https://www.observe888.com/services/tainan-tuina/,neutral how-to-choose content only,Ads term has click/cost
+recommendation,P1,台南整骨推薦ptt,recommendation,https://www.observe888.com/services/tainan-tuina/,monitor; no fake UGC,Ads term has click
+recommendation,P2,台南整復推薦dcard,recommendation,https://www.observe888.com/services/tainan-tuina/,monitor external SERP; no fake reviews,Derived query
+symptom_body,P1,久坐腰痠 台南,body_situation,https://www.observe888.com/notes/sitting-low-back-soreness/,add internal link to service page if GSC shows intent,Existing note
+symptom_body,P1,肩頸卡 台南,body_situation,https://www.observe888.com/notes/shoulder-neck-stuck-observation/,add internal link to service page if GSC shows intent,Existing note
+symptom_body,P1,骨盆歪 台南,body_situation,https://www.observe888.com/notes/scoliosis-shoulder-pelvis-walking-observation/,avoid correction/cure claims,Existing note
+symptom_body,P2,富貴包 台南,body_situation,,monitor; avoid cure framing,Ads terms show click/cost
+symptom_body,P2,高低肩矯正 台南,medical_risk_language,,monitor and reframe as observation; avoid guarantee,Ads terms show impressions
+medical_boundary,P1,台南物理治療 徒手治療,medical_comparison,https://www.observe888.com/faq/,keep boundary explanation; do not imply medical service,Public SERP PT clinics strong
+medical_boundary,P1,整復推拿 物理治療 差別,comparison,https://www.observe888.com/faq/,FAQ already added; expand if GSC appears,Strategic comparison query
+competitor_brand,P3,華德整復,competitor_brand,,track only; no competitor attack page,Ads terms competitor_brand
+competitor_brand,P3,首席整復中心,competitor_brand,,track only; no competitor attack page,Ads terms competitor_brand
