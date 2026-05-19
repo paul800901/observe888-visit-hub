@@ -118,7 +118,9 @@
 - 已建立 `docs/google-business-readback-2026-05-19.md`，記錄登入狀態下的 Google Business 管理清單與公開 / 管理混合面板讀回。
 - 管理清單顯示南北店皆已驗證，地址仍與官網方向一致；兩店仍各有 `1 筆 Google 資訊更新`，點開後沒有看到接受、拒絕、套用、確認或儲存控制，暫不處理。
 - 南北店 Google Business 主面板的 `網站` 與 `預約` 都已指向 `https://www.observe888.com/visit/?store=north` / `https://www.observe888.com/visit/?store=south`，產品和服務分別指向各自 pricing 頁；未在主面板讀到 raw LINE 預約網址。
-- 建議可以在北區、南區各發一則服務頁導流貼文，CTA 為 `瞭解詳情`，連到 `https://www.observe888.com/services/tainan-tuina/`；但這是公開發布動作，必須等使用者明確授權後再執行。
+- 使用者已於外部 Chrome 手動完成服務頁導流貼文發布流程：先建立貼文，再用 `複製貼文` 勾選 `全選` 複製到另一店；後台 `所有貼文` 清單截圖顯示最新貼文 `發布日期：1 分鐘前`，縮圖、摘要與 `瞭解詳情` CTA 可見。
+- 該貼文 CTA 為 `瞭解詳情`，連到 `https://www.observe888.com/services/tainan-tuina/`；使用的是不分南北店的服務頁導流圖與安全文案。
+- 不要重發同一則服務頁導流貼文。Google 搜尋 / Maps 公開前台尚未匿名讀回，可能因審核或快取延遲；沒有讀回前不要宣稱公開面已更新。
 
 ## 後續工作方向
 
