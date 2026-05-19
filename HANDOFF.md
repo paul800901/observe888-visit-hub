@@ -32,6 +32,7 @@
 - `docs/organic-search-growth-goal-map-2026-05-19.md`：自然搜尋成長目標地圖，整理競品流量差距、官網、Google 商家、外部曝光、內容群、驗收節奏與合夥人溝通版。
 - `docs/maps-tainan-tuina-readback-2026-05-19.md`：`台南推拿` / `台南整復推拿` Google Maps 讀回與 GBP 缺口分析。
 - `docs/google-business-photo-refresh-2026-05-20.md`：Google Business Profile 南北店相片補充紀錄與素材包位置。
+- `docs/google-business-route-parking-booking-prompts-2026-05-20.md`：下一批 Google Business 到店路線、停車提醒、費用 / 預約流程圖卡提示詞。
 - `docs/search-console-performance-readback-2026-05-19.md`：Search Console 前 3 個月官方讀回與自然搜尋行動清單。
 - `docs/search-console-full-range-readback-2026-05-19.md`：Search Console 2025-01-18 至 2026-05-16 全期間讀回。
 - `docs/organic-keyword-pool-2026-05-19.csv`：自然搜尋關鍵字池與優先級。
@@ -142,6 +143,7 @@
 ## 後續工作方向
 
 - 可現在做：把「到店路線」、「停車提示」、「費用 / 預約流程」整理成下一批 Google Business 相片 / 貼文素材；這類不用等 Maps 排名更新。
+- 2026-05-20 已建立 `docs/google-business-route-parking-booking-prompts-2026-05-20.md`，整理 8 張可交給網頁版 GPT 產圖的 GBP 素材提示詞：北區到店、北區停車、北區費用預約、南區到店、南區停車、南區費用預約、第一次來流程、聯絡與導航方式。尚未產圖、尚未上傳 Google Business Profile。
 - 可現在做：補強第三方名錄與外部曝光資料一致性，依 `docs/organic-external-listing-opportunities-2026-05-19.md` 逐項處理。
 - 可現在做：依 Search Console 與 `docs/organic-keyword-pool-2026-05-19.csv` 補下一批安全搜尋問法內容；不可把物理治療、復健、治療、矯正寫成見觀服務。
 - 暫時等待：Google Business Profile 服務項目、商家描述與南區修正版相片審核；審核通過前不能宣稱 Maps 排名已改善。
