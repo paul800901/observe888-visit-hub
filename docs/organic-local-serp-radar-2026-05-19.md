@@ -9,6 +9,7 @@
 - 公開搜尋結果：2026-05-19 手動查詢台南整復推拿、北區整復推拿、南區整復推拿、台南運動按摩推薦等字。
 - 見觀 paid search terms：`02_廣告_AdsControl/backend/data/adscontrol.db` 的 `search_terms`。
 - 見觀 Search Console：2026-05-19 已登入瀏覽器匯出 `https://www.observe888.com/` 前 3 個月網路搜尋成效，整理於 `docs/search-console-performance-readback-2026-05-19.md`。
+- 見觀 Search Console 全期間：2025-01-18 至 2026-05-16，整理於 `docs/search-console-full-range-readback-2026-05-19.md`。
 - 見觀官網現況：`sitemap.xml`、首頁、南北店頁、FAQ、`services/tainan-tuina/`。
 - 不使用 Semrush 估算數字作為本文件依據；目前 Semrush MCP 不可用。
 
@@ -34,6 +35,8 @@
 | 舊 `.php` URL | 183 clicks / 7,257 impressions | 仍是最大技術清理項；目前 live HTTP 多為 404 + JavaScript 導流，不是正式 301。 |
 | 首頁 `/` | 319 clicks / 10,544 impressions | 首頁仍吃掉多數服務詞曝光；新服務頁需要等待重新索引。 |
 | 行動裝置 | 333 clicks / 10,643 impressions | 搜尋與到店決策主要發生在手機，頁面文案與 CTA 要以手機掃讀為主。 |
+
+全期間讀回再確認同一方向：2025-01-18 至 2026-05-16 總點擊 2,235、總曝光 67,599，服務核心查詢 row sum 為 440 clicks / 27,938 impressions。頁面維度中舊 `.php` URL 有 34 rows、1,045 clicks row sum、125,473 impressions row sum；頁面 row sum 不能直接等同網站總量，但足以確認舊頁清理是優先任務。
 
 ## 公開 SERP 觀察
 
@@ -62,6 +65,7 @@
 - 已新增 `/services/tainan-tuina/` 作為服務意圖承接頁。
 - `sitemap.xml`、`llms.txt` 已加入新服務頁。
 - 已建立 `docs/search-console-performance-readback-2026-05-19.md`，把 Search Console 官方讀回轉成可執行清單。
+- 已建立 `docs/search-console-full-range-readback-2026-05-19.md`，確認長期資料和前 3 個月資料方向一致。
 - `notes/` 與 `notes/search-terms-overview/` 已加內鏈回 `/services/tainan-tuina/`，讓身體觀察內容能導回服務意圖頁。
 - FAQ 已新增 `台南整復推拿推薦`、`台南整骨推薦` 的中立選擇標準，不做第一名或療效保證宣稱。
 - 服務頁與 FAQ 已依 Search Console 實際曝光補入 `台南整骨費用`、`全身整復費用`、`台南喬骨`、`美式整復`、`整脊` 等安全說明。

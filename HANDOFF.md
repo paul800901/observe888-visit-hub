@@ -29,6 +29,7 @@
 - `docs/website-operations.md`：Google 商家、地圖、FAQ、GEO / AEO 與驗證規格。
 - `docs/organic-local-serp-radar-2026-05-19.md`：台南在地 SERP 雷達與競品觀察。
 - `docs/search-console-performance-readback-2026-05-19.md`：Search Console 前 3 個月官方讀回與自然搜尋行動清單。
+- `docs/search-console-full-range-readback-2026-05-19.md`：Search Console 2025-01-18 至 2026-05-16 全期間讀回。
 - `docs/organic-keyword-pool-2026-05-19.csv`：自然搜尋關鍵字池與優先級。
 - `docs/organic-weekly-checklist.md`：每週自然搜尋檢查流程。
 - `docs/organic-external-listing-opportunities-2026-05-19.md`：第三方名錄與外部曝光機會清單。
@@ -93,7 +94,9 @@
 - 已更新首頁、北區頁、南區頁與 FAQ 的 title / meta / hero / FAQ schema，加入安全的 `台南 + 傳統整復推拿` 語意。
 - 已建立 `docs/organic-local-serp-radar-2026-05-19.md`、`docs/organic-keyword-pool-2026-05-19.csv`、`docs/organic-weekly-checklist.md`、`docs/organic-external-listing-opportunities-2026-05-19.md`。
 - 已用登入狀態匯出 Search Console 前 3 個月成效，建立 `docs/search-console-performance-readback-2026-05-19.md`：總點擊 469、總曝光 13,386、平均 CTR 3.5%、平均排名 7.5。
+- 已再匯出 Search Console 全期間成效，建立 `docs/search-console-full-range-readback-2026-05-19.md`：2025-01-18 至 2026-05-16，總點擊 2,235、總曝光 67,599、CTR 3.31%、加權平均排名 9.22。
 - Search Console 顯示服務核心查詢已有 90 clicks / 4,389 impressions，舊 `.php` URL 仍有 183 clicks / 7,257 impressions；這代表下一步不是只寫更多內容，也要處理舊網址轉址或索引清理。
+- 全期間資料確認舊 `.php` URL 不是短期殘留：頁面維度中舊 `.php` URL 有 34 rows、1,045 clicks row sum、125,473 impressions row sum；這個頁面維度 row sum 不能直接等同網站總量，但足以確認舊頁清理是優先任務。
 - 已依 Search Console 實際曝光補強 `/services/tainan-tuina/` 與 `/faq/`，加入台南整骨費用、全身整復費用、台南喬骨、美式整復、整脊等搜尋語言的安全說明。
 - `notes/` 與 `notes/search-terms-overview/` 已加內鏈回 `services/tainan-tuina/`，讓身體觀察內容能導回服務意圖頁。
 - Semrush MCP 目前不可用；本輪使用公開搜尋結果、競品官網、第三方推薦頁與 AdsControl paid search terms 交叉判斷，不宣稱競品精準流量。
