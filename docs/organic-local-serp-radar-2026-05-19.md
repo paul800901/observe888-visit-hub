@@ -8,6 +8,7 @@
 
 - 公開搜尋結果：2026-05-19 手動查詢台南整復推拿、北區整復推拿、南區整復推拿、台南運動按摩推薦等字。
 - 見觀 paid search terms：`02_廣告_AdsControl/backend/data/adscontrol.db` 的 `search_terms`。
+- 見觀 Search Console：2026-05-19 已登入瀏覽器匯出 `https://www.observe888.com/` 前 3 個月網路搜尋成效，整理於 `docs/search-console-performance-readback-2026-05-19.md`。
 - 見觀官網現況：`sitemap.xml`、首頁、南北店頁、FAQ、`services/tainan-tuina/`。
 - 不使用 Semrush 估算數字作為本文件依據；目前 Semrush MCP 不可用。
 
@@ -21,6 +22,18 @@
 | P2 | `competitor_brand` | 9 clicks / 79 impressions / NT$283.46 / 0 conversion | 使用者搜尋其他店名或老師 | 不應直接買/寫競品攻擊內容 | 僅在 radar 追蹤，不做競品品牌頁 |
 | P2 | `symptom_body` | 2 clicks / 56 impressions / NT$58.18 / 0 conversion | 富貴包、骨盆、肩膀、駝背、高低肩 | 已有 notes 文章群可承接 | 從既有筆記加內鏈到服務頁，不新增醫療承諾頁 |
 | P3 | `recommendation` | 1 click / 44 impressions / NT$28.28 / 0 conversion | PTT、Dcard、推薦、費用、老師 | FAQ 已開始承接 | 等 Search Console 看到實際曝光後再做「怎麼選」擴充 |
+
+## Search Console 讀回摘要
+
+2026-05-19 已讀回 Google Search Console 前 3 個月資料：總點擊 469、總曝光 13,386、平均 CTR 3.5%、平均排名 7.5。
+
+| 觀察 | 數據 | 判斷 |
+| --- | ---: | --- |
+| 服務核心查詢列 | 90 clicks / 4,389 impressions | 見觀不是沒有自然需求；問題是服務搜尋多落在首頁或舊 URL。 |
+| 品牌查詢列 | 116 clicks / 436 impressions | 品牌詞穩定，代表使用者找得到見觀。 |
+| 舊 `.php` URL | 183 clicks / 7,257 impressions | 仍是最大技術清理項；目前 live HTTP 多為 404 + JavaScript 導流，不是正式 301。 |
+| 首頁 `/` | 319 clicks / 10,544 impressions | 首頁仍吃掉多數服務詞曝光；新服務頁需要等待重新索引。 |
+| 行動裝置 | 333 clicks / 10,643 impressions | 搜尋與到店決策主要發生在手機，頁面文案與 CTA 要以手機掃讀為主。 |
 
 ## 公開 SERP 觀察
 
@@ -48,19 +61,21 @@
 - FAQ 已新增整復推拿、運動按摩、物理治療的差異說明。
 - 已新增 `/services/tainan-tuina/` 作為服務意圖承接頁。
 - `sitemap.xml`、`llms.txt` 已加入新服務頁。
+- 已建立 `docs/search-console-performance-readback-2026-05-19.md`，把 Search Console 官方讀回轉成可執行清單。
 - `notes/` 與 `notes/search-terms-overview/` 已加內鏈回 `/services/tainan-tuina/`，讓身體觀察內容能導回服務意圖頁。
 - FAQ 已新增 `台南整復推拿推薦`、`台南整骨推薦` 的中立選擇標準，不做第一名或療效保證宣稱。
+- 服務頁與 FAQ 已依 Search Console 實際曝光補入 `台南整骨費用`、`全身整復費用`、`台南喬骨`、`美式整復`、`整脊` 等安全說明。
 
 ## 下一批不需店主介入的任務
 
 | 順序 | 任務 | 目的 | 實作範圍 |
 | --- | --- | --- | --- |
 | 1 | 清點外部名錄 | 找出可被搜尋到但需要人工申請/確認的平台 | 已建立機會清單；實際申請需要店主身份 |
-| 2 | 讀回 Search Console | 確認 `/services/tainan-tuina/` 是否開始出現 impressions | 需要登入或授權 |
+| 2 | 追蹤 Search Console | 確認 `/services/tainan-tuina/` 是否開始出現 impressions | 已完成第一次讀回；下次等 1-2 週再看新頁配對 |
 
 ## 需要店主或後台介入才可做
 
-- Search Console 查詢詞與頁面成效讀回：需要登入或授權。
+- 主機或網域層級舊 `.php` URL 301：需要能設定 GitHub Pages 前方主機、DNS/CDN 或網路公司轉址規則。
 - Google Business Profile 公開面板與服務項目調整：需要店主後台或明確授權。
 - 第三方推薦頁、名錄、平台申請：可能需要店主身份、電話驗證、照片或營業資料。
 - Semrush / Ahrefs / Similarweb：需要付費帳號或匯出檔。
