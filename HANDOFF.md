@@ -7,8 +7,9 @@
 1. `PROJECT_CONTEXT.md`
 2. `docs/website-operations.md`
 3. `README.md`
-4. `docs/organic-local-serp-radar-2026-05-19.md`（自然搜尋 / 競品 / 關鍵字工作）
-5. `docs/organic-search-growth-goal-map-2026-05-19.md`（自然搜尋成長目標地圖 / 合夥人溝通版）
+4. `NORTH_HANDOFF.md`（北區電腦接手快照；若準備換到北區繼續，先看這份）
+5. `docs/organic-local-serp-radar-2026-05-19.md`（自然搜尋 / 競品 / 關鍵字工作）
+6. `docs/organic-search-growth-goal-map-2026-05-19.md`（自然搜尋成長目標地圖 / 合夥人溝通版）
 
 ## 現在這個工作目錄是什麼
 
@@ -41,6 +42,7 @@
 - `docs/organic-external-listing-opportunities-2026-05-19.md`：第三方名錄與外部曝光機會清單。
 - `llms.txt`：AI / 答案引擎補充導覽。
 - `assets/gmb/`：Google 商家可用圖片素材。
+- `NORTH_HANDOFF.md`：北區電腦接手快照，記錄目前已完成、待審核、下一步與不要做的事項。
 
 ## 2026-05-13 已校正
 
