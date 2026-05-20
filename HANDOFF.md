@@ -1,6 +1,6 @@
 # ObserveGeoPages 交接
 
-最後更新：2026-05-20
+最後更新：2026-05-21
 
 ## 先讀什麼
 
@@ -10,6 +10,7 @@
 4. `NORTH_HANDOFF.md`（北區電腦接手快照；若準備換到北區繼續，先看這份）
 5. `docs/organic-local-serp-radar-2026-05-19.md`（自然搜尋 / 競品 / 關鍵字工作）
 6. `docs/organic-search-growth-goal-map-2026-05-19.md`（自然搜尋成長目標地圖 / 合夥人溝通版）
+7. `docs/maps-ranking-vendor-decision-2026-05-21.md`（地圖排序代操判斷、Maps 主戰場與後續策略）
 
 ## 現在這個工作目錄是什麼
 
@@ -32,6 +33,7 @@
 - `docs/organic-local-serp-radar-2026-05-19.md`：台南在地 SERP 雷達與競品觀察。
 - `docs/organic-search-growth-goal-map-2026-05-19.md`：自然搜尋成長目標地圖，整理競品流量差距、官網、Google 商家、外部曝光、內容群、驗收節奏與合夥人溝通版。
 - `docs/maps-tainan-tuina-readback-2026-05-19.md`：`台南推拿` / `台南整復推拿` Google Maps 讀回與 GBP 缺口分析。
+- `docs/maps-ranking-vendor-decision-2026-05-21.md`：記錄地圖排序代操不再作為預設解法、自然搜尋與 Maps 分工、競品 Maps 優勢來源與見觀後續策略。
 - `docs/google-business-photo-refresh-2026-05-20.md`：Google Business Profile 南北店相片補充紀錄與素材包位置。
 - `docs/google-business-storefront-source-photos-2026-05-20.md`：給網頁版 GPT 做圖卡時使用的真實門店底圖包與使用說明。
 - `docs/google-business-route-parking-booking-prompts-2026-05-20.md`：下一批 Google Business 到店路線、停車提醒、費用 / 預約流程圖卡提示詞。
@@ -152,6 +154,7 @@
 - 可現在做：依 Search Console 與 `docs/organic-keyword-pool-2026-05-19.csv` 補下一批安全搜尋問法內容；不可把物理治療、復健、治療、矯正寫成見觀服務。
 - 暫時等待：Google Business Profile 服務項目、商家描述與南區修正版相片審核；審核通過前不能宣稱 Maps 排名已改善。
 - 暫時等待：Cloudflare 301 已驗收，後續看 Search Console 舊 `.php` URL 轉移，不需再改 DNS 或 HiNet。
+- 2026-05-21 已建立 `docs/maps-ranking-vendor-decision-2026-05-21.md`：使用者過去曾購買地圖排序服務但成效不明顯，後續不把「保證地圖排序」代操包列為預設方案；Maps 主戰場改看 GBP 類別、服務、描述、照片、評論、真實互動、距離與固定條件讀回。`observe.boostime.me` 舊站殘留已交外部公司處理，短期只列背景噪音與不可控風險，不列為內部驗收條件。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 補欄位編輯器層級的完整營業時間、屬性與服務範圍；主副分類、服務、產品、預訂欄位與照片盤點已先讀回。
 - Google 公開搜尋結果與商家公開面仍未完全乾淨；下一輪先推動 Boostime / 網路公司把 `https://observe.boostime.me/` 做 301 redirect 或 `noindex, follow`，再重查北區公開 `預約` 是否已從 LINE 更新為官方分流頁、舊 Boostime 自然結果是否退場，以及 Search Console 索引狀態。
