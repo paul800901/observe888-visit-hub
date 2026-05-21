@@ -124,6 +124,7 @@
 - Cloudflare zone 已建立並讀回：Free plan、DNS 5 筆全部 Proxied、SSL/TLS `Full (strict)`、8 條優先 Redirect Rules Active；指派 nameserver 為 `nico.ns.cloudflare.com` / `rosa.ns.cloudflare.com`。
 - HiNet nameserver 已改成 `nico.ns.cloudflare.com` / `rosa.ns.cloudflare.com` 並在 HiNet 後台讀回；`1.1.1.1` 與 `8.8.8.8` 查 NS 與 `www` A 已回 Cloudflare。Cloudflare HTTPS 邊緣已可回 `200`，8 條優先舊 URL 已用 Cloudflare proxy IP 驗證為 `301` 且目的地正確。本機 / ISP DNS cache 可能短暫仍看到 GitHub Pages 舊紀錄，等快取自然退即可。
 - 2026-05-19 19:10 已用正式網址、不指定 IP 重測：首頁、`robots.txt`、`sitemap.xml` 回 `200`，apex `https://observe888.com/` 回 `301` 到 `https://www.observe888.com/`，8 條舊 URL 全部回 Cloudflare `301` 且目的地正確。本機一度仍連到 GitHub Pages / Fastly 舊 IP；清 DNS cache 後驗收通過。
+- 2026-05-21 收到 Search Console `找不到網頁 (404)` 新原因通知後，已重測正式站：`sitemap.xml` 內 35 個正式 URL 全部 `200`；漏網舊 URL `https://www.observe888.com/index.php` 與 `https://www.observe888.com/paper/other_select_index.php?group_id=874&title_id=11271` 仍回 `404`。本 repo 不補 `.php` 靜態 fallback，因為 GitHub Pages 不支援 PHP 或 server-side redirect；實際修正應在 Cloudflare 補 `legacy-root-index` 與 `legacy-other-select-group-title` 兩條 server-side `301`。
 
 ## 2026-05-19 Google Business 讀回與貼文判斷
 

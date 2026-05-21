@@ -110,6 +110,26 @@ Query string 目前不保留，避免新版頁面出現舊的 `id` / `title_id` 
 | `legacy-other-select-3718` | `https://www.observe888.com/paper/other_select_index.php?id=3718*` | `https://www.observe888.com/north/pricing/` | 301 | Off |
 | `legacy-other-select-title` | `https://www.observe888.com/paper/other_select_index.php?title_id=11271*` | `https://www.observe888.com/visit/` | 301 | Off |
 
+## 2026-05-21 Search Console 404 通知讀回
+
+2026-05-21 收到 Search Console `找不到網頁 (404)` 新原因通知後，重新讀回正式站：
+
+- `sitemap.xml` 內 35 個正式 URL 全部回 `200`。
+- 首頁、`robots.txt`、`sitemap.xml` 皆由 Cloudflare 回 `200`。
+- Google 公開搜尋仍可見舊 PHP 結果；多數已被既有 Cloudflare 規則轉成 `301`。
+- 兩個可對上公開搜尋舊結果的漏網 URL 仍回 `404`：
+  - `https://www.observe888.com/index.php`
+  - `https://www.observe888.com/paper/other_select_index.php?group_id=874&title_id=11271`
+- `.env.redirect.local` 只保留 Cloudflare 欄位，沒有可用 API token；本輪未直接修改 Cloudflare 規則。
+- 不用 repo 端補 `.php` 靜態 fallback；GitHub Pages 不支援 PHP 或 server-side redirect，舊 `.php` URL 應在 Cloudflare 做 `301`。
+
+建議下一次能進 Cloudflare 後補第二批 Redirect Rules：
+
+| Rule name | Wildcard pattern | Target | Status | Preserve query |
+| --- | --- | --- | --- | --- |
+| `legacy-root-index` | `https://www.observe888.com/index.php*` | `https://www.observe888.com/` | 301 | Off |
+| `legacy-other-select-group-title` | `https://www.observe888.com/paper/other_select_index.php?group_id=874&title_id=11271*` | `https://www.observe888.com/visit/` | 301 | Off |
+
 ## 切換驗收
 
 nameserver 切到 Cloudflare 後，至少驗證：
