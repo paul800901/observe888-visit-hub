@@ -2,6 +2,7 @@
 .env.*
 .evn
 .evn.*
+.wrangler/
 !.env.example
 !.env.*.example
 !.evn.example

@@ -123,12 +123,20 @@ Query string 目前不保留，避免新版頁面出現舊的 `id` / `title_id` 
 - `.env.redirect.local` 只保留 Cloudflare 欄位，沒有可用 API token；本輪未直接修改 Cloudflare 規則。
 - 不用 repo 端補 `.php` 靜態 fallback；GitHub Pages 不支援 PHP 或 server-side redirect，舊 `.php` URL 應在 Cloudflare 做 `301`。
 
-建議下一次能進 Cloudflare 後補第二批 Redirect Rules：
+Wrangler OAuth 預設授權沒有 Rulesets 寫入權限，但有 Workers 與 route 寫入權限；因此已部署最小 Worker `observe888-legacy-redirects`，只掛兩條 route：
 
-| Rule name | Wildcard pattern | Target | Status | Preserve query |
+| Route pattern | Worker | 行為 |
+| --- | --- | --- |
+| `www.observe888.com/index.php*` | `observe888-legacy-redirects` | `301` 到 `https://www.observe888.com/` |
+| `www.observe888.com/paper/other_select_index.php*` | `observe888-legacy-redirects` | `id=3718` 時 `301` 到 `/north/pricing/`，其他 query `301` 到 `/visit/` |
+
+Worker 原始碼保存在 `cloudflare/observe888-legacy-redirects.js`。2026-05-21 live readback：
+
+| Readback item | URL | Target | Status | Preserve query |
 | --- | --- | --- | --- | --- |
 | `legacy-root-index` | `https://www.observe888.com/index.php*` | `https://www.observe888.com/` | 301 | Off |
 | `legacy-other-select-group-title` | `https://www.observe888.com/paper/other_select_index.php?group_id=874&title_id=11271*` | `https://www.observe888.com/visit/` | 301 | Off |
+| `legacy-other-select-3718` | `https://www.observe888.com/paper/other_select_index.php?id=3718&title_id=11271&group_id=874` | `https://www.observe888.com/north/pricing/` | 301 | Off |
 
 ## 切換驗收
 
