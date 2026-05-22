@@ -7,3 +7,4 @@
 !.env.*.example
 !.evn.example
 !.evn.*.example
+_local/
