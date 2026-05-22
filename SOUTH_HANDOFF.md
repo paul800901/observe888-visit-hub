@@ -1,12 +1,26 @@
 # 南區接手交接
 
-最後更新：2026-05-13
+最後更新：2026-05-20
 
 ## 先講最重要的
 
 這個工作目錄現在是正式官網總控，也包含南區店的官方店點頁、到店導航、預約與費用頁、Google 商家資料一致性與照片素材盤點。
 
 舊規則「南區到店導航官網 source 在 AdsControl」已作廢。AdsControl 只保留廣告、事件匯入、lead sync、監測與報表。
+
+## 2026-05-21 Google Business / Maps 接手
+
+明天在南區機器接手時，先讀：
+
+- `docs/gbp-south-handoff-2026-05-21.md`
+
+重點：
+
+- 北區 `01_maps_upload_priority` 12 張與 `02_maps_upload_secondary` 13 張已於 2026-05-20 人工上傳，合計 25 張，不要重傳。
+- 先回查北區相片是否仍顯示 `正在等候審查`。
+- 若照片已通過或大多不再顯示審查狀態，再用 `03_post_candidates` 發第一則北區 Google 商家貼文。
+- Google Drive 素材位置：`G:\我的雲端硬碟\Observe888_GBP_PhotoAssets\2026-05-20-north-store`。
+- `04_hold_internal` 先不要上傳，也不要當貼文素材。
 
 ## 2026-05-13 跨專案大改結論
 

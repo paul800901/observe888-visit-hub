@@ -8,10 +8,12 @@
 2. `docs/website-operations.md`
 3. `README.md`
 4. `NORTH_HANDOFF.md`（北區電腦接手快照；若準備換到北區繼續，先看這份）
-5. `docs/organic-local-serp-radar-2026-05-19.md`（自然搜尋 / 競品 / 關鍵字工作）
-6. `docs/organic-search-growth-goal-map-2026-05-19.md`（自然搜尋成長目標地圖 / 合夥人溝通版）
-7. `docs/maps-ranking-vendor-decision-2026-05-21.md`（地圖排序代操判斷、Maps 主戰場與後續策略）
-8. `docs/google-serp-maps-readback-2026-05-22.md`（2026-05-22 無痕慢速 Google 自然搜尋 / Maps 排名讀回）
+5. `SOUTH_HANDOFF.md`（南區電腦接手快照；若準備換到南區繼續，先看這份）
+6. `docs/gbp-south-handoff-2026-05-21.md`（2026-05-21 南區接手 Google Business / Maps 照片審查與北區貼文）
+7. `docs/organic-local-serp-radar-2026-05-19.md`（自然搜尋 / 競品 / 關鍵字工作）
+8. `docs/organic-search-growth-goal-map-2026-05-19.md`（自然搜尋成長目標地圖 / 合夥人溝通版）
+9. `docs/maps-ranking-vendor-decision-2026-05-21.md`（地圖排序代操判斷、Maps 主戰場與後續策略）
+10. `docs/google-serp-maps-readback-2026-05-22.md`（2026-05-22 無痕慢速 Google 自然搜尋 / Maps 排名讀回）
 
 ## 現在這個工作目錄是什麼
 
@@ -38,6 +40,7 @@
 - `docs/google-business-photo-refresh-2026-05-20.md`：Google Business Profile 南北店相片補充紀錄與素材包位置。
 - `docs/google-business-storefront-source-photos-2026-05-20.md`：給網頁版 GPT 做圖卡時使用的真實門店底圖包與使用說明。
 - `docs/google-business-route-parking-booking-prompts-2026-05-20.md`：下一批 Google Business 到店路線、停車提醒、費用 / 預約流程圖卡提示詞。
+- `docs/gbp-south-handoff-2026-05-21.md`：南區接手北區照片審查回查與第一則北區 Google 商家貼文的專門交接。
 - `docs/search-console-performance-readback-2026-05-19.md`：Search Console 前 3 個月官方讀回與自然搜尋行動清單。
 - `docs/search-console-full-range-readback-2026-05-19.md`：Search Console 2025-01-18 至 2026-05-16 全期間讀回。
 - `docs/organic-keyword-pool-2026-05-19.csv`：自然搜尋關鍵字池與優先級。

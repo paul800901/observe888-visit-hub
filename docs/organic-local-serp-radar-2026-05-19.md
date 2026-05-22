@@ -10,6 +10,8 @@
 - 見觀 paid search terms：`02_廣告_AdsControl/backend/data/adscontrol.db` 的 `search_terms`。
 - 見觀 Search Console：2026-05-19 已登入瀏覽器匯出 `https://www.observe888.com/` 前 3 個月網路搜尋成效，整理於 `docs/search-console-performance-readback-2026-05-19.md`。
 - 見觀 Search Console 全期間：2025-01-18 至 2026-05-16，整理於 `docs/search-console-full-range-readback-2026-05-19.md`。
+- Google 自然搜尋無痕讀回：2026-05-20 已完成 23 個 P0 主攻詞前 20 名自然結果，並補查店別詞、路名詞、運動按摩、筋膜、一般按摩、手法詞、台南手法詞、結構定位詞、長尾服務詞、推薦 / PTT / Dcard、症狀、比較、地區延伸、醫療感詞與競品詞；被 Google 擋查時改回首頁搜尋框慢速重查，沒有把擋查空結果當排名。整理於 `docs/organic-google-serp-readback-2026-05-20.md`。
+- Search Console x Google SERP 補充讀回：2026-05-20 已用 Search Console 前 3 個月匯出補充前台自然排名，整理於 `docs/search-console-serp-followup-2026-05-20.md`。
 - 見觀官網現況：`sitemap.xml`、首頁、南北店頁、FAQ、`services/tainan-tuina/`。
 - 不使用 Semrush 估算數字作為本文件依據；目前 Semrush MCP 不可用。
 
@@ -38,7 +40,11 @@
 
 全期間讀回再確認同一方向：2025-01-18 至 2026-05-16 總點擊 2,235、總曝光 67,599，服務核心查詢 row sum 為 440 clicks / 27,938 impressions。頁面維度中舊 `.php` URL 有 34 rows、1,045 clicks row sum、125,473 impressions row sum；頁面 row sum 不能直接等同網站總量，但足以確認舊頁清理是優先任務。
 
+2026-05-20 已補 Search Console x Google 前台 SERP 對照：前 3 個月總點擊 470、總曝光 1.34 萬、平均 CTR 3.5%、平均排名 7.5。核心詞在前台與後台互相印證，例如 `台南整骨` GSC 21 clicks / 1,034 impressions、`台南整復` 21 / 755、`台南整復推拿` 8 / 131。頁面表仍沒有列出 `/services/tainan-tuina/`，首頁仍是主要曝光承接頁；舊 PHP / 舊架構 URL 仍有 20 rows、181 clicks row sum、7,215 impressions row sum。詳見 `docs/search-console-serp-followup-2026-05-20.md`。
+
 ## 公開 SERP 觀察
+
+2026-05-20 無痕 Google 自然搜尋補讀顯示，見觀官方網站在 23 個 P0 主攻詞中有 18 個詞進入前 20 名；例如 `台南整復推拿` 第 3、`台南傳統整復推拿` 第 2、`台南推拿整復` 第 2。店別詞方面，`台南北區整復推拿`、`台南南區整復推拿`、`南區整復推拿`、`南區整復`、`南區推拿`、`南區整骨` 讀到見觀第 1。路名詞方面，`明興路整復`、`明興路推拿` 讀到見觀第 1，但 `北安路整復`、`明興路整復` 仍讀到見觀舊 PHP URL。運動按摩、筋膜、一般按摩、肩頸按摩、手法詞與台南手法詞前段多未讀到見觀，符合「可承接但非主定位」判斷。結構詞有局部成果：`台南結構調理` 第 1、`台南身體結構觀察` 第 1、`身體結構觀察` 第 7、`台南身體結構評估` 第 9；高風險詞 `台南結構治療` 也讀到見觀首頁第 7，但只能作內部追蹤與 FAQ 邊界。推薦 / PTT / Dcard、症狀、比較、地區延伸與競品詞多數前 10 未讀到見觀；`高低肩矯正 台南` 讀到 WorkBand 舊頁第 3、第 6，不是官方頁。弱點集中在推薦型、費用型、喬骨盆詞、相鄰按摩 / 筋膜 / 手法詞、醫療感詞，以及新服務頁尚未承接核心詞；多數命中仍是首頁 `https://www.observe888.com/`，需要後續觀察新服務頁 `/services/tainan-tuina/` 是否接手。詳見 `docs/organic-google-serp-readback-2026-05-20.md`。
 
 | 查詢方向 | 公開出現樣本 | 觀察 | 見觀對策 |
 | --- | --- | --- | --- |
