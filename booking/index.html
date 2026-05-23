@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <title>預約詢問｜見觀結構近期可協助安排時段</title>
+  <meta name="description" content="見觀結構預約詢問頁。先看近期優先可協助安排時段，也可以留下方便日期、時段、店別與主要狀況，由我們再協助確認。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="見觀結構">
+  <meta property="og:title" content="預約詢問｜見觀結構近期可協助安排時段">
+  <meta property="og:description" content="先看近期較容易協助安排的時段；若沒有適合時間，也可以留下方便日期與時段。">
+  <meta property="og:url" content="https://www.observe888.com/booking/">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4ecdf;
+      --paper: rgba(255, 251, 245, 0.92);
+      --line: rgba(87, 63, 48, 0.14);
+      --text: #3f2e22;
+      --muted: #6f5a49;
+      --accent: #a14f2a;
+      --forest: #2e5e4b;
+      --soft: rgba(87, 63, 48, 0.07);
+      --warn: #8a451f;
+      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0) 34%),
+        radial-gradient(circle at 86% 12%, rgba(46, 94, 75, 0.14), rgba(46, 94, 75, 0) 23%),
+        linear-gradient(180deg, #fbf6ee 0%, var(--bg) 52%, #eee1d0 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    legend {
+      padding: 0;
+    }
+
+    .shell {
+      width: min(1040px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .topnav,
+    .hero,
+    .section,
+    .result-panel {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px;
+    }
+
+    .brand-block {
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand-kicker,
+    .label {
+      color: #7e381d;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav-pill.primary {
+      background: var(--forest);
+      color: #fff;
+    }
+
+    .hero {
+      padding: 28px 24px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-copy,
+    .section-copy,
+    .field,
+    .result-copy {
+      display: grid;
+      gap: 10px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(46, 94, 75, 0.1);
+      color: var(--forest);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--forest);
+      box-shadow: 0 0 0 4px rgba(46, 94, 75, 0.12);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(30px, 4.2vw, 48px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: 17px;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    p,
+    li,
+    .field-help,
+    .slot-meta,
+    .fine-print {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .hero-actions,
+    .form-actions,
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 16px 28px rgba(126, 56, 29, 0.2);
+    }
+
+    .button.is-forest {
+      background: var(--forest);
+      box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22);
+    }
+
+    .button.is-ghost {
+      background: var(--soft);
+      color: var(--text);
+      box-shadow: none;
+    }
+
+    .section {
+      padding: 22px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .slot-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .slot-card,
+    .option-card {
+      position: relative;
+      display: grid;
+      gap: 7px;
+      min-height: 100%;
+      padding: 16px;
+      border: 1px solid rgba(87, 63, 48, 0.12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.64);
+      cursor: pointer;
+    }
+
+    .slot-card input,
+    .option-card input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .slot-card:has(input:checked),
+    .option-card:has(input:checked) {
+      border-color: rgba(46, 94, 75, 0.55);
+      background: rgba(46, 94, 75, 0.09);
+      box-shadow: inset 0 0 0 1px rgba(46, 94, 75, 0.2);
+    }
+
+    .slot-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .slot-code {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      min-width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--forest);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .slot-store {
+      color: var(--forest);
+      font-weight: 900;
+    }
+
+    .notice {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(161, 79, 42, 0.08);
+      color: var(--warn);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    label {
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .field.full,
+    .option-group.full {
+      grid-column: 1 / -1;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 12px;
+      border: 1px solid rgba(87, 63, 48, 0.18);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--text);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 112px;
+      resize: vertical;
+      line-height: 1.65;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(46, 94, 75, 0.64);
+      box-shadow: 0 0 0 3px rgba(46, 94, 75, 0.12);
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .option-card {
+      min-height: 54px;
+      align-content: center;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .result-panel {
+      padding: 22px;
+      display: none;
+      gap: 16px;
+    }
+
+    .result-panel.is-visible {
+      display: grid;
+    }
+
+    .message-preview {
+      width: 100%;
+      min-height: 240px;
+      white-space: pre-wrap;
+      line-height: 1.7;
+    }
+
+    .fine-print {
+      font-size: 13px;
+    }
+
+    @media (max-width: 820px) {
+      .slot-list,
+      .form-grid,
+      .option-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100vw - 16px, 1040px);
+        padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
+      }
+
+      .topnav,
+      .hero,
+      .section,
+      .result-panel {
+        border-radius: 22px;
+      }
+
+      .topnav,
+      .hero,
+      .section,
+      .result-panel {
+        padding: 18px;
+      }
+
+      .nav-links,
+      .hero-actions,
+      .form-actions,
+      .result-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button,
+      .nav-pill {
+        width: 100%;
+      }
+    }
+  </style>
+  <link rel="canonical" href="https://www.observe888.com/booking/">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.observe888.com/booking/#webpage",
+  "url": "https://www.observe888.com/booking/",
+  "name": "預約詢問｜見觀結構近期可協助安排時段",
+  "description": "見觀結構預約詢問頁，提供近期優先可協助安排時段與其他時間詢問入口。",
+  "inLanguage": "zh-Hant",
+  "isPartOf": {
+    "@id": "https://www.observe888.com/#website"
+  }
+}
+  </script>
+  <link rel="stylesheet" href="../observe888-bottom-nav.css">
+</head>
+<body data-page-role="booking">
+  <main class="shell">
+    <nav class="topnav" aria-label="站內導覽">
+      <div class="brand-block">
+        <span class="brand-kicker">預約詢問</span>
+        <span class="brand-title">見觀結構｜近期可協助安排時段</span>
+      </div>
+      <div class="nav-links">
+        <a class="nav-pill" href="../">首頁</a>
+        <a class="nav-pill" href="../visit/">到店導航</a>
+        <a class="nav-pill" href="../faq/">常見問題</a>
+        <a class="nav-pill primary" href="./" aria-current="page">預約</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">先看少量時段，再留下預約資料</span>
+      <div class="hero-copy">
+        <h1>近期優先可協助安排時段</h1>
+        <p>以下是目前較容易協助安排的時段。若沒有看到適合時間，也可以留下你方便的日期與時段，我們再協助確認。</p>
+        <p>這個頁面先協助你把預約需求整理清楚；時段尚未自動保留，實際安排仍會以後續 LINE 或電話確認為準。</p>
+      </div>
+      <div class="hero-actions">
+        <a class="button is-forest" href="#bookingForm">開始填寫</a>
+        <a class="button is-ghost" href="../visit/">先看南北區位置</a>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="prioritySlotsTitle">
+      <div class="section-copy">
+        <span class="label">Priority slots</span>
+        <h2 id="prioritySlotsTitle">可以先選一個想詢問的時段</h2>
+        <p>清單只顯示少量近期優先時段，不是完整空檔。想約南區、其他日期或不同時段，請選「我想約其他時間」。</p>
+      </div>
+      <div id="slotList" class="slot-list" aria-live="polite">
+        <p class="notice">正在讀取近期優先時段。</p>
+      </div>
+      <p id="slotNotice" class="notice">目前日曆仍是只讀候選階段；送出前會再確認 Google Calendar，避免撞時段。</p>
+    </section>
+
+    <form id="bookingForm" class="section" novalidate>
+      <div class="section-copy">
+        <span class="label">Booking request</span>
+        <h2>留下預約資料</h2>
+        <p>請填你方便的資訊即可。若你選了上方 A/B/C/D，下面仍可補充店別偏好與身體狀況。</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="field full">
+          <label for="slotChoiceText">想詢問的時段</label>
+          <input id="slotChoiceText" name="slotChoiceText" type="text" value="我想約其他時間" readonly>
+          <p class="field-help">點選上方時段後，這裡會自動更新；也可以維持其他時間。</p>
+        </div>
+
+        <fieldset class="option-group full">
+          <legend class="label">店別</legend>
+          <div class="option-grid">
+            <label class="option-card"><input type="radio" name="store" value="北區">北區</label>
+            <label class="option-card"><input type="radio" name="store" value="南區">南區</label>
+            <label class="option-card"><input type="radio" name="store" value="都可以" checked>都可以</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="datePreference">方便日期</label>
+          <select id="datePreference" name="datePreference">
+            <option value="今天">今天</option>
+            <option value="明天">明天</option>
+            <option value="這週">這週</option>
+            <option value="下週">下週</option>
+            <option value="指定日期">指定日期</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="specificDate">指定日期</label>
+          <input id="specificDate" name="specificDate" type="date">
+        </div>
+
+        <fieldset class="option-group full">
+          <legend class="label">方便時段</legend>
+          <div class="option-grid">
+            <label class="option-card"><input type="radio" name="timePreference" value="上午">上午</label>
+            <label class="option-card"><input type="radio" name="timePreference" value="下午">下午</label>
+            <label class="option-card"><input type="radio" name="timePreference" value="晚上">晚上</label>
+            <label class="option-card"><input type="radio" name="timePreference" value="都可以" checked>都可以</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="firstVisit">第一次來嗎</label>
+          <select id="firstVisit" name="firstVisit">
+            <option value="第一次">第一次</option>
+            <option value="來過">來過</option>
+            <option value="不確定">不確定</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="serviceType">想預約方式</label>
+          <select id="serviceType" name="serviceType">
+            <option value="結構調理">結構調理</option>
+            <option value="傳統按摩放鬆">傳統按摩放鬆</option>
+            <option value="不確定">不確定</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="customerName">姓名</label>
+          <input id="customerName" name="customerName" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">電話</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+        </div>
+
+        <div class="field full">
+          <label for="condition">主要狀況</label>
+          <textarea id="condition" name="condition" placeholder="簡短描述即可，例如肩頸卡、腰背緊、想先確認適合方式。"></textarea>
+        </div>
+
+        <div class="field full">
+          <label for="notes">其他補充</label>
+          <textarea id="notes" name="notes" placeholder="例如比較方便的日期、是否有同行者、想避開的時間。"></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="button is-forest" type="submit">產生預約詢問訊息</button>
+        <a class="button is-ghost" href="../visit/">先確認到店位置</a>
+      </div>
+      <p class="fine-print">這一版不會自動保留時段，也不會直接寫入 Google Calendar。請把產生的訊息送到 LINE，我們再協助確認。</p>
+    </form>
+
+    <section id="resultPanel" class="result-panel" aria-labelledby="resultTitle">
+      <div class="result-copy">
+        <span class="label">Next step</span>
+        <h2 id="resultTitle">確認預約詢問內容</h2>
+        <p>請確認內容後複製，開啟 LINE 傳給我們。收到後會再確認時段是否仍可安排。</p>
+      </div>
+      <textarea id="messagePreview" class="message-preview" readonly></textarea>
+      <div class="result-actions">
+        <button id="copyMessageButton" class="button is-forest" type="button">複製預約內容</button>
+        <a id="openLineButton" class="button" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">開啟 LINE 傳送</a>
+        <button id="editAgainButton" class="button is-ghost" type="button">重新修改</button>
+      </div>
+      <p id="copyStatus" class="fine-print" aria-live="polite"></p>
+    </section>
+
+    <p class="fine-print">提醒：若有急性外傷、明顯無力、大小便異常、發燒感染、快速惡化或不尋常劇烈症狀，請先就醫評估。</p>
+  </main>
+
+  <script src="../observe888-tracking-config.js"></script>
+  <script src="../observe888-tracking.js"></script>
+  <script src="../observe888-bottom-nav.js"></script>
+  <script>
+    (function () {
+      const lineBookingUrl = 'https://line.me/ti/p/~@483yvmiw';
+      const storeLabel = { north: '北區', south: '南區', unknown: '店別確認後安排' };
+      const state = {
+        slots: [],
+        selectedSlot: null,
+        selectedSlotText: '我想約其他時間'
+      };
+
+      const slotList = document.querySelector('#slotList');
+      const slotChoiceText = document.querySelector('#slotChoiceText');
+      const form = document.querySelector('#bookingForm');
+      const resultPanel = document.querySelector('#resultPanel');
+      const messagePreview = document.querySelector('#messagePreview');
+      const copyStatus = document.querySelector('#copyStatus');
+
+      function track(eventName, extra) {
+        const tracker = window.Observe888Tracker;
+        if (tracker && typeof tracker.track === 'function') {
+          tracker.track(eventName, Object.assign({
+            page_role: 'booking',
+            cta_type: 'booking'
+          }, extra || {}));
+        }
+      }
+
+      function trackPageView() {
+        const tracker = window.Observe888Tracker;
+        if (tracker && typeof tracker.trackPageView === 'function') {
+          tracker.trackPageView('page_view_booking', { page_role: 'booking' });
+        }
+      }
+
+      function formatDateTimeRange(slot) {
+        const start = new Date(slot.start_time);
+        const end = new Date(slot.end_time);
+        const dateText = new Intl.DateTimeFormat('zh-TW', {
+          timeZone: 'Asia/Taipei',
+          month: 'numeric',
+          day: 'numeric',
+          weekday: 'short'
+        }).format(start);
+        const timeFormatter = new Intl.DateTimeFormat('zh-TW', {
+          timeZone: 'Asia/Taipei',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        });
+        return `${dateText}｜${timeFormatter.format(start)}-${timeFormatter.format(end)}`;
+      }
+
+      function isSlotUsable(slot) {
+        if (!slot || slot.still_available === false) return false;
+        if (!slot.start_time || !slot.end_time) return false;
+        return new Date(slot.end_time).getTime() > Date.now();
+      }
+
+      function setSelectedSlot(slot) {
+        state.selectedSlot = slot || null;
+        state.selectedSlotText = slot
+          ? `${slot.code}｜${storeLabel[slot.store] || '店別待確認'}｜${formatDateTimeRange(slot)}`
+          : '我想約其他時間';
+        slotChoiceText.value = state.selectedSlotText;
+        if (slot && (slot.store === 'north' || slot.store === 'south')) {
+          const storeInput = form.querySelector(`input[name="store"][value="${storeLabel[slot.store]}"]`);
+          if (storeInput) storeInput.checked = true;
+        }
+      }
+
+      function renderSlots(slots) {
+        const usableSlots = (slots || []).filter(isSlotUsable).slice(0, 6);
+        state.slots = usableSlots;
+
+        if (!usableSlots.length) {
+          slotList.innerHTML = '<p class="notice">目前公開候選時段需要重新整理。你仍可以選「我想約其他時間」，留下方便日期與時段。</p>';
+          setSelectedSlot(null);
+          return;
+        }
+
+        slotList.innerHTML = usableSlots.map((slot, index) => {
+          const checked = index === 0 ? ' checked' : '';
+          const text = formatDateTimeRange(slot);
+          return `
+            <label class="slot-card">
+              <input type="radio" name="slotCode" value="${slot.code}"${checked}>
+              <span class="slot-title">
+                <span><span class="slot-code">${slot.code}</span> ${storeLabel[slot.store] || '店別待確認'}</span>
+                <span class="slot-store">${storeLabel[slot.store] || ''}</span>
+              </span>
+              <span class="slot-meta">${text}</span>
+            </label>
+          `;
+        }).join('') + `
+          <label class="slot-card">
+            <input type="radio" name="slotCode" value="OTHER">
+            <span class="slot-title">
+              <span><span class="slot-code">+</span> 我想約其他時間</span>
+            </span>
+            <span class="slot-meta">沒有看到適合時間，留下方便日期與時段。</span>
+          </label>
+        `;
+
+        setSelectedSlot(usableSlots[0]);
+        slotList.querySelectorAll('input[name="slotCode"]').forEach((input) => {
+          input.addEventListener('change', () => {
+            if (input.value === 'OTHER') {
+              setSelectedSlot(null);
+              track('click_booking_other_time', { cta_position: 'slot_list' });
+              return;
+            }
+            const selected = state.slots.find((slot) => slot.code === input.value);
+            setSelectedSlot(selected);
+            track('click_booking_slot_select', {
+              cta_position: 'slot_list',
+              slot_code: input.value,
+              store: selected && selected.store ? selected.store : ''
+            });
+          });
+        });
+      }
+
+      async function loadSlots() {
+        try {
+          const response = await fetch('priority-slots.json', { cache: 'no-store' });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          renderSlots(data.slots || []);
+        } catch (error) {
+          renderSlots([]);
+        }
+      }
+
+      function getRadioValue(name) {
+        const input = form.querySelector(`input[name="${name}"]:checked`);
+        return input ? input.value : '';
+      }
+
+      function buildMessage() {
+        const formData = new FormData(form);
+        const datePreference = String(formData.get('datePreference') || '').trim();
+        const specificDate = String(formData.get('specificDate') || '').trim();
+        const dateText = datePreference === '指定日期' && specificDate
+          ? `指定日期：${specificDate}`
+          : datePreference;
+        const lines = [
+          '【預約詢問】',
+          `來源：官網預約頁`,
+          `想詢問的時段：${state.selectedSlotText}`,
+          `店別：${getRadioValue('store')}`,
+          `方便日期：${dateText || '未填'}`,
+          `方便時段：${getRadioValue('timePreference')}`,
+          `第一次來嗎：${String(formData.get('firstVisit') || '').trim()}`,
+          `想預約方式：${String(formData.get('serviceType') || '').trim()}`,
+          `姓名：${String(formData.get('customerName') || '').trim()}`,
+          `電話：${String(formData.get('phone') || '').trim()}`,
+          `主要狀況：${String(formData.get('condition') || '').trim() || '未填'}`,
+          `其他補充：${String(formData.get('notes') || '').trim() || '無'}`,
+          '',
+          '提醒：此訊息送出後仍需見觀確認，尚未保留時段。'
+        ];
+        return lines.join('\n');
+      }
+
+      function showResult(message) {
+        messagePreview.value = message;
+        resultPanel.classList.add('is-visible');
+        resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function validateRequired() {
+        const nameInput = document.querySelector('#customerName');
+        const phoneInput = document.querySelector('#phone');
+        const name = String(nameInput.value || '').trim();
+        const phone = String(phoneInput.value || '').trim();
+        if (!name || !phone) {
+          copyStatus.textContent = '請先填姓名與電話，方便後續確認。';
+          (!name ? nameInput : phoneInput).focus();
+          return false;
+        }
+        return true;
+      }
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!validateRequired()) return;
+        const message = buildMessage();
+        showResult(message);
+        track('booking_form_generate_message', {
+          cta_position: 'booking_form',
+          selected_slot: state.selectedSlot ? state.selectedSlot.code : 'OTHER',
+          store_preference: getRadioValue('store')
+        });
+      });
+
+      document.querySelector('#copyMessageButton').addEventListener('click', async () => {
+        const text = messagePreview.value;
+        try {
+          await navigator.clipboard.writeText(text);
+          copyStatus.textContent = '已複製預約內容，可以貼到 LINE 傳送。';
+        } catch (error) {
+          messagePreview.focus();
+          messagePreview.select();
+          copyStatus.textContent = '已選取內容，請手動複製後貼到 LINE。';
+        }
+        track('booking_copy_message', { cta_position: 'result_panel' });
+      });
+
+      document.querySelector('#openLineButton').addEventListener('click', () => {
+        track('click_line_booking', {
+          cta_type: 'line',
+          cta_position: 'result_panel',
+          href: lineBookingUrl
+        });
+      });
+
+      document.querySelector('#editAgainButton').addEventListener('click', () => {
+        resultPanel.classList.remove('is-visible');
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      trackPageView();
+      loadSlots();
+    }());
+  </script>
+</body>
+</html>

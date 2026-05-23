@@ -394,6 +394,11 @@
           "@type": "WebPage",
           "name": "導航｜北區店與南區店",
           "url": "https://www.observe888.com/visit/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "預約｜近期可協助安排時段",
+          "url": "https://www.observe888.com/booking/"
         }
       ]
     },
@@ -419,6 +424,12 @@
           "position": 3,
           "name": "導航",
           "url": "https://www.observe888.com/visit/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "預約",
+          "url": "https://www.observe888.com/booking/"
         }
       ]
     },
@@ -491,6 +502,7 @@
         <a class="nav-pill" href="comics/">漫畫</a>
         <a class="nav-pill" href="about/">品牌</a>
         <a class="nav-pill" href="faq/">常見問題</a>
+        <a class="nav-pill" href="booking/">預約</a>
         <a class="nav-pill" href="visit/">導航</a>
       </div>
     </nav>
@@ -508,6 +520,7 @@
         <span class="chip">先選身體區域，再看感受與搜尋詞</span>
       </div>
       <div class="hero-actions">
+        <a id="homeBookingCta" class="button is-forest" href="booking/?source=home">查看近期可協助安排時段</a>
         <a class="button" href="services/tainan-tuina/">台南整復推拿說明</a>
         <a id="homeNotesCta" class="button" href="notes/">先看身體觀察筆記</a>
         <a id="homeComicsCta" class="button is-ghost" href="comics/">看短漫劇</a>
@@ -530,10 +543,10 @@
       </div>
       <div class="panel">
         <span class="panel-label">使用方式</span>
-        <h2>想理解，先看內容；想安排，再進到店導航入口</h2>
+        <h2>想理解，先看內容；想安排，先看近期可協助安排時段</h2>
         <ul>
           <li>想先理解見觀怎麼看身體，可以先看品牌頁與身體觀察筆記</li>
-          <li>想直接安排店別或聯絡方式，先進到店導航入口再往下走會比較清楚</li>
+          <li>想直接預約，可以先進預約詢問頁，看少量近期優先時段</li>
           <li>要找北區、南區、LINE 或電話入口，請從到店導航入口進入</li>
           <li>若你已經很明確知道要去哪一間，不需要先把全部文章看完</li>
         </ul>
@@ -575,22 +588,23 @@
       <span class="panel-label">搜尋入口</span>
       <h2 id="searchEntryTitle">從名詞進來，但不要只停在名詞</h2>
       <p>很多搜尋會從「骨刺怎麼辦」、「手麻是不是神經壓迫」、「腰椎退化能不能動」、「肩頸卡要不要一直拉」開始。這些詞可以當入口，但本站會把問題放回姿勢、承重、左右差、使用習慣與生活情境，而不是直接把名詞當成結論。</p>
-      <p>如果你想安排到店，請進到店導航入口選北區或南區；如果你還在整理自己的狀態，先看文章會比較清楚。</p>
+      <p>如果你想安排到店，可以先看近期可協助安排時段；如果你還在整理自己的狀態，先看文章會比較清楚。</p>
     </section>
 
     <section class="bridge-strip" aria-labelledby="bridgeTitle">
       <div class="bridge-copy">
         <span class="panel-label">下一步</span>
-        <h2 id="bridgeTitle">想理解就留在這裡；想安排到店，再進到店導航入口</h2>
-        <p>這個官網承接品牌理解、身體觀察筆記與到店資訊。如果你要選店、看到店方式或找 LINE、電話入口，從下方按鈕進到到店導航入口即可。</p>
+        <h2 id="bridgeTitle">想理解就留在這裡；想安排到店，可以先看近期時段</h2>
+        <p>這個官網承接品牌理解、身體觀察筆記與到店資訊。如果你已經想預約，可以先到預約詢問頁查看近期優先時段，也可以留下其他方便時間。</p>
       </div>
       <div class="bridge-actions">
         <a class="button is-ghost" href="faq/">先看常見問題</a>
-        <a class="button is-forest" href="visit/">到店導航入口</a>
+        <a class="button is-forest" href="booking/?source=home_bridge">查看近期時段</a>
+        <a class="button is-ghost" href="visit/">到店導航入口</a>
       </div>
     </section>
 
-    <p class="footer-note">本站內容以觀察線索整理為主；實際到店安排、時段與細節仍以 LINE、電話與現場確認為準。</p>
+    <p class="footer-note">本站內容以觀察線索整理為主；實際到店安排、時段與細節仍以預約詢問、LINE、電話與現場確認為準。</p>
   </main>
 
   <script src="./observe888-tracking-config.js"></script>
@@ -616,6 +630,15 @@
       if (tracker && typeof tracker.trackPageView === 'function') {
         tracker.trackPageView('page_view_observe_geo_home', {
           page_role: 'observe_geo_home'
+        });
+      }
+
+      if (tracker && typeof tracker.bindTrackClick === 'function') {
+        tracker.bindTrackClick(document.querySelector('#homeBookingCta'), {
+          eventName: 'click_booking_home',
+          page_role: 'observe_geo_home',
+          cta_type: 'booking',
+          cta_position: 'hero'
         });
       }
     }());

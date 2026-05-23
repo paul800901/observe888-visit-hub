@@ -519,7 +519,7 @@
       <div class="cta-row">
         <a id="heroPrimaryCta" class="button" href="#widgetMount">直接看導航</a>
         <a id="heroSecondaryCta" class="button is-ghost" href="#whatWeDoSection">我們在做什麼</a>
-        <a id="heroTertiaryCta" class="button is-forest" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+        <a id="heroTertiaryCta" class="button is-forest" href="../booking/?source=visit">查看近期時段</a>
         <a id="heroQuaternaryCta" class="button is-ghost" href="tel:062510677">北區電話</a>
         <a id="heroQuinaryCta" class="button is-ghost" href="tel:0973728670">南區電話</a>
       </div>
@@ -546,14 +546,14 @@
         </article>
 
         <article class="first-visit-step">
-          <strong id="firstVisitStep3Title">最後決定怎麼聯絡</strong>
-          <span id="firstVisitStep3Body">你可以直接 Google Maps 導航，也可以先用 LINE 或電話確認，找到最適合自己的節奏。</span>
+          <strong id="firstVisitStep3Title">最後決定怎麼預約</strong>
+          <span id="firstVisitStep3Body">你可以先填預約詢問，也可以用電話確認，找到最適合自己的節奏。</span>
         </article>
       </div>
 
       <div class="first-visit-actions">
         <a id="firstVisitPrimaryAction" class="button" href="#widgetMount">看雙店導航</a>
-        <a id="firstVisitSecondaryAction" class="button is-ghost" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+        <a id="firstVisitSecondaryAction" class="button is-ghost" href="../booking/?source=visit_first_visit">查看近期時段</a>
       </div>
     </section>
 
@@ -570,7 +570,7 @@
         <ol class="signal-list">
           <li>北區店比較像門市型入口，先看門口、轉彎點和入口資訊。</li>
           <li>南區店先看路口、門牌和可安排時段，再出發會更順。</li>
-          <li>選好分店後，再進單店頁看導航、電話和 LINE 預約。</li>
+          <li>選好分店後，再進單店頁看導航、電話和預約詢問。</li>
         </ol>
       </article>
     </section>
@@ -581,6 +581,7 @@
         <a class="site-link" href="../about/">認識見觀結構</a>
         <a class="site-link" href="../observations/">身體觀察案例</a>
         <a class="site-link" href="../notes/">身體觀察筆記</a>
+        <a class="site-link" href="../booking/">預約詢問</a>
         <a class="site-link" href="../north/pricing/">北區服務與費用</a>
         <a class="site-link" href="../south/pricing/">南區服務與費用</a>
       </div>
@@ -590,8 +591,6 @@
   <script src="../observe888-tracking-config.js"></script>
   <script src="../observe888-tracking.js"></script>
   <script>
-    const lineBookingUrl = 'https://line.me/ti/p/~@483yvmiw';
-
     const storeAliases = {
       north: 'north',
       northstore: 'north',
@@ -617,6 +616,15 @@
       url.searchParams.delete('location');
       url.searchParams.set('store', storeKey);
       url.hash = '';
+      return `${url.pathname}${url.search}`;
+    }
+
+    function buildBookingUrl(storeKey, source) {
+      const url = new URL('../booking/', window.location.href);
+      if (storeKey) {
+        url.searchParams.set('store', storeKey);
+      }
+      url.searchParams.set('source', source || 'visit');
       return `${url.pathname}${url.search}`;
     }
 
@@ -765,11 +773,11 @@
     }
 
     function bindVariantTracking(variantKey) {
-      const sharedHomeLine = {
-        eventName: 'click_line_home',
+      const sharedHomeBooking = {
+        eventName: 'click_booking_visit_home',
         store: '',
         page_role: 'home',
-        cta_type: 'line'
+        cta_type: 'booking'
       };
 
       trackVariantPageView(variantKey);
@@ -777,10 +785,10 @@
 
       if (variantKey === 'north') {
         bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
-          eventName: 'click_line_north',
+          eventName: 'click_booking_north',
           store: 'north',
           page_role: 'north_entry',
-          cta_type: 'line',
+          cta_type: 'booking',
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
@@ -802,10 +810,10 @@
 
       if (variantKey === 'south') {
         bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
-          eventName: 'click_line_south',
+          eventName: 'click_booking_south',
           store: 'south',
           page_role: 'south_entry',
-          cta_type: 'line',
+          cta_type: 'booking',
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
@@ -825,7 +833,7 @@
         return;
       }
 
-      bindTrackedClick(document.querySelector('#heroTertiaryCta'), Object.assign({ cta_position: 'hero' }, sharedHomeLine));
+      bindTrackedClick(document.querySelector('#heroTertiaryCta'), Object.assign({ cta_position: 'hero' }, sharedHomeBooking));
       bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
         eventName: 'click_call_north',
         store: 'north',
@@ -840,7 +848,7 @@
         cta_type: 'call',
         cta_position: 'hero'
       });
-      bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), Object.assign({ cta_position: 'first_visit' }, sharedHomeLine));
+      bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), Object.assign({ cta_position: 'first_visit' }, sharedHomeBooking));
     }
 
     function applyHeroCtas(configs) {
@@ -893,7 +901,7 @@
           ctas: [
             { label: '北區店入口', href: buildStoreUrl('north'), tone: 'accent' },
             { label: '南區店入口', href: buildStoreUrl('south'), tone: 'forest' },
-            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
+            { label: '查看近期時段', href: buildBookingUrl('', 'visit_home'), tone: 'forest' },
             { label: '北區電話', href: 'tel:062510677', tone: 'ghost' },
             { label: '南區電話', href: 'tel:0973728670', tone: 'ghost' }
           ]
@@ -905,27 +913,27 @@
           steps: [
             { title: '先選最近的店', body: '北區店和南區店都能處理，但先選離你近的那一間，來店體驗通常會更順。' },
             { title: '再看入口資訊', body: '第一次來不必硬記地址，先對一下門口、路口和門牌資訊，出發時比較安心。' },
-            { title: '最後決定怎麼聯絡', body: '你可以直接 Google Maps 導航，也可以先用 LINE 或電話確認，找到最適合自己的節奏。' }
+            { title: '最後決定怎麼預約', body: '你可以先填預約詢問，也可以用電話確認，找到最適合自己的節奏。' }
           ],
           actions: [
             { label: '看雙店導航', href: '#widgetMount' },
-            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener' }
+            { label: '查看近期時段', href: buildBookingUrl('', 'visit_first_visit') }
           ]
         }
       },
       north: {
         mode: 'store',
         pageTitle: '見觀北區店入口 | 見觀結構調理整復所',
-        pageDescription: '北區店入口頁。先了解第一次來北區店大概會怎麼進行，再看北區店門口、入口資訊與導航方式，直接來電或 LINE 預約。',
+        pageDescription: '北區店入口頁。先了解第一次來北區店大概會怎麼進行，再看北區店門口、入口資訊與導航方式，查看近期時段或直接來電。',
         hero: {
           eyebrow: '見觀北區店入口',
           title: '北區店，先看入口再直接出發。',
-          subtitle: '門市型入口，先看地圖、電話與 LINE 預約方式',
-          lead: '北區店第一次來，先看門口、入口資訊和電話，再直接導航或 LINE 預約。',
-          points: ['北區門市型入口', '先看門口與轉彎點', '導航 / 電話 / LINE'],
+          subtitle: '門市型入口，先看地圖、電話與預約方式',
+          lead: '北區店第一次來，先看門口、入口資訊和電話，再查看近期時段或直接來電。',
+          points: ['北區門市型入口', '先看門口與轉彎點', '導航 / 電話 / 預約'],
           ctas: [
             { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
-            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
+            { label: '查看近期時段', href: buildBookingUrl('north', 'visit_north'), tone: 'forest' },
             { label: '北區直接來電', href: 'tel:062510677', tone: 'ghost' },
             { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
             { label: '服務與費用', href: '../north/pricing/', tone: 'ghost' }
@@ -949,16 +957,16 @@
       south: {
         mode: 'store',
         pageTitle: '見觀南區店入口 | 見觀結構調理整復所',
-        pageDescription: '南區店入口頁。先了解第一次來南區店大概會怎麼進行，再看路口、聯絡與導航方式，直接來電或 LINE 預約。',
+        pageDescription: '南區店入口頁。先了解第一次來南區店大概會怎麼進行，再看路口、聯絡與導航方式，查看近期時段或直接來電。',
         hero: {
           eyebrow: '見觀南區店入口',
           title: '南區店，先確認時段再直接出發。',
           subtitle: '預約制工作室，先確認可安排時段與到店方式',
-          lead: '南區店第一次來，先看路口、聯絡方式和可安排時段，再直接導航或 LINE 預約。',
-          points: ['先確認可安排時段', '先看路口與門牌', '導航 / 電話 / LINE'],
+          lead: '南區店第一次來，先看路口、聯絡方式和可安排時段，再查看近期時段或直接來電。',
+          points: ['先確認可安排時段', '先看路口與門牌', '導航 / 電話 / 預約'],
           ctas: [
             { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
-            { label: 'LINE 預約', href: lineBookingUrl, target: '_blank', rel: 'noreferrer noopener', tone: 'forest' },
+            { label: '查看近期時段', href: buildBookingUrl('south', 'visit_south'), tone: 'forest' },
             { label: '南區直接來電', href: 'tel:0973728670', tone: 'ghost' },
             { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
             { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
@@ -969,7 +977,7 @@
           title: '先確認時段，來了一樣說哪裡不舒服就好。',
           lead: '南區是工作室形式，一對一比較細；建議先確認可安排時段，其他跟一般來店一樣。',
           steps: [
-            { title: '先確認有位子', body: '出發前先 LINE 或電話確認時段，省去臨時等候的情況。' },
+            { title: '先確認有位子', body: '出發前先用預約頁或電話確認時段，省去臨時等候的情況。' },
             { title: '來了說清楚感受', body: '說哪裡卡、哪裡不順就夠了，不需要準備太多，接下來依現場狀態整理。' },
             { title: '帶回幾個延續方向', body: '調整完會補幾個簡單的活動方向，讓你知道回去之後怎麼繼續。' }
           ],
