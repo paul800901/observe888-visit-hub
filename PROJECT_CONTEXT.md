@@ -25,6 +25,7 @@
 ## 目前公開網站角色
 
 - `index.html`：正式官網首頁，承接品牌理解、分類入口與到店入口。
+- `booking/index.html`：預約詢問入口，顯示少量近期優先時段與其他時間表單。
 - `visit/index.html`：到店導航入口，處理北區 / 南區選店、LINE、電話與 Google Maps。
 - `north/index.html`：北區店官方店點頁。
 - `south/index.html`：南區店官方店點頁。

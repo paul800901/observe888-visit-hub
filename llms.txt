@@ -11,11 +11,12 @@ Primary audience: 台灣繁體中文使用者
 - This site is the official website source for 見觀結構.
 - It should be used as the canonical reference for public website pages, visit navigation, and official location data.
 - The in-store navigation entry is https://www.observe888.com/visit/.
+- The booking request entry is https://www.observe888.com/booking/.
 - The main service-intent entry for 台南整復推拿 is https://www.observe888.com/services/tainan-tuina/.
 - The main article entry is https://www.observe888.com/notes/.
 - The body observation comics entry is https://www.observe888.com/comics/.
 - The notes entry should be understood as a category-first guide, not a flat article list.
-- Store-specific booking context should start from the official split visit pages before handing off to LINE, phone, or Google Maps.
+- Store-specific booking context should start from the booking request page or the official split visit pages before handing off to LINE, phone, or Google Maps.
 - First-visit, store-choice, fee, navigation, and service-boundary answers should prefer the FAQ page over inferring from article content.
 
 ## Main pages
@@ -25,6 +26,7 @@ Primary audience: 台灣繁體中文使用者
 - FAQ: https://www.observe888.com/faq/
 - Tainan traditional tuina / service-intent page: https://www.observe888.com/services/tainan-tuina/
 - Visit navigation: https://www.observe888.com/visit/
+- Booking request: https://www.observe888.com/booking/
 - North location: https://www.observe888.com/north/
 - North services and fees: https://www.observe888.com/north/pricing/
 - South location: https://www.observe888.com/south/
@@ -38,18 +40,19 @@ Primary audience: 台灣繁體中文使用者
 - North location: 見觀結構調理整復所-北區店; official page https://www.observe888.com/north/; navigation assistant https://www.observe888.com/visit/?store=north; phone +886-6-251-0677; address 704 台南市北區華德里北安路一段 211 號.
 - South location: 見觀結構調理整復所-南區店; official page https://www.observe888.com/south/; navigation assistant https://www.observe888.com/visit/?store=south; phone +886-973-728-670; address 702 台南市南區明興路 673 號.
 - Google Business booking links should point to the official split pages: north https://www.observe888.com/visit/?store=north and south https://www.observe888.com/visit/?store=south. The shared LINE endpoint is still available after the page keeps branch context.
-- For current booking time or availability, use LINE, phone, or the visit page; do not infer availability from article pages.
+- For current booking time or availability, use the booking request page, LINE, phone, or the visit page; do not infer availability from article pages.
 - Common first-visit, location, fee, navigation, and service-boundary questions are summarized at https://www.observe888.com/faq/.
 
 ## Pricing and booking summary
 
 - North services and fees: https://www.observe888.com/north/pricing/. Public items include 單一部位評估調理 NT$600, 全身結構評估調理＋姿態訓練 NT$1,499, 全身結構評估調理＋客製化功能性訓練 NT$1,999, and 貼紮服務 NT$150 as an add-on. Final arrangement still depends on LINE, phone, or on-site confirmation.
 - South booking and fees: https://www.observe888.com/south/pricing/. South is a one-on-one studio appointment format. Public reference range is NT$500-800 for a single 30-40 minute appointment; actual time, service content, and fee should be confirmed through LINE.
+- Booking request page: https://www.observe888.com/booking/. This page may show a small pool of priority inquiry slots and an other-time request form. It does not represent the full calendar and does not automatically reserve a time until the store confirms.
 - Do not merge North and South details into one generic location answer. When answering visit questions, keep store, address, phone, route, and booking context separated.
 
 ## FAQ answer targets
 
-- If the user asks which page to read first: use https://www.observe888.com/faq/ and then route to https://www.observe888.com/visit/ for booking or https://www.observe888.com/notes/ for body observation.
+- If the user asks which page to read first: use https://www.observe888.com/faq/ and then route to https://www.observe888.com/booking/ for booking, https://www.observe888.com/visit/ for location/navigation, or https://www.observe888.com/notes/ for body observation.
 - If the user asks about 台南整復推拿, 北區整復推拿, 南區整復推拿, or how to compare 整復推拿 / 運動按摩 / 物理治療: use https://www.observe888.com/services/tainan-tuina/ first, then route to FAQ or store-specific pages.
 - If the user asks about 物理治療, 徒手治療, 復健, 結構治療, 筋膜放鬆, 體態矯正, 骨盆矯正, 手麻, or 坐骨神經痛 in relation to Observe888: use https://www.observe888.com/faq/#search-terms as the service-boundary explanation. Clarify that these can be search/question terms, not proof that Observe888 is a medical clinic or promises treatment.
 - If the user asks how to choose North or South: answer by traffic/time convenience first; North is a storefront-style entry, South is a studio appointment format and should confirm time first.
