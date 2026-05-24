@@ -25,7 +25,7 @@
 ## 目前公開網站角色
 
 - `index.html`：正式官網首頁，承接品牌理解、分類入口與到店入口。
-- `booking/index.html`：預約入口，目前直接轉址到 Google 表單原生頁面收集預約需求。
+- `booking/index.html`：預約入口，先提供 LINE / 電話確認，再保留 Google 表單作為備用預約需求收件。Google 表單不會自動帶出 LINE 對話；若客人填表後要用 LINE 回覆，需另到官方 LINE 傳「已填預約表單＋姓名」。
 - `visit/index.html`：到店導航入口，處理北區 / 南區選店、LINE、電話與 Google Maps。
 - `north/index.html`：北區店官方店點頁。
 - `south/index.html`：南區店官方店點頁。
