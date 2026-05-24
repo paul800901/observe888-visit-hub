@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>預約詢問｜見觀結構近期可協助安排時段</title>
-  <meta name="description" content="見觀結構預約詢問頁。先看近期優先可協助安排時段，也可以留下方便日期、時段、店別與主要狀況，由我們再協助確認。">
+  <title>預約詢問｜見觀結構預約需求整理</title>
+  <meta name="description" content="見觀結構預約詢問頁。留下店別、方便日期、時段與主要狀況，由我們再協助確認實際可安排時間。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:site_name" content="見觀結構">
-  <meta property="og:title" content="預約詢問｜見觀結構近期可協助安排時段">
-  <meta property="og:description" content="先看近期較容易協助安排的時段；若沒有適合時間，也可以留下方便日期與時段。">
+  <meta property="og:title" content="預約詢問｜見觀結構預約需求整理">
+  <meta property="og:description" content="留下你方便的店別、日期與時段，由見觀再協助確認實際可安排時間。">
   <meta property="og:url" content="https://www.observe888.com/booking/">
   <style>
     :root {
@@ -448,8 +448,8 @@
   "@type": "WebPage",
   "@id": "https://www.observe888.com/booking/#webpage",
   "url": "https://www.observe888.com/booking/",
-  "name": "預約詢問｜見觀結構近期可協助安排時段",
-  "description": "見觀結構預約詢問頁，提供近期優先可協助安排時段與其他時間詢問入口。",
+  "name": "預約詢問｜見觀結構預約需求整理",
+  "description": "見觀結構預約詢問頁，提供店別、方便日期、時段與主要狀況整理入口。",
   "inLanguage": "zh-Hant",
   "isPartOf": {
     "@id": "https://www.observe888.com/#website"
@@ -463,7 +463,7 @@
     <nav class="topnav" aria-label="站內導覽">
       <div class="brand-block">
         <span class="brand-kicker">預約詢問</span>
-        <span class="brand-title">見觀結構｜近期可協助安排時段</span>
+        <span class="brand-title">見觀結構｜預約需求整理</span>
       </div>
       <div class="nav-links">
         <a class="nav-pill" href="../">首頁</a>
@@ -474,10 +474,10 @@
     </nav>
 
     <header class="hero">
-      <span class="eyebrow">先看少量時段，再留下預約資料</span>
+      <span class="eyebrow">先留下方便時間，再由我們確認</span>
       <div class="hero-copy">
-        <h1>近期優先可協助安排時段</h1>
-        <p>以下是目前較容易協助安排的時段。若沒有看到適合時間，也可以留下你方便的日期與時段，我們再協助確認。</p>
+        <h1>先留下方便時間，我們再協助確認</h1>
+        <p>目前先不公開固定候選時段。請留下你方便的店別、日期與時間帶，我們再協助確認實際可安排時間。</p>
         <p>這個頁面先協助你把預約需求整理清楚；時段尚未自動保留，實際安排仍會以後續 LINE 或電話確認為準。</p>
       </div>
       <div class="hero-actions">
@@ -488,28 +488,28 @@
 
     <section class="section" aria-labelledby="prioritySlotsTitle">
       <div class="section-copy">
-        <span class="label">Priority slots</span>
-        <h2 id="prioritySlotsTitle">可以先選一個想詢問的時段</h2>
-        <p>清單只顯示少量近期優先時段，不是完整空檔。想約南區、其他日期或不同時段，請選「我想約其他時間」。</p>
+        <span class="label">Booking time</span>
+        <h2 id="prioritySlotsTitle">先選預約詢問方式</h2>
+        <p>目前不顯示固定候選時段，避免讓人誤會只有某個整點可約。請用下方表單留下方便日期與時間帶。</p>
       </div>
       <div id="slotList" class="slot-list" aria-live="polite">
-        <p class="notice">正在讀取近期優先時段。</p>
+        <p class="notice">正在讀取預約詢問設定。</p>
       </div>
-      <p id="slotNotice" class="notice">目前日曆仍是只讀候選階段；送出前會再確認 Google Calendar，避免撞時段。</p>
+      <p id="slotNotice" class="notice">送出不代表保留時段；實際安排仍以 LINE 或電話確認為準。</p>
     </section>
 
     <form id="bookingForm" class="section" novalidate>
       <div class="section-copy">
         <span class="label">Booking request</span>
         <h2>留下預約資料</h2>
-        <p>請填你方便的資訊即可。若你選了上方候選時段，下面仍可補充店別偏好與身體狀況。</p>
+        <p>請填你方便的資訊即可。若日期或時段還不確定，也可以先選大概方向。</p>
       </div>
 
       <div class="form-grid">
         <div class="field full">
           <label for="slotChoiceText">想詢問的時段</label>
           <input id="slotChoiceText" name="slotChoiceText" type="text" value="我想約其他時間" readonly>
-          <p class="field-help">點選上方時段後，這裡會自動更新；也可以維持其他時間。</p>
+          <p class="field-help">目前以其他時間詢問為主，實際時段會再由 LINE 或電話確認。</p>
         </div>
 
         <fieldset class="option-group full">
@@ -701,7 +701,15 @@
           : usableSlots[0] || null;
 
         if (!usableSlots.length) {
-          slotList.innerHTML = '<p class="notice">目前公開候選時段需要重新整理。你仍可以選「我想約其他時間」，留下方便日期與時段。</p>';
+          slotList.innerHTML = `
+            <label class="slot-card">
+              <input type="radio" name="slotCode" value="OTHER" checked>
+              <span class="slot-title">
+                <span><span class="slot-code">+</span> 我想留下方便時間</span>
+              </span>
+              <span class="slot-meta">請在下方選店別、方便日期與時間帶；收到後會再確認實際可安排時間。</span>
+            </label>
+          `;
           setSelectedSlot(null);
           setStorePreference(requestedStore);
           return;
