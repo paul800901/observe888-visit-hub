@@ -1,53 +1,13 @@
 {
   "meta": {
-    "generated_at": "2026-05-23T19:20:00+08:00",
+    "generated_at": "2026-05-24T15:11:32+08:00",
     "valid_until": "2026-05-30T00:00:00+08:00",
     "timezone": "Asia/Taipei",
-    "mode": "read_only_candidate_generation",
+    "mode": "request_only_no_public_slots",
     "source_readback": "data/appointments/live_readbacks/priority_slots_2026-05-23.yaml",
     "write_to_google_calendar": false,
-    "notice": "此檔只保存公開候選時段，不代表已保留預約；客人送出前仍需重查 Google Calendar。"
+    "public_release_status": "paused",
+    "notice": "2026-05-24 暫停公開 2026-05-23 產生的固定候選時段；第一版候選集中在 11:00-12:00，容易讓客人誤會只有這些整點可約。前台先改為店別、方便日期與時間帶詢問。"
   },
-  "slots": [
-    {
-      "code": "A",
-      "store": "unknown",
-      "start_time": "2026-05-24T12:00:00+08:00",
-      "end_time": "2026-05-24T13:00:00+08:00",
-      "source": "google_calendar_freebusy",
-      "still_available": true
-    },
-    {
-      "code": "B",
-      "store": "north",
-      "start_time": "2026-05-26T11:00:00+08:00",
-      "end_time": "2026-05-26T12:00:00+08:00",
-      "source": "google_calendar_freebusy",
-      "still_available": true
-    },
-    {
-      "code": "C",
-      "store": "north",
-      "start_time": "2026-05-27T11:00:00+08:00",
-      "end_time": "2026-05-27T12:00:00+08:00",
-      "source": "google_calendar_freebusy",
-      "still_available": true
-    },
-    {
-      "code": "D",
-      "store": "north",
-      "start_time": "2026-05-28T11:00:00+08:00",
-      "end_time": "2026-05-28T12:00:00+08:00",
-      "source": "google_calendar_freebusy",
-      "still_available": true
-    },
-    {
-      "code": "E",
-      "store": "north",
-      "start_time": "2026-05-29T11:00:00+08:00",
-      "end_time": "2026-05-29T12:00:00+08:00",
-      "source": "google_calendar_freebusy",
-      "still_available": true
-    }
-  ]
+  "slots": []
 }
