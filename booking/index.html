@@ -502,7 +502,7 @@
       <div class="section-copy">
         <span class="label">Booking request</span>
         <h2>留下預約資料</h2>
-        <p>請填你方便的資訊即可。若你選了上方 A/B/C/D，下面仍可補充店別偏好與身體狀況。</p>
+        <p>請填你方便的資訊即可。若你選了上方候選時段，下面仍可補充店別偏好與身體狀況。</p>
       </div>
 
       <div class="form-grid">
@@ -618,6 +618,9 @@
     (function () {
       const lineBookingUrl = 'https://line.me/ti/p/~@483yvmiw';
       const storeLabel = { north: '北區', south: '南區', unknown: '店別確認後安排' };
+      const urlParams = new URLSearchParams(window.location.search);
+      const requestedStore = urlParams.get('store');
+      const sourceParam = urlParams.get('source') || '';
       const state = {
         slots: [],
         selectedSlot: null,
@@ -630,6 +633,12 @@
       const resultPanel = document.querySelector('#resultPanel');
       const messagePreview = document.querySelector('#messagePreview');
       const copyStatus = document.querySelector('#copyStatus');
+
+      function setStorePreference(storeKey) {
+        if (storeKey !== 'north' && storeKey !== 'south') return;
+        const storeInput = form.querySelector(`input[name="store"][value="${storeLabel[storeKey]}"]`);
+        if (storeInput) storeInput.checked = true;
+      }
 
       function track(eventName, extra) {
         const tracker = window.Observe888Tracker;
@@ -687,29 +696,33 @@
       function renderSlots(slots) {
         const usableSlots = (slots || []).filter(isSlotUsable).slice(0, 6);
         state.slots = usableSlots;
+        const initialSlot = (requestedStore === 'north' || requestedStore === 'south')
+          ? usableSlots.find((slot) => slot.store === requestedStore) || null
+          : usableSlots[0] || null;
 
         if (!usableSlots.length) {
           slotList.innerHTML = '<p class="notice">目前公開候選時段需要重新整理。你仍可以選「我想約其他時間」，留下方便日期與時段。</p>';
           setSelectedSlot(null);
+          setStorePreference(requestedStore);
           return;
         }
 
         slotList.innerHTML = usableSlots.map((slot, index) => {
-          const checked = index === 0 ? ' checked' : '';
+          const checked = initialSlot && slot.code === initialSlot.code ? ' checked' : '';
           const text = formatDateTimeRange(slot);
           return `
             <label class="slot-card">
               <input type="radio" name="slotCode" value="${slot.code}"${checked}>
               <span class="slot-title">
-                <span><span class="slot-code">${slot.code}</span> ${storeLabel[slot.store] || '店別待確認'}</span>
-                <span class="slot-store">${storeLabel[slot.store] || ''}</span>
+                <span><span class="slot-code">${slot.code}</span> 候選時段</span>
+                <span class="slot-store">${storeLabel[slot.store] || '店別待確認'}</span>
               </span>
               <span class="slot-meta">${text}</span>
             </label>
           `;
         }).join('') + `
           <label class="slot-card">
-            <input type="radio" name="slotCode" value="OTHER">
+            <input type="radio" name="slotCode" value="OTHER"${initialSlot ? '' : ' checked'}>
             <span class="slot-title">
               <span><span class="slot-code">+</span> 我想約其他時間</span>
             </span>
@@ -717,7 +730,8 @@
           </label>
         `;
 
-        setSelectedSlot(usableSlots[0]);
+        setSelectedSlot(initialSlot);
+        setStorePreference(requestedStore);
         slotList.querySelectorAll('input[name="slotCode"]').forEach((input) => {
           input.addEventListener('change', () => {
             if (input.value === 'OTHER') {
@@ -756,16 +770,21 @@
         const formData = new FormData(form);
         const datePreference = String(formData.get('datePreference') || '').trim();
         const specificDate = String(formData.get('specificDate') || '').trim();
-        const dateText = datePreference === '指定日期' && specificDate
+        const hasSelectedSlot = Boolean(state.selectedSlot);
+        const dateText = hasSelectedSlot
+          ? '以上方候選時段為主'
+          : datePreference === '指定日期' && specificDate
           ? `指定日期：${specificDate}`
           : datePreference;
+        const timeText = hasSelectedSlot ? '以上方候選時段為主' : getRadioValue('timePreference');
+        const sourceText = sourceParam ? `官網預約頁（${sourceParam}）` : '官網預約頁';
         const lines = [
           '【預約詢問】',
-          `來源：官網預約頁`,
+          `來源：${sourceText}`,
           `想詢問的時段：${state.selectedSlotText}`,
           `店別：${getRadioValue('store')}`,
           `方便日期：${dateText || '未填'}`,
-          `方便時段：${getRadioValue('timePreference')}`,
+          `方便時段：${timeText}`,
           `第一次來嗎：${String(formData.get('firstVisit') || '').trim()}`,
           `想預約方式：${String(formData.get('serviceType') || '').trim()}`,
           `姓名：${String(formData.get('customerName') || '').trim()}`,
