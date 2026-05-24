@@ -79,7 +79,6 @@
     }
 
     .topnav,
-    .hero,
     .section,
     .result-panel {
       border: 1px solid var(--line);
@@ -139,41 +138,11 @@
       color: #fff;
     }
 
-    .hero {
-      padding: 28px 24px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .hero-copy,
     .section-copy,
     .field,
     .result-copy {
       display: grid;
       gap: 10px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 13px;
-      border-radius: 999px;
-      background: rgba(46, 94, 75, 0.1);
-      color: var(--forest);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--forest);
-      box-shadow: 0 0 0 4px rgba(46, 94, 75, 0.12);
     }
 
     h1,
@@ -211,7 +180,6 @@
       line-height: 1.8;
     }
 
-    .hero-actions,
     .form-actions,
     .result-actions {
       display: flex;
@@ -252,13 +220,6 @@
       gap: 16px;
     }
 
-    .slot-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .slot-card,
     .option-card {
       position: relative;
       display: grid;
@@ -271,45 +232,16 @@
       cursor: pointer;
     }
 
-    .slot-card input,
     .option-card input {
       position: absolute;
       opacity: 0;
       pointer-events: none;
     }
 
-    .slot-card:has(input:checked),
     .option-card:has(input:checked) {
       border-color: rgba(46, 94, 75, 0.55);
       background: rgba(46, 94, 75, 0.09);
       box-shadow: inset 0 0 0 1px rgba(46, 94, 75, 0.2);
-    }
-
-    .slot-title {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-      font-weight: 900;
-      line-height: 1.35;
-    }
-
-    .slot-code {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      min-width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--forest);
-      color: #fff;
-      font-weight: 900;
-    }
-
-    .slot-store {
-      color: var(--forest);
-      font-weight: 900;
     }
 
     .notice {
@@ -414,21 +346,18 @@
       }
 
       .topnav,
-      .hero,
       .section,
       .result-panel {
         border-radius: 22px;
       }
 
       .topnav,
-      .hero,
       .section,
       .result-panel {
         padding: 18px;
       }
 
       .nav-links,
-      .hero-actions,
       .form-actions,
       .result-actions {
         display: grid;
@@ -473,45 +402,14 @@
       </div>
     </nav>
 
-    <header class="hero">
-      <span class="eyebrow">先留下方便時間，再由我們確認</span>
-      <div class="hero-copy">
-        <h1>先留下方便時間，我們再協助確認</h1>
-        <p>目前先不公開固定候選時段。請留下你方便的店別、日期與時間帶，我們再協助確認實際可安排時間。</p>
-        <p>這個頁面先協助你把預約需求整理清楚；時段尚未自動保留，實際安排仍會以後續 LINE 或電話確認為準。</p>
-      </div>
-      <div class="hero-actions">
-        <a class="button is-forest" href="#bookingForm">開始填寫</a>
-        <a class="button is-ghost" href="../visit/">先看南北區位置</a>
-      </div>
-    </header>
-
-    <section class="section" aria-labelledby="prioritySlotsTitle">
-      <div class="section-copy">
-        <span class="label">Booking time</span>
-        <h2 id="prioritySlotsTitle">先選預約詢問方式</h2>
-        <p>目前不顯示固定候選時段，避免讓人誤會只有某個整點可約。請用下方表單留下方便日期與時間帶。</p>
-      </div>
-      <div id="slotList" class="slot-list" aria-live="polite">
-        <p class="notice">正在讀取預約詢問設定。</p>
-      </div>
-      <p id="slotNotice" class="notice">送出不代表保留時段；實際安排仍以 LINE 或電話確認為準。</p>
-    </section>
-
     <form id="bookingForm" class="section" novalidate>
       <div class="section-copy">
         <span class="label">Booking request</span>
-        <h2>留下預約資料</h2>
-        <p>請填你方便的資訊即可。若日期或時段還不確定，也可以先選大概方向。</p>
+        <h1>留下預約資料</h1>
+        <p>請選店別、方便日期、時間帶與主要狀況。送出不代表保留時段，實際安排仍會以 LINE 或電話確認。</p>
       </div>
 
       <div class="form-grid">
-        <div class="field full">
-          <label for="slotChoiceText">想詢問的時段</label>
-          <input id="slotChoiceText" name="slotChoiceText" type="text" value="我想約其他時間" readonly>
-          <p class="field-help">目前以其他時間詢問為主，實際時段會再由 LINE 或電話確認。</p>
-        </div>
-
         <fieldset class="option-group full">
           <legend class="label">店別</legend>
           <div class="option-grid">
@@ -524,10 +422,11 @@
         <div class="field">
           <label for="datePreference">方便日期</label>
           <select id="datePreference" name="datePreference">
-            <option value="今天">今天</option>
-            <option value="明天">明天</option>
+            <option value="都可以">都可以</option>
             <option value="這週">這週</option>
             <option value="下週">下週</option>
+            <option value="今天">今天</option>
+            <option value="明天">明天</option>
             <option value="指定日期">指定日期</option>
           </select>
         </div>
@@ -559,9 +458,9 @@
         <div class="field">
           <label for="serviceType">想預約方式</label>
           <select id="serviceType" name="serviceType">
+            <option value="不確定">不確定</option>
             <option value="結構調理">結構調理</option>
             <option value="傳統按摩放鬆">傳統按摩放鬆</option>
-            <option value="不確定">不確定</option>
           </select>
         </div>
 
@@ -575,14 +474,22 @@
           <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
         </div>
 
-        <div class="field full">
-          <label for="condition">主要狀況</label>
-          <textarea id="condition" name="condition" placeholder="簡短描述即可，例如肩頸卡、腰背緊、想先確認適合方式。"></textarea>
-        </div>
+        <fieldset class="option-group full">
+          <legend class="label">主要狀況</legend>
+          <div class="option-grid">
+            <label class="option-card"><input type="checkbox" name="conditionTags" value="肩頸卡緊">肩頸卡緊</label>
+            <label class="option-card"><input type="checkbox" name="conditionTags" value="腰背緊痠">腰背緊痠</label>
+            <label class="option-card"><input type="checkbox" name="conditionTags" value="手臂手腕">手臂手腕</label>
+            <label class="option-card"><input type="checkbox" name="conditionTags" value="髖膝腳">髖膝腳</label>
+            <label class="option-card"><input type="checkbox" name="conditionTags" value="姿勢體態">姿勢體態</label>
+            <label class="option-card"><input type="checkbox" name="conditionTags" value="想放鬆">想放鬆</label>
+            <label class="option-card"><input type="checkbox" name="conditionTags" value="不確定">不確定</label>
+          </div>
+        </fieldset>
 
         <div class="field full">
           <label for="notes">其他補充</label>
-          <textarea id="notes" name="notes" placeholder="例如比較方便的日期、是否有同行者、想避開的時間。"></textarea>
+          <textarea id="notes" name="notes" placeholder="選項不夠再補充即可，例如想避開的時間、同行者或其他狀況。"></textarea>
         </div>
       </div>
 
@@ -590,6 +497,7 @@
         <button class="button is-forest" type="submit">產生預約詢問訊息</button>
         <a class="button is-ghost" href="../visit/">先確認到店位置</a>
       </div>
+      <p id="formStatus" class="fine-print" aria-live="polite"></p>
       <p class="fine-print">這一版不會自動保留時段，也不會直接寫入 Google Calendar。請把產生的訊息送到 LINE，我們再協助確認。</p>
     </form>
 
@@ -621,17 +529,11 @@
       const urlParams = new URLSearchParams(window.location.search);
       const requestedStore = urlParams.get('store');
       const sourceParam = urlParams.get('source') || '';
-      const state = {
-        slots: [],
-        selectedSlot: null,
-        selectedSlotText: '我想約其他時間'
-      };
 
-      const slotList = document.querySelector('#slotList');
-      const slotChoiceText = document.querySelector('#slotChoiceText');
       const form = document.querySelector('#bookingForm');
       const resultPanel = document.querySelector('#resultPanel');
       const messagePreview = document.querySelector('#messagePreview');
+      const formStatus = document.querySelector('#formStatus');
       const copyStatus = document.querySelector('#copyStatus');
 
       function setStorePreference(storeKey) {
@@ -657,139 +559,31 @@
         }
       }
 
-      function formatDateTimeRange(slot) {
-        const start = new Date(slot.start_time);
-        const end = new Date(slot.end_time);
-        const dateText = new Intl.DateTimeFormat('zh-TW', {
-          timeZone: 'Asia/Taipei',
-          month: 'numeric',
-          day: 'numeric',
-          weekday: 'short'
-        }).format(start);
-        const timeFormatter = new Intl.DateTimeFormat('zh-TW', {
-          timeZone: 'Asia/Taipei',
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: false
-        });
-        return `${dateText}｜${timeFormatter.format(start)}-${timeFormatter.format(end)}`;
-      }
-
-      function isSlotUsable(slot) {
-        if (!slot || slot.still_available === false) return false;
-        if (!slot.start_time || !slot.end_time) return false;
-        return new Date(slot.end_time).getTime() > Date.now();
-      }
-
-      function setSelectedSlot(slot) {
-        state.selectedSlot = slot || null;
-        state.selectedSlotText = slot
-          ? `${slot.code}｜${storeLabel[slot.store] || '店別待確認'}｜${formatDateTimeRange(slot)}`
-          : '我想約其他時間';
-        slotChoiceText.value = state.selectedSlotText;
-        if (slot && (slot.store === 'north' || slot.store === 'south')) {
-          const storeInput = form.querySelector(`input[name="store"][value="${storeLabel[slot.store]}"]`);
-          if (storeInput) storeInput.checked = true;
-        }
-      }
-
-      function renderSlots(slots) {
-        const usableSlots = (slots || []).filter(isSlotUsable).slice(0, 6);
-        state.slots = usableSlots;
-        const initialSlot = (requestedStore === 'north' || requestedStore === 'south')
-          ? usableSlots.find((slot) => slot.store === requestedStore) || null
-          : usableSlots[0] || null;
-
-        if (!usableSlots.length) {
-          slotList.innerHTML = `
-            <label class="slot-card">
-              <input type="radio" name="slotCode" value="OTHER" checked>
-              <span class="slot-title">
-                <span><span class="slot-code">+</span> 我想留下方便時間</span>
-              </span>
-              <span class="slot-meta">請在下方選店別、方便日期與時間帶；收到後會再確認實際可安排時間。</span>
-            </label>
-          `;
-          setSelectedSlot(null);
-          setStorePreference(requestedStore);
-          return;
-        }
-
-        slotList.innerHTML = usableSlots.map((slot, index) => {
-          const checked = initialSlot && slot.code === initialSlot.code ? ' checked' : '';
-          const text = formatDateTimeRange(slot);
-          return `
-            <label class="slot-card">
-              <input type="radio" name="slotCode" value="${slot.code}"${checked}>
-              <span class="slot-title">
-                <span><span class="slot-code">${slot.code}</span> 候選時段</span>
-                <span class="slot-store">${storeLabel[slot.store] || '店別待確認'}</span>
-              </span>
-              <span class="slot-meta">${text}</span>
-            </label>
-          `;
-        }).join('') + `
-          <label class="slot-card">
-            <input type="radio" name="slotCode" value="OTHER"${initialSlot ? '' : ' checked'}>
-            <span class="slot-title">
-              <span><span class="slot-code">+</span> 我想約其他時間</span>
-            </span>
-            <span class="slot-meta">沒有看到適合時間，留下方便日期與時段。</span>
-          </label>
-        `;
-
-        setSelectedSlot(initialSlot);
-        setStorePreference(requestedStore);
-        slotList.querySelectorAll('input[name="slotCode"]').forEach((input) => {
-          input.addEventListener('change', () => {
-            if (input.value === 'OTHER') {
-              setSelectedSlot(null);
-              track('click_booking_other_time', { cta_position: 'slot_list' });
-              return;
-            }
-            const selected = state.slots.find((slot) => slot.code === input.value);
-            setSelectedSlot(selected);
-            track('click_booking_slot_select', {
-              cta_position: 'slot_list',
-              slot_code: input.value,
-              store: selected && selected.store ? selected.store : ''
-            });
-          });
-        });
-      }
-
-      async function loadSlots() {
-        try {
-          const response = await fetch('priority-slots.json', { cache: 'no-store' });
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          const data = await response.json();
-          renderSlots(data.slots || []);
-        } catch (error) {
-          renderSlots([]);
-        }
-      }
-
       function getRadioValue(name) {
         const input = form.querySelector(`input[name="${name}"]:checked`);
         return input ? input.value : '';
+      }
+
+      function getCheckedValues(name) {
+        return Array.from(form.querySelectorAll(`input[name="${name}"]:checked`))
+          .map((input) => input.value)
+          .filter(Boolean);
       }
 
       function buildMessage() {
         const formData = new FormData(form);
         const datePreference = String(formData.get('datePreference') || '').trim();
         const specificDate = String(formData.get('specificDate') || '').trim();
-        const hasSelectedSlot = Boolean(state.selectedSlot);
-        const dateText = hasSelectedSlot
-          ? '以上方候選時段為主'
-          : datePreference === '指定日期' && specificDate
+        const dateText = datePreference === '指定日期' && specificDate
           ? `指定日期：${specificDate}`
           : datePreference;
-        const timeText = hasSelectedSlot ? '以上方候選時段為主' : getRadioValue('timePreference');
+        const timeText = getRadioValue('timePreference');
+        const conditionText = getCheckedValues('conditionTags').join('、') || '未選';
         const sourceText = sourceParam ? `官網預約頁（${sourceParam}）` : '官網預約頁';
         const lines = [
           '【預約詢問】',
           `來源：${sourceText}`,
-          `想詢問的時段：${state.selectedSlotText}`,
+          `預約需求：請協助確認可安排時間`,
           `店別：${getRadioValue('store')}`,
           `方便日期：${dateText || '未填'}`,
           `方便時段：${timeText}`,
@@ -797,7 +591,7 @@
           `想預約方式：${String(formData.get('serviceType') || '').trim()}`,
           `姓名：${String(formData.get('customerName') || '').trim()}`,
           `電話：${String(formData.get('phone') || '').trim()}`,
-          `主要狀況：${String(formData.get('condition') || '').trim() || '未填'}`,
+          `主要狀況：${conditionText}`,
           `其他補充：${String(formData.get('notes') || '').trim() || '無'}`,
           '',
           '提醒：此訊息送出後仍需見觀確認，尚未保留時段。'
@@ -817,10 +611,11 @@
         const name = String(nameInput.value || '').trim();
         const phone = String(phoneInput.value || '').trim();
         if (!name || !phone) {
-          copyStatus.textContent = '請先填姓名與電話，方便後續確認。';
+          formStatus.textContent = '請先填姓名與電話，方便後續確認。';
           (!name ? nameInput : phoneInput).focus();
           return false;
         }
+        formStatus.textContent = '';
         return true;
       }
 
@@ -831,7 +626,7 @@
         showResult(message);
         track('booking_form_generate_message', {
           cta_position: 'booking_form',
-          selected_slot: state.selectedSlot ? state.selectedSlot.code : 'OTHER',
+          request_mode: 'form_only',
           store_preference: getRadioValue('store')
         });
       });
@@ -863,7 +658,7 @@
       });
 
       trackPageView();
-      loadSlots();
+      setStorePreference(requestedStore);
     }());
   </script>
 </body>
