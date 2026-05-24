@@ -14,7 +14,7 @@
 ## 目前結構
 
 - `index.html`：正式官網首頁。
-- `booking/index.html`：預約詢問入口，目前直接以店別、日期、時間帶與主要狀況表單為主。
+- `booking/index.html`：預約入口，目前直接轉址到 Google 表單原生頁面收集預約需求。
 - `visit/index.html`：到店導航入口，承接北區 / 南區選店、LINE、電話、地圖。
 - `north/index.html`、`south/index.html`：北區店與南區店店點資料頁。
 - `north/pricing/index.html`、`south/pricing/index.html`：服務與費用 / 預約說明。

@@ -4,35 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>預約詢問｜見觀結構預約需求整理</title>
-  <meta name="description" content="見觀結構預約詢問頁。留下店別、方便日期、時段與主要狀況，由我們再協助確認實際可安排時間。">
+  <title>預約表單｜見觀結構</title>
+  <meta name="description" content="見觀結構預約需求表單。請留下方便店別、日期、時間帶與主要狀況，實際預約仍會由見觀再確認。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:site_name" content="見觀結構">
-  <meta property="og:title" content="預約詢問｜見觀結構預約需求整理">
-  <meta property="og:description" content="留下你方便的店別、日期與時段，由見觀再協助確認實際可安排時間。">
+  <meta property="og:title" content="預約表單｜見觀結構">
+  <meta property="og:description" content="填寫見觀結構預約需求表單，實際時段仍會由 LINE 或電話確認。">
   <meta property="og:url" content="https://www.observe888.com/booking/">
+  <meta http-equiv="refresh" content="0; url=https://docs.google.com/forms/d/e/1FAIpQLSf5mBVIXEM4T4fxLQUBqHryQ8bwlhCTV2NVbliopWIYeQ4Law/viewform">
+  <link rel="canonical" href="https://www.observe888.com/booking/">
   <style>
     :root {
       color-scheme: light;
       --bg: #f4ecdf;
-      --paper: rgba(255, 251, 245, 0.92);
+      --paper: rgba(255, 251, 245, 0.94);
       --line: rgba(87, 63, 48, 0.14);
       --text: #3f2e22;
       --muted: #6f5a49;
-      --accent: #a14f2a;
       --forest: #2e5e4b;
       --soft: rgba(87, 63, 48, 0.07);
-      --warn: #8a451f;
       --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
     }
 
     * {
       box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -44,6 +40,9 @@
         radial-gradient(circle at top left, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0) 34%),
         radial-gradient(circle at 86% 12%, rgba(46, 94, 75, 0.14), rgba(46, 94, 75, 0) 23%),
         linear-gradient(180deg, #fbf6ee 0%, var(--bg) 52%, #eee1d0 100%);
+      display: grid;
+      place-items: center;
+      padding: 18px;
     }
 
     a {
@@ -53,55 +52,17 @@
       touch-action: manipulation;
     }
 
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    fieldset {
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
-
-    legend {
-      padding: 0;
-    }
-
-    .shell {
-      width: min(1040px, calc(100vw - 28px));
-      margin: 0 auto;
-      padding: 22px 0 56px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .topnav,
-    .section,
-    .result-panel {
+    .panel {
+      width: min(560px, 100%);
+      padding: 28px;
       border: 1px solid var(--line);
-      border-radius: 28px;
+      border-radius: 24px;
       background: var(--paper);
       box-shadow: var(--shadow);
-    }
-
-    .topnav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 18px;
-    }
-
-    .brand-block {
       display: grid;
-      gap: 4px;
+      gap: 16px;
     }
 
-    .brand-kicker,
     .label {
       color: #7e381d;
       font-size: 12px;
@@ -110,78 +71,24 @@
       text-transform: uppercase;
     }
 
-    .brand-title {
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .nav-pill {
-      display: inline-flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .nav-pill.primary {
-      background: var(--forest);
-      color: #fff;
-    }
-
-    .section-copy,
-    .field,
-    .result-copy {
-      display: grid;
-      gap: 10px;
-    }
-
     h1,
-    h2,
-    h3,
     p {
       margin: 0;
     }
 
     h1 {
-      font-size: clamp(30px, 4.2vw, 48px);
-      line-height: 1.18;
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.2;
       letter-spacing: 0;
     }
 
-    h2 {
-      font-size: 24px;
-      line-height: 1.35;
-      letter-spacing: 0;
-    }
-
-    h3 {
-      font-size: 17px;
-      line-height: 1.45;
-      letter-spacing: 0;
-    }
-
-    p,
-    li,
-    .field-help,
-    .slot-meta,
-    .fine-print {
+    p {
       color: var(--muted);
       font-size: 15px;
       line-height: 1.8;
     }
 
-    .form-actions,
-    .result-actions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -193,18 +100,11 @@
       justify-content: center;
       min-height: 46px;
       padding: 0 18px;
-      border: 0;
       border-radius: 999px;
-      background: var(--accent);
+      background: var(--forest);
       color: #fff;
       font-size: 14px;
       font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 16px 28px rgba(126, 56, 29, 0.2);
-    }
-
-    .button.is-forest {
-      background: var(--forest);
       box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22);
     }
 
@@ -214,451 +114,59 @@
       box-shadow: none;
     }
 
-    .section {
-      padding: 22px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .option-card {
-      position: relative;
-      display: grid;
-      gap: 7px;
-      min-height: 100%;
-      padding: 16px;
-      border: 1px solid rgba(87, 63, 48, 0.12);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.64);
-      cursor: pointer;
-    }
-
-    .option-card input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .option-card:has(input:checked) {
-      border-color: rgba(46, 94, 75, 0.55);
-      background: rgba(46, 94, 75, 0.09);
-      box-shadow: inset 0 0 0 1px rgba(46, 94, 75, 0.2);
-    }
-
-    .notice {
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(161, 79, 42, 0.08);
-      color: var(--warn);
-      font-size: 14px;
-      line-height: 1.75;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    label {
-      font-weight: 800;
-      line-height: 1.5;
-    }
-
-    .field.full,
-    .option-group.full {
-      grid-column: 1 / -1;
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    input[type="date"],
-    select,
-    textarea {
-      width: 100%;
-      min-height: 46px;
-      padding: 10px 12px;
-      border: 1px solid rgba(87, 63, 48, 0.18);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.74);
-      color: var(--text);
-      outline: none;
-    }
-
-    textarea {
-      min-height: 112px;
-      resize: vertical;
-      line-height: 1.65;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: rgba(46, 94, 75, 0.64);
-      box-shadow: 0 0 0 3px rgba(46, 94, 75, 0.12);
-    }
-
-    .option-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .option-card {
-      min-height: 54px;
-      align-content: center;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    .result-panel {
-      padding: 22px;
-      display: none;
-      gap: 16px;
-    }
-
-    .result-panel.is-visible {
-      display: grid;
-    }
-
-    .message-preview {
-      width: 100%;
-      min-height: 240px;
-      white-space: pre-wrap;
-      line-height: 1.7;
-    }
-
-    .fine-print {
-      font-size: 13px;
-    }
-
-    @media (max-width: 820px) {
-      .slot-list,
-      .form-grid,
-      .option-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .shell {
-        width: min(100vw - 16px, 1040px);
-        padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
+    @media (max-width: 560px) {
+      .panel {
+        padding: 22px;
+        border-radius: 20px;
       }
 
-      .topnav,
-      .section,
-      .result-panel {
-        border-radius: 22px;
-      }
-
-      .topnav,
-      .section,
-      .result-panel {
-        padding: 18px;
-      }
-
-      .nav-links,
-      .form-actions,
-      .result-actions {
+      .actions {
         display: grid;
-        grid-template-columns: 1fr;
       }
 
-      .button,
-      .nav-pill {
+      .button {
         width: 100%;
       }
     }
   </style>
-  <link rel="canonical" href="https://www.observe888.com/booking/">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": "https://www.observe888.com/booking/#webpage",
   "url": "https://www.observe888.com/booking/",
-  "name": "預約詢問｜見觀結構預約需求整理",
-  "description": "見觀結構預約詢問頁，提供店別、方便日期、時段與主要狀況整理入口。",
+  "name": "預約表單｜見觀結構",
+  "description": "見觀結構預約需求表單入口。送出表單不代表預約成立，實際時段仍會由見觀確認。",
   "inLanguage": "zh-Hant",
   "isPartOf": {
     "@id": "https://www.observe888.com/#website"
   }
 }
   </script>
-  <link rel="stylesheet" href="../observe888-bottom-nav.css">
 </head>
 <body data-page-role="booking">
-  <main class="shell">
-    <nav class="topnav" aria-label="站內導覽">
-      <div class="brand-block">
-        <span class="brand-kicker">預約詢問</span>
-        <span class="brand-title">見觀結構｜預約需求整理</span>
-      </div>
-      <div class="nav-links">
-        <a class="nav-pill" href="../">首頁</a>
-        <a class="nav-pill" href="../visit/">到店導航</a>
-        <a class="nav-pill" href="../faq/">常見問題</a>
-        <a class="nav-pill primary" href="./" aria-current="page">預約</a>
-      </div>
-    </nav>
-
-    <form id="bookingForm" class="section" novalidate>
-      <div class="section-copy">
-        <span class="label">Booking request</span>
-        <h1>留下預約資料</h1>
-        <p>請選店別、方便日期、時間帶與主要狀況。送出不代表保留時段，實際安排仍會以 LINE 或電話確認。</p>
-      </div>
-
-      <div class="form-grid">
-        <fieldset class="option-group full">
-          <legend class="label">店別</legend>
-          <div class="option-grid">
-            <label class="option-card"><input type="radio" name="store" value="北區">北區</label>
-            <label class="option-card"><input type="radio" name="store" value="南區">南區</label>
-            <label class="option-card"><input type="radio" name="store" value="都可以" checked>都可以</label>
-          </div>
-        </fieldset>
-
-        <div class="field">
-          <label for="datePreference">方便日期</label>
-          <select id="datePreference" name="datePreference">
-            <option value="都可以">都可以</option>
-            <option value="這週">這週</option>
-            <option value="下週">下週</option>
-            <option value="今天">今天</option>
-            <option value="明天">明天</option>
-            <option value="指定日期">指定日期</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="specificDate">指定日期</label>
-          <input id="specificDate" name="specificDate" type="date">
-        </div>
-
-        <fieldset class="option-group full">
-          <legend class="label">方便時段</legend>
-          <div class="option-grid">
-            <label class="option-card"><input type="radio" name="timePreference" value="上午">上午</label>
-            <label class="option-card"><input type="radio" name="timePreference" value="下午">下午</label>
-            <label class="option-card"><input type="radio" name="timePreference" value="晚上">晚上</label>
-            <label class="option-card"><input type="radio" name="timePreference" value="都可以" checked>都可以</label>
-          </div>
-        </fieldset>
-
-        <div class="field">
-          <label for="firstVisit">第一次來嗎</label>
-          <select id="firstVisit" name="firstVisit">
-            <option value="第一次">第一次</option>
-            <option value="來過">來過</option>
-            <option value="不確定">不確定</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="serviceType">想預約方式</label>
-          <select id="serviceType" name="serviceType">
-            <option value="不確定">不確定</option>
-            <option value="結構調理">結構調理</option>
-            <option value="傳統按摩放鬆">傳統按摩放鬆</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="customerName">姓名</label>
-          <input id="customerName" name="customerName" type="text" autocomplete="name" required>
-        </div>
-
-        <div class="field">
-          <label for="phone">電話</label>
-          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
-        </div>
-
-        <fieldset class="option-group full">
-          <legend class="label">主要狀況</legend>
-          <div class="option-grid">
-            <label class="option-card"><input type="checkbox" name="conditionTags" value="肩頸卡緊">肩頸卡緊</label>
-            <label class="option-card"><input type="checkbox" name="conditionTags" value="腰背緊痠">腰背緊痠</label>
-            <label class="option-card"><input type="checkbox" name="conditionTags" value="手臂手腕">手臂手腕</label>
-            <label class="option-card"><input type="checkbox" name="conditionTags" value="髖膝腳">髖膝腳</label>
-            <label class="option-card"><input type="checkbox" name="conditionTags" value="姿勢體態">姿勢體態</label>
-            <label class="option-card"><input type="checkbox" name="conditionTags" value="想放鬆">想放鬆</label>
-            <label class="option-card"><input type="checkbox" name="conditionTags" value="不確定">不確定</label>
-          </div>
-        </fieldset>
-
-        <div class="field full">
-          <label for="notes">其他補充</label>
-          <textarea id="notes" name="notes" placeholder="選項不夠再補充即可，例如想避開的時間、同行者或其他狀況。"></textarea>
-        </div>
-      </div>
-
-      <div class="form-actions">
-        <button class="button is-forest" type="submit">產生預約詢問訊息</button>
-        <a class="button is-ghost" href="../visit/">先確認到店位置</a>
-      </div>
-      <p id="formStatus" class="fine-print" aria-live="polite"></p>
-      <p class="fine-print">這一版不會自動保留時段，也不會直接寫入 Google Calendar。請把產生的訊息送到 LINE，我們再協助確認。</p>
-    </form>
-
-    <section id="resultPanel" class="result-panel" aria-labelledby="resultTitle">
-      <div class="result-copy">
-        <span class="label">Next step</span>
-        <h2 id="resultTitle">確認預約詢問內容</h2>
-        <p>請確認內容後複製，開啟 LINE 傳給我們。收到後會再確認時段是否仍可安排。</p>
-      </div>
-      <textarea id="messagePreview" class="message-preview" readonly></textarea>
-      <div class="result-actions">
-        <button id="copyMessageButton" class="button is-forest" type="button">複製預約內容</button>
-        <a id="openLineButton" class="button" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">開啟 LINE 傳送</a>
-        <button id="editAgainButton" class="button is-ghost" type="button">重新修改</button>
-      </div>
-      <p id="copyStatus" class="fine-print" aria-live="polite"></p>
-    </section>
-
-    <p class="fine-print">提醒：若有急性外傷、明顯無力、大小便異常、發燒感染、快速惡化或不尋常劇烈症狀，請先就醫評估。</p>
+  <main class="panel">
+    <span class="label">Booking form</span>
+    <h1>正在開啟預約表單</h1>
+    <p>預約資料改由 Google 表單收件。送出不代表預約成立，實際時段仍會由見觀以 LINE 或電話確認。</p>
+    <div class="actions">
+      <a id="bookingFormLink" class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf5mBVIXEM4T4fxLQUBqHryQ8bwlhCTV2NVbliopWIYeQ4Law/viewform">填寫預約表單</a>
+      <a class="button is-ghost" href="https://line.me/ti/p/~@483yvmiw">改用 LINE 詢問</a>
+    </div>
   </main>
 
   <script src="../observe888-tracking-config.js"></script>
   <script src="../observe888-tracking.js"></script>
-  <script src="../observe888-bottom-nav.js"></script>
   <script>
     (function () {
-      const lineBookingUrl = 'https://line.me/ti/p/~@483yvmiw';
-      const storeLabel = { north: '北區', south: '南區', unknown: '店別確認後安排' };
-      const urlParams = new URLSearchParams(window.location.search);
-      const requestedStore = urlParams.get('store');
-      const sourceParam = urlParams.get('source') || '';
-
-      const form = document.querySelector('#bookingForm');
-      const resultPanel = document.querySelector('#resultPanel');
-      const messagePreview = document.querySelector('#messagePreview');
-      const formStatus = document.querySelector('#formStatus');
-      const copyStatus = document.querySelector('#copyStatus');
-
-      function setStorePreference(storeKey) {
-        if (storeKey !== 'north' && storeKey !== 'south') return;
-        const storeInput = form.querySelector(`input[name="store"][value="${storeLabel[storeKey]}"]`);
-        if (storeInput) storeInput.checked = true;
+      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf5mBVIXEM4T4fxLQUBqHryQ8bwlhCTV2NVbliopWIYeQ4Law/viewform';
+      const tracker = window.Observe888Tracker;
+      if (tracker && typeof tracker.trackPageView === 'function') {
+        tracker.trackPageView('page_view_booking_redirect', { page_role: 'booking' });
       }
-
-      function track(eventName, extra) {
-        const tracker = window.Observe888Tracker;
-        if (tracker && typeof tracker.track === 'function') {
-          tracker.track(eventName, Object.assign({
-            page_role: 'booking',
-            cta_type: 'booking'
-          }, extra || {}));
-        }
-      }
-
-      function trackPageView() {
-        const tracker = window.Observe888Tracker;
-        if (tracker && typeof tracker.trackPageView === 'function') {
-          tracker.trackPageView('page_view_booking', { page_role: 'booking' });
-        }
-      }
-
-      function getRadioValue(name) {
-        const input = form.querySelector(`input[name="${name}"]:checked`);
-        return input ? input.value : '';
-      }
-
-      function getCheckedValues(name) {
-        return Array.from(form.querySelectorAll(`input[name="${name}"]:checked`))
-          .map((input) => input.value)
-          .filter(Boolean);
-      }
-
-      function buildMessage() {
-        const formData = new FormData(form);
-        const datePreference = String(formData.get('datePreference') || '').trim();
-        const specificDate = String(formData.get('specificDate') || '').trim();
-        const dateText = datePreference === '指定日期' && specificDate
-          ? `指定日期：${specificDate}`
-          : datePreference;
-        const timeText = getRadioValue('timePreference');
-        const conditionText = getCheckedValues('conditionTags').join('、') || '未選';
-        const sourceText = sourceParam ? `官網預約頁（${sourceParam}）` : '官網預約頁';
-        const lines = [
-          '【預約詢問】',
-          `來源：${sourceText}`,
-          `預約需求：請協助確認可安排時間`,
-          `店別：${getRadioValue('store')}`,
-          `方便日期：${dateText || '未填'}`,
-          `方便時段：${timeText}`,
-          `第一次來嗎：${String(formData.get('firstVisit') || '').trim()}`,
-          `想預約方式：${String(formData.get('serviceType') || '').trim()}`,
-          `姓名：${String(formData.get('customerName') || '').trim()}`,
-          `電話：${String(formData.get('phone') || '').trim()}`,
-          `主要狀況：${conditionText}`,
-          `其他補充：${String(formData.get('notes') || '').trim() || '無'}`,
-          '',
-          '提醒：此訊息送出後仍需見觀確認，尚未保留時段。'
-        ];
-        return lines.join('\n');
-      }
-
-      function showResult(message) {
-        messagePreview.value = message;
-        resultPanel.classList.add('is-visible');
-        resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-
-      function validateRequired() {
-        const nameInput = document.querySelector('#customerName');
-        const phoneInput = document.querySelector('#phone');
-        const name = String(nameInput.value || '').trim();
-        const phone = String(phoneInput.value || '').trim();
-        if (!name || !phone) {
-          formStatus.textContent = '請先填姓名與電話，方便後續確認。';
-          (!name ? nameInput : phoneInput).focus();
-          return false;
-        }
-        formStatus.textContent = '';
-        return true;
-      }
-
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        if (!validateRequired()) return;
-        const message = buildMessage();
-        showResult(message);
-        track('booking_form_generate_message', {
-          cta_position: 'booking_form',
-          request_mode: 'form_only',
-          store_preference: getRadioValue('store')
-        });
-      });
-
-      document.querySelector('#copyMessageButton').addEventListener('click', async () => {
-        const text = messagePreview.value;
-        try {
-          await navigator.clipboard.writeText(text);
-          copyStatus.textContent = '已複製預約內容，可以貼到 LINE 傳送。';
-        } catch (error) {
-          messagePreview.focus();
-          messagePreview.select();
-          copyStatus.textContent = '已選取內容，請手動複製後貼到 LINE。';
-        }
-        track('booking_copy_message', { cta_position: 'result_panel' });
-      });
-
-      document.querySelector('#openLineButton').addEventListener('click', () => {
-        track('click_line_booking', {
-          cta_type: 'line',
-          cta_position: 'result_panel',
-          href: lineBookingUrl
-        });
-      });
-
-      document.querySelector('#editAgainButton').addEventListener('click', () => {
-        resultPanel.classList.remove('is-visible');
-        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
-      trackPageView();
-      setStorePreference(requestedStore);
+      window.setTimeout(function () {
+        window.location.replace(formUrl);
+      }, 120);
     }());
   </script>
 </body>
