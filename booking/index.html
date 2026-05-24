@@ -4,15 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>預約表單｜見觀結構</title>
-  <meta name="description" content="見觀結構預約需求表單。請留下方便店別、日期、時間帶與主要狀況，實際預約仍會由見觀再確認。">
+  <title>預約入口｜見觀結構</title>
+  <meta name="description" content="見觀結構預約入口。可先用 LINE 或電話確認，也可填寫 Google 預約需求表單，實際時段仍會由見觀再確認。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:site_name" content="見觀結構">
-  <meta property="og:title" content="預約表單｜見觀結構">
-  <meta property="og:description" content="填寫見觀結構預約需求表單，實際時段仍會由 LINE 或電話確認。">
+  <meta property="og:title" content="預約入口｜見觀結構">
+  <meta property="og:description" content="先用 LINE 或電話確認時段，也可填寫見觀結構預約需求表單。">
   <meta property="og:url" content="https://www.observe888.com/booking/">
-  <meta http-equiv="refresh" content="0; url=https://docs.google.com/forms/d/e/1FAIpQLSf5mBVIXEM4T4fxLQUBqHryQ8bwlhCTV2NVbliopWIYeQ4Law/viewform">
   <link rel="canonical" href="https://www.observe888.com/booking/">
   <style>
     :root {
@@ -89,8 +88,8 @@
     }
 
     .actions {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 10px;
     }
 
@@ -114,18 +113,47 @@
       box-shadow: none;
     }
 
+    .button.is-line {
+      background: #06c755;
+      color: #fff;
+      box-shadow: 0 16px 28px rgba(6, 199, 85, 0.18);
+    }
+
+    .button.is-form {
+      background: #fff;
+      color: var(--forest);
+      border: 1px solid rgba(46, 94, 75, 0.22);
+      box-shadow: none;
+    }
+
+    .hint {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.48);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .phone-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
     @media (max-width: 560px) {
       .panel {
         padding: 22px;
         border-radius: 20px;
       }
 
-      .actions {
-        display: grid;
-      }
-
       .button {
         width: 100%;
+      }
+
+      .phone-row {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -135,8 +163,8 @@
   "@type": "WebPage",
   "@id": "https://www.observe888.com/booking/#webpage",
   "url": "https://www.observe888.com/booking/",
-  "name": "預約表單｜見觀結構",
-  "description": "見觀結構預約需求表單入口。送出表單不代表預約成立，實際時段仍會由見觀確認。",
+  "name": "預約入口｜見觀結構",
+  "description": "見觀結構預約入口。可先用 LINE 或電話確認，也可填寫 Google 預約需求表單，實際時段仍會由見觀確認。",
   "inLanguage": "zh-Hant",
   "isPartOf": {
     "@id": "https://www.observe888.com/#website"
@@ -146,12 +174,17 @@
 </head>
 <body data-page-role="booking">
   <main class="panel">
-    <span class="label">Booking form</span>
-    <h1>正在開啟預約表單</h1>
-    <p>預約資料改由 Google 表單收件。送出不代表預約成立，實際時段仍會由見觀以 LINE 或電話確認。</p>
+    <span class="label">Booking</span>
+    <h1>先確認可以聯絡得到你</h1>
+    <p>如果時間不固定，先用 LINE 說明方便時段會比較好。表單只會收到你填的資料，不會自動帶出你的 LINE 對話。</p>
+    <p class="hint">要用 LINE 回覆的人，請點 LINE 後傳「我要預約＋姓名＋方便時段」。如果改填表單，也請送出後回 LINE 傳「已填預約表單＋姓名」。</p>
     <div class="actions">
-      <a id="bookingFormLink" class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf5mBVIXEM4T4fxLQUBqHryQ8bwlhCTV2NVbliopWIYeQ4Law/viewform">填寫預約表單</a>
-      <a class="button is-ghost" href="https://line.me/ti/p/~@483yvmiw">改用 LINE 詢問</a>
+      <a id="bookingLineLink" class="button is-line" href="https://line.me/ti/p/~@483yvmiw">LINE 預約確認</a>
+      <div class="phone-row" aria-label="電話預約">
+        <a id="bookingNorthPhoneLink" class="button is-ghost" href="tel:062510677">北區電話</a>
+        <a id="bookingSouthPhoneLink" class="button is-ghost" href="tel:0973728670">南區電話</a>
+      </div>
+      <a id="bookingFormLink" class="button is-form" href="https://docs.google.com/forms/d/e/1FAIpQLSf5mBVIXEM4T4fxLQUBqHryQ8bwlhCTV2NVbliopWIYeQ4Law/viewform">仍要填預約表單</a>
     </div>
   </main>
 
@@ -159,14 +192,10 @@
   <script src="../observe888-tracking.js"></script>
   <script>
     (function () {
-      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf5mBVIXEM4T4fxLQUBqHryQ8bwlhCTV2NVbliopWIYeQ4Law/viewform';
       const tracker = window.Observe888Tracker;
       if (tracker && typeof tracker.trackPageView === 'function') {
-        tracker.trackPageView('page_view_booking_redirect', { page_role: 'booking' });
+        tracker.trackPageView('page_view_booking_entry', { page_role: 'booking' });
       }
-      window.setTimeout(function () {
-        window.location.replace(formUrl);
-      }, 120);
     }());
   </script>
 </body>
