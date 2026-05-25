@@ -14,7 +14,7 @@
 ## 目前結構
 
 - `index.html`：正式官網首頁。
-- `booking/index.html`：預約入口，先提供 LINE / 電話確認，再保留 Google 表單作為備用預約需求收件。
+- `booking/index.html`：預約入口，主入口導向 LINE LIFF 預約需求表單，電話與 Google 表單保留為備用。
 - `visit/index.html`：到店導航入口，承接北區 / 南區選店、LINE、電話、地圖。
 - `north/index.html`、`south/index.html`：北區店與南區店店點資料頁。
 - `north/pricing/index.html`、`south/pricing/index.html`：服務與費用 / 預約說明。
