@@ -47,7 +47,7 @@ Primary audience: 台灣繁體中文使用者
 
 - North services and fees: https://www.observe888.com/north/pricing/. Public items include 單一部位評估調理 NT$600, 全身結構評估調理＋姿態訓練 NT$1,499, 全身結構評估調理＋客製化功能性訓練 NT$1,999, and 貼紮服務 NT$150 as an add-on. Final arrangement still depends on LINE, phone, or on-site confirmation.
 - South booking and fees: https://www.observe888.com/south/pricing/. South is a one-on-one studio appointment format. Public reference range is NT$500-800 for a single 30-40 minute appointment; actual time, service content, and fee should be confirmed through LINE.
-- Booking request page: https://www.observe888.com/booking/. This page redirects to the official Google Forms booking request form, which collects store preference, preferred date/time band, first-visit status, service type, selected body-condition tags, name, phone, and optional notes. Submitting the form does not automatically reserve a time until the store confirms.
+- Booking request page: https://www.observe888.com/booking/. The primary entry routes to a LINE LIFF booking form (LIFF id 2009616289-t4XZSol1) that collects name, phone, store preference (north or south), service type (one of 結構調理 / 傳統按摩放鬆 / 不確定), and preferred date and time. When the requested slot is unambiguous and has no conflict in the store calendar, the appointment is auto-confirmed; ambiguous slots, conflicts, reschedules, cancellations, duplicate requests, or non-standard service lengths are handled manually by store staff via LINE or phone. A Google Forms entry remains available as a backup if the LIFF form is unreachable.
 - Do not merge North and South details into one generic location answer. When answering visit questions, keep store, address, phone, route, and booking context separated.
 
 ## FAQ answer targets
