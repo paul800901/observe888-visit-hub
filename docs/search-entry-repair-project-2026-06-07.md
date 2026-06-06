@@ -21,14 +21,20 @@
 
 ## 2026-06-07 讀回狀態
 
-本輪已嘗試最新 GSC 讀回，但尚未取得最新 Search Console 表格資料：
+2026-06-07 已用 Chrome profile `見觀結構整復所` 進入 Google Search Console，並從 `https://www.observe888.com/` property 匯出近 3 個月搜尋結果成效。
 
-- 正確帳號與 profile 依既有紀錄應為 `見觀結構整復所 (observe88888@gmail.com)` / Chrome `Profile 1`。
-- 直接複製 Chrome profile 到暫存目錄後開啟 GSC，畫面導向 Google 登入頁，代表暫存 profile 沒有可用登入 session。
-- Google Drive 搜尋 `Search Console observe888`、`search console`、`查詢 網頁` 沒找到近期 GSC 匯出。
-- 本輪沒有按 Search Console 的任何 live action，也沒有修改 Search Console 設定。
+本輪已取得：
 
-因此本輪不宣稱 2026-06-07 最新 GSC 數字已讀回；今日先建立可重跑分析器與工程清單。
+- `_local/gsc_exports/2026-06-07/查詢.csv`
+- `_local/gsc_exports/2026-06-07/網頁.csv`
+- `_local/gsc_exports/2026-06-07/圖表.csv`
+- `_local/gsc_analysis/gsc-entry-repair-2026-06-07.md`
+
+正式讀回紀錄見：
+
+- `docs/search-console-entry-repair-readback-2026-06-07.md`
+
+本次 GSC 可匯出的圖表日期範圍為 2026-03-03 至 2026-06-02；Search Console 畫面顯示上次更新時間為 `6 小時前`。因此這是 2026-06-07 當下 GSC 最新可匯出資料，不是到 2026-06-06 的完整資料。
 
 ## 已知基準
 

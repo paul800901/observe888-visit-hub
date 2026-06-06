@@ -12,9 +12,11 @@ from typing import Iterable
 
 QUERY_FILE_HINTS = ("查詢", "query", "queries")
 PAGE_FILE_HINTS = ("網頁", "page", "pages")
+CHART_FILE_HINTS = ("圖表", "chart", "dates")
 
 QUERY_HEADERS = ("熱門查詢", "查詢", "query", "queries", "top queries")
 PAGE_HEADERS = ("熱門網頁", "網頁", "page", "pages", "top pages")
+DATE_HEADERS = ("日期", "date", "day")
 CLICK_HEADERS = ("點擊", "點擊次數", "clicks")
 IMPRESSION_HEADERS = ("曝光", "曝光次數", "impressions")
 CTR_HEADERS = ("ctr", "點閱率")
@@ -208,6 +210,13 @@ def weighted_position(rows: Iterable[GscRow]) -> float:
     return sum(row.position * row.impressions for row in rows) / denom
 
 
+def summarize_rows(rows: list[GscRow]) -> tuple[float, float, float, float]:
+    clicks = sum(row.clicks for row in rows)
+    impressions = sum(row.impressions for row in rows)
+    ctr = clicks / impressions if impressions else 0
+    return clicks, impressions, ctr, weighted_position(rows)
+
+
 def format_num(value: float) -> str:
     if math.isclose(value, round(value)):
         return str(int(round(value)))
@@ -239,11 +248,17 @@ def contains_any(text: str, needles: Iterable[str]) -> bool:
     return any(needle.lower() in text.lower() for needle in needles)
 
 
-def build_report(query_rows: list[GscRow], page_rows: list[GscRow], args: argparse.Namespace) -> str:
-    total_clicks = sum(row.clicks for row in query_rows)
-    total_impressions = sum(row.impressions for row in query_rows)
-    total_ctr = total_clicks / total_impressions if total_impressions else 0
-    avg_position = weighted_position(query_rows)
+def summary_row(label: str, rows: list[GscRow]) -> list[str]:
+    clicks, impressions, ctr, position = summarize_rows(rows)
+    return [label, format_num(clicks), format_num(impressions), f"{ctr * 100:.2f}%", f"{position:.2f}"]
+
+
+def build_report(
+    query_rows: list[GscRow],
+    page_rows: list[GscRow],
+    chart_rows: list[GscRow],
+    args: argparse.Namespace,
+) -> str:
 
     query_low_ctr = sorted(
         [
@@ -301,13 +316,20 @@ def build_report(query_rows: list[GscRow], page_rows: list[GscRow], args: argpar
         f"- Export dir: `{args.export_dir}`",
         f"- Query rows: `{len(query_rows)}`",
         f"- Page rows: `{len(page_rows)}`",
+        f"- Chart rows: `{len(chart_rows)}`",
         "",
         "## 總覽",
         "",
         table(
-            ["點擊", "曝光", "CTR", "加權平均排名"],
-            [[format_num(total_clicks), format_num(total_impressions), f"{total_ctr * 100:.2f}%", f"{avg_position:.2f}"]],
+            ["來源", "點擊", "曝光", "CTR", "加權平均排名"],
+            [
+                summary_row("GSC 總量（圖表.csv）", chart_rows) if chart_rows else summary_row("查詢列加總", query_rows),
+                summary_row("查詢列加總", query_rows),
+                summary_row("網頁列加總", page_rows),
+            ],
         ),
+        "註：Search Console 的查詢維度可能因隱私與匿名查詢限制，列加總不一定等於 GSC 總量；判讀總量以 `圖表.csv` 為準。",
+        "",
         "## 高曝光低 CTR 查詢",
         "",
         table(["查詢", "點擊", "曝光", "CTR", "平均排名"], [row_to_table(row) for row in query_low_ctr]),
@@ -349,10 +371,12 @@ def main() -> None:
         raise SystemExit(f"Cannot find query CSV in {args.export_dir}")
     if page_file is None:
         raise SystemExit(f"Cannot find page CSV in {args.export_dir}")
+    chart_file = find_csv(args.export_dir, CHART_FILE_HINTS)
 
     query_rows = read_gsc_csv(query_file, QUERY_HEADERS)
     page_rows = read_gsc_csv(page_file, PAGE_HEADERS)
-    report = build_report(query_rows, page_rows, args)
+    chart_rows = read_gsc_csv(chart_file, DATE_HEADERS) if chart_file else []
+    report = build_report(query_rows, page_rows, chart_rows, args)
 
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
