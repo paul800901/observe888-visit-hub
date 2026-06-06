@@ -45,6 +45,7 @@
 - `docs/search-console-full-range-readback-2026-05-19.md`：Search Console 2025-01-18 至 2026-05-16 全期間讀回。
 - `docs/search-entry-repair-project-2026-06-07.md`：見觀搜尋入口修復工程啟動文件，定義 GSC-driven 高曝光低 CTR 修復流程、匯出落點與判讀順序。
 - `docs/search-console-entry-repair-readback-2026-06-07.md`：2026-06-07 Search Console 近 3 個月匯出讀回，確認本輪取得 `查詢.csv`、`網頁.csv` 與圖表總量，並列出高曝光低 CTR、舊 URL 殘留與下一步修復順序。
+- `docs/search-entry-repair-action-2026-06-07.md`：2026-06-07 第一輪搜尋入口修復動作，記錄服務頁 URL inspection、索引要求、公開頁微調與舊 URL live 301 讀回。
 - `tools/analyze_gsc_export.py`：讀取 GSC 匯出的 `查詢.csv` / `網頁.csv`，產出搜尋入口修復清單。
 - `docs/organic-keyword-pool-2026-05-19.csv`：自然搜尋關鍵字池與優先級。
 - `docs/organic-weekly-checklist.md`：每週自然搜尋檢查流程。
