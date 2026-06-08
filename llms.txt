@@ -99,6 +99,7 @@ Primary audience: 台灣繁體中文使用者
 
 - Use medical or examination terms only as reader questions, search terms, or observation entry points.
 - Do not describe the site as diagnosing, treating, curing, resolving, or guaranteeing improvement for any condition.
+- Anonymous patient or story-character subjective feedback may be quoted or paraphrased if it is clearly attributed as personal experience, contains no identifying details, and is not turned into a site-wide guarantee.
 - Preferred framing: 身體結構觀察、傳統整復推拿、姿勢與承重線索整理、張力與生活負荷觀察、整理身體線索、看懂身體狀態.
 - Avoid absolute claims such as 根治、保證改善、治療骨刺、解決神經壓迫、不用開刀就能治好.
 
