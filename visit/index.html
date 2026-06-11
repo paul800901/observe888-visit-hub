@@ -456,7 +456,7 @@
   "name": "見觀結構",
   "alternateName": "見觀結構調理整復所",
   "description": "見觀結構提供身體結構觀察、傳統整復推拿、姿勢與承重線索整理。",
-  "telephone": "+886-6-251-0677",
+  "telephone": "+886-973-728-670",
   "email": "observe88888@gmail.com",
   "url": "https://www.observe888.com/visit/",
   "areaServed": {
@@ -464,23 +464,6 @@
     "name": "台灣"
   },
   "department": [
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://www.observe888.com/#north-location",
-      "name": "見觀結構調理整復所-北區店",
-      "url": "https://www.observe888.com/north/",
-      "telephone": "+886-6-251-0677",
-      "address": {
-        "@type": "PostalAddress",
-        "postalCode": "704",
-        "addressRegion": "台南市",
-        "addressLocality": "北區",
-        "streetAddress": "華德里北安路一段 211 號",
-        "addressCountry": "TW"
-      },
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E8%8F%AF%E5%BE%B7%E9%87%8C%E5%8C%97%E5%AE%89%E8%B7%AF%E4%B8%80%E6%AE%B5211%E8%99%9F",
-      "openingHours": "Tu-Su 11:00-21:00"
-    },
     {
       "@type": "LocalBusiness",
       "@id": "https://www.observe888.com/#south-location",
@@ -496,6 +479,17 @@
         "addressCountry": "TW"
       },
       "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F"
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.observe888.com/#east-location",
+      "name": "見觀結構東區工作室（純預約）",
+      "url": "https://www.observe888.com/east/",
+      "areaServed": {
+        "@type": "City",
+        "name": "台南市東區"
+      },
+      "description": "台南東區工作室（純預約）採預約確認制，完整到店資訊以 LINE 確認為準。"
     }
   ]
 }
@@ -520,7 +514,7 @@
         <a id="heroPrimaryCta" class="button" href="#widgetMount">直接看導航</a>
         <a id="heroSecondaryCta" class="button is-ghost" href="#whatWeDoSection">我們在做什麼</a>
         <a id="heroTertiaryCta" class="button is-forest" href="../booking/?source=visit">查看近期時段</a>
-        <a id="heroQuaternaryCta" class="button is-ghost" href="tel:062510677">北區電話</a>
+        <a id="heroQuaternaryCta" class="button is-ghost" href="../booking/?store=east&source=visit_east_quick">東區純預約 LINE</a>
         <a id="heroQuinaryCta" class="button is-ghost" href="tel:0973728670">南區電話</a>
       </div>
     </section>
@@ -537,7 +531,7 @@
       <div class="first-visit-steps">
         <article class="first-visit-step">
           <strong id="firstVisitStep1Title">先選最近的店</strong>
-          <span id="firstVisitStep1Body">北區店和南區店都能處理，但先選離你近的那一間，來店體驗通常會更順。</span>
+          <span id="firstVisitStep1Body">南區店和東區工作室（純預約）都能安排，先選離你近、聯絡最順的地點。</span>
         </article>
 
         <article class="first-visit-step">
@@ -568,8 +562,8 @@
         <span class="signal-label">怎麼選哪一間</span>
         <h2>兩間都能到店，先選離你近、聯絡方便的一間。</h2>
         <ol class="signal-list">
-          <li>北區店比較像門市型入口，先看門口、轉彎點和入口資訊。</li>
-          <li>南區店先看路口、門牌和可安排時段，再出發會更順。</li>
+          <li>南區店有明興路地址、電話與 Google Maps 導航。</li>
+          <li>東區工作室（純預約）採預約確認制，先用 LINE 確認時段與到店資訊。</li>
           <li>選好分店後，再進單店頁看導航、電話和預約詢問。</li>
         </ol>
       </article>
@@ -582,8 +576,8 @@
         <a class="site-link" href="../observations/">身體觀察案例</a>
         <a class="site-link" href="../notes/">身體觀察筆記</a>
         <a class="site-link" href="../booking/">預約詢問</a>
-        <a class="site-link" href="../north/pricing/">北區服務與費用</a>
         <a class="site-link" href="../south/pricing/">南區服務與費用</a>
+        <a class="site-link" href="../east/">東區工作室（純預約）</a>
       </div>
     </section>
   </main>
@@ -592,9 +586,9 @@
   <script src="../observe888-tracking.js"></script>
   <script>
     const storeAliases = {
-      north: 'north',
-      northstore: 'north',
-      northshop: 'north',
+      east: 'east',
+      eaststudio: 'east',
+      eastshop: 'east',
       south: 'south',
       southstore: 'south',
       southstudio: 'south',
@@ -678,8 +672,8 @@
         return;
       }
 
-      if (variantKey === 'north') {
-        tracker.trackPageView('page_view_north', { store: 'north', page_role: 'north_entry' });
+      if (variantKey === 'east') {
+        tracker.trackPageView('page_view_east', { store: 'east', page_role: 'east_entry' });
         return;
       }
 
@@ -692,32 +686,32 @@
     }
 
     function bindDecisionCtaTracking(variantKey) {
-      if (variantKey === 'north') {
+      if (variantKey === 'east') {
         bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
-          eventName: 'click_visit_locator_north',
-          store: 'north',
-          page_role: 'north_entry',
+          eventName: 'click_visit_locator_east',
+          store: 'east',
+          page_role: 'east_entry',
           cta_type: 'locator_anchor',
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
-          eventName: 'click_visit_first_visit_north',
-          store: 'north',
-          page_role: 'north_entry',
-          cta_type: 'section_anchor',
+          eventName: 'click_line_east',
+          store: 'east',
+          page_role: 'east_entry',
+          cta_type: 'line',
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#heroQuinaryCta'), {
-          eventName: 'click_pricing_north',
-          store: 'north',
-          page_role: 'north_entry',
-          cta_type: 'pricing',
+          eventName: 'click_visit_first_visit_east',
+          store: 'east',
+          page_role: 'east_entry',
+          cta_type: 'section_anchor',
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#firstVisitPrimaryAction'), {
-          eventName: 'click_visit_locator_north',
-          store: 'north',
-          page_role: 'north_entry',
+          eventName: 'click_visit_locator_east',
+          store: 'east',
+          page_role: 'east_entry',
           cta_type: 'locator_anchor',
           cta_position: 'first_visit'
         });
@@ -757,15 +751,15 @@
       }
 
       bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
-        eventName: 'click_visit_store_north',
-        store: 'north',
+        eventName: 'click_visit_store_south',
+        store: 'south',
         page_role: 'home',
         cta_type: 'store_entry',
         cta_position: 'hero'
       });
       bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
-        eventName: 'click_visit_store_south',
-        store: 'south',
+        eventName: 'click_visit_store_east',
+        store: 'east',
         page_role: 'home',
         cta_type: 'store_entry',
         cta_position: 'hero'
@@ -783,26 +777,26 @@
       trackVariantPageView(variantKey);
       bindDecisionCtaTracking(variantKey);
 
-      if (variantKey === 'north') {
+      if (variantKey === 'east') {
         bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
-          eventName: 'click_booking_north',
-          store: 'north',
-          page_role: 'north_entry',
+          eventName: 'click_booking_east',
+          store: 'east',
+          page_role: 'east_entry',
           cta_type: 'booking',
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
-          eventName: 'click_call_north',
-          store: 'north',
-          page_role: 'north_entry',
-          cta_type: 'call',
+          eventName: 'click_line_east',
+          store: 'east',
+          page_role: 'east_entry',
+          cta_type: 'line',
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), {
-          eventName: 'click_call_north',
-          store: 'north',
-          page_role: 'north_entry',
-          cta_type: 'call',
+          eventName: 'click_line_east',
+          store: 'east',
+          page_role: 'east_entry',
+          cta_type: 'line',
           cta_position: 'first_visit'
         });
         return;
@@ -835,10 +829,10 @@
 
       bindTrackedClick(document.querySelector('#heroTertiaryCta'), Object.assign({ cta_position: 'hero' }, sharedHomeBooking));
       bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
-        eventName: 'click_call_north',
-        store: 'north',
+        eventName: 'click_line_east',
+        store: 'east',
         page_role: 'home',
-        cta_type: 'call',
+        cta_type: 'line',
         cta_position: 'hero'
       });
       bindTrackedClick(document.querySelector('#heroQuinaryCta'), {
@@ -899,10 +893,10 @@
           lead: '見觀結構協助把身體感受、姿勢、承重、張力與生活負荷，整理成較清楚的觀察線索。請選擇方便前往的地點，或先閱讀服務方式與身體觀察筆記。',
           points: ['身體結構觀察', '傳統整復推拿', '姿勢與承重線索整理'],
           ctas: [
-            { label: '北區店入口', href: buildStoreUrl('north'), tone: 'accent' },
             { label: '南區店入口', href: buildStoreUrl('south'), tone: 'forest' },
+            { label: '東區工作室（純預約）入口', href: buildStoreUrl('east'), tone: 'accent' },
             { label: '查看近期時段', href: buildBookingUrl('', 'visit_home'), tone: 'forest' },
-            { label: '北區電話', href: 'tel:062510677', tone: 'ghost' },
+            { label: '東區純預約 LINE', href: buildBookingUrl('east', 'visit_home_east'), tone: 'ghost' },
             { label: '南區電話', href: 'tel:0973728670', tone: 'ghost' }
           ]
         },
@@ -911,7 +905,7 @@
           title: '先看哪一間離你近，再看入口、聯絡方式與導航方式。',
           lead: '如果你是第一次來，不用研究很多，先確認分店、入口和聯絡方式就夠了。',
           steps: [
-            { title: '先選最近的店', body: '北區店和南區店都能處理，但先選離你近的那一間，來店體驗通常會更順。' },
+            { title: '先選最近的地點', body: '南區店和東區工作室（純預約）都能安排，先選離你近、聯絡最順的地點。' },
             { title: '再看入口資訊', body: '第一次來不必硬記地址，先對一下門口、路口和門牌資訊，出發時比較安心。' },
             { title: '最後決定怎麼預約', body: '你可以先填預約詢問，也可以用電話確認，找到最適合自己的節奏。' }
           ],
@@ -921,36 +915,36 @@
           ]
         }
       },
-      north: {
+      east: {
         mode: 'store',
-        pageTitle: '見觀北區店入口 | 見觀結構調理整復所',
-        pageDescription: '北區店入口頁。先了解第一次來北區店大概會怎麼進行，再看北區店門口、入口資訊與導航方式，查看近期時段或直接來電。',
+        pageTitle: '見觀東區工作室（純預約）入口 | 見觀結構',
+        pageDescription: '東區工作室（純預約）入口頁。採預約確認制，先用 LINE 留需求與時段，完整到店資訊以確認訊息為準。',
         hero: {
-          eyebrow: '見觀北區店入口',
-          title: '北區店，先看入口再直接出發。',
-          subtitle: '門市型入口，先看地圖、電話與預約方式',
-          lead: '北區店第一次來，先看門口、入口資訊和電話，再查看近期時段或直接來電。',
-          points: ['北區門市型入口', '先看門口與轉彎點', '導航 / 電話 / 預約'],
+          eyebrow: '見觀東區工作室（純預約）入口',
+          title: '東區工作室（純預約），先用 LINE 確認時段與到店資訊。',
+          subtitle: '預約制工作室，完整地址以確認訊息為準',
+          lead: '東區工作室（純預約）採預約確認制。請先用 LINE 留身體狀況、方便時段與聯絡方式，確認後再提供完整到店資訊。',
+          points: ['東區工作室（純預約）', '先 LINE 確認', '預約後提供到店資訊'],
           ctas: [
-            { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
-            { label: '查看近期時段', href: buildBookingUrl('north', 'visit_north'), tone: 'forest' },
-            { label: '北區直接來電', href: 'tel:062510677', tone: 'ghost' },
+            { label: '查看東區純預約', href: '#widgetMount', tone: 'accent' },
+            { label: 'LINE 留預約需求', href: buildBookingUrl('east', 'visit_east'), tone: 'forest' },
+            { label: '東區純預約 LINE', href: buildBookingUrl('east', 'visit_east_line'), tone: 'ghost' },
             { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
-            { label: '服務與費用', href: '../north/pricing/', tone: 'ghost' }
+            { label: '南區費用參考', href: '../south/pricing/', tone: 'ghost' }
           ]
         },
         firstVisit: {
-          label: '第一次來，先看北區',
-          title: '來了就說哪裡不舒服，不用先做功課。',
-          lead: '北區是門市型入口，走進來直接說身體感受就好，不需要準備資料或事前了解太多。',
+          label: '第一次來，先看東區',
+          title: '東區先確認時段與地址，不用先做功課。',
+          lead: '東區是預約制工作室，先把身體感受和可配合時間留在 LINE，確認後再前往。',
           steps: [
             { title: '說清楚哪裡不對勁', body: '不用醫學詞彙，就說哪裡痠、緊、卡、怪，你的主觀感受最有參考價值。' },
-            { title: '以手法先處理', body: '說完狀況後直接開始，多半在同一次就能感覺到一點差異。' },
-            { title: '帶幾個方向回去', body: '最後補上活動或訓練方向，讓你知道這次做完之後怎麼延續。' }
+            { title: '先確認時段與到店資訊', body: '東區工作室（純預約）完整地址以預約確認訊息為準，不建議未確認就直接前往。' },
+            { title: '帶幾個方向回去', body: '結束後補上活動或整理方向，讓你知道這次做完之後怎麼延續。' }
           ],
           actions: [
-            { label: '看北區導航與入口', href: '#widgetMount' },
-            { label: '北區直接來電', href: 'tel:062510677' }
+            { label: '看東區工作室（純預約）說明', href: '#widgetMount' },
+            { label: '東區純預約 LINE', href: buildBookingUrl('east', 'visit_east_first_visit') }
           ]
         }
       },

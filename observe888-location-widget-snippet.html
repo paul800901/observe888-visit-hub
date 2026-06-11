@@ -596,7 +596,7 @@
       <div class="observe-locator__intro">
         <span id="observeLocatorEyebrow" class="observe-locator__eyebrow">Visit Planner</span>
         <h2 id="observeLocatorTitle" class="observe-locator__title">雙店導航與到店規劃，一頁完成。</h2>
-        <p id="observeLocatorLead" class="observe-locator__lead">想前往北區店或南區店，可以先在這裡查看店址、入口資訊與地圖，再輸入出發地，直接開啟最順手的導航路線。</p>
+        <p id="observeLocatorLead" class="observe-locator__lead">想前往南區店或東區工作室（純預約），可以先在這裡查看聯絡方式與到店資訊。南區可直接導航，東區請先用 LINE 確認完整地址與時段。</p>
         <div class="observe-locator__chips">
           <span id="observeLocatorChip1" class="observe-locator__chip">雙店嵌入地圖</span>
           <span id="observeLocatorChip2" class="observe-locator__chip">一鍵開啟導航</span>
@@ -608,18 +608,18 @@
     <div class="observe-locator__layout">
       <section class="observe-locator__details" aria-labelledby="observeStoreTitle">
         <div class="observe-locator__toggle-row" role="tablist" aria-label="分店切換">
-          <button class="observe-locator__tab is-active" type="button" role="tab" aria-selected="true" data-locator-tab="north">北區店</button>
-          <button class="observe-locator__tab" type="button" role="tab" aria-selected="false" data-locator-tab="south">南區店</button>
+          <button class="observe-locator__tab is-active" type="button" role="tab" aria-selected="true" data-locator-tab="south">南區店</button>
+          <button class="observe-locator__tab" type="button" role="tab" aria-selected="false" data-locator-tab="east">東區工作室（純預約）</button>
         </div>
 
         <article class="observe-locator__store-card">
           <div class="observe-locator__store-topline">
-            <span class="observe-locator__badge" id="observeLocatorBadge">門市型 / 預約優先</span>
+          <span class="observe-locator__badge" id="observeLocatorBadge">到店入口 / 建議先聯絡</span>
           </div>
 
-          <h3 id="observeStoreTitle" class="observe-locator__store-name">見觀結構調理整復所-北區店</h3>
-          <div class="observe-locator__address" id="observeLocatorAddress">704 台南市北區華德里北安路一段 211 號</div>
-          <p class="observe-locator__store-note" id="observeLocatorNote">北區店以一對一預約為主，也可視現場狀況接待未預約來店；如果北區離你較近，就直接選北區，第一次來建議先開地圖確認入口。</p>
+          <h3 id="observeStoreTitle" class="observe-locator__store-name">見觀結構調理整復所-南區店</h3>
+          <div class="observe-locator__address" id="observeLocatorAddress">702 台南市南區明興路 673 號</div>
+          <p class="observe-locator__store-note" id="observeLocatorNote">南區店為工作室預約制，建議先確認可安排時段，再看路口和門牌位置。</p>
 
           <div class="observe-locator__meta" id="observeLocatorMeta"></div>
 
@@ -655,27 +655,6 @@
       }
 
       const stores = {
-        north: {
-          id: 'north',
-          shortName: '北區店',
-          name: '見觀結構調理整復所-北區店',
-          badge: '門市型 / 預約優先',
-          address: '704 台南市北區華德里北安路一段 211 號',
-          addressQuery: '台南市北區華德里北安路一段211號',
-          phoneLabel: '(06) 251-0677',
-          phoneHref: 'tel:062510677',
-          hours: '週一公休，週二至週日 11:00-21:00',
-          note: '北區店以一對一預約為主，也可視現場狀況接待未預約來店；如果北區離你較近，就直接選北區，第一次來店建議先開地圖看入口。',
-          mapEmbed: 'https://www.google.com/maps?q=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E5%8C%97%E5%AE%89%E8%B7%AF%E4%B8%80%E6%AE%B5211%E8%99%9F&hl=zh-TW&z=17&output=embed',
-          mapUrl: 'https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E5%8C%97%E5%AE%89%E8%B7%AF%E4%B8%80%E6%AE%B5211%E8%99%9F',
-          directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E5%8C%97%E5%AE%89%E8%B7%AF%E4%B8%80%E6%AE%B5211%E8%99%9F&travelmode=driving',
-          parking: [
-            '北安路一段 212 巷收費路外停車場，步行約 2 分鐘。',
-            'CITY PARKING 城市車旅停車場北安站，步行約 3 分鐘。',
-            'CITY PARKING 城市車旅停車場台南文成三站，步行約 5 分鐘。'
-          ],
-          mapNote: '北區店第一次來建議先放大地圖，確認門口與轉彎位置再出發。'
-        },
         south: {
           id: 'south',
           shortName: '南區店',
@@ -696,6 +675,27 @@
             '從喜樂路轉入明興路後可直接對照地圖辨識門牌。'
           ],
           mapNote: '南區店先確認路口和門牌位置，再切換導航即可。'
+        },
+        east: {
+          id: 'east',
+          shortName: '東區工作室（純預約）',
+          name: '見觀結構東區工作室（純預約）',
+          badge: '預約制 / 先 LINE 確認',
+          address: '台南市東區，完整地址以預約確認訊息為準',
+          addressQuery: '',
+          phoneLabel: 'LINE 預約需求表單',
+          phoneHref: 'https://liff.line.me/2009616289-t4XZSol1?v=20260525-5&store=east&source=locator_east',
+          hours: '採預約確認制，請先用 LINE 留需求與可配合時段。',
+          note: '東區工作室（純預約）不建議未確認就直接前往；請先用 LINE 留下身體狀況、方便時段與聯絡方式，確認後再提供完整到店資訊。',
+          mapEmbed: '',
+          mapUrl: 'https://liff.line.me/2009616289-t4XZSol1?v=20260525-5&store=east&source=locator_east_map',
+          directionsUrl: 'https://liff.line.me/2009616289-t4XZSol1?v=20260525-5&store=east&source=locator_east_directions',
+          parking: [
+            '東區工作室（純預約）採預約確認制，完整地址與到店方式以 LINE 回覆為準。',
+            '請先留下希望安排的日期、時段與主要身體狀況。',
+            '確認完成後再出發，避免臨時到場無法接待。'
+          ],
+          mapNote: '東區工作室（純預約）先以 LINE 確認，不提供未確認前的公開導航。'
         }
       };
 
@@ -725,13 +725,13 @@
       const routeCurrentButton = root.querySelector('[data-locator-action="route-current-location"]');
 
       const storeAliases = {
-        north: 'north',
-        northstore: 'north',
-        northshop: 'north',
         south: 'south',
         southstore: 'south',
         southstudio: 'south',
-        studio: 'south'
+        east: 'east',
+        eaststudio: 'east',
+        eastshop: 'east',
+        studio: 'east'
       };
 
       function resolveEntryStoreKey() {
@@ -749,9 +749,9 @@
           const params = new URLSearchParams(window.location.search);
           const rawValue = String(params.get('store') || params.get('location') || '').trim().toLowerCase();
           const resolvedKey = storeAliases[rawValue];
-          return stores[resolvedKey] || stores.north;
+          return stores[resolvedKey] || stores.south;
         } catch {
-          return stores.north;
+          return stores.south;
         }
       }
 
@@ -785,24 +785,29 @@
           return;
         }
 
-        if (store.id === 'north') {
-          introEyebrow.textContent = '北區店導航入口';
-          introTitle.textContent = '北區店先看門口與入口資訊，再直接導航或來電。';
-          introLead.textContent = '先看門口、轉彎點和入口資訊，再直接開 Google Maps、來電或 LINE 預約。';
-          introChip1.textContent = '北區店門市型入口';
-          introChip2.textContent = '先看門口與轉彎點';
-          introChip3.textContent = '輸入出發地直接導航';
-        } else {
+        if (store.id === 'south') {
           introEyebrow.textContent = '南區店導航入口';
           introTitle.textContent = '南區店先看路口與聯絡方式，再直接導航或聯絡。';
           introLead.textContent = '先看路口、聯絡方式和可安排時段，再直接開 Google Maps、來電或 LINE 預約。';
           introChip1.textContent = '先確認可安排時段';
           introChip2.textContent = '先看路口與門牌';
           introChip3.textContent = '輸入出發地直接導航';
+        } else {
+          introEyebrow.textContent = '東區工作室（純預約）入口';
+          introTitle.textContent = '東區工作室（純預約）先用 LINE 確認時段與到店資訊。';
+          introLead.textContent = '東區工作室（純預約）採預約確認制，完整地址與到店方式以確認訊息為準。';
+          introChip1.textContent = '預約制工作室';
+          introChip2.textContent = '先 LINE 確認';
+          introChip3.textContent = '確認後再出發';
         }
       }
 
       function openDirections(originValue, destinationStore) {
+        if (!destinationStore.addressQuery) {
+          window.open(destinationStore.directionsUrl, '_blank', 'noopener');
+          return;
+        }
+
         const origin = String(originValue || '').trim();
         const params = new URLSearchParams({
           api: '1',
@@ -836,27 +841,37 @@
         title.textContent = store.name;
         address.textContent = store.address;
         note.textContent = store.note;
-        mapFrame.src = store.mapEmbed;
-        mapFrame.title = `${store.shortName} 地圖`;
+        const hasPublicMap = Boolean(store.mapEmbed);
+        mapFrame.hidden = !hasPublicMap;
+        mapFrame.src = hasPublicMap ? store.mapEmbed : 'about:blank';
+        mapFrame.title = hasPublicMap ? `${store.shortName} 地圖` : `${store.shortName} 到店資訊需先確認`;
         mapNote.textContent = store.mapNote;
         primaryMap.href = store.mapUrl;
         externalMap.href = store.mapUrl;
         directionsLink.href = store.directionsUrl;
-        primaryMap.textContent = `${store.shortName} 位置`;
-        externalMap.textContent = `在 Google Maps 開啟${store.shortName}`;
-        directionsLink.textContent = `導航到${store.shortName}`;
+        primaryMap.textContent = hasPublicMap ? `${store.shortName} 位置` : 'LINE 確認東區資訊';
+        externalMap.textContent = hasPublicMap ? `在 Google Maps 開啟${store.shortName}` : 'LINE 留預約需求';
+        directionsLink.textContent = hasPublicMap ? `導航到${store.shortName}` : '先用 LINE 確認';
+        routeSelectedButton.hidden = !hasPublicMap;
+        routeCurrentButton.hidden = !hasPublicMap;
         routeSelectedButton.textContent = `Google Maps 導航到${store.shortName}`;
-        meta.innerHTML = `
-          <div><strong>營業 / 服務方式：</strong>${htmlEscape(store.hours)}</div>
-          <div><strong>聯絡電話：</strong><a href="${htmlEscape(store.phoneHref)}" data-observe-phone-link="1" style="color: inherit;">${htmlEscape(store.phoneLabel)}</a></div>
-        `;
+        meta.innerHTML = hasPublicMap
+          ? `
+            <div><strong>營業 / 服務方式：</strong>${htmlEscape(store.hours)}</div>
+            <div><strong>聯絡電話：</strong><a href="${htmlEscape(store.phoneHref)}" data-observe-phone-link="1" style="color: inherit;">${htmlEscape(store.phoneLabel)}</a></div>
+          `
+          : `
+            <div><strong>服務方式：</strong>${htmlEscape(store.hours)}</div>
+            <div><strong>聯絡方式：</strong><a href="${htmlEscape(store.phoneHref)}" data-observe-phone-link="1" style="color: inherit;">${htmlEscape(store.phoneLabel)}</a></div>
+          `;
         parking.innerHTML = store.parking.map((item) => `<li>${htmlEscape(item)}</li>`).join('');
 
         const phoneLink = meta.querySelector('[data-observe-phone-link]');
         if (phoneLink) {
           phoneLink.addEventListener('click', () => {
-            trackStoreEvent(`click_call_${activeStore.id}`, {
-              cta_type: 'call',
+            const isLineLink = /line|liff/i.test(phoneLink.href || '');
+            trackStoreEvent(`${isLineLink ? 'click_line' : 'click_call'}_${activeStore.id}`, {
+              cta_type: isLineLink ? 'line' : 'call',
               href: phoneLink.href || ''
             });
           });
@@ -870,9 +885,9 @@
 
         if (isSingleStoreMode) {
           applySingleStoreIntro(store);
-          setStatus(`已為你選好 ${store.shortName}。輸入出發地即可直接規劃路線。`);
+          setStatus(hasPublicMap ? `已為你選好 ${store.shortName}。輸入出發地即可直接規劃路線。` : `已為你選好 ${store.shortName}。請先用 LINE 確認時段與到店資訊。`);
         } else {
-          setStatus(`目前前往 ${store.shortName}。你可以直接規劃路線，也可以先輸入自己的出發地址。`);
+          setStatus(hasPublicMap ? `目前前往 ${store.shortName}。你可以直接規劃路線，也可以先輸入自己的出發地址。` : `目前選擇 ${store.shortName}。完整地址與到店方式請先用 LINE 確認。`);
         }
       }
 

@@ -8,7 +8,7 @@ export default {
     }
 
     if (path === "/paper/other_select_index.php") {
-      const targetPath = url.searchParams.get("id") === "3718" ? "/north/pricing/" : "/visit/";
+      const targetPath = url.searchParams.get("id") === "3718" ? "/south/pricing/" : "/visit/";
       return Response.redirect(new URL(targetPath, url.origin).toString(), 301);
     }
 
