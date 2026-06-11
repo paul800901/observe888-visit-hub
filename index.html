@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>見觀結構｜台南傳統整復推拿與身體觀察筆記</title>
-  <meta name="description" content="見觀結構官方網站。台南北區、南區傳統整復推拿與身體結構觀察入口，整理身體觀察筆記、服務邊界、費用與到店導航。">
+  <title>見觀結構｜台南傳統整復推拿與肩頸腰背卡緊預約</title>
+  <meta name="description" content="見觀結構官方網站。台南南區店、東區工作室（純預約）傳統整復推拿與身體結構觀察入口；肩頸卡緊、腰背緊繃、落枕後轉頭不順、久坐卡卡可先看服務與費用，再用 LINE 留預約需求。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:site_name" content="見觀結構">
-  <meta property="og:title" content="見觀結構｜台南傳統整復推拿與身體觀察筆記">
-  <meta property="og:description" content="台南北區、南區傳統整復推拿與身體結構觀察入口；先整理感受、搜尋詞與文章，再前往到店導航。">
+  <meta property="og:title" content="見觀結構｜台南傳統整復推拿與肩頸腰背卡緊預約">
+  <meta property="og:description" content="肩頸卡緊、腰背緊繃、落枕後轉頭不順、久坐卡卡，可先看台南南區店、東區工作室（純預約）服務方式，再用 LINE 留預約需求。">
   <meta property="og:url" content="https://www.observe888.com/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="見觀結構｜台南傳統整復推拿與身體觀察筆記">
-  <meta name="twitter:description" content="台南北區、南區傳統整復推拿與身體結構觀察入口；先整理感受、搜尋詞與文章，再前往到店導航。">
+  <meta name="twitter:title" content="見觀結構｜台南傳統整復推拿與肩頸腰背卡緊預約">
+  <meta name="twitter:description" content="肩頸卡緊、腰背緊繃、落枕後轉頭不順、久坐卡卡，可先看台南南區店、東區工作室（純預約）服務方式，再用 LINE 留預約需求。">
   <style>
     :root {
       color-scheme: light;
@@ -42,6 +42,7 @@
         radial-gradient(circle at top left, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0) 34%),
         radial-gradient(circle at 84% 12%, rgba(241, 194, 121, 0.28), rgba(241, 194, 121, 0) 22%),
         linear-gradient(180deg, #fbf6ee 0%, var(--bg) 50%, #eee1d0 100%);
+      overflow-x: hidden;
     }
 
     a {
@@ -315,7 +316,9 @@
 
     @media (max-width: 720px) {
       .shell {
-        width: min(100vw - 16px, 1080px);
+        width: calc(100vw - 16px);
+        max-width: 1080px;
+        overflow: hidden;
         padding: max(12px, env(safe-area-inset-top)) 0 calc(24px + env(safe-area-inset-bottom));
       }
 
@@ -327,7 +330,15 @@
       }
 
       .topnav {
-        padding: 14px 16px;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 14px;
+      }
+
+      .brand-block,
+      .nav-links {
+        width: 100%;
+        min-width: 0;
       }
 
       .hero,
@@ -336,16 +347,54 @@
         padding: 18px;
       }
 
-      .button,
-      .nav-pill {
+      .button {
         width: 100%;
+        min-width: 0;
+        padding: 10px 14px;
+        line-height: 1.4;
+        text-align: center;
+        white-space: normal;
       }
 
       .nav-links,
       .hero-actions,
       .bridge-actions {
         display: grid;
+      }
+
+      .nav-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .nav-pill {
+        min-width: 0;
+        justify-content: center;
+        padding: 0 8px;
+        text-align: center;
+      }
+
+      .hero-actions,
+      .bridge-actions {
         grid-template-columns: 1fr;
+      }
+
+      .hero-chips {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .eyebrow,
+      h1,
+      h2,
+      p,
+      .button,
+      .chip,
+      .nav-pill,
+      .article-link {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        white-space: normal;
       }
     }
   </style>
@@ -361,19 +410,21 @@
       "name": "見觀結構",
       "alternateName": "ObserveGeoPages",
       "inLanguage": "zh-Hant",
-      "description": "見觀結構官方網站，包含台南北區、南區傳統整復推拿入口、依身體區域分類的身體觀察筆記、品牌介紹與到店導航。"
+      "description": "見觀結構官方網站，包含台南南區店、東區工作室（純預約）傳統整復推拿入口、肩頸腰背卡緊等常見來意、預約、服務費用、身體觀察筆記與到店導航。"
     },
     {
       "@type": "WebPage",
       "@id": "https://www.observe888.com/#webpage",
       "url": "https://www.observe888.com/",
-      "name": "見觀結構｜台南傳統整復推拿與身體觀察筆記",
-      "description": "台南北區、南區傳統整復推拿與身體結構觀察入口；身體觀察筆記先依身體區域分類，再看感受、搜尋詞與文章。",
+      "name": "見觀結構｜台南傳統整復推拿與肩頸腰背卡緊預約",
+      "description": "台南南區店、東區工作室（純預約）傳統整復推拿與身體結構觀察入口；肩頸卡緊、腰背緊繃、落枕後轉頭不順、久坐卡卡可先看服務與費用，再用 LINE 留預約需求。",
       "inLanguage": "zh-Hant",
       "isPartOf": {
         "@id": "https://www.observe888.com/#website"
       },
       "about": [
+        "肩頸腰背卡緊",
+        "LINE 預約",
         "身體觀察筆記",
         "身體結構觀察",
         "傳統整復推拿",
@@ -392,7 +443,7 @@
         },
         {
           "@type": "WebPage",
-          "name": "導航｜北區店與南區店",
+          "name": "導航｜南區店與東區工作室（純預約）",
           "url": "https://www.observe888.com/visit/"
         },
         {
@@ -442,30 +493,14 @@
         "見觀整復所"
       ],
       "url": "https://www.observe888.com/",
-      "description": "見觀結構在台南北區、南區提供身體結構觀察、傳統整復推拿、姿勢與承重線索整理，並提供到店導航入口。",
-      "telephone": "+886-6-251-0677",
+      "description": "見觀結構在台南南區店、東區工作室（純預約）提供身體結構觀察、傳統整復推拿、姿勢與承重線索整理，並提供到店導航入口。",
+      "telephone": "+886-973-728-670",
       "email": "observe88888@gmail.com",
       "areaServed": {
         "@type": "City",
         "name": "台南市"
       },
       "department": [
-        {
-          "@type": "LocalBusiness",
-          "@id": "https://www.observe888.com/#north-location",
-          "name": "見觀結構調理整復所-北區店",
-          "url": "https://www.observe888.com/north/",
-          "telephone": "+886-6-251-0677",
-          "address": {
-            "@type": "PostalAddress",
-            "postalCode": "704",
-            "addressRegion": "台南市",
-            "addressLocality": "北區",
-            "streetAddress": "華德里北安路一段 211 號",
-            "addressCountry": "TW"
-          },
-          "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E8%8F%AF%E5%BE%B7%E9%87%8C%E5%8C%97%E5%AE%89%E8%B7%AF%E4%B8%80%E6%AE%B5211%E8%99%9F"
-        },
         {
           "@type": "LocalBusiness",
           "@id": "https://www.observe888.com/#south-location",
@@ -481,6 +516,17 @@
             "addressCountry": "TW"
           },
           "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F"
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.observe888.com/#east-location",
+          "name": "見觀結構東區工作室（純預約）",
+          "url": "https://www.observe888.com/east/",
+          "areaServed": {
+            "@type": "City",
+            "name": "台南市東區"
+          },
+          "description": "台南東區工作室（純預約）採預約確認制，完整到店資訊以 LINE 確認為準。"
         }
       ]
     }
@@ -493,70 +539,70 @@
   <main class="shell">
     <nav class="topnav" aria-label="站內導覽">
       <div class="brand-block">
-        <span class="brand-kicker">身體觀察筆記</span>
-        <span class="brand-title">見觀結構｜品牌與文章官網</span>
+        <span class="brand-kicker">台南傳統整復推拿</span>
+        <span class="brand-title">見觀結構｜肩頸腰背與預約入口</span>
       </div>
       <div class="nav-links">
-        <a class="nav-pill" href="notes/">筆記</a>
+        <a class="nav-pill" href="booking/">預約</a>
         <a class="nav-pill" href="services/tainan-tuina/">服務</a>
+        <a class="nav-pill" href="visit/">導航</a>
+        <a class="nav-pill" href="faq/">常見問題</a>
+        <a class="nav-pill" href="notes/">筆記</a>
         <a class="nav-pill" href="comics/">漫畫</a>
         <a class="nav-pill" href="about/">品牌</a>
-        <a class="nav-pill" href="faq/">常見問題</a>
-        <a class="nav-pill" href="booking/">預約</a>
-        <a class="nav-pill" href="visit/">導航</a>
       </div>
     </nav>
 
     <header class="hero">
-      <span class="eyebrow">台南傳統整復推拿・身體觀察筆記・到店導航入口</span>
+      <span class="eyebrow">台南傳統整復推拿・肩頸腰背卡緊・LINE 預約入口</span>
       <div class="hero-copy">
-        <h1>台南北區、南區的傳統整復推拿入口，先把身體感受整理清楚</h1>
-        <p>這裡整理見觀結構怎麼看身體：以身體結構觀察、傳統整復推拿、姿勢與承重線索整理為主，把常見問法與生活情境拆開，再決定下一步。</p>
-        <p>如果你是從骨刺、手麻、腰椎退化、神經壓迫、久坐腰痠、走路一邊累、腳底緊、肩頸卡這些常見問法進來，可以先從身體區域分類開始；若你已經知道要前往哪一間，頁面下方可以進到到店導航入口。</p>
+        <h1>肩頸腰背卡住，先找安靜、純技術的地方整理</h1>
+        <p>肩頸卡緊、腰背緊繃、落枕後轉頭不順、久坐卡卡、運動後拉不開，通常不想先看一堆文章。可以先把位置、動作、多久了寫清楚，直接用 LINE 留預約需求。</p>
+        <p>如果你還不確定該選南區店或東區工作室（純預約）、結構調理或傳統按摩放鬆，先看服務與費用頁；身體觀察筆記則作為補充，幫你把常見問法放回姿勢、承重與生活負荷來看。</p>
       </div>
       <div class="hero-chips" aria-label="目前狀態">
-        <span class="chip">5 個分類入口＋19 篇觀察筆記已公開</span>
-        <span class="chip">台南北區、南區到店入口</span>
-        <span class="chip">先選身體區域，再看感受與搜尋詞</span>
+        <span class="chip">肩頸卡緊</span>
+        <span class="chip">腰背緊繃與久坐卡卡</span>
+        <span class="chip">落枕後轉頭不順</span>
+        <span class="chip">運動後緊繃拉不開</span>
+        <span class="chip">南區／東區純預約 LINE</span>
       </div>
       <div class="hero-actions">
-        <a id="homeBookingCta" class="button is-forest" href="booking/?source=home">預約｜LINE 預約需求表單</a>
-        <a class="button" href="services/tainan-tuina/">台南整復、整骨推薦怎麼看</a>
-        <a id="homeNotesCta" class="button" href="notes/">先看身體觀察筆記</a>
-        <a id="homeComicsCta" class="button is-ghost" href="comics/">看短漫劇</a>
-        <a id="homeAboutCta" class="button is-ghost" href="about/">認識見觀結構</a>
+        <a id="homeBookingCta" class="button is-forest" href="booking/?source=home">LINE 留預約需求</a>
+        <a class="button" href="services/tainan-tuina/">看服務與費用</a>
+        <a id="homeVisitCta" class="button is-forest" href="visit/">到店導航</a>
+        <a id="homeNotesCta" class="button is-ghost" href="notes/">先看肩頸腰背文章</a>
         <a class="button is-ghost" href="faq/">常見問題</a>
-        <a id="homeVisitCta" class="button is-forest" href="visit/">到店導航入口</a>
       </div>
     </header>
 
     <section class="panel-grid" aria-label="閱讀方式">
       <div class="panel">
-        <span class="panel-label">內容主軸</span>
-        <h2>從常見問法與生活情境開始整理</h2>
+        <span class="panel-label">常見來意</span>
+        <h2>不用先把病名查完，先講你卡在哪裡</h2>
         <ul>
-          <li>先把身體感受、姿勢、承重、左右差與生活負荷拆開看</li>
-          <li>不把單一病名直接當成全部答案，而是把線索整理清楚</li>
-          <li>先從身體區域分類進入，再看常見搜尋名詞與文章</li>
-          <li>品牌頁、分類入口與文章頁會逐步累積成完整內容庫</li>
+          <li>肩頸卡緊、頭轉不順、低頭久了很緊</li>
+          <li>腰背緊繃、久坐卡卡、站久或走久覺得吃力</li>
+          <li>落枕後轉頭不順、閃到腰後不敢出力</li>
+          <li>運動後拉不開、骨盆左右差、走路一邊比較累</li>
         </ul>
       </div>
       <div class="panel">
-        <span class="panel-label">使用方式</span>
-        <h2>想理解，先看內容；想安排，到預約頁填 LINE 表單</h2>
+        <span class="panel-label">下一步</span>
+        <h2>想安排就先填 LINE，想比較再看服務頁</h2>
         <ul>
-          <li>想先理解見觀怎麼看身體，可以先看品牌頁與身體觀察筆記</li>
-          <li>想直接預約，進到預約頁使用 LINE 預約需求表單（結構調理 / 傳統按摩放鬆 / 不確定三選一）</li>
+          <li>想直接預約，進到預約頁使用 LINE 預約需求表單</li>
+          <li>服務種類可先選結構調理、傳統按摩放鬆或不確定</li>
           <li>填了明確且無衝突的時段會自動成立；模糊時段、改期或取消由店家人工確認</li>
-          <li>要找北區、南區、LINE 或電話入口，請從到店導航入口進入</li>
+          <li>還在比較南區、東區、費用或服務邊界，先看服務頁與到店導航</li>
         </ul>
       </div>
     </section>
 
     <section class="panel" aria-labelledby="featuredNotesTitle">
       <span class="panel-label">公開內容</span>
-      <h2 id="featuredNotesTitle">先選一個身體區域</h2>
-      <p>不用一開始就從 19 篇文章裡找。先選最接近的分類，再進去看感受、搜尋詞與文章。</p>
+      <h2 id="featuredNotesTitle">還想理解，再選一個身體區域</h2>
+      <p>已經想安排到店，可以先去預約；如果還想先理解自己的狀態，再選最接近的分類，看感受、搜尋詞與文章。</p>
       <div class="article-list">
         <a class="article-link" href="notes/neck-jaw-breathing-overview/">
           <span>頭頸與肩頸分類</span>
@@ -586,20 +632,20 @@
 
     <section class="panel" aria-labelledby="searchEntryTitle">
       <span class="panel-label">搜尋入口</span>
-      <h2 id="searchEntryTitle">從名詞進來，但不要只停在名詞</h2>
-      <p>很多搜尋會從「骨刺怎麼辦」、「手麻是不是神經壓迫」、「腰椎退化能不能動」、「肩頸卡要不要一直拉」開始。這些詞可以當入口，但本站會把問題放回姿勢、承重、左右差、使用習慣與生活情境，而不是直接把名詞當成結論。</p>
-      <p>如果你想安排到店，可以先看近期可協助安排時段；如果你還在整理自己的狀態，先看文章會比較清楚。</p>
+      <h2 id="searchEntryTitle">痛點詞可以講，但不要先替自己下結論</h2>
+      <p>很多搜尋會從「肩頸卡」、「久坐腰痠」、「落枕」、「閃到腰後不敢用力」、「手麻是不是神經壓迫」或「屁股腿麻」開始。這些詞可以當入口，但本站會把問題放回姿勢、承重、左右差、使用習慣與生活情境，而不是直接把名詞當成結論。</p>
+      <p>如果你想安排到店，先用 LINE 留預約需求；如果你還在整理自己的狀態，再看文章會比較清楚。</p>
     </section>
 
     <section class="bridge-strip" aria-labelledby="bridgeTitle">
       <div class="bridge-copy">
         <span class="panel-label">下一步</span>
-        <h2 id="bridgeTitle">想理解就留在這裡；想安排到店，可以到預約頁填 LINE 表單</h2>
-        <p>這個官網承接品牌理解、身體觀察筆記與到店資訊。如果你已經想預約，可以到預約頁填 LINE 預約需求表單；明確且無衝突的時段會自動成立，模糊時段、改期或取消則由店家人工確認。</p>
+        <h2 id="bridgeTitle">要處理就先預約，不確定再看服務邊界</h2>
+        <p>這個官網承接肩頸腰背卡緊等常見來意、服務邊界、身體觀察筆記與到店資訊。如果你已經想預約，可以到預約頁填 LINE 預約需求表單；明確且無衝突的時段會自動成立，模糊時段、改期或取消則由店家人工確認。</p>
       </div>
       <div class="bridge-actions">
         <a class="button is-ghost" href="faq/">先看常見問題</a>
-        <a class="button is-forest" href="booking/?source=home_bridge">填預約需求表單</a>
+        <a class="button is-forest" href="booking/?source=home_bridge">LINE 留預約需求</a>
         <a class="button is-ghost" href="visit/">到店導航入口</a>
       </div>
     </section>
@@ -615,7 +661,7 @@
       const params = new URLSearchParams(window.location.search);
       const store = params.get('store');
 
-      if (store === 'north' || store === 'south') {
+      if (store === 'south' || store === 'east') {
         const target = new URL('visit/', window.location.href);
         target.searchParams.set('store', store);
         params.delete('store');

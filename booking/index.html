@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>預約入口｜見觀結構</title>
-  <meta name="description" content="見觀結構預約入口。透過 LINE 預約需求表單填寫姓名、電話、分店、服務種類（結構調理 / 傳統按摩放鬆 / 不確定）與方便時段；明確且無衝突的時段會自動成立，模糊或衝突由店家確認。">
+  <title>肩頸腰背卡緊預約｜見觀結構</title>
+  <meta name="description" content="肩頸卡緊、腰背緊繃、落枕後轉頭不順、久坐卡卡或運動後緊繃，可用 LINE 預約需求表單留下分店、服務種類與方便時段。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:site_name" content="見觀結構">
-  <meta property="og:title" content="預約入口｜見觀結構">
-  <meta property="og:description" content="用 LINE 預約需求表單填寫分店、服務種類與方便時段；明確且無衝突的時段會自動安排，模糊或衝突由店家人工確認。">
+  <meta property="og:title" content="肩頸腰背卡緊預約｜見觀結構">
+  <meta property="og:description" content="肩頸卡緊、腰背緊繃、落枕後轉頭不順、久坐卡卡或運動後緊繃，可用 LINE 預約需求表單留下分店、服務種類與方便時段。">
   <meta property="og:url" content="https://www.observe888.com/booking/">
   <link rel="canonical" href="https://www.observe888.com/booking/">
   <style>
@@ -39,9 +39,11 @@
         radial-gradient(circle at top left, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0) 34%),
         radial-gradient(circle at 86% 12%, rgba(46, 94, 75, 0.14), rgba(46, 94, 75, 0) 23%),
         linear-gradient(180deg, #fbf6ee 0%, var(--bg) 52%, #eee1d0 100%);
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 18px;
+      overflow-x: hidden;
     }
 
     a {
@@ -52,7 +54,9 @@
     }
 
     .panel {
-      width: min(560px, 100%);
+      width: 100%;
+      max-width: 560px;
+      min-width: 0;
       padding: 28px;
       border: 1px solid var(--line);
       border-radius: 24px;
@@ -98,12 +102,15 @@
       align-items: center;
       justify-content: center;
       min-height: 46px;
-      padding: 0 18px;
+      padding: 10px 18px;
       border-radius: 999px;
       background: var(--forest);
       color: #fff;
       font-size: 14px;
       font-weight: 800;
+      line-height: 1.4;
+      text-align: center;
+      white-space: normal;
       box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22);
     }
 
@@ -144,8 +151,23 @@
 
     @media (max-width: 560px) {
       .panel {
+        width: calc(100vw - 36px);
         padding: 22px;
         border-radius: 20px;
+      }
+
+      h1 {
+        font-size: 26px;
+        line-height: 1.25;
+      }
+
+      h1,
+      p,
+      .hint,
+      .button {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        white-space: normal;
       }
 
       .button {
@@ -163,8 +185,8 @@
   "@type": "WebPage",
   "@id": "https://www.observe888.com/booking/#webpage",
   "url": "https://www.observe888.com/booking/",
-  "name": "預約入口｜見觀結構",
-  "description": "見觀結構預約入口。透過 LINE 預約需求表單填寫分店、服務種類（結構調理 / 傳統按摩放鬆 / 不確定）與方便時段；明確且無衝突的時段會自動安排，模糊或衝突由店家人工確認。",
+  "name": "肩頸腰背卡緊預約｜見觀結構",
+  "description": "肩頸卡緊、腰背緊繃、落枕後轉頭不順、久坐卡卡或運動後緊繃，可用 LINE 預約需求表單留下分店、服務種類與方便時段。",
   "inLanguage": "zh-Hant",
   "isPartOf": {
     "@id": "https://www.observe888.com/#website"
@@ -174,17 +196,17 @@
 </head>
 <body data-page-role="booking">
   <main class="panel">
-    <span class="label">Booking</span>
-    <h1>用 LINE 留預約需求</h1>
-    <p>請在 LINE 表單填寫姓名、手機、想預約的分店、服務種類與方便時段。表單會自動帶入你的 LINE 身分，送出後不用再回傳「已填」。</p>
-    <p class="hint"><strong>服務種類三選一：</strong>結構調理（評估身體結構與承重線索）、傳統按摩放鬆（單純放鬆）、不確定（由見觀協助判斷）。</p>
+    <span class="label">LINE Booking</span>
+    <h1>肩頸、腰背、落枕或久坐卡卡，先用 LINE 留需求</h1>
+    <p>請直接寫你現在最困擾的位置與狀況，例如肩頸卡緊、腰背緊繃、落枕後轉頭不順、閃到腰後不敢出力、運動後拉不開、骨盆或體態左右不平衡感。表單會自動帶入你的 LINE 身分，送出後不用再回傳「已填」。</p>
+    <p class="hint"><strong>服務種類三選一：</strong>結構調理（肩頸腰背卡緊、活動不順、左右不平衡感）、傳統按摩放鬆（單純緊繃疲勞）、不確定（由見觀協助判斷）。</p>
     <p class="hint"><strong>送出後怎麼安排：</strong>填了明確日期與時段且 Google 行事曆無衝突時，系統會自動成立預約；模糊時段、衝突、改期、取消或重複預約則由店家用 LINE 或電話人工確認，不會自動處理。</p>
     <p class="hint"><strong>備用 Google 表單提醒：</strong>只有 LINE 表單無法開啟時才改用備用表單。備用表單不會自動帶入 LINE 身分；填完後請回官方 LINE 留「已填預約表單＋姓名」，否則只能用電話聯絡，可能延後確認。</p>
     <div class="actions">
       <a id="bookingLineLink" class="button is-line" href="https://liff.line.me/2009616289-t4XZSol1?v=20260525-5&source=website_booking">LINE 預約需求表單</a>
-      <div class="phone-row" aria-label="電話預約">
-        <a id="bookingNorthPhoneLink" class="button is-ghost" href="tel:062510677">北區電話</a>
+      <div class="phone-row" aria-label="分店聯絡">
         <a id="bookingSouthPhoneLink" class="button is-ghost" href="tel:0973728670">南區電話</a>
+        <a id="bookingEastLineLink" class="button is-ghost" href="https://liff.line.me/2009616289-t4XZSol1?v=20260525-5&store=east&source=website_booking_east">東區純預約 LINE</a>
       </div>
       <a id="bookingFormLink" class="button is-form" href="https://docs.google.com/forms/d/e/1FAIpQLSf5mBVIXEM4T4fxLQUBqHryQ8bwlhCTV2NVbliopWIYeQ4Law/viewform">備用 Google 表單</a>
     </div>
@@ -206,11 +228,11 @@
           cta_type: 'line',
           cta_position: 'primary'
         });
-        tracker.bindTrackClick(document.querySelector('#bookingNorthPhoneLink'), {
-          eventName: 'click_call_north',
-          store: 'north',
+        tracker.bindTrackClick(document.querySelector('#bookingEastLineLink'), {
+          eventName: 'click_line_east',
+          store: 'east',
           page_role: 'booking',
-          cta_type: 'call',
+          cta_type: 'line',
           cta_position: 'phone_row'
         });
         tracker.bindTrackClick(document.querySelector('#bookingSouthPhoneLink'), {
