@@ -1,6 +1,6 @@
 # Cloudflare 舊 PHP URL 301 導入與驗收紀錄
 
-最後更新：2026-06-12 17:30 +08:00
+最後更新：2026-06-12 18:30 +08:00
 
 ## 2026-06-12 北區退場後的索引清理更新
 
@@ -22,6 +22,33 @@ Worker 原始碼已更新：
 - `cloudflare/observe888-legacy-redirects.js`
 
 注意：2026-05-19 的 `/north/pricing/` 目標屬於歷史紀錄；2026-06-12 之後以本節的新最終目標為準。
+
+### 2026-06-12 18:30 Live 套用
+
+Cloudflare 正確帳戶為 `Observe88888@gmail.com's Account`，帳戶 ID `72a69452f6f476c5efb54a1a5cab2ac4`。`sl800901@gmail.com` 帳戶底下沒有 `observe888.com` zone，不用於本官網。
+
+本輪已完成：
+
+- Wrangler OAuth 登入 `observe88888@gmail.com`。
+- Worker `observe888-legacy-redirects` 部署新版，版本 ID `cac2f9ae-1b2c-4a6a-9ff7-0e14493f2965`。
+- Worker routes 已套用：
+  - `www.observe888.com/index.php*`
+  - `www.observe888.com/north*`
+  - `www.observe888.com/products/car.php*`
+  - `www.observe888.com/album*`
+  - `www.observe888.com/news*`
+  - `www.observe888.com/observations*`
+  - `www.observe888.com/paper*`
+- Single Redirect `legacy-other-select-3718` 已由 `https://www.observe888.com/north/pricing/` 改為 `https://www.observe888.com/south/pricing/`。原因：Cloudflare Single Redirect 會先於 Worker 命中；若不改此條，`id=3718` 仍會先被導到北區退場頁。
+
+Live readback：
+
+| URL | 讀回 |
+| --- | --- |
+| `https://www.observe888.com/north/` | `301` -> `https://www.observe888.com/visit/` |
+| `https://www.observe888.com/north/pricing/` | `301` -> `https://www.observe888.com/south/pricing/` |
+| `https://www.observe888.com/paper/other_select_index.php?id=3718&title_id=11271&group_id=874` | `301` -> `https://www.observe888.com/south/pricing/` |
+| `https://www.observe888.com/products/car.php` | `301` -> `https://www.observe888.com/services/tainan-tuina/` |
 
 ## 決策
 

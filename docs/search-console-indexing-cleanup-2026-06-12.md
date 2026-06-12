@@ -44,6 +44,22 @@
 - 更新 `tools/analyze_gsc_export.py`，不再把 `/north/`、`/north/pricing/` 當成目標承接頁；未來 GSC 匯出中若仍出現北區退場頁，應視為退場 URL 殘留。
 - 更新 `docs/cloudflare-redirect-migration-2026-05-19.md`，標記 2026-05-19 的 `/north/pricing/` 目標已被 2026-06-12 規則取代。
 
+## 2026-06-12 Live 套用
+
+2026-06-12 18:30 +08:00 已在 `Observe88888@gmail.com's Account` 的 `observe888.com` zone 完成 live 更新：
+
+- Wrangler 已登入 `observe88888@gmail.com`，帳戶 ID `72a69452f6f476c5efb54a1a5cab2ac4`。
+- Worker `observe888-legacy-redirects` 已部署新版，版本 ID `cac2f9ae-1b2c-4a6a-9ff7-0e14493f2965`。
+- Worker routes 已套用：
+  - `www.observe888.com/index.php*`
+  - `www.observe888.com/north*`
+  - `www.observe888.com/products/car.php*`
+  - `www.observe888.com/album*`
+  - `www.observe888.com/news*`
+  - `www.observe888.com/observations*`
+  - `www.observe888.com/paper*`
+- Cloudflare Single Redirect `legacy-other-select-3718` 已從 `/north/pricing/` 改為 `/south/pricing/`。這條必須改，因為 Single Redirect 會先於 Worker 執行。
+
 ## 驗收口徑
 
 Live 驗收至少要確認：
