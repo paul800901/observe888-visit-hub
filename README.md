@@ -6,7 +6,7 @@
 
 ## 專案主責
 
-- 正式官網頁面與公開內容：首頁、品牌頁、到店導航、北區 / 南區店點頁、服務與費用、身體觀察筆記。
+- 正式官網頁面與公開內容：首頁、品牌頁、到店導航、南區店、東區工作室、服務與費用、身體觀察筆記。
 - Google 商家檔案資料一致性：店名、地址、電話、網站 URL、服務項目、商家描述、照片素材與地圖入口。
 - 搜尋與答案引擎可讀內容：`sitemap.xml`、`robots.txt`、`llms.txt`、FAQ、品牌說明、服務邊界、到店資訊。
 - 公開內容安全邊界：品牌主張不寫醫療保證、治療承諾或根因確診；若為匿名患者或故事角色的主觀感受，可保留前後感受差異或個人回饋，但不可寫成見觀官方保證、普遍結果或可識別個案。
@@ -15,9 +15,10 @@
 
 - `index.html`：正式官網首頁。
 - `booking/index.html`：預約入口，主入口導向 LINE LIFF 預約需求表單，電話與 Google 表單保留為備用。
-- `visit/index.html`：到店導航入口，承接北區 / 南區選店、LINE、電話、地圖。
-- `north/index.html`、`south/index.html`：北區店與南區店店點資料頁。
-- `north/pricing/index.html`、`south/pricing/index.html`：服務與費用 / 預約說明。
+- `visit/index.html`：到店導航入口，承接南區 / 東區選店、LINE、電話、地圖。
+- `south/index.html`、`east/index.html`：南區店與東區工作室店點資料頁。
+- `south/pricing/index.html`：南區服務與費用 / 預約說明。
+- `north/index.html`、`north/pricing/index.html`：北區退場後保留的舊入口 fallback；正式對外應由 Cloudflare 301 直接導到 `/visit/` 與 `/south/pricing/`。
 - `about/index.html`：品牌與服務方式說明。
 - `notes/index.html`：身體觀察筆記分類入口。
 - `notes/*/index.html`：公開文章與分類頁。
@@ -33,7 +34,7 @@
 下列工作應在本專案處理：
 
 - 修改正式官網頁面、文案、結構化資料、站內導覽。
-- 調整 `visit/`、北區 / 南區店點頁、費用頁、Google Maps 入口。
+- 調整 `visit/`、南區 / 東區店點頁、費用頁、Google Maps 入口。
 - 維護 Google 商家檔案資料與官網一致性。
 - 新增或修改 FAQ、品牌說明、GEO / AEO 內容。
 - 更新 `sitemap.xml`、`robots.txt`、`llms.txt`。
@@ -53,6 +54,6 @@
 ## 目前狀態
 
 - `www.observe888.com` 已由本專案承接正式官網內容。
-- `visit/`、`north/`、`south/` 已是正式官網內的到店與店點入口。
+- `visit/`、`south/`、`east/` 是目前正式官網內的到店與店點入口；`north/` 與 `north/pricing/` 只作為退場舊入口，不再當成正式目標頁。
 - `notes/` 維持分類優先，不退回完整文章清單。
 - AdsControl 舊的公開 bundle 產線已視為 legacy，只能在明確需要比對舊資料時使用。

@@ -1,6 +1,6 @@
 # ObserveGeoPages 專案脈絡
 
-最後更新：2026-05-13
+最後更新：2026-06-12
 
 ## 一句話定位
 
@@ -26,11 +26,11 @@
 
 - `index.html`：正式官網首頁，承接品牌理解、分類入口與到店入口。
 - `booking/index.html`：預約入口，先提供 LINE / 電話確認，再保留 Google 表單作為備用預約需求收件。Google 表單不會自動帶出 LINE 對話；若客人填表後要用 LINE 回覆，需另到官方 LINE 傳「已填預約表單＋姓名」。
-- `visit/index.html`：到店導航入口，處理北區 / 南區選店、LINE、電話與 Google Maps。
-- `north/index.html`：北區店官方店點頁。
+- `visit/index.html`：到店導航入口，處理南區 / 東區選店、LINE、電話與 Google Maps。
 - `south/index.html`：南區店官方店點頁。
-- `north/pricing/index.html`：北區服務與費用。
+- `east/index.html`：東區工作室官方店點頁。
 - `south/pricing/index.html`：南區預約與費用。
+- `north/index.html`、`north/pricing/index.html`：北區退場後保留的舊入口 fallback；正式對外應由 Cloudflare 301 直接導到 `/visit/` 與 `/south/pricing/`。
 - `about/index.html`：品牌介紹與服務方式。
 - `faq/index.html`：第一次來、北區 / 南區選擇、費用、導航與服務邊界常見問題。
 - `notes/index.html`：身體觀察筆記分類入口。
@@ -43,17 +43,12 @@
 
 這些資料應與官網頁面、JSON-LD、Google 商家檔案、地圖入口、FAQ 與 `llms.txt` 保持一致。
 
-### 北區店
+### 北區店（已退場舊入口）
 
-- 對外名稱：見觀結構調理整復所-北區店
-- 短名稱：北區店
-- 地址：704 台南市北區華德里北安路一段 211 號
-- 電話：(06) 251-0677
-- 電話連結：`tel:062510677`
-- 網站頁：`https://www.observe888.com/north/`
-- 導航頁：`https://www.observe888.com/visit/?store=north`
-- 服務與費用：`https://www.observe888.com/north/pricing/`
-- 營業 / 服務方式：週一公休，週二至週日 11:00-21:00
+- 北區頁與北區費用頁不再是目前公開主入口。
+- `https://www.observe888.com/north/` 應直接 301 到 `https://www.observe888.com/visit/`。
+- `https://www.observe888.com/north/pricing/` 應直接 301 到 `https://www.observe888.com/south/pricing/`。
+- 不要再把新內鏈、sitemap、Google Business 或外部名錄導到北區退場頁。
 
 ### 南區店
 
@@ -66,6 +61,15 @@
 - 導航頁：`https://www.observe888.com/visit/?store=south`
 - 預約與費用：`https://www.observe888.com/south/pricing/`
 - 營業 / 服務方式：建議先以 LINE 或電話確認可安排時段
+
+### 東區工作室
+
+- 對外名稱：見觀結構東區工作室（純預約）
+- 短名稱：東區工作室
+- 地址：台南市東區新樓街65號
+- 網站頁：`https://www.observe888.com/east/`
+- 導航頁：`https://www.observe888.com/visit/?store=east`
+- 營業 / 服務方式：純預約、二樓工作室，不是固定駐點門市；到場前必須先用 LINE 確認時段。
 
 ## 內容安全邊界
 
@@ -114,7 +118,7 @@
 本專案應維護下列事項：
 
 - Google 商家檔案與官網 NAP 一致性。
-- 北區 / 南區名稱、地址、電話、網站 URL、服務方式一致性。
+- 南區 / 東區名稱、地址、電話、網站 URL、服務方式一致性；北區只維護退場轉址一致性。
 - 商家分類、服務項目、照片、描述草案。
 - 地圖與導航連結一致性。
 - FAQ、品牌說明、服務邊界、到店資訊；目前 FAQ 入口為 `faq/index.html`。
@@ -143,7 +147,7 @@ AdsControl 不應再主控：
 ## 接手時最重要的幾條
 
 - 先讀 `README.md`、本文件、`docs/website-operations.md`。
-- 改任何店點資料時，同步檢查 `index.html`、`visit/`、`north/`、`south/`、JSON-LD、`llms.txt`。
+- 改任何店點資料時，同步檢查 `index.html`、`visit/`、`south/`、`east/`、JSON-LD、`llms.txt`；北區退場頁只確認 301 / fallback 仍指向最終頁。
 - `notes/` 第一層維持分類入口，不退回完整文章清單。
 - 新文章公開前先做安全化與最終潤色，再補進分類入口與 sitemap。
 - 不要把 AdsControl 舊 public bundle 覆蓋回本專案。

@@ -121,7 +121,17 @@
 
       if (legacyPath === '/index.php') {
         targetPath = '/';
-      } else if (legacyPath === '/album' || legacyPath.indexOf('/album/') === 0) {
+      } else if (legacyPath === '/north' || legacyPath === '/north/' || legacyPath === '/north/index.html') {
+        targetPath = '/visit/';
+      } else if (legacyPath === '/north/pricing' || legacyPath === '/north/pricing/' || legacyPath === '/north/pricing/index.html') {
+        targetPath = '/south/pricing/';
+      } else if (legacyPath === '/products/car.php') {
+        targetPath = '/services/tainan-tuina/';
+      } else if (legacyPath === '/album' || legacyPath === '/album/' || legacyPath.indexOf('/album/') === 0) {
+        targetPath = '/notes/';
+      } else if (legacyPath === '/observations' || legacyPath === '/observations/' || legacyPath.indexOf('/observations/') === 0) {
+        targetPath = '/notes/';
+      } else if (legacyPath === '/news' || legacyPath === '/news/' || legacyPath.indexOf('/news/') === 0) {
         targetPath = '/notes/';
       } else if (legacyPath === '/paper/other_page.php') {
         targetPath = incoming.get('id') === '11272' ? '/about/' : '/visit/';

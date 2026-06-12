@@ -46,6 +46,7 @@
 - `docs/search-entry-repair-project-2026-06-07.md`：見觀搜尋入口修復工程啟動文件，定義 GSC-driven 高曝光低 CTR 修復流程、匯出落點與判讀順序。
 - `docs/search-console-entry-repair-readback-2026-06-07.md`：2026-06-07 Search Console 近 3 個月匯出讀回，確認本輪取得 `查詢.csv`、`網頁.csv` 與圖表總量，並列出高曝光低 CTR、舊 URL 殘留與下一步修復順序。
 - `docs/search-entry-repair-action-2026-06-07.md`：2026-06-07 第一輪搜尋入口修復動作，記錄服務頁 URL inspection、索引要求、公開頁微調與舊 URL live 301 讀回。
+- `docs/search-console-indexing-cleanup-2026-06-12.md`：2026-06-12 Search Console「替代頁面（有適當的標準標記）」通知後的索引清理紀錄，定義北區退場與舊 URL 的最終 301 目標。
 - `docs/seo-recurring-ops-2026-06-07.md`：2026-06-07 建立固定 SEO 週期任務：週六 11:00 週檢、雙週公開頁修復窗口、每月搜尋入口大盤點。
 - `tools/analyze_gsc_export.py`：讀取 GSC 匯出的 `查詢.csv` / `網頁.csv`，產出搜尋入口修復清單。
 - `tools/run_seo_recurring_check.ps1`：本機週期任務 runner，負責開 GSC / 匯出資料夾、偵測 CSV、重跑 GSC 分析與寫入本機 log。
@@ -176,6 +177,7 @@
 - 可現在做：依 Search Console 與 `docs/organic-keyword-pool-2026-05-19.csv` 補下一批安全搜尋問法內容；不可把物理治療、復健、治療、矯正寫成見觀服務。
 - 暫時等待：Google Business Profile 服務項目、商家描述與南區修正版相片審核；審核通過前不能宣稱 Maps 排名已改善。
 - 暫時等待：Cloudflare 301 已驗收，後續看 Search Console 舊 `.php` URL 轉移，不需再改 DNS 或 HiNet。
+- 2026-06-12 收到 Search Console「替代頁面（有適當的標準標記）」通知後，已把北區退場頁與舊 URL 清理方向改成直接 server-side 301 到最終頁；不要再把舊入口導到 `/north/` 或 `/north/pricing/` 這類已退場中繼頁。
 - 2026-05-21 已建立 `docs/maps-ranking-vendor-decision-2026-05-21.md`：使用者過去曾購買地圖排序服務但成效不明顯，後續不把「保證地圖排序」代操包列為預設方案；Maps 主戰場改看 GBP 類別、服務、描述、照片、評論、真實互動、距離與固定條件讀回。`observe.boostime.me` 舊站殘留已交外部公司處理，短期只列背景噪音與不可控風險，不列為內部驗收條件。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 補欄位編輯器層級的完整營業時間、屬性與服務範圍；主副分類、服務、產品、預訂欄位與照片盤點已先讀回。

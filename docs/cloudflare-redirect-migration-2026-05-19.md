@@ -1,6 +1,27 @@
 # Cloudflare 舊 PHP URL 301 導入與驗收紀錄
 
-最後更新：2026-05-19 19:10 +08:00
+最後更新：2026-06-12 17:30 +08:00
+
+## 2026-06-12 北區退場後的索引清理更新
+
+2026-06-12 收到 Search Console 通知「替代頁面（有適當的標準標記）」後，重新定義最終轉址目標：不要再把任何舊 URL 導到已退場的北區頁，避免 Google 先看到中繼頁，再由 canonical 判成替代頁。
+
+新的規則原則：
+
+- `/north/`、`/north/index.html` 直接 `301` 到 `/visit/`。
+- `/north/pricing/`、`/north/pricing/index.html` 直接 `301` 到 `/south/pricing/`。
+- `/paper/other_select_index.php?id=3718...` 直接 `301` 到 `/south/pricing/`，不再到 `/north/pricing/`。
+- `/products/car.php` 直接 `301` 到 `/services/tainan-tuina/`。
+- `/album/*`、`/news/*`、`/observations/*` 直接 `301` 到 `/notes/`。
+- `/paper/other_page.php?id=11272...` 直接 `301` 到 `/about/`。
+- 其他 `/paper/*` 舊入口直接 `301` 到 `/notes/` 或 `/visit/`，不再靠 GitHub Pages 404 / meta refresh / canonical 收尾。
+- 只保留 `utm_*`、`gclid`、`gbraid`、`wbraid`、`fbclid`、`msclkid` 這類行銷追蹤參數；丟掉舊站 `id`、`title_id`、`group_id` 等參數。
+
+Worker 原始碼已更新：
+
+- `cloudflare/observe888-legacy-redirects.js`
+
+注意：2026-05-19 的 `/north/pricing/` 目標屬於歷史紀錄；2026-06-12 之後以本節的新最終目標為準。
 
 ## 決策
 
@@ -107,7 +128,7 @@ Query string 目前不保留，避免新版頁面出現舊的 `id` / `title_id` 
 | `legacy-promotions-to-visit` | `https://www.observe888.com/paper/promotions_index.php*` | `https://www.observe888.com/visit/` | 301 | Off |
 | `legacy-other-page-11272` | `https://www.observe888.com/paper/other_page.php?id=11272*` | `https://www.observe888.com/about/` | 301 | Off |
 | `legacy-other-page-11276` | `https://www.observe888.com/paper/other_page.php?id=11276*` | `https://www.observe888.com/visit/` | 301 | Off |
-| `legacy-other-select-3718` | `https://www.observe888.com/paper/other_select_index.php?id=3718*` | `https://www.observe888.com/north/pricing/` | 301 | Off |
+| `legacy-other-select-3718` | `https://www.observe888.com/paper/other_select_index.php?id=3718*` | `https://www.observe888.com/south/pricing/` | 301 | Off |
 | `legacy-other-select-title` | `https://www.observe888.com/paper/other_select_index.php?title_id=11271*` | `https://www.observe888.com/visit/` | 301 | Off |
 
 ## 2026-05-21 Search Console 404 通知讀回
@@ -128,7 +149,7 @@ Wrangler OAuth 預設授權沒有 Rulesets 寫入權限，但有 Workers 與 rou
 | Route pattern | Worker | 行為 |
 | --- | --- | --- |
 | `www.observe888.com/index.php*` | `observe888-legacy-redirects` | `301` 到 `https://www.observe888.com/` |
-| `www.observe888.com/paper/other_select_index.php*` | `observe888-legacy-redirects` | `id=3718` 時 `301` 到 `/north/pricing/`，其他 query `301` 到 `/visit/` |
+| `www.observe888.com/paper/other_select_index.php*` | `observe888-legacy-redirects` | `id=3718` 時 `301` 到 `/south/pricing/`，其他 query `301` 到 `/visit/` |
 
 Worker 原始碼保存在 `cloudflare/observe888-legacy-redirects.js`。2026-05-21 live readback：
 
@@ -136,7 +157,7 @@ Worker 原始碼保存在 `cloudflare/observe888-legacy-redirects.js`。2026-05-
 | --- | --- | --- | --- | --- |
 | `legacy-root-index` | `https://www.observe888.com/index.php*` | `https://www.observe888.com/` | 301 | Off |
 | `legacy-other-select-group-title` | `https://www.observe888.com/paper/other_select_index.php?group_id=874&title_id=11271*` | `https://www.observe888.com/visit/` | 301 | Off |
-| `legacy-other-select-3718` | `https://www.observe888.com/paper/other_select_index.php?id=3718&title_id=11271&group_id=874` | `https://www.observe888.com/north/pricing/` | 301 | Off |
+| `legacy-other-select-3718` | `https://www.observe888.com/paper/other_select_index.php?id=3718&title_id=11271&group_id=874` | `https://www.observe888.com/south/pricing/` | 301 | Off |
 
 ## 切換驗收
 
@@ -149,7 +170,7 @@ nameserver 切到 Cloudflare 後，至少驗證：
 | `https://www.observe888.com/robots.txt` | 200 |
 | `https://www.observe888.com/sitemap.xml` | 200 |
 | `https://www.observe888.com/paper/other_page.php?id=11272` | 301 -> `/about/` |
-| `https://www.observe888.com/paper/other_select_index.php?id=3718&title_id=11271&group_id=874` | 301 -> `/north/pricing/` |
+| `https://www.observe888.com/paper/other_select_index.php?id=3718&title_id=11271&group_id=874` | 301 -> `/south/pricing/` |
 | `https://www.observe888.com/paper/other_select_index.php?title_id=11271&group_id=874` | 301 -> `/visit/` |
 | `https://www.observe888.com/products/car.php` | 301 -> `/services/tainan-tuina/` |
 | `https://www.observe888.com/album/index.php?title_id=11273` | 301 -> `/notes/` |
