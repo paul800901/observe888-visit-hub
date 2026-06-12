@@ -93,7 +93,8 @@ Primary audience: 台灣繁體中文使用者
 
 ## Legacy or non-primary entries
 
-- /album/, /paper/, and /observations/ are legacy or redirect-style entries with noindex/follow behavior. Do not treat them as primary public content sources; prefer /notes/, /about/, /visit/, or the store-specific pages above.
+- /north/ and /north/pricing/ are retired North-store entries. Do not treat them as current public content sources; prefer /visit/ and /south/pricing/.
+- /album/, /paper/, /news/, /products/car.php, and /observations/ are legacy or redirect-style entries. Do not treat them as primary public content sources; prefer /notes/, /about/, /visit/, or the store-specific pages above.
 
 ## Safe interpretation boundary
 

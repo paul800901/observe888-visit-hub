@@ -37,10 +37,20 @@ PRIORITY_PAGES = (
     "https://www.observe888.com/services/tainan-tuina/",
     "https://www.observe888.com/",
     "https://www.observe888.com/faq/",
-    "https://www.observe888.com/north/",
     "https://www.observe888.com/south/",
-    "https://www.observe888.com/north/pricing/",
     "https://www.observe888.com/south/pricing/",
+    "https://www.observe888.com/east/",
+)
+
+RETIRED_URL_MARKERS = (
+    "/north/",
+    "/north/pricing/",
+    "/paper/",
+    "/album/",
+    "/news/",
+    "/products/",
+    "/observations/",
+    ".php",
 )
 
 
@@ -296,7 +306,7 @@ def build_report(
         [
             row
             for row in page_rows
-            if any(marker in row.key for marker in ("/paper/", "/album/", "/news/", "/products/", ".php"))
+            if any(marker in row.key for marker in RETIRED_URL_MARKERS)
         ],
         key=lambda row: (-row.impressions, row.clicks),
     )[:30]
@@ -342,7 +352,7 @@ def build_report(
         "## 高曝光低 CTR 網頁",
         "",
         table(["網頁", "點擊", "曝光", "CTR", "平均排名"], [row_to_table(row) for row in page_low_ctr]),
-        "## 舊 URL 殘留",
+        "## 退場 / 舊 URL 殘留",
         "",
         table(["網頁", "點擊", "曝光", "CTR", "平均排名"], [row_to_table(row) for row in legacy_pages]),
         "## 目標頁是否進表",
@@ -352,7 +362,7 @@ def build_report(
         "",
         "- `高曝光低 CTR` 且平均排名不差：先修 title / meta description / SERP 摘要對齊，不先新增薄頁。",
         "- `排名 8-20`：優先補內鏈、FAQ、頁面段落深度與搜尋意圖對齊。",
-        "- 舊 URL 仍高曝光：優先查 301 / Cloudflare / Search Console 索引轉移，不用內容改寫硬補。",
+        "- 退場或舊 URL 仍高曝光：優先查 301 / Cloudflare / Search Console 索引轉移，不用內容改寫硬補。",
         "- `/services/tainan-tuina/` 沒進表：先查索引狀態與內鏈，不把服務頁方向直接判死。",
         "- `身體結構評估` 類查詢若有曝光：可把服務頁與分店頁 title/meta 逐步往此口徑靠，但仍保留整復推拿入口詞。",
         "",
