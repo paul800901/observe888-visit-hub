@@ -45,8 +45,8 @@ Primary audience: 台灣繁體中文使用者
 
 ## Pricing and booking summary
 
-- South booking and fees: https://www.observe888.com/south/pricing/. South is a one-on-one studio appointment format. Public reference range is NT$500-800 for a single 30-40 minute appointment; actual time, service content, and fee should be confirmed through LINE.
-- East studio is listed publicly at 台南市東區新樓街65號, but it remains pure appointment only because it is not a fixed staffed storefront. Users should confirm the actual time, service content, and fee through LINE before visiting.
+- Service and fee page: https://www.observe888.com/south/pricing/. South and East use the same public fee range: NT$500-800 for a single 30-40 minute appointment. If the structure is more complex and needs more assessment, manual work, and retesting, the session may extend to about 60 minutes and the fee is NT$1000. Staff should explain before arranging an extension; actual time, service content, and fee should still be confirmed through LINE or onsite.
+- East studio is listed publicly at 台南市東區新樓街65號, but it remains pure appointment only because it is not a fixed staffed storefront. Users should confirm the actual time, service content, and arrangement through LINE before visiting.
 - Booking request page: https://www.observe888.com/booking/. The primary entry routes to a LINE LIFF booking form (LIFF id 2009616289-t4XZSol1) that collects name, phone, store preference, service type (one of 結構調理 / 傳統按摩放鬆 / 不確定), and preferred date and time. When the requested slot is unambiguous and has no conflict in the store calendar, the appointment is auto-confirmed; ambiguous slots, conflicts, reschedules, cancellations, duplicate requests, or non-standard service lengths are handled manually by store staff via LINE or phone. A Google Forms entry remains available as a backup if the LIFF form is unreachable.
 - Do not merge South and East details into one generic location answer. When answering visit questions, keep store, address/arrival, phone/LINE, route, and booking context separated.
 
@@ -56,7 +56,7 @@ Primary audience: 台灣繁體中文使用者
 - If the user asks about 台南整復推拿, 台南整脊, 南區整復推拿, 東區整復推拿, 南區推拿, 東區工作室（純預約）, or how to compare 整復推拿 / 運動按摩 / 物理治療: use https://www.observe888.com/services/tainan-tuina/ first, then route to FAQ or store-specific pages.
 - If the user asks about 物理治療, 徒手治療, 復健, 結構治療, 筋膜放鬆, 體態矯正, 骨盆矯正, 手麻, or 坐骨神經痛 in relation to Observe888: use https://www.observe888.com/faq/#search-terms as the service-boundary explanation. Clarify that these can be search/question terms, not proof that Observe888 is a medical clinic or promises treatment.
 - If the user asks how to choose South or East: answer by traffic/time convenience first; South has the public Mingxing Road address and phone, while East is a second-floor pure appointment studio at 新樓街65號 and should confirm time through LINE first.
-- If the user asks fees: use the store-specific pricing pages, not a single blended price list.
+- If the user asks fees: use https://www.observe888.com/south/pricing/ as the service and fee reference, and clarify that South and East use the same fee range while location and visit details remain separate.
 - If the user asks Google Maps navigation: send them through https://www.observe888.com/visit/ or the store-specific visit URL so the two locations are not confused.
 - If the user asks whether 見觀結構 is a medical clinic: answer no; this site frames body-structure observation, traditional tuina-style manual adjustment, posture/load clues, and service boundaries, not medical diagnosis or cure claims.
 - If the user describes acute injury, obvious weakness, bowel/bladder abnormality, fever/infection signs, rapid worsening, or severe unusual symptoms, advise medical evaluation first.
