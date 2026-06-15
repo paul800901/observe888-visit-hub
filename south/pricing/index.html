@@ -134,6 +134,13 @@
       line-height: 1.8;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
     .info-card {
       display: grid;
       gap: 16px;
@@ -327,6 +334,10 @@
         min-height: 50px;
         font-size: 16px;
       }
+
+      .hero-actions {
+        display: grid;
+      }
     }
   </style>
   <link rel="canonical" href="https://www.observe888.com/south/pricing/">
@@ -443,6 +454,10 @@
       <span class="eyebrow">服務與費用</span>
       <h1>南區店與東區工作室服務與費用</h1>
       <p>單次預約：約 30–40 分鐘，NT$500–800。南區店與東區工作室採同一費用範圍；實際費用會依本次處理內容、時間長度與現場狀態確認。</p>
+      <div class="hero-actions">
+        <a id="southPricingHeroLineCta" class="button" href="../../booking/?store=south&source=south_pricing_hero">LINE 留預約需求</a>
+        <a id="southPricingHeroVisitCta" class="button is-ghost" href="../../visit/?store=south">南區到店導航</a>
+      </div>
     </header>
 
     <div class="price-block">
@@ -486,6 +501,13 @@
       });
 
       southPricingTracker.bindTrackClick(document.querySelector('#southPricingLineCta'), {
+        eventName: 'click_line_south',
+        store: 'south',
+        page_role: 'south_pricing',
+        cta_type: 'line'
+      });
+
+      southPricingTracker.bindTrackClick(document.querySelector('#southPricingHeroLineCta'), {
         eventName: 'click_line_south',
         store: 'south',
         page_role: 'south_pricing',
