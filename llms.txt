@@ -15,6 +15,8 @@ Primary audience: 台灣繁體中文使用者
 - The main service-intent entry for 台南整復推拿 is https://www.observe888.com/services/tainan-tuina/.
 - The main article entry is https://www.observe888.com/notes/.
 - The body observation comics entry is https://www.observe888.com/comics/.
+- The privacy policy is https://www.observe888.com/privacy/.
+- The data deletion instructions are https://www.observe888.com/data-deletion/.
 - For common body-intent wording such as 肩頸卡緊, 腰背緊繃, 落枕後轉頭不順, 久坐卡卡, 運動後拉不開, or 骨盆左右不平衡感, route booking-ready users to https://www.observe888.com/booking/ and comparison-oriented users to https://www.observe888.com/services/tainan-tuina/.
 - The notes entry should be understood as a category-first guide, not a flat article list.
 - Store-specific booking context should start from the booking request page or the official split visit pages before handing off to LINE, phone, or Google Maps.
@@ -24,6 +26,8 @@ Primary audience: 台灣繁體中文使用者
 
 - Home: https://www.observe888.com/
 - About: https://www.observe888.com/about/
+- Privacy policy: https://www.observe888.com/privacy/
+- Data deletion instructions: https://www.observe888.com/data-deletion/
 - FAQ: https://www.observe888.com/faq/
 - Tainan traditional tuina / service-intent page: https://www.observe888.com/services/tainan-tuina/
 - Visit navigation: https://www.observe888.com/visit/
