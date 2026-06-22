@@ -149,6 +149,8 @@
 - 本輪公開讀回：`https://www.observe888.com/` 已包含「外部資料只用來核對地點與公共資訊」；`https://www.observe888.com/contact/` 回 `200`；`sitemap.xml` 已包含 `/contact/`；首頁與聯絡頁 JSON-LD 可解析，兩頁各有 3 個 `hreflang`、1 個地圖 iframe、12 個外部連結；首頁、`/contact/`、`sitemap.xml` 皆讀回六個安全標頭。
 - AEO Pro 重掃被帳號額度擋住：掃描頁顯示 `已達免費方案限制`，帳號額度顯示 `3/3`；健檢報告頁顯示 `尚未執行任何掃描`。解除 AEO Pro 掃描額度或切到可用帳號後，再重跑分數驗證；目前不能宣稱 SEO / AEO / GEO 分數已提升。
 - 注意：`/paper/other_select_index.php?id=3718...` 與 `/products/car.php` 仍先命中 Cloudflare Single Redirect，轉址目標正確，但該 301 本身不帶 Worker 新增 headers；若要補這兩條，需進 Cloudflare 規則層處理 Single Redirect / Response Header Transform。
+- AEO Pro 匯出報告 `44ac2493-18b9-4726-b5dd-ecbd30b40617` 顯示 Total `87 / 100`、SEO `94`、AEO `79`、GEO `89`、通過 `52 / 53`；唯一失敗項目是 `Wikidata 實體連結`，要求公司自己的 Wikidata 條目，不可用台南市 Wikidata 代替。
+- 已依該報告的非 Wikidata 低分項補強：首頁與聯絡頁新增 Organization / contactPoint、sameAs 補 LINE 與 Threads、首頁補台南南區 / 東區 / 附近區域直答、聯絡頁補完整 NAP / LINE / Email / 服務範圍 / 營業方式，`llms.txt` 補 machine-readable entity facts 與官方聯絡 / 社群入口。此輪未建立或宣稱建立公司 Wikidata 條目。
 
 ## 2026-05-19 Google Business 讀回與貼文判斷
 
