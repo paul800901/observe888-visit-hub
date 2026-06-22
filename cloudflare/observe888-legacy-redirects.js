@@ -1,3 +1,39 @@
+const securityHeaders = {
+  "Content-Security-Policy": [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "object-src 'none'",
+    "frame-ancestors 'none'",
+    "img-src 'self' https: data:",
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
+    "style-src 'self' 'unsafe-inline'",
+    "font-src 'self' data:",
+    "connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://nominatim.openstreetmap.org",
+    "frame-src https://www.google.com https://maps.google.com",
+    "form-action 'self' https://docs.google.com https://liff.line.me https://line.me",
+    "upgrade-insecure-requests",
+  ].join("; "),
+  "Permissions-Policy": "accelerometer=(), autoplay=(), camera=(), encrypted-media=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), geolocation=(self)",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+};
+
+function withSecurityHeaders(response) {
+  const headers = new Headers(response.headers);
+
+  for (const [headerName, headerValue] of Object.entries(securityHeaders)) {
+    headers.set(headerName, headerValue);
+  }
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
@@ -14,7 +50,7 @@ export default {
         }
       }
 
-      return Response.redirect(target.toString(), 301);
+      return withSecurityHeaders(Response.redirect(target.toString(), 301));
     };
 
     if (path === "/index.php") {
@@ -69,6 +105,6 @@ export default {
       return redirect("/visit/");
     }
 
-    return fetch(request);
+    return withSecurityHeaders(await fetch(request));
   },
 };
