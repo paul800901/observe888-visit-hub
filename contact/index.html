@@ -296,9 +296,44 @@
       "isPartOf": {
         "@id": "https://www.observe888.com/#website"
       },
+      "publisher": {
+        "@id": "https://www.observe888.com/#organization"
+      },
       "about": {
         "@id": "https://www.observe888.com/#local-business"
       }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.observe888.com/#organization",
+      "name": "見觀結構",
+      "alternateName": [
+        "見觀結構調理整復所",
+        "見觀整復所",
+        "Observe888"
+      ],
+      "url": "https://www.observe888.com/",
+      "image": "https://www.observe888.com/assets/gmb/south-single-30-40-card-s0.png",
+      "email": "observe88888@gmail.com",
+      "sameAs": [
+        "https://www.google.com/maps/place/%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B%E8%AA%BF%E7%90%86%E6%95%B4%E5%BE%A9%E6%89%80-%E5%8D%97%E5%8D%80%E5%BA%97/data=!4m7!3m6!1s0x346e75c1ca233b3d:0x3592fcab2e48ad03!8m2!3d22.9381209!4d120.1810271!16s%2Fg%2F11sg_8rbc_!19sChIJPTsjysF1bjQRA61ILqv8kjU",
+        "https://line.me/ti/p/~@483yvmiw",
+        "https://www.instagram.com/observe.tw/",
+        "https://www.threads.net/@sl800901",
+        "https://www.facebook.com/profile.php?id=61589375001647"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+886-973-728-670",
+          "contactType": "customer service",
+          "areaServed": "TW-TNN",
+          "availableLanguage": [
+            "zh-Hant",
+            "zh-TW"
+          ]
+        }
+      ]
     },
     {
       "@type": "LocalBusiness",
@@ -309,6 +344,8 @@
       "telephone": "+886-973-728-670",
       "email": "observe88888@gmail.com",
       "priceRange": "NT$500-800",
+      "currenciesAccepted": "TWD",
+      "openingHours": "預約制，請先以 LINE 確認時段",
       "address": {
         "@type": "PostalAddress",
         "postalCode": "702",
@@ -325,8 +362,36 @@
       "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F",
       "sameAs": [
         "https://www.google.com/maps/place/%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B%E8%AA%BF%E7%90%86%E6%95%B4%E5%BE%A9%E6%89%80-%E5%8D%97%E5%8D%80%E5%BA%97/data=!4m7!3m6!1s0x346e75c1ca233b3d:0x3592fcab2e48ad03!8m2!3d22.9381209!4d120.1810271!16s%2Fg%2F11sg_8rbc_!19sChIJPTsjysF1bjQRA61ILqv8kjU",
+        "https://line.me/ti/p/~@483yvmiw",
         "https://www.instagram.com/observe.tw/",
+        "https://www.threads.net/@sl800901",
         "https://www.facebook.com/profile.php?id=61589375001647"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+886-973-728-670",
+          "contactType": "customer service",
+          "areaServed": "TW-TNN",
+          "availableLanguage": [
+            "zh-Hant",
+            "zh-TW"
+          ]
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "台南市"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "台南市南區"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "台南市東區"
+        }
       ]
     }
   ]
@@ -381,8 +446,24 @@
               <dd><a href="tel:+886973728670">0973-728-670</a></dd>
             </div>
             <div>
+              <dt>LINE</dt>
+              <dd><a href="/booking/?source=contact_nap">LINE 預約需求表單</a>；若只需官方帳號入口，可從 <a href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noopener noreferrer">LINE 官方聯絡入口</a> 開啟。</dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:observe88888@gmail.com">observe88888@gmail.com</a></dd>
+            </div>
+            <div>
               <dt>費用參考</dt>
               <dd>單次約 NT$500-800；若延長到約 60 分鐘，當次為 NT$1000，實際安排仍以本次狀態與現場說明為準。</dd>
+            </div>
+            <div>
+              <dt>服務範圍</dt>
+              <dd>以台南市南區明興路店為主要公開到店點，東區工作室為純預約；附近區域仍請先用導航與 LINE 確認時段。</dd>
+            </div>
+            <div>
+              <dt>營業方式</dt>
+              <dd>採預約制，現場安排不以固定候位為準；請先用 LINE 或電話確認。</dd>
             </div>
           </dl>
         </div>
@@ -407,6 +488,21 @@
       </ol>
     </section>
 
+    <section class="panel" aria-labelledby="localContactTitle">
+      <span class="panel-label">區域與店點</span>
+      <h2 id="localContactTitle">南區店、東區工作室與附近區域怎麼確認？</h2>
+      <p>南區店是主要公開到店點；東區工作室地址公開但採純預約。若從中西區、安平區、仁德區、永康區或其他台南市區出發，請先用到店導航確認路線，再用 LINE 留下可配合時段。</p>
+      <ul>
+        <li>南區店：702 台南市南區明興路 673 號。</li>
+        <li>東區工作室：台南市東區新樓街65號，二樓純預約，不建議未確認直接前往。</li>
+        <li>服務安排：以 LINE 回覆、可配合時段與當次身體狀態確認，不以搜尋結果推論可直接到場。</li>
+      </ul>
+      <div class="actions">
+        <a class="button is-ghost" href="/visit/">查看到店導航</a>
+        <a class="button is-forest" href="/booking/?source=contact_local_area">LINE 留預約需求</a>
+      </div>
+    </section>
+
     <section class="panel" aria-labelledby="sourceTitle">
       <span class="panel-label">外部目錄與公共來源</span>
       <h2 id="sourceTitle">外部連結用來核對地點與公共資訊</h2>
@@ -418,7 +514,8 @@
           <li><a href="https://www.mohw.gov.tw/" target="_blank" rel="noopener noreferrer">衛生福利部</a></li>
           <li><a href="https://www.wikidata.org/wiki/Q140631" target="_blank" rel="noopener noreferrer">Wikidata：Tainan</a></li>
           <li><a href="https://zh.wikipedia.org/wiki/%E8%87%BA%E5%8D%97%E5%B8%82" target="_blank" rel="noopener noreferrer">Wikipedia：臺南市</a></li>
-          <li><a href="https://www.instagram.com/observe.tw/" target="_blank" rel="noopener noreferrer">Instagram：observe.tw</a>、<a href="https://www.facebook.com/profile.php?id=61589375001647" target="_blank" rel="noopener noreferrer">Facebook：見觀結構公開頁</a></li>
+          <li><a href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noopener noreferrer">LINE：見觀結構官方聯絡入口</a></li>
+          <li><a href="https://www.instagram.com/observe.tw/" target="_blank" rel="noopener noreferrer">Instagram：observe.tw</a>、<a href="https://www.threads.net/@sl800901" target="_blank" rel="noopener noreferrer">Threads：sl800901</a>、<a href="https://www.facebook.com/profile.php?id=61589375001647" target="_blank" rel="noopener noreferrer">Facebook：見觀結構公開頁</a></li>
         </ul>
       </div>
     </section>

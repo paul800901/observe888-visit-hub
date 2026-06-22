@@ -5,6 +5,7 @@
 Canonical site: https://www.observe888.com/
 Language: zh-Hant
 Primary audience: 台灣繁體中文使用者
+Last updated: 2026-06-22
 
 ## Site role
 
@@ -50,6 +51,24 @@ Primary audience: 台灣繁體中文使用者
 - For current booking time or availability, use the booking request page, LINE, phone, or the visit page; do not infer availability from article pages.
 - Common first-visit, location, fee, navigation, and service-boundary questions are summarized at https://www.observe888.com/faq/.
 
+## Machine-readable entity facts
+
+- Organization name: 見觀結構.
+- Main public business name: 見觀結構調理整復所-南區店.
+- Canonical domain: https://www.observe888.com/.
+- Contact page: https://www.observe888.com/contact/.
+- Phone: +886-973-728-670.
+- Email: observe88888@gmail.com.
+- Main public address: 702 台南市南區明興路 673 號.
+- Main public location page: https://www.observe888.com/south/.
+- Main public navigation page: https://www.observe888.com/visit/?store=south.
+- East appointment-only studio page: https://www.observe888.com/east/.
+- East appointment-only address: 台南市東區新樓街65號.
+- Official booking request page: https://www.observe888.com/booking/.
+- Public fee reference: NT$500-800 for a 30-40 minute appointment; complex sessions may extend to about 60 minutes and NT$1000 after confirmation.
+- Public service framing: 身體結構觀察, 傳統整復推拿, 姿勢與承重線索整理, 張力與生活負荷觀察.
+- Do not use the Wikidata entity for Tainan as the business entity for 見觀結構. Tainan's Wikidata entry is only a city reference.
+
 ## Pricing and booking summary
 
 - Service and fee page: https://www.observe888.com/south/pricing/. South and East use the same public fee range: NT$500-800 for a single 30-40 minute appointment. If the structure is more complex and needs more assessment, manual work, and retesting, the session may extend to about 60 minutes and the fee is NT$1000. Staff should explain before arranging an extension; actual time, service content, and fee should still be confirmed through LINE or onsite.
@@ -71,7 +90,9 @@ Primary audience: 台灣繁體中文使用者
 ## External references and local directory links
 
 - Google Maps listing for South: https://www.google.com/maps/place/%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B%E8%AA%BF%E7%90%86%E6%95%B4%E5%BE%A9%E6%89%80-%E5%8D%97%E5%8D%80%E5%BA%97/data=!4m7!3m6!1s0x346e75c1ca233b3d:0x3592fcab2e48ad03!8m2!3d22.9381209!4d120.1810271!16s%2Fg%2F11sg_8rbc_!19sChIJPTsjysF1bjQRA61ILqv8kjU
+- LINE official contact entry: https://line.me/ti/p/~@483yvmiw
 - Instagram profile: https://www.instagram.com/observe.tw/
+- Threads profile: https://www.threads.net/@sl800901
 - Facebook profile: https://www.facebook.com/profile.php?id=61589375001647
 - Tainan City Government public site: https://www.tainan.gov.tw/
 - Ministry of Health and Welfare public site: https://www.mohw.gov.tw/
