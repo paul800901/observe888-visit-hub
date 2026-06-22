@@ -1,6 +1,6 @@
 # ObserveGeoPages 交接
 
-最後更新：2026-05-22
+最後更新：2026-06-22
 
 ## 先讀什麼
 
@@ -138,6 +138,14 @@
 - HiNet nameserver 已改成 `nico.ns.cloudflare.com` / `rosa.ns.cloudflare.com` 並在 HiNet 後台讀回；`1.1.1.1` 與 `8.8.8.8` 查 NS 與 `www` A 已回 Cloudflare。Cloudflare HTTPS 邊緣已可回 `200`，8 條優先舊 URL 已用 Cloudflare proxy IP 驗證為 `301` 且目的地正確。本機 / ISP DNS cache 可能短暫仍看到 GitHub Pages 舊紀錄，等快取自然退即可。
 - 2026-05-19 19:10 已用正式網址、不指定 IP 重測：首頁、`robots.txt`、`sitemap.xml` 回 `200`，apex `https://observe888.com/` 回 `301` 到 `https://www.observe888.com/`，8 條舊 URL 全部回 Cloudflare `301` 且目的地正確。本機一度仍連到 GitHub Pages / Fastly 舊 IP；清 DNS cache 後驗收通過。
 - 2026-05-21 收到 Search Console `找不到網頁 (404)` 新原因通知後，已重測正式站：`sitemap.xml` 內 35 個正式 URL 全部 `200`；漏網舊 URL `https://www.observe888.com/index.php` 與 `https://www.observe888.com/paper/other_select_index.php?group_id=874&title_id=11271` 原本仍回 `404`。本 repo 不補 `.php` 靜態 fallback，因為 GitHub Pages 不支援 PHP 或 server-side redirect；已用 Cloudflare Worker `observe888-legacy-redirects` 掛兩條 route 修正，原始碼在 `cloudflare/observe888-legacy-redirects.js`。修正後 `index.php` 回 `301 -> https://www.observe888.com/`，缺 `id` 的 `other_select_index.php` 回 `301 -> https://www.observe888.com/visit/`，`id=3718` 仍回 `301 -> https://www.observe888.com/north/pricing/`。
+
+## 2026-06-22 Cloudflare 安全標頭
+
+- 已把既有 Cloudflare Worker `observe888-legacy-redirects` 擴成 `www.observe888.com/*` catch-all route，並在 Worker 回應加上 HSTS、CSP、X-Content-Type-Options、X-Frame-Options、Referrer-Policy、Permissions-Policy。
+- Worker 部署版本：`dffd3350-1c77-4471-ad87-2e22d86fc4f5`，message `Add security headers 2026-06-22`。
+- 已公開讀回首頁、`/visit/`、`/south/`、`robots.txt`、`sitemap.xml`、`/north/`、`/north/pricing/`、`/index.php` 都有六個安全標頭；詳見 `docs/cloudflare-redirect-migration-2026-05-19.md`。
+- AEO Pro 2026-06-22 15:59:13 重掃：Total `73 / 100`、SEO `92`、AEO `63`、GEO `63`、通過 `38 / 53`；`安全瀏覽防護` 已不再列在警告 / 未通過清單。
+- 注意：`/paper/other_select_index.php?id=3718...` 與 `/products/car.php` 仍先命中 Cloudflare Single Redirect，轉址目標正確，但該 301 本身不帶 Worker 新增 headers；若要補這兩條，需進 Cloudflare 規則層處理 Single Redirect / Response Header Transform。
 
 ## 2026-05-19 Google Business 讀回與貼文判斷
 

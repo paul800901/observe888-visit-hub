@@ -1,6 +1,63 @@
 # Cloudflare 舊 PHP URL 301 導入與驗收紀錄
 
-最後更新：2026-06-12 18:30 +08:00
+最後更新：2026-06-22 15:54 +08:00
+
+## 2026-06-22 Cloudflare Worker 安全標頭更新
+
+2026-06-22 AEO / SEO 健康檢查指出正式首頁缺少安全標頭。本輪不改 GitHub Pages 靜態檔，也不改 DNS；沿用既有 Cloudflare Worker `observe888-legacy-redirects`，把安全標頭加在 Worker 回出的所有正常頁面與 Worker 轉址回應上。
+
+Worker 原始碼已更新：
+
+- `cloudflare/observe888-legacy-redirects.js`
+
+本輪部署：
+
+- Wrangler OAuth 帳戶：`observe88888@gmail.com`
+- Cloudflare account：`Observe88888@gmail.com's Account`
+- Worker：`observe888-legacy-redirects`
+- route：`www.observe888.com/*`
+- 版本 ID：`dffd3350-1c77-4471-ad87-2e22d86fc4f5`
+- deployment message：`Add security headers 2026-06-22`
+
+套用的安全標頭：
+
+- `Strict-Transport-Security: max-age=31536000; includeSubDomains`
+- `Content-Security-Policy`
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy`
+
+CSP 先採保守不破壞版本：保留 Google Ads tag、Google Maps iframe、OpenStreetMap 地址建議、Google Apps Script 事件回傳與同源 geolocation 功能；未做過度收緊，避免把到店導航助手與追蹤事件打壞。
+
+Live readback：
+
+| URL | 讀回 |
+| --- | --- |
+| `https://www.observe888.com/` | `200`，六個安全標頭皆存在；title 為新版首頁 title |
+| `https://www.observe888.com/visit/` | `200`，六個安全標頭皆存在 |
+| `https://www.observe888.com/south/` | `200`，六個安全標頭皆存在 |
+| `https://www.observe888.com/sitemap.xml` | `200`，六個安全標頭皆存在 |
+| `https://www.observe888.com/robots.txt` | `200`，六個安全標頭皆存在 |
+| `https://www.observe888.com/north/` | `301` -> `https://www.observe888.com/visit/`，六個安全標頭皆存在 |
+| `https://www.observe888.com/north/pricing/` | `301` -> `https://www.observe888.com/south/pricing/`，六個安全標頭皆存在 |
+| `https://www.observe888.com/index.php` | `301` -> `https://www.observe888.com/`，六個安全標頭皆存在 |
+
+AEO Pro re-scan：
+
+- 掃描時間：2026-06-22 15:59:13 +08:00
+- Total：`73 / 100`，Grade `B`
+- SEO：`92`
+- AEO：`63`
+- GEO：`63`
+- 通過項目：`38 / 53`
+- 未通過警告：`3`
+- `安全瀏覽防護` 已不再出現在警告 / 未通過清單；剩餘前三項為外連品質、Chunk 語意區塊就緒度、BLUF 密度。
+
+仍需注意：
+
+- `https://www.observe888.com/paper/other_select_index.php?id=3718&title_id=11271&group_id=874` 與 `https://www.observe888.com/products/car.php` 仍先命中 Cloudflare Single Redirect，轉址目標正確，但該 301 回應本身不帶 Worker 新增的安全標頭。
+- 若未來要讓這兩條舊 URL 的 301 回應也帶安全標頭，需要到 Cloudflare 規則層處理 Single Redirect / Response Header Transform，或移除對應 Single Redirect 讓 Worker 接手；這不是 repo 內 Worker 程式可單獨覆蓋的順序。
 
 ## 2026-06-12 北區退場後的索引清理更新
 
