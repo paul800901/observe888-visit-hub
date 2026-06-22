@@ -145,6 +145,9 @@
 - Worker 部署版本：`dffd3350-1c77-4471-ad87-2e22d86fc4f5`，message `Add security headers 2026-06-22`。
 - 已公開讀回首頁、`/visit/`、`/south/`、`robots.txt`、`sitemap.xml`、`/north/`、`/north/pricing/`、`/index.php` 都有六個安全標頭；詳見 `docs/cloudflare-redirect-migration-2026-05-19.md`。
 - AEO Pro 2026-06-22 15:59:13 重掃：Total `73 / 100`、SEO `92`、AEO `63`、GEO `63`、通過 `38 / 53`；`安全瀏覽防護` 已不再列在警告 / 未通過清單。
+- 2026-06-22 後續依 AEO Pro 未通過項目補首頁 AEO / GEO 訊號：`index.html` 補 H2 首段直答、定義區塊、外部權威 / 社群 / 地圖連結、南區地圖 iframe、`hreflang`、LocalBusiness `sameAs`；新增 `contact/index.html` 聯絡頁；同步 `sitemap.xml` 與 `llms.txt`。
+- 本輪公開讀回：`https://www.observe888.com/` 已包含「外部資料只用來核對地點與公共資訊」；`https://www.observe888.com/contact/` 回 `200`；`sitemap.xml` 已包含 `/contact/`；首頁與聯絡頁 JSON-LD 可解析，兩頁各有 3 個 `hreflang`、1 個地圖 iframe、12 個外部連結；首頁、`/contact/`、`sitemap.xml` 皆讀回六個安全標頭。
+- AEO Pro 重掃被帳號額度擋住：掃描頁顯示 `已達免費方案限制`，帳號額度顯示 `3/3`；健檢報告頁顯示 `尚未執行任何掃描`。解除 AEO Pro 掃描額度或切到可用帳號後，再重跑分數驗證；目前不能宣稱 SEO / AEO / GEO 分數已提升。
 - 注意：`/paper/other_select_index.php?id=3718...` 與 `/products/car.php` 仍先命中 Cloudflare Single Redirect，轉址目標正確，但該 301 本身不帶 Worker 新增 headers；若要補這兩條，需進 Cloudflare 規則層處理 Single Redirect / Response Header Transform。
 
 ## 2026-05-19 Google Business 讀回與貼文判斷
