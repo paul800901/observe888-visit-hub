@@ -672,6 +672,8 @@
       "telephone": "+886-973-728-670",
       "email": "observe88888@gmail.com",
       "priceRange": "NT$500-800",
+      "currenciesAccepted": "TWD",
+      "openingHours": "預約制，請先以 LINE 確認時段",
       "address": {
         "@type": "PostalAddress",
         "postalCode": "702",
@@ -691,9 +693,51 @@
         "https://www.instagram.com/observe.tw/",
         "https://www.facebook.com/profile.php?id=61589375001647"
       ],
-      "areaServed": {
-        "@type": "City",
-        "name": "台南市南區"
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "台南市",
+          "sameAs": [
+            "https://www.wikidata.org/wiki/Q140631",
+            "https://zh.wikipedia.org/wiki/%E8%87%BA%E5%8D%97%E5%B8%82"
+          ]
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "台南市南區"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "台南市東區"
+        }
+      ],
+      "serviceArea": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "台南市南區"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "台南市東區"
+        }
+      ],
+      "makesOffer": {
+        "@type": "OfferCatalog",
+        "name": "見觀結構預約服務",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "身體結構觀察",
+            "priceCurrency": "TWD",
+            "availability": "https://schema.org/InStoreOnly"
+          },
+          {
+            "@type": "Offer",
+            "name": "傳統整復推拿",
+            "priceCurrency": "TWD",
+            "availability": "https://schema.org/InStoreOnly"
+          }
+        ]
       },
       "department": [
         {
@@ -737,6 +781,24 @@
           "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F",
           "description": "台南東區工作室（純預約）位於台南市東區新樓街65號，為二樓預約制工作室，非固定駐點，請先用 LINE 確認時段。"
         }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.observe888.com/#source-citations",
+      "name": "見觀結構首頁外部資料引用",
+      "url": "https://www.observe888.com/#sourceTitle",
+      "about": {
+        "@id": "https://www.observe888.com/#local-business"
+      },
+      "citation": [
+        "https://www.google.com/maps/place/%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B%E8%AA%BF%E7%90%86%E6%95%B4%E5%BE%A9%E6%89%80-%E5%8D%97%E5%8D%80%E5%BA%97/data=!4m7!3m6!1s0x346e75c1ca233b3d:0x3592fcab2e48ad03!8m2!3d22.9381209!4d120.1810271!16s%2Fg%2F11sg_8rbc_!19sChIJPTsjysF1bjQRA61ILqv8kjU",
+        "https://www.tainan.gov.tw/",
+        "https://www.mohw.gov.tw/",
+        "https://www.wikidata.org/wiki/Q140631",
+        "https://zh.wikipedia.org/wiki/%E8%87%BA%E5%8D%97%E5%B8%82",
+        "https://www.instagram.com/observe.tw/",
+        "https://www.facebook.com/profile.php?id=61589375001647"
       ]
     },
     {
@@ -908,6 +970,18 @@
               <dt>預約</dt>
               <dd><a href="/booking/?source=home_contact">LINE 留預約需求</a>；明確且無衝突的時段會自動成立，模糊時段由店家人工確認。</dd>
             </div>
+            <div>
+              <dt>服務範圍</dt>
+              <dd>主要公開到店點為台南市南區明興路 673 號；東區工作室為純預約，請先用 LINE 確認店點與時段。</dd>
+            </div>
+            <div>
+              <dt>營業方式</dt>
+              <dd>採預約制，營業時段不以現場等候為準；實際安排依 LINE 回覆、可配合時間與當次內容確認。</dd>
+            </div>
+            <div>
+              <dt>交通核對</dt>
+              <dd>出發前可用 Google Maps 核對南區店位置，也可從到店導航入口確認南區與東區不要混淆。</dd>
+            </div>
           </dl>
           <div class="hero-actions">
             <a class="button is-forest" href="/contact/">查看聯絡頁</a>
@@ -978,6 +1052,7 @@
         <li><cite><a href="https://zh.wikipedia.org/wiki/%E8%87%BA%E5%8D%97%E5%B8%82" target="_blank" rel="noopener noreferrer">Wikipedia：臺南市</a></cite></li>
         <li><cite><a href="https://www.instagram.com/observe.tw/" target="_blank" rel="noopener noreferrer">Instagram：observe.tw</a></cite>、<cite><a href="https://www.facebook.com/profile.php?id=61589375001647" target="_blank" rel="noopener noreferrer">Facebook：見觀結構公開頁</a></cite></li>
       </ol>
+      <p>引用目的：Google Maps 用於核對南區店公開地點；臺南市政府、Wikidata 與 Wikipedia 用於核對台南城市實體；衛生福利部用於提醒急性或惡化狀況應先就醫。</p>
     </section>
 
     <section class="panel" aria-labelledby="homeFaqTitle">
