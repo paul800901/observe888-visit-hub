@@ -6,7 +6,7 @@
 
 ## 專案主責
 
-- 正式官網頁面與公開內容：首頁、品牌頁、到店導航、南區店、東區工作室、服務與費用、身體觀察筆記。
+- 正式官網頁面與公開內容：首頁、品牌頁、到店導航、南區店、東區工作室、服務與費用、身體觀察筆記、短影音回流入口。
 - Google 商家檔案資料一致性：店名、地址、電話、網站 URL、服務項目、商家描述、照片素材與地圖入口。
 - 搜尋與答案引擎可讀內容：`sitemap.xml`、`robots.txt`、`llms.txt`、FAQ、品牌說明、服務邊界、到店資訊。
 - 公開內容安全邊界：品牌主張不寫醫療保證、治療承諾或根因確診；若為匿名患者或故事角色的主觀感受，可保留前後感受差異或個人回饋，但不可寫成見觀官方保證、普遍結果或可識別個案。
@@ -20,8 +20,10 @@
 - `south/pricing/index.html`：南區服務與費用 / 預約說明。
 - `north/index.html`、`north/pricing/index.html`：北區退場後保留的舊入口 fallback；正式對外應由 Cloudflare 301 直接導到 `/visit/` 與 `/south/pricing/`。
 - `about/index.html`：品牌與服務方式說明。
+- `shorts/index.html`：FB、IG、YouTube Shorts 短影音回到官網的預約、費用、導航與服務分流入口。
 - `notes/index.html`：身體觀察筆記分類入口。
 - `notes/*/index.html`：公開文章與分類頁。
+- `docs/SOCIAL_SHORT_VIDEO_FUNNEL_2026-06-23.md`：短影音與文章發布時的官網回流規則。
 - `assets/gmb/`：Google 商家檔案與地圖曝光可用的公開圖片素材。
 - `docs/website-operations.md`：網站營運、Google 商家一致性、GEO / AEO 與驗證清單。
 - `llms.txt`：AI / 答案引擎補充導覽。

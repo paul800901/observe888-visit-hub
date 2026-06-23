@@ -28,6 +28,7 @@
 - `north/index.html`、`south/index.html`：店點頁。
 - `north/pricing/index.html`、`south/pricing/index.html`：服務與費用 / 預約說明。
 - `about/index.html`：品牌介紹。
+- `shorts/index.html`：FB、IG、YouTube Shorts 短影音回到官網的預約、費用、導航與服務分流入口。
 - `notes/index.html`：身體觀察筆記分類入口。
 - `notes/search-terms-overview/index.html`：檢查名詞與搜尋問法分類入口。
 - `notes/*/index.html`：公開文章頁。
@@ -37,6 +38,7 @@
 - `docs/organic-search-growth-goal-map-2026-05-19.md`：自然搜尋成長目標地圖，整理競品流量差距、官網、Google 商家、外部曝光、內容群、驗收節奏與合夥人溝通版。
 - `docs/maps-tainan-tuina-readback-2026-05-19.md`：`台南推拿` / `台南整復推拿` Google Maps 讀回與 GBP 缺口分析。
 - `docs/maps-ranking-vendor-decision-2026-05-21.md`：記錄地圖排序代操不再作為預設解法、自然搜尋與 Maps 分工、競品 Maps 優勢來源與見觀後續策略。
+- `docs/SOCIAL_SHORT_VIDEO_FUNNEL_2026-06-23.md`：短影音與文章發布時的官網回流規則，避免 FB / IG / YouTube Shorts 發出後沒有導回預約、費用、導航或服務頁。
 - `docs/google-business-photo-refresh-2026-05-20.md`：Google Business Profile 南北店相片補充紀錄與素材包位置。
 - `docs/google-business-storefront-source-photos-2026-05-20.md`：給網頁版 GPT 做圖卡時使用的真實門店底圖包與使用說明。
 - `docs/google-business-route-parking-booking-prompts-2026-05-20.md`：下一批 Google Business 到店路線、停車提醒、費用 / 預約流程圖卡提示詞。

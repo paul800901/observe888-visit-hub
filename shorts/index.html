@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <title>見觀短影音入口｜FB、IG、YouTube Shorts 回到預約、費用與導航</title>
+  <meta name="description" content="從 Facebook、Instagram 或 YouTube Shorts 看到見觀結構短影音後，可回到官網確認預約、服務費用、南區與東區導航、常見身體問法與安全邊界。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="見觀結構">
+  <meta property="og:title" content="見觀短影音入口｜看完短片回到官網下一步">
+  <meta property="og:description" content="短影音是理解入口；預約、費用、到店導航與服務邊界以官網為準。">
+  <meta property="og:url" content="https://www.observe888.com/shorts/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="見觀短影音入口｜看完短片回到官網下一步">
+  <meta name="twitter:description" content="從 FB、IG、YouTube Shorts 回到官網確認預約、費用、導航與服務邊界。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5ecdf;
+      --paper: rgba(255, 251, 245, 0.92);
+      --line: rgba(87, 63, 48, 0.14);
+      --text: #3f2e22;
+      --muted: #6f5a49;
+      --accent: #a14f2a;
+      --forest: #2e5e4b;
+      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(180deg, #fbf6ee 0%, var(--bg) 58%, #f0e4d4 100%);
+    }
+
+    a {
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .shell {
+      width: min(960px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 22px 0 64px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .topnav,
+    .hero,
+    .content-card,
+    .cta-strip {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(87, 63, 48, 0.07);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .topnav-brand {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .hero,
+    .content-card {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(161, 79, 42, 0.1);
+      color: #7e381d;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 20px;
+      line-height: 1.45;
+    }
+
+    h3 {
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .choice-grid,
+    .social-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .choice-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .choice-card,
+    .social-link {
+      display: grid;
+      gap: 6px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(87, 63, 48, 0.07);
+      text-decoration: none;
+    }
+
+    .choice-card span,
+    .social-link span {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .choice-card small,
+    .social-link small {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .choice-card.is-primary {
+      background: var(--forest);
+    }
+
+    .choice-card.is-primary span,
+    .choice-card.is-primary small {
+      color: #fff;
+    }
+
+    .cta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 16px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 16px 28px rgba(126, 56, 29, 0.2);
+    }
+
+    .button.is-forest {
+      background: var(--forest);
+      box-shadow: 0 16px 28px rgba(36, 72, 58, 0.22);
+    }
+
+    .button.is-ghost {
+      background: rgba(87, 63, 48, 0.07);
+      color: var(--text);
+      box-shadow: none;
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100vw - 16px, 960px);
+        padding: max(12px, env(safe-area-inset-top)) 0 calc(30px + env(safe-area-inset-bottom));
+      }
+
+      .hero,
+      .content-card,
+      .cta-strip {
+        border-radius: 22px;
+        padding: 18px;
+      }
+
+      .choice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+        min-height: 50px;
+        font-size: 16px;
+      }
+    }
+  </style>
+  <link rel="canonical" href="https://www.observe888.com/shorts/">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.observe888.com/shorts/#webpage",
+      "url": "https://www.observe888.com/shorts/",
+      "name": "見觀短影音入口",
+      "description": "承接 Facebook、Instagram、YouTube Shorts 短影音流量，回到見觀結構官網的預約、費用、導航與服務邊界入口。",
+      "inLanguage": "zh-Hant",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.observe888.com/#website",
+        "name": "見觀結構",
+        "url": "https://www.observe888.com/"
+      },
+      "about": {
+        "@type": "LocalBusiness",
+        "name": "見觀結構調理整復所-南區店",
+        "url": "https://www.observe888.com/",
+        "sameAs": [
+          "https://www.instagram.com/observe.tw/",
+          "https://www.facebook.com/profile.php?id=61589375001647",
+          "https://www.threads.net/@sl800901",
+          "https://www.youtube.com/@observe88888"
+        ]
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.observe888.com/shorts/#next-steps",
+      "name": "短影音看完後的官網下一步",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "預約",
+          "url": "https://www.observe888.com/booking/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "服務與費用",
+          "url": "https://www.observe888.com/south/pricing/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "南區與東區導航",
+          "url": "https://www.observe888.com/visit/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "台南整復推拿服務說明",
+          "url": "https://www.observe888.com/services/tainan-tuina/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="../observe888-bottom-nav.css">
+</head>
+<body>
+  <main class="shell">
+    <nav class="topnav" aria-label="頁面導覽">
+      <a class="back-link" href="../">回到首頁</a>
+      <span class="topnav-brand">見觀結構｜短影音回流入口</span>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">FB / IG / YouTube Shorts</span>
+      <h1>看完短影音，下一步回到官網確認</h1>
+      <p>短影音適合先理解一個身體狀況，但預約、費用、南區與東區導航、服務邊界，仍以官網整理的資訊為準。</p>
+      <p>如果你是因為肩頸腰背四肢卡緊、閃腰、落枕、運動拉傷、跌打扭傷、骨刺酸痛或久坐緊繃看到我們，先選下面最接近的下一步。</p>
+    </header>
+
+    <section class="content-card" aria-labelledby="shortsNextStepTitle">
+      <h2 id="shortsNextStepTitle">先選你現在要做什麼</h2>
+      <div class="choice-grid">
+        <a class="choice-card is-primary" href="../booking/?source=shorts_choice_booking">
+          <span>我要預約</span>
+          <small>用 LINE 留狀況、店點與可配合時間。</small>
+        </a>
+        <a class="choice-card" href="../south/pricing/?source=shorts_choice_pricing">
+          <span>服務與費用</span>
+          <small>先確認單次時間、費用範圍與延長說明。</small>
+        </a>
+        <a class="choice-card" href="../visit/?source=shorts_choice_visit">
+          <span>南區 / 東區導航</span>
+          <small>先選店點，再看地圖、電話與 LINE。</small>
+        </a>
+        <a class="choice-card" href="../services/tainan-tuina/?source=shorts_choice_service">
+          <span>先了解服務</span>
+          <small>看見觀怎麼整理常見身體問法與服務邊界。</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-card" aria-labelledby="shortsBodyWordsTitle">
+      <h2 id="shortsBodyWordsTitle">可以怎麼描述你的狀況</h2>
+      <p>不用先講得很專業。LINE 留需求時，直接說你遇到的狀況，例如：</p>
+      <ul>
+        <li>肩頸卡緊、腰背緊繃、久坐後卡卡。</li>
+        <li>閃腰、落枕、轉頭不順、彎腰不敢用力。</li>
+        <li>運動拉傷後緊繃、跌倒扭到後還是不順。</li>
+        <li>骨刺、神經壓迫、坐骨神經痛、椎間盤突出等檢查名詞，想知道到店前該怎麼整理問題。</li>
+      </ul>
+    </section>
+
+    <section class="content-card" aria-labelledby="shortsSocialTitle">
+      <h2 id="shortsSocialTitle">官方社群入口</h2>
+      <p>社群平台適合看短內容；如果要安排時段或確認到店資訊，請回到官網或 LINE。</p>
+      <div class="social-grid">
+        <a class="social-link" href="https://www.instagram.com/observe.tw/" target="_blank" rel="noopener noreferrer">
+          <span>Instagram：observe.tw</span>
+          <small>短影音、圖文與近況更新。</small>
+        </a>
+        <a class="social-link" href="https://www.facebook.com/profile.php?id=61589375001647" target="_blank" rel="noopener noreferrer">
+          <span>Facebook：見觀結構公開頁</span>
+          <small>短影音、公告與在地資訊。</small>
+        </a>
+        <a class="social-link" href="https://www.youtube.com/@observe88888/shorts" target="_blank" rel="noopener noreferrer">
+          <span>YouTube Shorts：@observe88888</span>
+          <small>短影音與影片內容。</small>
+        </a>
+        <a class="social-link" href="https://www.threads.net/@sl800901" target="_blank" rel="noopener noreferrer">
+          <span>Threads：sl800901</span>
+          <small>短文字與社群補充。</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-card" aria-labelledby="shortsBoundaryTitle">
+      <h2 id="shortsBoundaryTitle">安全邊界</h2>
+      <p>本站與短影音內容用來整理觀察方向，不是診斷、治療或療效承諾。若有急性外傷、明顯無力、大小便異常、發燒感染、快速惡化或嚴重不尋常症狀，請先尋求醫療評估。</p>
+    </section>
+
+    <div class="cta-strip" aria-label="頁面入口">
+      <a class="button is-forest" href="../booking/?source=shorts_bottom_booking">我要預約</a>
+      <a class="button is-ghost" href="../notes/?source=shorts_bottom_notes">身體觀察筆記</a>
+      <a class="button is-ghost" href="../">回到首頁</a>
+    </div>
+  </main>
+
+  <script src="../observe888-tracking-config.js"></script>
+  <script src="../observe888-tracking.js"></script>
+  <script src="../observe888-bottom-nav.js"></script>
+  <script>
+    const pageTracker = window.Observe888Tracker;
+    if (pageTracker && typeof pageTracker.trackPageView === 'function') {
+      pageTracker.trackPageView('page_view_shorts', { page_role: 'social_shorts_entry' });
+    }
+  </script>
+</body>
+</html>
