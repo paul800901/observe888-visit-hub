@@ -114,7 +114,7 @@
     .nav-pill {
       display: inline-flex;
       align-items: center;
-      min-height: 38px;
+      min-height: 44px;
       padding: 0 14px;
       border-radius: 999px;
       background: rgba(87, 63, 48, 0.07);
@@ -236,31 +236,32 @@
       box-shadow: none;
     }
 
-    .hero-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
     }
 
-    .chip {
+    .choice-card {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: rgba(161, 79, 42, 0.08);
-      color: #7e381d;
-      font-size: 13px;
-      font-weight: 700;
+      justify-content: center;
+      min-height: 64px;
+      padding: 12px 16px;
+      border: 1px solid rgba(87, 63, 48, 0.12);
+      border-radius: 20px;
+      background: var(--paper);
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.35;
+      text-align: center;
+      box-shadow: var(--shadow);
     }
 
-    .chip::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(161, 79, 42, 0.12);
+    .choice-card.is-primary {
+      background: var(--forest);
+      color: #fff;
     }
 
     .panel-grid {
@@ -434,6 +435,10 @@
     }
 
     @media (max-width: 820px) {
+      .choice-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .panel-grid,
       .contact-grid {
         grid-template-columns: 1fr;
@@ -505,11 +510,7 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-chips {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
+      .choice-grid,
       .faq-mini-grid {
         grid-template-columns: 1fr;
       }
@@ -520,8 +521,8 @@
       h3,
       p,
       .button,
-      .chip,
       .nav-pill,
+      .choice-card,
       .article-link {
         max-width: 100%;
         overflow-wrap: anywhere;
@@ -587,7 +588,8 @@
         "https://line.me/ti/p/~@483yvmiw",
         "https://www.instagram.com/observe.tw/",
         "https://www.threads.net/@sl800901",
-        "https://www.facebook.com/profile.php?id=61589375001647"
+        "https://www.facebook.com/profile.php?id=61589375001647",
+        "https://www.youtube.com/@observe88888"
       ],
       "contactPoint": [
         {
@@ -743,7 +745,8 @@
         "https://line.me/ti/p/~@483yvmiw",
         "https://www.instagram.com/observe.tw/",
         "https://www.threads.net/@sl800901",
-        "https://www.facebook.com/profile.php?id=61589375001647"
+        "https://www.facebook.com/profile.php?id=61589375001647",
+        "https://www.youtube.com/@observe88888"
       ],
       "contactPoint": [
         {
@@ -871,7 +874,8 @@
         "https://line.me/ti/p/~@483yvmiw",
         "https://www.instagram.com/observe.tw/",
         "https://www.threads.net/@sl800901",
-        "https://www.facebook.com/profile.php?id=61589375001647"
+        "https://www.facebook.com/profile.php?id=61589375001647",
+        "https://www.youtube.com/@observe88888"
       ]
     },
     {
@@ -936,44 +940,26 @@
     <nav class="topnav" aria-label="站內導覽">
       <div class="brand-block">
         <span class="brand-kicker">台南傳統整復推拿</span>
-        <span class="brand-title">見觀結構｜肩頸腰背與預約入口</span>
-      </div>
-      <div class="nav-links">
-        <a class="nav-pill" href="/booking/">預約</a>
-        <a class="nav-pill" href="/south/pricing/">服務與費用</a>
-        <a class="nav-pill" href="/services/tainan-tuina/">整復推拿說明</a>
-        <a class="nav-pill" href="/visit/">導航</a>
-        <a class="nav-pill" href="/contact/">聯絡</a>
-        <a class="nav-pill" href="/faq/">常見問題</a>
-        <a class="nav-pill" href="/notes/">筆記</a>
-        <a class="nav-pill" href="/comics/">漫畫</a>
-        <a class="nav-pill" href="/about/">品牌</a>
+        <span class="brand-title">見觀結構｜肩頸腰背四肢、閃腰落枕與預約入口</span>
       </div>
     </nav>
 
     <header class="hero">
       <span class="eyebrow">台南傳統整復推拿・肩頸腰背卡緊・LINE 預約入口</span>
       <div class="hero-copy">
-        <h1>肩頸腰背卡住，先把身體狀態整理清楚</h1>
+        <h1>肩頸腰背四肢卡住、閃腰或落枕</h1>
         <p class="hero-fee-note">費用參考 <strong>NT$500–800</strong>｜南區店與東區工作室同一範圍</p>
-        <div class="hero-actions">
-          <a id="homeBookingCta" class="button is-forest" href="/booking/?source=home">LINE 留預約需求</a>
-          <a class="button is-ghost" href="/services/tainan-tuina/">台南整復推拿怎麼選</a>
-          <a class="button" href="/south/pricing/">服務與費用｜NT$500–800</a>
-          <a id="homeVisitCta" class="button is-forest" href="/visit/">到店導航</a>
-        </div>
-        <p>肩頸卡緊、腰背緊繃、落枕後轉頭不順、久坐卡卡或運動後拉不開，都可以先用 LINE 留下位置、動作與大約多久了。</p>
+        <p>肩頸痠痛、腰背緊繃、閃腰、落枕、運動拉傷、跌打扭傷或骨刺酸痛這類常見說法，都可以先用 LINE 留下位置、怎麼發生與大約多久了。</p>
         <p>南區店與東區工作室採預約制。實際安排會依本次狀態、時間與處理內容確認。</p>
       </div>
-      <div class="hero-chips" role="list" aria-label="目前狀態">
-        <span class="chip" role="listitem">肩頸卡緊</span>
-        <span class="chip" role="listitem">腰背緊繃與久坐卡卡</span>
-        <span class="chip" role="listitem">落枕後轉頭不順</span>
-        <span class="chip" role="listitem">運動後緊繃拉不開</span>
-        <span class="chip" role="listitem">費用參考 NT$500–800</span>
-        <span class="chip" role="listitem">南區／東區純預約 LINE</span>
-      </div>
     </header>
+
+    <section class="choice-grid" aria-label="首頁快速分流">
+      <a id="homeBookingCta" class="choice-card is-primary" href="/booking/?source=home_choice_booking" aria-label="我要預約，用 LINE 留需求、店點與可配合時間">我要預約</a>
+      <a class="choice-card" href="/south/pricing/" aria-label="查看服務與費用">服務與費用</a>
+      <a id="homeVisitCta" class="choice-card" href="/visit/" aria-label="查看南區店與東區工作室導航">南區 / 東區導航</a>
+      <a class="choice-card" href="/services/tainan-tuina/" aria-label="了解台南整復推拿服務怎麼選">先了解服務</a>
+    </section>
 
     <section class="panel-grid" aria-label="閱讀方式">
       <div class="panel">
@@ -981,21 +967,21 @@
         <h2>不用先把病名查完，先講你卡在哪裡</h2>
         <p class="section-answer">第一次聯絡見觀時，直接描述身體卡緊的位置、出現多久、什麼動作最不順，比先替自己下診斷更有用；店家會依這些線索判斷是否適合安排到店。</p>
         <ul>
-          <li>肩頸卡緊、頭轉不順、低頭久了很緊</li>
-          <li>腰背緊繃、久坐卡卡、站久或走久覺得吃力</li>
-          <li>落枕後轉頭不順、閃到腰後不敢出力</li>
-          <li>運動後拉不開、骨盆左右差、走路一邊比較累</li>
+          <li>肩頸痠痛、肩頸卡緊、頭轉不順</li>
+          <li>腰背緊繃、久坐卡卡、閃到腰後不敢出力</li>
+          <li>落枕後轉頭不順、睡醒脖子卡住</li>
+          <li>運動拉傷、跌打扭傷、骨刺酸痛等常見問法</li>
         </ul>
       </div>
       <div class="panel">
-        <span class="panel-label">安排方式</span>
-        <h2>想安排就先填 LINE，想比較再看服務頁</h2>
-        <p class="section-answer">已經想安排時段就先填 LINE 預約需求；還在比較台南南區、東區、費用與服務邊界時，先看服務頁與 FAQ，讓預約和比較分開處理。</p>
+        <span class="panel-label">第一次來</span>
+        <h2>不確定能不能安排，先把狀況講清楚</h2>
+        <p class="section-answer">第一次聯絡不用先判斷自己是哪一種問題。先說位置、多久了、怎麼發生、什麼動作最卡，再用 LINE 或電話確認是否適合安排。</p>
         <ul>
-          <li>想直接預約，進到預約頁使用 LINE 預約需求表單</li>
-          <li>服務種類可先選結構調理、傳統按摩放鬆或不確定</li>
-          <li>填了明確且無衝突的時段會自動成立；模糊時段、改期或取消由店家人工確認</li>
-          <li>還在比較台南整復推拿、南區、東區、費用或服務邊界，先看 <a href="/services/tainan-tuina/">台南整復推拿服務說明</a>、服務與費用頁與到店導航</li>
+          <li>先講主要位置：肩頸、腰背、手腳或其他部位。</li>
+          <li>再講情境：閃到、落枕、運動後、跌倒扭到、久坐或睡醒後。</li>
+          <li>如果有明顯外傷、快速惡化、麻木無力或不尋常症狀，先就醫。</li>
+          <li>只是想確認能不能安排，再進 <a href="/booking/">預約頁</a> 留資料。</li>
         </ul>
       </div>
     </section>
@@ -1003,11 +989,11 @@
     <section class="panel" aria-labelledby="definitionTitle">
       <span class="panel-label">定義與邊界</span>
       <h2 id="definitionTitle">見觀結構先把服務邊界講清楚</h2>
-      <p class="section-answer">見觀結構南區店是台南南區的預約制身體結構觀察與傳統整復推拿入口，重點是整理肩頸腰背卡緊、姿勢承重與生活負荷線索，不是醫療診斷。</p>
+      <p class="section-answer">見觀結構南區店是台南南區的預約制身體結構觀察與傳統整復推拿入口，重點是整理肩頸腰背卡緊、動作卡點與生活使用習慣，不是醫療診斷。</p>
       <dl class="definition-list">
         <div>
           <dt><dfn>身體結構觀察</dfn></dt>
-          <dd>身體結構觀察是把疼痛名稱先放一邊，回到姿勢、承重、左右差、動作卡點與日常負荷，整理出本次到店要先確認的線索。</dd>
+          <dd>身體結構觀察是把疼痛名稱先放一邊，回到姿勢、左右差、出力方式、動作卡點與日常使用習慣，整理出本次到店要先確認的線索。</dd>
         </div>
         <div>
           <dt><dfn>傳統整復推拿</dfn></dt>
@@ -1022,15 +1008,11 @@
 
     <section class="panel" id="contact" aria-labelledby="homeContactTitle">
       <span class="panel-label">聯絡與地圖</span>
-      <h2 id="homeContactTitle">南區店聯絡與地圖先看這裡</h2>
-      <p class="section-answer">見觀結構南區店位於台南市南區明興路 673 號，電話 0973-728-670；到店前建議先填 LINE 預約需求，再用地圖確認路線。</p>
+      <h2 id="homeContactTitle">要出發，再進導航頁確認店點</h2>
+      <p class="section-answer">南區店位於台南市南區明興路 673 號；東區工作室是純預約二樓工作室。兩個地點不要混用，出發前先到導航頁選店點。</p>
       <div class="contact-grid">
         <div class="contact-card">
           <dl class="contact-list">
-            <div>
-              <dt>店名</dt>
-              <dd>見觀結構調理整復所-南區店</dd>
-            </div>
             <div>
               <dt>地址</dt>
               <dd>702 台南市南區明興路 673 號</dd>
@@ -1043,21 +1025,10 @@
               <dt>預約</dt>
               <dd><a href="/booking/?source=home_contact">LINE 留預約需求</a>；明確且無衝突的時段會自動成立，模糊時段由店家人工確認。</dd>
             </div>
-            <div>
-              <dt>服務範圍</dt>
-              <dd>主要公開到店點為台南市南區明興路 673 號；東區工作室為純預約，請先用 LINE 確認店點與時段。</dd>
-            </div>
-            <div>
-              <dt>營業方式</dt>
-              <dd>採預約制，營業時段不以現場等候為準；實際安排依 LINE 回覆、可配合時間與當次內容確認。</dd>
-            </div>
-            <div>
-              <dt>交通核對</dt>
-              <dd>出發前可用 Google Maps 核對南區店位置，也可從到店導航入口確認南區與東區不要混淆。</dd>
-            </div>
           </dl>
           <div class="hero-actions">
-            <a class="button is-forest" href="/contact/">查看聯絡頁</a>
+            <a class="button is-forest" href="/visit/">選店點與導航</a>
+            <a class="button is-ghost" href="/contact/">完整聯絡資料</a>
             <a class="button is-ghost" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F" target="_blank" rel="noopener noreferrer">Google Maps</a>
           </div>
         </div>
@@ -1068,21 +1039,16 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <ol class="step-list">
-        <li><strong>先確認店點：</strong>南區店是公開到店點，東區工作室為純預約，兩者不要混成同一個地址。</li>
-        <li><strong>再確認需求：</strong>描述肩頸、腰背、落枕、久坐或運動後卡緊的位置與動作情境。</li>
-        <li><strong>最後確認時段：</strong>用預約表單留下可配合時間，需要人工判斷的情況會再由店家回覆。</li>
-      </ol>
     </section>
 
     <section class="panel" aria-labelledby="localAreaTitle">
       <span class="panel-label">台南區域</span>
-      <h2 id="localAreaTitle">南區、東區與附近區域怎麼選？</h2>
-      <p class="section-answer">見觀目前以台南市南區明興路 673 號為主要公開到店點，東區新樓街65號是純預約二樓工作室；從中西區、安平區、仁德區、永康區或其他台南市區出發，請先用到店導航確認路線與時段。</p>
+      <h2 id="localAreaTitle">南區、東區差在哪裡？</h2>
+      <p class="section-answer">南區店是主要公開到店點；東區工作室地址公開，但不是固定駐點門市。完整交通、地圖、電話與 LINE 分流都放在到店導航頁。</p>
       <ul>
-        <li><strong>南區店：</strong>適合直接查明興路 673 號、南區整復推拿、南區推拿或台南傳統整復推拿的人。</li>
-        <li><strong>東區工作室：</strong>地址公開但不是固定駐點門市，只有已確認的純預約時段才安排前往。</li>
-        <li><strong>附近區域：</strong>中西區、安平區、仁德區、永康區等出發者，先看導航時間，再用 LINE 留可配合時段。</li>
+        <li><strong>南區店：</strong>台南市南區明興路 673 號。</li>
+        <li><strong>東區工作室：</strong>台南市東區新樓街65號，純預約。</li>
+        <li><strong>不確定去哪裡：</strong>先進導航頁比較，再用 LINE 留可配合時段。</li>
       </ul>
       <div class="hero-actions">
         <a class="button is-ghost" href="/visit/">比較南區與東區導航</a>
@@ -1092,9 +1058,13 @@
 
     <section class="panel" aria-labelledby="featuredNotesTitle">
       <span class="panel-label">公開內容</span>
-      <h2 id="featuredNotesTitle">還想理解，再選一個身體區域</h2>
-      <p>已經想安排到店，可以先去預約；如果還想先理解自己的狀態，再選最接近的身體區域分類，從感受、搜尋詞與文章開始整理。</p>
+      <h2 id="featuredNotesTitle">還想先看內容，選文章或短影音</h2>
+      <p>已經想安排到店，可以先去預約；如果還想先理解自己的狀態，再選文章分類。從 FB、IG 或 YouTube Shorts 看到見觀，也可以先回到短影音入口確認下一步。</p>
       <div class="article-list">
+        <a class="article-link" href="/shorts/">
+          <span>FB / IG / YouTube 短影音入口</span>
+          <small>看完短片想確認費用、導航或預約，從這裡回到官網分流。</small>
+        </a>
         <a class="article-link" href="/notes/neck-jaw-breathing-overview/">
           <span>頭頸與肩頸分類</span>
           <small>從肩頸卡、下巴喀喀響、手舉不高、低頭時間與呼吸節奏開始整理。</small>
@@ -1108,8 +1078,8 @@
           <small>從手麻、腕隧道、網球肘、手腕拇指與夜間感覺開始整理。</small>
         </a>
         <a class="article-link" href="/notes/asymmetry-walking-load-overview/">
-          <span>髖、膝、腳與走路承重分類</span>
-          <small>從左右差、髖膝腳、走路路徑、上下樓與腳底承重開始整理。</small>
+          <span>髖、膝、腳與走路卡卡分類</span>
+          <small>從左右差、髖膝腳、走路路徑、上下樓與腳底用力開始整理。</small>
         </a>
         <a class="article-link" href="/notes/search-terms-overview/">
           <span>檢查名詞與常見搜尋問法分類</span>
@@ -1117,6 +1087,7 @@
         </a>
       </div>
       <div class="hero-actions">
+        <a class="button is-ghost" href="/shorts/">短影音入口</a>
         <a class="button" href="/notes/">進入身體觀察筆記</a>
       </div>
     </section>
@@ -1124,7 +1095,7 @@
     <section class="panel" aria-labelledby="searchEntryTitle">
       <span class="panel-label">搜尋入口</span>
       <h2 id="searchEntryTitle">痛點詞可以講，但不要先替自己下結論</h2>
-      <p>很多搜尋會從「肩頸卡」、「久坐腰痠」、「落枕」、「閃到腰後不敢用力」、「手麻是不是神經壓迫」或「屁股腿麻」開始。這些詞可以當入口，但本站會把問題放回姿勢、承重、左右差、使用習慣與生活情境，而不是直接把名詞當成結論。</p>
+      <p>很多搜尋會從「肩頸卡」、「久坐腰痠」、「落枕」、「閃到腰後不敢用力」、「手麻是不是神經壓迫」或「屁股腿麻」開始。這些詞可以當入口，但本站會把問題放回姿勢、左右差、出力方式、使用習慣與生活情境，而不是直接把名詞當成結論。</p>
       <p>如果你想安排到店，先用 LINE 留預約需求；如果你還在整理自己的狀態，再看文章會比較清楚。</p>
     </section>
 
@@ -1147,11 +1118,11 @@
         </article>
         <article class="faq-mini-card">
           <h3>搜尋台南整復推拿推薦時，可以先看什麼？</h3>
-          <p>可以先看店名、地址、費用、預約方式與服務邊界是否清楚。見觀會把肩頸腰背卡緊等感受放回姿勢、承重、左右差與生活情境整理。</p>
+          <p>可以先看店名、地址、費用、預約方式與服務邊界是否清楚。見觀會把肩頸腰背卡緊等感受放回姿勢、左右差、出力方式與生活情境整理。</p>
         </article>
         <article class="faq-mini-card">
           <h3>見觀結構是不是醫療院所？</h3>
-          <p>見觀結構以身體結構觀察、傳統整復推拿、姿勢與承重線索整理為主，本站內容不作為醫療診斷、治療或療效承諾。急性或明顯惡化狀況應先就醫。</p>
+          <p>見觀結構以身體結構觀察、傳統整復推拿、姿勢、左右差與出力方式整理為主，本站內容不作為醫療診斷、治療或療效承諾。急性或明顯惡化狀況應先就醫。</p>
         </article>
       </div>
       <div class="hero-actions">
@@ -1171,9 +1142,9 @@
         <li><cite><a href="https://www.wikidata.org/wiki/Q140631" target="_blank" rel="noopener noreferrer">Wikidata：Tainan</a></cite></li>
         <li><cite><a href="https://zh.wikipedia.org/wiki/%E8%87%BA%E5%8D%97%E5%B8%82" target="_blank" rel="noopener noreferrer">Wikipedia：臺南市</a></cite></li>
         <li><cite><a href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noopener noreferrer">LINE：見觀結構官方聯絡入口</a></cite></li>
-        <li><cite><a href="https://www.instagram.com/observe.tw/" target="_blank" rel="noopener noreferrer">Instagram：observe.tw</a></cite>、<cite><a href="https://www.threads.net/@sl800901" target="_blank" rel="noopener noreferrer">Threads：sl800901</a></cite>、<cite><a href="https://www.facebook.com/profile.php?id=61589375001647" target="_blank" rel="noopener noreferrer">Facebook：見觀結構公開頁</a></cite></li>
+        <li><cite><a href="https://www.instagram.com/observe.tw/" target="_blank" rel="noopener noreferrer">Instagram：observe.tw</a></cite>、<cite><a href="https://www.threads.net/@sl800901" target="_blank" rel="noopener noreferrer">Threads：sl800901</a></cite>、<cite><a href="https://www.facebook.com/profile.php?id=61589375001647" target="_blank" rel="noopener noreferrer">Facebook：見觀結構公開頁</a></cite>、<cite><a href="https://www.youtube.com/@observe88888/shorts" target="_blank" rel="noopener noreferrer">YouTube Shorts：@observe88888</a></cite></li>
       </ol>
-      <p>引用目的：Google Maps 用於核對南區店公開地點；臺南市政府、Wikidata 與 Wikipedia 用於核對台南城市實體；衛生福利部用於提醒急性或惡化狀況應先就醫；LINE、Instagram、Threads 與 Facebook 用於核對官方聯絡與社群入口。</p>
+      <p>引用目的：Google Maps 用於核對南區店公開地點；臺南市政府、Wikidata 與 Wikipedia 用於核對台南城市實體；衛生福利部用於提醒急性或惡化狀況應先就醫；LINE、Instagram、Threads、Facebook 與 YouTube 用於核對官方聯絡與社群入口。</p>
     </section>
 
     <section class="bridge-strip" aria-labelledby="bridgeTitle">
