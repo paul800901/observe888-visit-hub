@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <title>南區與東區服務與費用｜見觀結構調理整復所</title>
-  <meta name="description" content="見觀南區店與東區工作室服務與費用。單次預約約 30–40 分鐘，NT$500–800；若結構較複雜並延長至約 60 分鐘，當次費用為 NT$1000。">
+  <meta name="description" content="見觀南區店與東區工作室服務與費用。短單部位約 NT$300–400，常見單次約 30 分鐘 NT$500，較複雜 40–45 分鐘 NT$800，延長約 60 分鐘 NT$1000。">
   <style>
     :root {
       color-scheme: light;
@@ -237,6 +237,40 @@
       line-height: 1.8;
     }
 
+    .price-tier-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .price-tier {
+      display: grid;
+      gap: 6px;
+      padding: 14px 15px;
+      border-radius: 18px;
+      background: rgba(87, 63, 48, 0.06);
+      border: 1px solid rgba(87, 63, 48, 0.1);
+    }
+
+    .price-tier strong {
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .price-tier span {
+      color: var(--forest);
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .price-tier small {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
     .notice {
       margin: 0;
       padding: 16px 20px;
@@ -324,6 +358,10 @@
         padding: 20px 18px;
       }
 
+      .price-tier-list {
+        grid-template-columns: 1fr;
+      }
+
       .cta-strip {
         padding: 18px;
         border-radius: 22px;
@@ -350,7 +388,7 @@
       "@id": "https://www.observe888.com/south/pricing/#webpage",
       "url": "https://www.observe888.com/south/pricing/",
       "name": "南區與東區服務與費用｜見觀結構調理整復所",
-      "description": "見觀南區店與東區工作室服務與費用。單次預約約 30-40 分鐘，NT$500-800；若結構較複雜並延長至約 60 分鐘，當次費用為 NT$1000。",
+      "description": "見觀南區店與東區工作室服務與費用。短單部位約 NT$300-400，常見單次約 30 分鐘 NT$500，較複雜 40-45 分鐘 NT$800，延長約 60 分鐘 NT$1000。",
       "inLanguage": "zh-Hant",
       "isPartOf": {
         "@id": "https://www.observe888.com/#website"
@@ -374,19 +412,19 @@
       "itemListElement": [
         {
           "@type": "Offer",
-          "name": "單次預約",
+          "name": "短單部位整理",
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "minPrice": "500",
-            "maxPrice": "800",
+            "minPrice": "300",
+            "maxPrice": "400",
             "priceCurrency": "TWD"
           },
           "availability": "https://schema.org/InStock",
           "url": "https://www.observe888.com/south/pricing/",
-          "description": "單次預約約 30-40 分鐘，費用參考為 NT$500-800；南區店與東區工作室採同一費用範圍，實際費用依本次處理內容、時間長度與現場狀態確認。",
+          "description": "很簡單、單一部位或短時間整理，約 NT$300-400；這類情況較少，依現場實際處理內容確認。",
           "itemOffered": {
             "@type": "Service",
-            "name": "南區店與東區工作室單次預約",
+            "name": "短單部位結構調理",
             "provider": {
               "@id": "https://www.observe888.com/#local-business"
             },
@@ -395,7 +433,28 @@
         },
         {
           "@type": "Offer",
-          "name": "結構較複雜時的延長安排",
+          "name": "常見單次結構調理",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "500",
+            "maxPrice": "800",
+            "priceCurrency": "TWD"
+          },
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.observe888.com/south/pricing/",
+          "description": "一般單次約 30 分鐘 NT$500；較複雜或需要做到約 40-45 分鐘時約 NT$800。實際費用依本次處理內容與時間確認。",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "南區店與東區工作室單次結構調理",
+            "provider": {
+              "@id": "https://www.observe888.com/#local-business"
+            },
+            "areaServed": "台南市南區與東區"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "延長結構調理",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "price": "1000",
@@ -403,7 +462,7 @@
           },
           "availability": "https://schema.org/InStock",
           "url": "https://www.observe888.com/south/pricing/",
-          "description": "若結構較複雜，需要較多評估、處理與回測，時間可能延長至約 60 分鐘，當次費用為 NT$1000。需要延長時，會先說明後再安排。",
+          "description": "如果狀況較複雜，需要處理到約 60 分鐘，當次費用為 NT$1000。需要延長時，會先說明後再安排。",
           "itemOffered": {
             "@type": "Service",
             "name": "南區店與東區工作室單次預約",
@@ -453,7 +512,7 @@
     <header class="hero">
       <span class="eyebrow">服務與費用</span>
       <h1>南區店與東區工作室服務與費用</h1>
-      <p>單次預約：約 30–40 分鐘，NT$500–800。若你正在搜尋台南南區整復推拿、南區推拿或台南整復推薦，可先用這頁確認南區店費用、預約方式與服務邊界；實際費用會依本次處理內容、時間長度與現場狀態確認。</p>
+      <p>見觀不是用套餐硬切，而是依本次處理內容與時間自然分層。一般單次約 30 分鐘 NT$500；較複雜、需要做到 40–45 分鐘約 NT$800；延長到約 60 分鐘為 NT$1000。很簡單的短單部位，可能落在 NT$300–400。</p>
       <div class="hero-actions">
         <a id="southPricingHeroLineCta" class="button" href="../../booking/?store=south&source=south_pricing_hero">LINE 留預約需求</a>
         <a id="southPricingHeroVisitCta" class="button is-ghost" href="../../visit/?store=south">南區到店導航</a>
@@ -462,14 +521,35 @@
     </header>
 
     <div class="price-block">
-      <span class="price-block-label">費用參考</span>
-      <div class="price-range"><span class="currency">NT$</span>500–800</div>
+      <span class="price-block-label">常見費用</span>
+      <div class="price-range"><span class="currency">NT$</span>500 / 800</div>
       <div class="price-meta">
-        <span class="price-tag">單次預約</span>
-        <span class="price-tag">約 30–40 分鐘</span>
+        <span class="price-tag">一般單次 30 分鐘約 NT$500</span>
+        <span class="price-tag">較複雜 40–45 分鐘約 NT$800</span>
       </div>
-      <p>南區店與東區工作室採同一費用範圍。實際費用會依本次處理內容、時間長度與現場狀態確認。</p>
-      <p>若結構較複雜，需要較多評估、處理與回測，時間可能延長至約 60 分鐘，當次費用為 NT$1000。需要延長時，會先說明後再安排。</p>
+      <div class="price-tier-list" aria-label="費用分層">
+        <div class="price-tier">
+          <strong>短單部位</strong>
+          <span>NT$300–400</span>
+          <small>很簡單、時間很短，或只做單一部位的小整理。這類較少。</small>
+        </div>
+        <div class="price-tier">
+          <strong>一般單次</strong>
+          <span>NT$500</span>
+          <small>大約 30 分鐘，處理明確、範圍不複雜的情況。</small>
+        </div>
+        <div class="price-tier">
+          <strong>較複雜</strong>
+          <span>NT$800</span>
+          <small>大約 40–45 分鐘，需要看更多動作、張力與回測。</small>
+        </div>
+        <div class="price-tier">
+          <strong>延長整理</strong>
+          <span>NT$1000</span>
+          <small>狀況較複雜，處理到約 60 分鐘；會先說明後再安排。</small>
+        </div>
+      </div>
+      <p>南區店與東區工作室採同一套費用邏輯。實際費用依本次處理內容、時間長度與現場狀態確認。</p>
     </div>
 
     <p class="notice">本頁費用為一般單次到店參考。時段、服務內容與實際安排，仍以 LINE 確認為主。</p>
@@ -478,7 +558,7 @@
       <span class="info-card-label">工作室說明</span>
       <h2>一對一・預約制・獨立空間</h2>
       <p>南區店位於台南市南區明興路 673 號，適合正在比較台南南區整復推拿、南區整復、南區推拿與台南整復推薦的使用者先確認。見觀會先整理肩頸卡緊、腰背緊繃、久坐卡卡、落枕後轉頭不順等身體感受與生活情境，再依現場狀態安排。</p>
-      <p>南區店與東區工作室皆採預約制安排。適合希望一對一處理、節奏較慢、環境較安靜的朋友。若還在比較台南整復推拿、台南整骨推薦或服務邊界，先看 <a href="../../services/tainan-tuina/">台南整復推拿服務說明</a>；來店前再以 LINE 確認時段與服務內容。</p>
+      <p>南區店與東區工作室皆採預約制安排。適合希望一對一處理、節奏較慢、環境較安靜的朋友。若還在比較台南整復推拿、台南整骨推薦或見觀做法，先看 <a href="../../services/tainan-tuina/">台南整復推拿服務說明</a>；來店前再以 LINE 確認時段與服務內容。</p>
     </div>
 
     <div class="cta-strip">
