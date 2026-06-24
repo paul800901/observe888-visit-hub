@@ -192,6 +192,13 @@
 - 可現在做：依 Search Console 與 `docs/organic-keyword-pool-2026-05-19.csv` 補下一批安全搜尋問法內容；不可把物理治療、復健、治療、矯正寫成見觀服務。
 - 暫時等待：Google Business Profile 服務項目、商家描述與南區修正版相片審核；審核通過前不能宣稱 Maps 排名已改善。
 - 暫時等待：Cloudflare 301 已驗收，後續看 Search Console 舊 `.php` URL 轉移，不需再改 DNS 或 HiNet。
+
+## 2026-06-24 首頁人類可讀性與前端批評交接
+
+- 使用者把新版官網交給 DeepSeek、GLM、Claude、Gemini 做嚴格批評；共同結論是首頁不能只服務 SEO / AEO / AI 摘要，必須先讓人類看懂地點、服務、費用、預約與見觀差異。
+- 第一輪修正已完成於 commit `bce3084 site: humanize homepage and pricing copy`：首頁移除防衛式免責與機器核對裸露文案，公開主詞改為 `結構調理`，費用改成 `NT$300-400 / NT$500 / NT$800 / NT$1000` 分層，正式站已讀回新版。
+- 這只是第一輪，不是完整前端改版。下一輪北區或南區接手前先讀 `docs/homepage-human-readability-audit-2026-06-24.md`，以及總控 repo 的 `docs/OFFICIAL_SITE_FRONTEND_CRITIQUE_HANDOFF_2026-06-24.md`。
+- 後續不要把首頁改回法務式免責、`結構治療` 主詞、外部資料核對裸露文字、預約後台邏輯或單純症狀關鍵詞清單。
 - 2026-06-12 收到 Search Console「替代頁面（有適當的標準標記）」通知後，已把北區退場頁與舊 URL 清理方向改成直接 server-side 301 到最終頁；不要再把舊入口導到 `/north/` 或 `/north/pricing/` 這類已退場中繼頁。
 - 2026-05-21 已建立 `docs/maps-ranking-vendor-decision-2026-05-21.md`：使用者過去曾購買地圖排序服務但成效不明顯，後續不把「保證地圖排序」代操包列為預設方案；Maps 主戰場改看 GBP 類別、服務、描述、照片、評論、真實互動、距離與固定條件讀回。`observe.boostime.me` 舊站殘留已交外部公司處理，短期只列背景噪音與不可控風險，不列為內部驗收條件。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。
