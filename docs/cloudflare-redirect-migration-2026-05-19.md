@@ -1,6 +1,47 @@
 # Cloudflare 舊 PHP URL 301 導入與驗收紀錄
 
-最後更新：2026-06-22 15:54 +08:00
+最後更新：2026-06-24 23:29 +08:00
+
+## 2026-06-24 CSP 追蹤 allowlist 修正
+
+2026-06-24 首頁 live verification 發現正式站安全標頭的 CSP 會擋住部分追蹤與 beacon 請求。這不影響首頁顯示、LINE、電話、導航或主要站內入口，但會影響 Cloudflare Web Analytics 與 Google Ads / remarketing 的部分訊號。
+
+Worker 原始碼已更新：
+
+- `cloudflare/observe888-legacy-redirects.js`
+
+本輪只補白名單，不取消 CSP：
+
+- `script-src` 新增 `https://static.cloudflareinsights.com`、`https://www.googleadservices.com`、`https://googleads.g.doubleclick.net`。
+- `connect-src` 新增 `https://ad.doubleclick.net`、`https://www.google.com`、`https://static.cloudflareinsights.com`、`https://cloudflareinsights.com`。
+
+保留原有安全邊界：
+
+- `default-src 'self'`
+- `object-src 'none'`
+- `frame-ancestors 'none'`
+- `frame-src` 仍只允許 Google / Maps iframe。
+
+本輪部署：
+
+- Wrangler：`4.104.0`
+- Worker：`observe888-legacy-redirects`
+- route：`www.observe888.com/*`
+- 版本 ID：`e666c808-bb52-43af-9fd9-737d534ef95f`
+- deployment message：`Allow analytics and ads CSP endpoints 2026-06-24`
+
+Live readback：
+
+| 項目 | 讀回 |
+| --- | --- |
+| `https://www.observe888.com/` | `200`，CSP 已含 `static.cloudflareinsights.com`、`www.googleadservices.com`、`googleads.g.doubleclick.net`、`ad.doubleclick.net`、`www.google.com`、`cloudflareinsights.com` |
+| `https://www.observe888.com/visit/` | `200`，CSP 存在 |
+| `https://www.observe888.com/index.php` | `301 -> https://www.observe888.com/`，CSP 存在 |
+| `https://www.observe888.com/north/` | `301 -> https://www.observe888.com/visit/`，CSP 存在 |
+| `https://static.cloudflareinsights.com/beacon.min.js` | `200` |
+| `https://googleads.g.doubleclick.net/pagead/viewthroughconversion/17875250530/` | `200` |
+
+Headless Edge 讀回首頁 DOM 已看到 Cloudflare beacon script 與 Google Ads viewthrough script 載入。這表示原本被 `script-src` 擋住的兩類 script 已不再被 CSP 擋下。
 
 ## 2026-06-22 Cloudflare Worker 安全標頭更新
 
