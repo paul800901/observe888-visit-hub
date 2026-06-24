@@ -113,7 +113,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(260px, 0.34fr);
       gap: 40px;
-      align-items: end;
+      align-items: center;
       padding: 26px 0 12px;
     }
 
@@ -188,8 +188,9 @@
     }
 
     .hero-side {
-      padding: 18px 0 4px;
-      border-top: 1px solid rgba(33, 25, 21, 0.14);
+      display: grid;
+      gap: 12px;
+      padding: 0;
     }
 
     .hero-side strong {
@@ -198,6 +199,26 @@
       font-size: 16px;
       line-height: 1.55;
       margin-bottom: 6px;
+    }
+
+    .hero-photo {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(33, 25, 21, 0.1);
+      border-radius: 8px;
+      background: var(--sand);
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .hero-side-copy {
+      padding: 14px 0 4px;
+      border-top: 1px solid rgba(33, 25, 21, 0.14);
     }
 
     .section-clean {
@@ -227,6 +248,7 @@
     .price-card p,
     .place-card p,
     .arrival-card p,
+    .shorts-card small,
     .note-card small,
     .faq-card-clean p,
     .booking-strip p,
@@ -282,6 +304,7 @@
     .place-grid,
     .arrival-grid,
     .diff-grid-clean,
+    .shorts-grid,
     .note-grid,
     .faq-grid-clean {
       display: grid;
@@ -291,6 +314,7 @@
 
     .place-card,
     .arrival-card,
+    .shorts-card,
     .note-card,
     .faq-card-clean {
       padding: 20px;
@@ -299,14 +323,36 @@
       background: rgba(253, 251, 247, 0.7);
     }
 
+    .shorts-card {
+      display: grid;
+      gap: 10px;
+      color: inherit;
+    }
+
     .arrival-card img {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 3;
+      height: clamp(220px, 24vw, 280px);
       object-fit: cover;
       border-radius: 6px;
       margin-bottom: 14px;
       background: var(--sand);
+    }
+
+    .shorts-card img {
+      display: block;
+      width: 100%;
+      height: clamp(320px, 42vw, 500px);
+      object-fit: cover;
+      border-radius: 6px;
+      background: var(--sand);
+    }
+
+    .shorts-card span {
+      color: var(--wood);
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.55;
     }
 
     .diff-section-clean {
@@ -469,6 +515,7 @@
       .place-grid,
       .arrival-grid,
       .diff-grid-clean,
+      .shorts-grid,
       .note-grid,
       .faq-grid-clean,
       .seo-grid {
@@ -937,8 +984,13 @@
         <p class="hero-follow">還想先確認？<a id="homeVisitCta" href="/visit/">到店導航</a>｜<a href="#difference">見觀差異</a></p>
       </div>
       <aside class="hero-side" aria-label="店點與費用摘要">
-        <strong>南區明興路門市，一樓獨立店面。</strong>
-        <p class="quiet-note">另有東區新樓街純預約工作室。多數人是一般整理，約 30 分鐘 NT$500。</p>
+        <figure class="hero-photo">
+          <img src="/assets/gmb/photo-refresh-2026-05-19/south/02-south-storefront-front.jpg" alt="見觀結構南區明興路一樓門市門口" width="1080" height="1080" decoding="async" fetchpriority="high">
+        </figure>
+        <div class="hero-side-copy">
+          <strong>南區明興路門市，一樓獨立店面。</strong>
+          <p class="quiet-note">另有東區新樓街純預約工作室。多數人是一般整理，約 30 分鐘 NT$500。</p>
+        </div>
       </aside>
     </header>
 
@@ -1008,19 +1060,29 @@
 
     <section class="section-clean" aria-labelledby="arrivalTitle">
       <div class="section-head">
-        <h2 id="arrivalTitle">第一次來，先認門口與空間</h2>
-        <p>南區門市是一樓獨立店面，第一次來可先看門口與地圖。東區工作室為純預約二樓空間，沒有對外招牌，預約確認後會用 LINE 提供到店提醒。</p>
+        <h2 id="arrivalTitle">第一次來，先認門口、空間與現場情境</h2>
+        <p>南區門市是一樓獨立店面，第一次來可先看門口、室內與現場整理情境。東區工作室為純預約二樓空間，沒有對外招牌，預約確認後會用 LINE 提供到店提醒。</p>
       </div>
       <div class="arrival-grid">
         <article class="arrival-card">
-          <img src="/assets/gmb/storefront-source-photos-2026-05-20/south/02-south-storefront-front-real.jpg" alt="見觀結構南區明興路門市正面與招牌">
+          <img src="/assets/gmb/photo-refresh-2026-05-19/south/02-south-storefront-front.jpg" alt="見觀結構南區明興路門市正面與招牌" loading="lazy" decoding="async" width="1080" height="1080">
           <h3>南區門口</h3>
           <p>明興路 673 號，一樓店面。</p>
         </article>
         <article class="arrival-card">
-          <img src="/assets/gmb/storefront-source-photos-2026-05-20/south/03-south-interior-entry-real.jpg" alt="見觀結構南區室內入口與服務空間局部">
+          <img src="/assets/gmb/photo-refresh-2026-05-19/south/03-south-interior-entry.jpg" alt="見觀結構南區室內入口與服務空間局部" loading="lazy" decoding="async" width="1080" height="1080">
           <h3>南區室內</h3>
           <p>安靜、單純，第一次來先不用猜空間長什麼樣子。</p>
+        </article>
+        <article class="arrival-card">
+          <img src="/assets/gmb/photo-refresh-2026-05-19/south/05-south-service-leg.jpg" alt="見觀結構南區現場動作觀察與討論情境" loading="lazy" decoding="async" width="1080" height="1080">
+          <h3>現場怎麼看</h3>
+          <p>會先聽你怎麼描述，再回到動作、左右差與出力方式。</p>
+        </article>
+        <article class="arrival-card">
+          <img src="/assets/gmb/photo-refresh-2026-05-19/south/06-south-consult-room.jpg" alt="見觀結構南區室內說明與動作確認情境" loading="lazy" decoding="async" width="1080" height="1080">
+          <h3>說明後再安排</h3>
+          <p>費用、時間與本次重點會先說清楚，再進到實際整理。</p>
         </article>
       </div>
     </section>
@@ -1089,6 +1151,26 @@
         <h3>搜到這些詞，也可以先這樣描述</h3>
         <p class="body-copy">很多人會用推拿、整復、落枕、閃腰、肩頸卡、手麻、坐骨神經痛、骨刺、椎間盤突出這些詞找到我們。這些詞可以當入口，方便你描述狀況。現場不會直接把搜尋名詞當結論，而是回到位置、開始時間、哪個動作最不順，以及身體平常怎麼使用。</p>
       </div>
+    </section>
+
+    <section class="section-clean" aria-labelledby="shortsPreviewTitle">
+      <div class="section-head">
+        <h2 id="shortsPreviewTitle">短影音先看現場怎麼說</h2>
+        <p>有些人是先在 FB、IG 或 YouTube Shorts 看到我們。短影音會用現場語言示範怎麼描述卡緊、怎麼回測動作，再導回費用、導航與預約。</p>
+      </div>
+      <div class="shorts-grid">
+        <a class="shorts-card" href="/shorts/?source=home_shorts_preview">
+          <img src="/assets/homepage/shorts-2026-06-24/standing-foot-tension-preview.jpg" alt="站久腳緊短影音現場回測畫面" loading="lazy" decoding="async" width="720" height="1280">
+          <span>站久腳緊，先看怎麼回測</span>
+          <small>從腳跟前後、腳內側壓力與站姿感覺，回到可以描述的身體線索。</small>
+        </a>
+        <a class="shorts-card" href="/shorts/?source=home_shorts_preview">
+          <img src="/assets/homepage/shorts-2026-06-24/wrist-motion-recheck-preview.jpg" alt="手腕手指短影音動作回測畫面" loading="lazy" decoding="async" width="720" height="720">
+          <span>手腕手指，先看動作能不能跟上</span>
+          <small>不是先套病名，而是先看哪個動作不順、哪個位置卡住。</small>
+        </a>
+      </div>
+      <p><a class="inline-link" href="/shorts/">看短影音回流入口</a></p>
     </section>
 
     <section class="section-clean" aria-labelledby="homeFaqTitle">
