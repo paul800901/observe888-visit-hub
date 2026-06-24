@@ -63,4 +63,81 @@ Opus 4.6 將剩餘缺口分成三項：
 ## 驗證狀態
 
 - Opus 4.6 表示已讀線上 `https://www.observe888.com/` 並逐段檢查。
-- Codex 本輪只整理使用者提供的 Opus 4.6 評語與本 repo 既有交接文件，未重新執行 live HTML 逐行讀回、手機截圖或 Playwright 驗證。
+- 2026-06-24 22:11 +08:00，Codex 已補做 live HTML / DOM 讀回、Playwright 截圖、手機第一屏、桌機第一屏、站內主要入口與資源狀態檢查。
+
+## Codex live verification 補充
+
+本輪使用正式站 `https://www.observe888.com/`，不改 live 後台、不送出任何表單、不修改 Google / Cloudflare / Ads 設定。
+
+### 已驗證
+
+| 項目 | 結果 |
+| --- | --- |
+| 首頁 HTTP | `200 OK` |
+| Live HTML | 抓回 1238 行，約 42 KB |
+| `<title>` | `見觀結構調理整復所｜肩頸腰背四肢卡住，先整理身體狀態` |
+| 手機 viewport | Playwright `390x844` 截圖完成 |
+| 桌機 viewport | Playwright `1366x768` 截圖完成 |
+| `llms.txt` | `200 OK` |
+| `sitemap.xml` | `200 OK` |
+| 主要站內入口 | `/booking/?source=home_hero`、`/visit/`、`/visit/?store=south`、`/visit/?store=east`、`/faq/`、`/notes/`、`/shorts/` 皆 `200 OK` |
+| 主要腳本 | `observe888-tracking-config.js`、`observe888-tracking.js`、`observe888-bottom-nav.js` 皆 `200 OK` |
+| 首頁南區照片 | 南區門口與南區室內兩張圖片皆載入成功 |
+| `?store=south` | JS redirect 到 `https://www.observe888.com/visit/?store=south` |
+| `?store=east` | JS redirect 到 `https://www.observe888.com/visit/?store=east` |
+| JSON-LD | 1 個 `application/ld+json` script 可解析，`@graph` 包含 `WebSite`、`Organization`、`WebPage`、`ItemList`、`LocalBusiness`、`CreativeWork`、`FAQPage` |
+| Meta | canonical、3 個 hreflang、OG、Twitter、GEO meta、`llms.txt` link 皆讀到 |
+| 禁用詞 | 在 live HTML / body text 中未讀到 `不宣稱療效`、`不保證改善`、`不涉及醫療診斷宣稱`、`結構治療`、`NT$500-800`、`TODO`、`這裡不是 SEO 目錄`、`公開資料與官方連結`、`透明收費`、`真實店點與到店辨識`、`開無雙`、`解鎖`、`高階技術`、`Premium Craftsman Vibe`、`結構源頭`、`找到源頭` |
+
+### 手機第一屏判斷
+
+手機 `390x844` 首屏可見：
+
+- 店名 `見觀結構調理整復所`
+- 地點摘要 `台南・南區門市與東區工作室`
+- 導覽 `身體筆記`、`品牌`、`店點`、`FAQ`
+- eyebrow `台南・結構調理・預約制`
+- H1 `肩頸腰背四肢卡住，先把身體狀態整理清楚`
+- 白話副標
+- 主 CTA `LINE 預約`
+- 次 CTA `看費用`
+- 小連結 `到店導航`、`見觀差異`
+- 南區 / 東區摘要與 `NT$500` 一般整理訊號
+
+判斷：手機第一屏已能在 5 秒內讀到「這是哪家、在哪裡、做什麼、怎麼約、可先看費用」。底部固定 nav 在初始手機 viewport 會覆蓋到下一段 `先看大概費用` 的下緣附近，但沒有遮住 Hero H1、主副 CTA 或到店 / 差異小連結。
+
+### 桌機第一屏判斷
+
+桌機 `1366x768` 首屏可見：
+
+- 店名與導覽
+- Hero H1、白話副標
+- `LINE 預約`、`看費用`
+- 到店 / 差異小連結
+- 右側南區 / 東區摘要與 `約 30 分鐘 NT$500`
+- `先看大概費用` 起始與第一個 `NT$300`
+
+判斷：桌機第一屏清楚，CTA 沒有打架，右側仍偏文字摘要，未形成更強的真實視覺信任感。
+
+### 已確認仍成立
+
+- 首頁維持八段人類可見結構：Hero、收費、店點、門口與空間、差異、身體筆記、FAQ、底部預約與 SEO footer。
+- 五階價格 `NT$300 / NT$400 / NT$500 / NT$800 / NT$1000` 都存在。
+- 首頁仍只有 2 張真實視覺照片，都是南區；沒有東區工作室照片、操作情境、短影音縮圖。
+
+### 新發現的技術風險
+
+正式站目前的 Cloudflare Worker CSP 會擋住部分追蹤 / beacon 請求：
+
+- `static.cloudflareinsights.com` beacon script 被 `script-src` 擋住。
+- `googleads.g.doubleclick.net` 的 viewthrough script 被 `script-src` 擋住。
+- `ad.doubleclick.net`、`www.google.com/rmkt/collect`、`www.google.com/ccm/collect` 等 Google Ads / remarketing collect 被 `connect-src` 擋住。
+
+這不影響首頁可讀性或主要導覽，但會影響 Cloudflare beacon 與部分 Google Ads / remarketing 訊號。若要修，應另開一輪 Cloudflare Worker CSP allowlist 修正與 live deploy 驗證；不要把這件事混成首頁文案或版面問題。
+
+### 仍未完成
+
+1. 未補東區工作室與操作情境照片。
+2. 未補短影音縮圖到首頁視覺證據層。
+3. 未修改 Hero 右側視覺內容。
+4. 未修 Cloudflare Worker CSP，僅完成 live 讀回與風險記錄。
