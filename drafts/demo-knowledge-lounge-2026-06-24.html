@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <title>見觀結構｜關於我們與調理邏輯</title>
+  <meta name="description" content="了解見觀的結構調理邏輯：不只是按痛點，而是看你怎麼卡住。包含肩頸、腰背、手腕等身體筆記文章與短影音入口。">
+  
+  <style>
+    /* 高階工匠美學變數 */
+    :root {
+      --color-wood: #211915;
+      --color-wood-light: #3A2E25;
+      --color-cream: #FDFBF7;
+      --color-sand: #F2EBE1;
+      --color-gold: #B88E5E;
+      --color-accent: #7D3E20;
+      
+      --shadow-soft: 0 12px 32px rgba(33, 25, 21, 0.04);
+      --shadow-hover: 0 20px 48px rgba(33, 25, 21, 0.08);
+      
+      --font-system: "Inter", "Outfit", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      color: var(--color-wood-light);
+      font-family: var(--font-system);
+      background-color: var(--color-cream);
+      background-image: 
+        radial-gradient(circle at top right, rgba(242, 235, 225, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at bottom left, rgba(242, 235, 225, 0.6) 0%, transparent 40%);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(100%, 1100px); margin: 0 auto; padding: 0 24px; }
+
+    /* Topnav (Minimal for Knowledge Lounge) */
+    .topnav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 0; border-bottom: 1px solid rgba(33, 25, 21, 0.05);
+    }
+    .brand-name { font-size: 18px; font-weight: 800; color: var(--color-wood); letter-spacing: 0.1em; }
+    .nav-links a {
+      font-size: 14px; font-weight: 600; color: var(--color-wood-light);
+      transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--color-gold); }
+    .btn-return {
+      border: 1px solid rgba(33, 25, 21, 0.2); border-radius: 100px;
+      padding: 8px 16px; margin-left: 16px; font-weight: 700 !important; color: var(--color-wood) !important;
+    }
+    .btn-return:hover { background: var(--color-wood); color: var(--color-cream) !important; border-color: var(--color-wood); }
+
+    /* Lounge Header */
+    .lounge-header {
+      padding: 80px 0 60px; text-align: center; max-width: 800px; margin: 0 auto;
+    }
+    .section-label {
+      display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+      color: var(--color-gold); margin-bottom: 16px; text-transform: uppercase;
+    }
+    .lounge-header h1 {
+      font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: var(--color-wood);
+      line-height: 1.3; margin: 0 0 24px 0;
+    }
+
+    /* Core Difference Section (You vs Us) */
+    .difference-section {
+      padding: 60px 0; background: var(--color-wood); color: var(--color-cream);
+      border-radius: 32px; margin: 0 24px 80px; box-shadow: var(--shadow-hover);
+    }
+    .diff-header { text-align: center; margin-bottom: 60px; }
+    .diff-header h2 { font-size: 32px; margin: 0; color: var(--color-cream); }
+    .diff-header p { color: rgba(253, 251, 247, 0.7); margin-top: 12px; font-size: 16px; }
+
+    .diff-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
+      max-width: 1000px; margin: 0 auto; padding: 0 24px;
+    }
+
+    .diff-card {
+      background: rgba(253, 251, 247, 0.05); border: 1px solid rgba(253, 251, 247, 0.1);
+      border-radius: 20px; padding: 32px;
+    }
+    .diff-card.is-highlight {
+      background: var(--color-cream); color: var(--color-wood); border: none;
+    }
+    .diff-card h3 {
+      font-size: 20px; margin: 0 0 16px 0; display: flex; align-items: center; gap: 12px;
+    }
+    .diff-card.is-highlight h3::before {
+      content: ""; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-wood);
+    }
+    
+    .diff-card ul { margin: 0; padding: 0; list-style: none; }
+    .diff-card li { padding: 12px 0; border-bottom: 1px solid rgba(253, 251, 247, 0.1); font-size: 15px; }
+    .diff-card.is-highlight li { border-bottom: 1px solid rgba(33, 25, 21, 0.1); }
+    .diff-card li:last-child { border: none; padding-bottom: 0; }
+
+    /* The Knowledge Grid (Articles & Shorts) */
+    .knowledge-section { padding: 40px 0 80px; }
+    .knowledge-header { text-align: center; margin-bottom: 48px; }
+    .knowledge-header h2 { font-size: 32px; color: var(--color-wood); margin: 0 0 12px 0; }
+    .knowledge-header p { font-size: 16px; color: var(--color-wood-light); max-width: 600px; margin: 0 auto; }
+
+    .article-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+    }
+    .article-card {
+      display: flex; flex-direction: column; padding: 32px;
+      background: var(--color-cream); border: 1px solid rgba(33, 25, 21, 0.08);
+      border-radius: 20px; transition: var(--transition); box-shadow: var(--shadow-soft);
+    }
+    .article-card:hover {
+      background: var(--color-sand); border-color: var(--color-gold); transform: translateY(-2px);
+    }
+    .article-card.is-video {
+      background: var(--color-wood); color: var(--color-cream); border-color: var(--color-wood);
+    }
+    .article-card.is-video:hover {
+      background: #1A1411; transform: translateY(-2px); box-shadow: var(--shadow-hover);
+    }
+    
+    .card-icon { font-size: 24px; margin-bottom: 16px; }
+    .article-card h3 { font-size: 18px; font-weight: 800; margin: 0 0 8px 0; color: inherit; }
+    .article-card.is-video h3 { color: var(--color-gold); }
+    .article-card p { font-size: 14px; margin: 0; opacity: 0.8; }
+
+    /* Bridge Strip */
+    .bridge-strip {
+      background: var(--color-sand); padding: 80px 24px; text-align: center;
+    }
+    .bridge-strip h2 { font-size: 28px; color: var(--color-wood); margin: 0 0 16px 0; }
+    .bridge-strip p { color: var(--color-wood-light); margin-bottom: 32px; font-size: 16px; }
+    .btn-primary {
+      background: var(--color-wood); color: var(--color-cream);
+      padding: 16px 36px; border-radius: 100px; font-size: 16px; font-weight: 700;
+      transition: var(--transition); display: inline-flex;
+    }
+    .btn-primary:hover { background: var(--color-gold); color: #fff; }
+
+    @media (max-width: 768px) {
+      .difference-section { border-radius: 0; margin: 0; padding: 60px 24px; }
+      .lounge-header { padding: 40px 0; }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Minimal Topnav -->
+  <div class="container">
+    <nav class="topnav">
+      <div class="brand-name">見觀結構</div>
+      <div class="nav-links">
+        <a href="demo-action-hub-2026-06-24.html" class="btn-return">回主首頁預約</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Lounge Header -->
+  <header class="lounge-header container">
+    <span class="section-label">理念與邏輯</span>
+    <h1>我們不是直接開無雙把全身喬一遍<br>而是像解鎖一樣，找到源頭</h1>
+    <p style="font-size: 18px; margin-top: 24px;">很多人搜尋「傳統整復推拿」或「結構治療」，但我們做的其實是「結構調理」。在見觀，我們不用背誦艱澀的病名，只需要你用最白話的方式，說出你怎麼不舒服。</p>
+  </header>
+
+  <!-- Difference Section (You vs Us) -->
+  <section class="difference-section">
+    <div class="diff-header">
+      <h2>把痛點翻譯成動作</h2>
+      <p>你不必是醫生，用你習慣的說法告訴我們就好。</p>
+    </div>
+
+    <div class="diff-grid">
+      <div class="diff-card">
+        <h3 style="color: rgba(253, 251, 247, 0.6);">客人的視角 (痛點與感受)</h3>
+        <ul>
+          <li>早上落枕，頭只能轉一邊。</li>
+          <li>久坐後腰背很硬，起身要等一下。</li>
+          <li>閃到腰後不敢出力，彎腰綁鞋帶會怕。</li>
+          <li>運動後肩、髖、膝或腳一直緊，拉不太開。</li>
+        </ul>
+      </div>
+
+      <div class="diff-card is-highlight">
+        <h3>見觀的視角 (觀察與整理)</h3>
+        <ul>
+          <li><strong>觀察動作：</strong>先看你現在最卡的是哪個動作。</li>
+          <li><strong>尋找代償：</strong>再看哪邊不敢用力、哪邊一直代償。</li>
+          <li><strong>量身整理：</strong>用你聽得懂的話，說明本次先整理哪裡。</li>
+          <li><strong>避免公式化：</strong>專注解決結構源頭，不盲目推拿全身。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Knowledge Grid (Articles & Shorts) -->
+  <section class="knowledge-section container">
+    <div class="knowledge-header">
+      <h2>身體筆記與影音紀錄</h2>
+      <p>如果你還沒準備好預約，可以先看看我們針對不同部位的調理邏輯，或許能對你的卡頓有初步的認識。</p>
+    </div>
+
+    <div class="article-grid">
+      <!-- Video/Shorts Feature -->
+      <a class="article-card is-video" href="/shorts/">
+        <div class="card-icon">▶</div>
+        <h3>短影音與案例紀錄</h3>
+        <p>追蹤我們的 FB / IG / YouTube，看我們如何處理真實的結構卡頓案例。</p>
+      </a>
+
+      <!-- Articles -->
+      <a class="article-card" href="/notes/neck-jaw-breathing-overview/">
+        <div class="card-icon">👤</div>
+        <h3>頭頸、肩頸與呼吸</h3>
+        <p>肩頸卡、下巴喀喀響、手舉不高。從低頭時間與呼吸節奏開始整理。</p>
+      </a>
+      <a class="article-card" href="/notes/low-back-butt-leg-overview/">
+        <div class="card-icon">🪑</div>
+        <h3>脊椎、腰背與骨盆</h3>
+        <p>久坐腰痠、腰椎退化、屁股腿麻。從椎間盤與產後腰髖開始理解。</p>
+      </a>
+      <a class="article-card" href="/notes/hand-wrist-forearm-overview/">
+        <div class="card-icon">✋</div>
+        <h3>手臂、手腕與手麻</h3>
+        <p>手麻、腕隧道、網球肘。從手腕拇指與夜間感覺開始整理。</p>
+      </a>
+      <a class="article-card" href="/notes/asymmetry-walking-load-overview/">
+        <div class="card-icon">🚶</div>
+        <h3>髖、膝、腳與走路卡卡</h3>
+        <p>左右差、走路路徑偏斜。從上下樓梯與腳底用力開始整理。</p>
+      </a>
+      <a class="article-card" href="/notes/search-terms-overview/">
+        <div class="card-icon">🔍</div>
+        <h3>名詞迷思：骨刺與神經壓迫</h3>
+        <p>不要急著用搜尋結果替自己下結論，教你把病名轉化為身體線索。</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Bridge Strip back to Action Hub -->
+  <section class="bridge-strip">
+    <div class="container">
+      <h2>準備好整理身體了嗎？</h2>
+      <p>看完我們的理念，如果覺得這正是您需要的處理方式，歡迎前往主首頁查看收費與據點。</p>
+      <a href="demo-action-hub-2026-06-24.html" class="btn-primary">返回首頁選擇據點與預約</a>
+    </div>
+  </section>
+
+  <!-- Semantic Footer -->
+  <footer style="text-align: center; padding: 40px; border-top: 1px solid rgba(33, 25, 21, 0.05); font-size: 13px; color: rgba(33, 25, 21, 0.4);">
+    <div class="container">
+      <p>&copy; 2026 見觀結構調理整復所. 本頁內容為調理觀念分享，不涉及醫療診斷宣稱。</p>
+    </div>
+  </footer>
+
+</body>
+</html>

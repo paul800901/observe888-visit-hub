@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <title>見觀結構調理整復所｜肩頸腰背四肢卡住，先整理身體狀態</title>
+  <meta name="description" content="見觀結構調理整復所官方網站。台南南區門市、東區純預約工作室。收費透明、環境單純。專門處理肩頸腰背卡卡、閃腰落枕。">
+  
+  <style>
+    /* 高階工匠美學變數 */
+    :root {
+      --color-wood: #211915;
+      --color-wood-light: #3A2E25;
+      --color-cream: #FDFBF7;
+      --color-sand: #F2EBE1;
+      --color-gold: #B88E5E;
+      --color-gold-light: rgba(184, 142, 94, 0.15);
+      
+      --shadow-soft: 0 12px 32px rgba(33, 25, 21, 0.04);
+      --shadow-hover: 0 20px 48px rgba(33, 25, 21, 0.08);
+      
+      --font-system: "Inter", "Outfit", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      color: var(--color-wood-light);
+      font-family: var(--font-system);
+      background-color: var(--color-cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(100%, 1100px); margin: 0 auto; padding: 0 24px; }
+
+    /* Topnav */
+    .topnav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 0; border-bottom: 1px solid rgba(33, 25, 21, 0.05);
+    }
+    .brand-group { display: flex; flex-direction: column; gap: 4px; }
+    .brand-name { font-size: 18px; font-weight: 800; color: var(--color-wood); letter-spacing: 0.1em; }
+    .brand-subtitle { font-size: 12px; font-weight: 500; color: var(--color-gold); letter-spacing: 0.05em; }
+    
+    .nav-links a {
+      font-size: 14px; font-weight: 600; color: var(--color-wood-light);
+      padding: 8px 16px; transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--color-gold); }
+
+    /* Ultra-Clean Hero */
+    .hero {
+      padding: 100px 0 80px; text-align: center; max-width: 800px; margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px); font-weight: 800; color: var(--color-wood);
+      line-height: 1.2; margin: 0 0 24px 0; letter-spacing: -0.02em;
+    }
+    .hero-desc {
+      font-size: 18px; color: var(--color-wood-light); margin-bottom: 48px;
+    }
+
+    .btn-primary {
+      background: var(--color-wood); color: var(--color-cream);
+      padding: 16px 36px; border-radius: 100px; font-size: 16px; font-weight: 700;
+      transition: var(--transition); box-shadow: var(--shadow-soft); display: inline-flex; align-items: center; justify-content: center;
+    }
+    .btn-primary:hover {
+      background: var(--color-gold); transform: translateY(-2px); box-shadow: var(--shadow-hover); color: #fff;
+    }
+    .btn-secondary {
+      background: transparent; color: var(--color-wood);
+      padding: 16px 36px; border-radius: 100px; font-size: 16px; font-weight: 700;
+      border: 1px solid rgba(33, 25, 21, 0.1); transition: var(--transition); display: inline-flex; align-items: center; justify-content: center;
+    }
+    .btn-secondary:hover { background: var(--color-sand); border-color: var(--color-wood); }
+    .hero-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* Tiered Pricing Menu */
+    .pricing-section {
+      padding: 80px 0; background: var(--color-sand);
+    }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-header h2 { font-size: 32px; color: var(--color-wood); margin: 0 0 12px 0; }
+    .section-header p { font-size: 15px; color: var(--color-wood-light); }
+
+    .pricing-menu {
+      max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;
+    }
+    .price-row {
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--color-cream); padding: 24px 32px; border-radius: 16px;
+      border: 1px solid rgba(33, 25, 21, 0.05); transition: var(--transition);
+    }
+    .price-row:hover { border-color: var(--color-gold); box-shadow: var(--shadow-soft); }
+    .price-info h3 { margin: 0 0 4px 0; font-size: 18px; color: var(--color-wood); }
+    .price-info p { margin: 0; font-size: 14px; color: rgba(58, 46, 37, 0.7); }
+    .price-amount {
+      font-size: 24px; font-weight: 800; color: var(--color-gold);
+      display: flex; flex-direction: column; align-items: flex-end;
+    }
+    .price-amount span { font-size: 12px; font-weight: 600; color: var(--color-wood-light); letter-spacing: 0.05em; }
+
+    /* Tabbed Locations Hub */
+    .locations-section { padding: 80px 0; }
+    .tab-container {
+      display: flex; justify-content: center; gap: 12px; margin-bottom: 40px;
+    }
+    .tab-btn {
+      padding: 12px 32px; border-radius: 100px; border: 1px solid rgba(33, 25, 21, 0.1);
+      background: transparent; color: var(--color-wood-light); font-size: 16px; font-weight: 700;
+      cursor: pointer; transition: var(--transition);
+    }
+    .tab-btn.active {
+      background: var(--color-wood); color: var(--color-cream); border-color: var(--color-wood);
+    }
+
+    .tab-content { display: none; animation: fadeIn 0.4s ease; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .location-panel {
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px;
+      background: var(--color-cream); padding: 40px; border-radius: 32px;
+      box-shadow: var(--shadow-soft); border: 1px solid rgba(33, 25, 21, 0.05);
+    }
+    .loc-details h3 { font-size: 28px; margin: 0 0 8px 0; color: var(--color-wood); }
+    .loc-details p.badge {
+      display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 700;
+      background: var(--color-gold-light); color: var(--color-gold-hover); margin-bottom: 24px;
+    }
+    .loc-info { margin-bottom: 32px; }
+    .loc-info dt { font-size: 12px; font-weight: 700; color: rgba(58, 46, 37, 0.5); text-transform: uppercase; margin-bottom: 4px; }
+    .loc-info dd { font-size: 16px; font-weight: 600; color: var(--color-wood); margin: 0 0 16px 0; }
+    
+    .map-frame {
+      width: 100%; height: 100%; min-height: 350px; border: none; border-radius: 20px; background: var(--color-sand);
+    }
+
+    /* SEO Anchor Footer (High Density, Low Distraction) */
+    .seo-footer {
+      background: #1A1411; color: rgba(253, 251, 247, 0.4); padding: 60px 0 40px; font-size: 12px;
+    }
+    .seo-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px;
+    }
+    .seo-col h4 { color: rgba(253, 251, 247, 0.8); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 16px 0; }
+    .seo-col ul { list-style: none; padding: 0; margin: 0; }
+    .seo-col li { margin-bottom: 8px; }
+    .seo-col a { color: rgba(253, 251, 247, 0.4); transition: color 0.2s; }
+    .seo-col a:hover { color: var(--color-gold); }
+    .seo-bottom {
+      border-top: 1px solid rgba(253, 251, 247, 0.1); padding-top: 24px; text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .location-panel { grid-template-columns: 1fr; padding: 24px; }
+      .hero-buttons { flex-direction: column; width: 100%; }
+      .hero-buttons .btn-primary, .hero-buttons .btn-secondary { width: 100%; }
+      .price-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .price-amount { align-items: flex-start; }
+    }
+  </style>
+
+  <!-- SEO JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.observe888.com/#website",
+        "url": "https://www.observe888.com/",
+        "name": "見觀結構調理整復所"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Topnav -->
+  <div class="container">
+    <nav class="topnav">
+      <div class="brand-group">
+        <span class="brand-subtitle">結構調理專門店 / 預約制</span>
+        <span class="brand-name">見觀結構</span>
+      </div>
+      <div class="nav-links">
+        <a href="#locations">預約導航</a>
+        <a href="demo-knowledge-lounge-2026-06-24.html">見觀做法與文章</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Action Hero -->
+  <header class="hero container">
+    <h1>肩頸腰背四肢卡住，<br>我們先把身體狀態整理清楚</h1>
+    <p class="hero-desc">
+      早上落枕、久坐後腰背硬到起身卡住、閃到腰後不敢出力。<br>
+      如果您已經決定要整理身體，請直接查看收費並選擇適合您的據點。
+    </p>
+    <div class="hero-buttons">
+      <a href="#locations" class="btn-primary">查看預約據點</a>
+      <a href="demo-knowledge-lounge-2026-06-24.html" class="btn-secondary">了解見觀跟推拿差在哪</a>
+    </div>
+  </header>
+
+  <!-- Transparent Tiered Pricing -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>透明階梯式收費</h2>
+        <p>收費取決於解開您身體卡頓所需的複雜度與時間，絕不就地起價。</p>
+      </div>
+      <div class="pricing-menu">
+        <div class="price-row">
+          <div class="price-info">
+            <h3>極簡單調理</h3>
+            <p>單一部位處理，結構不複雜。</p>
+          </div>
+          <div class="price-amount">NT$300</div>
+        </div>
+        <div class="price-row">
+          <div class="price-info">
+            <h3>簡單結構調理</h3>
+            <p>約 20 分鐘以內可處理完畢的狀態。</p>
+          </div>
+          <div class="price-amount">NT$400</div>
+        </div>
+        <div class="price-row" style="border-left: 4px solid var(--color-gold);">
+          <div class="price-info">
+            <h3>一般調理 (標準)</h3>
+            <p>多數客人的落枕、閃腰、肩頸卡住皆適用，約 30 分鐘。</p>
+          </div>
+          <div class="price-amount">NT$500 <span>標準預約</span></div>
+        </div>
+        <div class="price-row">
+          <div class="price-info">
+            <h3>較複雜狀況</h3>
+            <p>長年代償、多處卡頓連動，約需 40-45 分鐘。</p>
+          </div>
+          <div class="price-amount">NT$800</div>
+        </div>
+        <div class="price-row">
+          <div class="price-info">
+            <h3>深度結構調理</h3>
+            <p>極複雜狀況或需大範圍重新建立發力感知，約 1 小時。</p>
+          </div>
+          <div class="price-amount">NT$1000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabbed Locations Hub -->
+  <section class="locations-section" id="locations">
+    <div class="container">
+      <div class="section-header">
+        <h2>選擇您的預約空間</h2>
+        <p>兩間店皆採全面預約制。請先確認地點後再加入 LINE 預約。</p>
+      </div>
+      
+      <div class="tab-container">
+        <button class="tab-btn active" onclick="switchTab('south')">南區明興路門市</button>
+        <button class="tab-btn" onclick="switchTab('east')">東區新樓街工作室</button>
+      </div>
+
+      <!-- South Tab -->
+      <div id="tab-south" class="tab-content active">
+        <div class="location-panel">
+          <div class="loc-details">
+            <h3>南區店</h3>
+            <p class="badge">主要公開門市</p>
+            <dl class="loc-info">
+              <dt>地址</dt>
+              <dd>702 台南市南區明興路 673 號</dd>
+              <dt>環境</dt>
+              <dd>一樓獨立店面，好停車，適合第一次來的客人。</dd>
+              <dt>聯絡電話</dt>
+              <dd>0973-728-670</dd>
+            </dl>
+            <a href="/booking/?source=south" class="btn-primary" style="width: 100%;">LINE 預約南區店</a>
+          </div>
+          <div class="loc-map">
+            <iframe class="map-frame" src="https://www.google.com/maps?q=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F&output=embed" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- East Tab -->
+      <div id="tab-east" class="tab-content">
+        <div class="location-panel">
+          <div class="loc-details">
+            <h3>東區工作室</h3>
+            <p class="badge" style="background: rgba(33, 25, 21, 0.05); color: var(--color-wood);">純預約私密空間</p>
+            <dl class="loc-info">
+              <dt>地址</dt>
+              <dd>台南市東區新樓街 65 號</dd>
+              <dt>環境</dt>
+              <dd>二樓純預約工作室。沒有對外招牌，預約成功後會告知上樓方式。</dd>
+              <dt>適合對象</dt>
+              <dd>注重隱私、已習慣見觀調理方式的熟客。</dd>
+            </dl>
+            <a href="/booking/?source=east" class="btn-primary" style="width: 100%;">LINE 預約東區工作室</a>
+          </div>
+          <div class="loc-map">
+            <iframe class="map-frame" src="https://www.google.com/maps?q=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F&output=embed" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEO Anchor Footer -->
+  <footer class="seo-footer">
+    <div class="container">
+      <div class="seo-grid">
+        <div class="seo-col">
+          <h4>內部連結 (Internal Links)</h4>
+          <ul>
+            <li><a href="demo-knowledge-lounge-2026-06-24.html">關於見觀與技術差異</a></li>
+            <li><a href="/faq/">常見問題 (FAQ)</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="seo-col">
+          <h4>GEO 核對 (Locations)</h4>
+          <ul>
+            <li>台南市南區明興路 673 號 (South Store)</li>
+            <li>台南市東區新樓街 65 號 (East Studio)</li>
+            <li><a href="https://www.google.com/maps/place/..." target="_blank">Google Maps 地標</a></li>
+          </ul>
+        </div>
+        <div class="seo-col">
+          <h4>外部核對 (Entity Authorities)</h4>
+          <ul>
+            <li><a href="https://www.tainan.gov.tw/" target="_blank">臺南市政府</a></li>
+            <li><a href="https://zh.wikipedia.org/wiki/%E8%87%BA%E5%8D%97%E5%B8%82" target="_blank">Wikipedia: 臺南市</a></li>
+            <li><a href="https://www.wikidata.org/wiki/Q140631" target="_blank">Wikidata: Tainan</a></li>
+          </ul>
+        </div>
+        <div class="seo-col">
+          <h4>社群入口 (Socials)</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/observe.tw/">Instagram</a></li>
+            <li><a href="https://www.threads.net/@sl800901">Threads</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61589375001647">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="seo-bottom">
+        <p>&copy; 2026 見觀結構調理整復所. All rights reserved. 預約與收費標準以現場實際評估為準。</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+  </script>
+  <!-- 原本的 Tracking Scripts 完整引入 -->
+  <script src="./observe888-tracking-config.js"></script>
+  <script src="./observe888-tracking.js"></script>
+
+</body>
+</html>
