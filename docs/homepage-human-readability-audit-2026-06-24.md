@@ -40,6 +40,16 @@ bce3084 site: humanize homepage and pricing copy
 - 公開主詞使用 `結構調理`，不用 `結構治療`。
 - `llms.txt` 與 JSON-LD 保留 AI / 搜尋可讀資訊。
 
+## 後續最新版讀回補充
+
+2026-06-24 使用者另提供 Opus 4.6 對最新版正式首頁的 live review。該 review 判斷最新版已大致做到「SEO / AEO / GEO 資料層保留、人類可見層可讀」，但仍要補真實照片、手機第一屏驗證與 Hero 右側視覺信任感。
+
+詳細紀錄另存：
+
+```text
+docs/homepage-live-review-2026-06-24-opus46.md
+```
+
 ## 仍未完成
 
 這次只是第一輪「首頁與文案瘦身」，不是完整前端改版。下一輪仍要補：
@@ -72,4 +82,3 @@ bce3084 site: humanize homepage and pricing copy
 - `index.html` JSON-LD 能解析。
 - `llms.txt`、`sitemap.xml` 沒壞。
 - 正式站部署後讀回 `https://www.observe888.com/`。
-
