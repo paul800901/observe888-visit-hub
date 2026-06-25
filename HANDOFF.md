@@ -199,6 +199,7 @@
 - 第一輪修正已完成於 commit `bce3084 site: humanize homepage and pricing copy`：首頁移除防衛式免責與機器核對裸露文案，公開主詞改為 `結構調理`，費用改成 `NT$300-400 / NT$500 / NT$800 / NT$1000` 分層，正式站已讀回新版。
 - 這只是第一輪，不是完整前端改版。下一輪北區或南區接手前先讀 `docs/homepage-human-readability-audit-2026-06-24.md`，以及總控 repo 的 `docs/OFFICIAL_SITE_FRONTEND_CRITIQUE_HANDOFF_2026-06-24.md`。
 - 後續不要把首頁改回法務式免責、`結構治療` 主詞、外部資料核對裸露文字、預約後台邏輯或單純症狀關鍵詞清單。
+- 後續任何 SEO / GEO / AEO 修正，都以不破壞人類可讀性為前提；只給 AI 或搜尋引擎讀的內容放到 metadata、JSON-LD、FAQ schema、`llms.txt`、`sitemap.xml`、footer 或低干擾區塊，不要把首頁主敘事改成機器問答或掃描器分數導向段落。
 
 ## 2026-06-25 子頁設計系統重構
 
