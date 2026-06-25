@@ -1,0 +1,303 @@
+:root {
+  color-scheme: light;
+  --wood: #211915;
+  --wood-mid: #3a2e25;
+  --cream: #fdfbf7;
+  --paper-bg: #f8f1e6;
+  --surface: rgba(253, 251, 247, 0.9);
+  --surface-solid: #fdfbf7;
+  --surface-muted: rgba(33, 25, 21, 0.05);
+  --border-soft: rgba(33, 25, 21, 0.12);
+  --muted-copy: #6a5a50;
+  --copper: #7d3e20;
+  --brass: #b88e5e;
+  --focus-ring: rgba(184, 142, 94, 0.32);
+  --radius-card: 8px;
+  --radius-pill: 999px;
+  --page-max: 1120px;
+  --page-pad-x: 28px;
+  --shadow-soft: none;
+
+  --bg: var(--paper-bg);
+  --paper: var(--surface);
+  --line: var(--border-soft);
+  --text: var(--wood);
+  --muted: var(--muted-copy);
+  --accent: var(--copper);
+  --forest: var(--wood);
+  --sand: var(--surface-muted);
+  --shadow: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--page-bg, var(--paper-bg));
+}
+
+body {
+  color: var(--wood) !important;
+  background: var(--page-bg, var(--paper-bg)) !important;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+.site-shell,
+.shell,
+.hub-shell {
+  width: min(var(--page-max), calc(100vw - var(--page-pad-x))) !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin-inline: auto !important;
+  padding-block: 22px 56px !important;
+}
+
+.site-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.topnav,
+.topbar,
+.hero,
+.panel,
+.content-card,
+.faq-card,
+.category-card,
+.info-card,
+.route-card,
+.signal-card,
+.contact-card,
+.source-card,
+.article-link,
+.first-visit,
+.first-visit-step,
+.hero-point,
+.map-frame,
+.widget-frame,
+.cta-strip,
+.video-card,
+.location-card,
+.note-card,
+.pricing-card {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  border-color: var(--border-soft) !important;
+  border-radius: var(--radius-card) !important;
+  background: var(--surface) !important;
+  box-shadow: none !important;
+}
+
+.article-link,
+.first-visit-step,
+.hero-point,
+.source-card,
+.contact-card,
+.map-frame,
+.widget-frame {
+  background: var(--surface-muted) !important;
+}
+
+.eyebrow,
+.panel-label,
+.signal-label,
+.brand-kicker,
+.badge,
+.pill {
+  border-radius: var(--radius-pill) !important;
+  background: rgba(184, 142, 94, 0.14) !important;
+  color: var(--copper) !important;
+  letter-spacing: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand-title,
+.article-link span,
+.first-visit-copy h2,
+.signal-card h2 {
+  color: var(--wood) !important;
+  letter-spacing: 0 !important;
+}
+
+p,
+li,
+small,
+.hero-copy,
+.topbar-copy p,
+.content-card,
+.article-link small,
+.first-visit-copy p {
+  color: var(--muted-copy) !important;
+}
+
+.cta,
+.button,
+.nav-pill,
+.back-link,
+.nav-link,
+.topnav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 0;
+  border-radius: var(--radius-pill) !important;
+  border: 1px solid var(--border-soft) !important;
+  padding: 0 16px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  box-shadow: none !important;
+}
+
+.cta:not(.is-ghost):not(.is-line),
+.button:not(.is-ghost):not(.is-line),
+.button.is-forest,
+.cta.is-forest {
+  border-color: var(--wood) !important;
+  background: var(--wood) !important;
+  color: var(--cream) !important;
+}
+
+.cta.is-ghost,
+.button.is-ghost,
+.nav-pill,
+.back-link,
+.nav-link,
+.topnav-link {
+  background: rgba(253, 251, 247, 0.72) !important;
+  color: var(--wood) !important;
+}
+
+.cta.is-line,
+.button.is-line {
+  background: #06c755 !important;
+  border-color: #06c755 !important;
+  color: #ffffff !important;
+}
+
+.cta:focus-visible,
+.button:focus-visible,
+.nav-pill:focus-visible,
+.back-link:focus-visible,
+.nav-link:focus-visible,
+.topnav-link:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+img,
+iframe {
+  max-width: 100%;
+}
+
+.hero-fee-note,
+.hero p,
+.hero-subtitle,
+.topbar-copy p,
+h1,
+h2,
+h3,
+.cta,
+.button,
+.nav-link,
+.topnav-link,
+.back-link,
+.nav-pill {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --page-pad-x: 16px;
+  }
+
+  .site-shell,
+  .shell,
+  .hub-shell {
+    width: calc(100vw - var(--page-pad-x)) !important;
+    max-width: calc(100vw - var(--page-pad-x)) !important;
+    padding-block: max(12px, env(safe-area-inset-top)) calc(24px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .topnav,
+  .topbar {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    align-items: stretch !important;
+  }
+
+  .topnav-brand,
+  .brand-block,
+  .topbar-copy {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    margin-right: 0 !important;
+    text-align: center;
+  }
+
+  .hero,
+  .panel,
+  .content-card,
+  .faq-card,
+  .category-card,
+  .info-card,
+  .route-card,
+  .signal-card {
+    overflow: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  li,
+  small,
+  .hero-subtitle,
+  .topbar-copy p,
+  .cta,
+  .button {
+    max-width: 100%;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-all;
+    line-break: anywhere;
+  }
+
+  h1 {
+    font-size: clamp(28px, 9vw, 36px) !important;
+  }
+
+  h2 {
+    font-size: clamp(20px, 6vw, 26px) !important;
+  }
+
+  .topnav a,
+  .topbar a,
+  .cta-row,
+  .actions,
+  .first-visit-actions,
+  .cta,
+  .button,
+  .back-link,
+  .nav-link,
+  .topnav-link,
+  .nav-pill {
+    width: 100%;
+  }
+}

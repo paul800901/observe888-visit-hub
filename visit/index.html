@@ -4,19 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>見觀結構｜身體結構觀察與傳統整復推拿</title>
-  <meta name="description" content="見觀結構提供身體結構觀察、傳統整復推拿、姿勢與承重線索整理，協助把身體感受、張力變化與生活負荷整理成更清楚的觀察方向。">
+  <title>到店導航｜南區店與東區純預約工作室｜見觀結構</title>
+  <meta name="description" content="見觀結構到店導航。先選南區明興路門市或東區純預約工作室，再看 LINE 預約、電話與 Google Maps 路線。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="見觀結構">
+  <meta property="og:title" content="到店導航｜南區店與東區純預約工作室｜見觀結構">
+  <meta property="og:description" content="先選南區明興路門市或東區純預約工作室，再看 LINE 預約、電話與 Google Maps 路線。">
+  <meta property="og:url" content="https://www.observe888.com/visit/">
+  <meta property="og:image" content="https://www.observe888.com/assets/gmb/south-single-30-40-card-s0.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="到店導航｜南區店與東區純預約工作室｜見觀結構">
+  <meta name="twitter:description" content="先選南區明興路門市或東區純預約工作室，再看 LINE 預約、電話與 Google Maps 路線。">
+  <link rel="canonical" href="https://www.observe888.com/visit/">
   <style>
     :root {
       color-scheme: light;
-      --bg: #f5ecdf;
-      --paper: rgba(255, 251, 245, 0.84);
-      --line: rgba(87, 63, 48, 0.14);
-      --text: #3f2e22;
-      --muted: #6f5a49;
-      --accent: #a14f2a;
-      --forest: #2e5e4b;
-      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+      --bg: var(--paper-bg);
+      --paper: var(--surface);
+      --line: var(--border-soft);
+      --text: var(--wood);
+      --muted: var(--muted-copy);
+      --accent: var(--copper);
+      --forest: var(--wood);
+      --shadow: none;
     }
 
     * {
@@ -32,10 +43,7 @@
       min-height: 100vh;
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 32%),
-        radial-gradient(circle at 82% 14%, rgba(241, 194, 121, 0.3), rgba(241, 194, 121, 0) 20%),
-        linear-gradient(180deg, #fbf6ee 0%, var(--bg) 48%, #f0e4d4 100%);
+      background: var(--paper-bg);
     }
 
     a {
@@ -271,7 +279,7 @@
       padding: 22px;
       border: 1px solid var(--line);
       border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255, 251, 245, 0.96) 0%, rgba(248, 239, 228, 0.94) 100%);
+      background: var(--paper-bg);
       box-shadow: var(--shadow);
     }
 
@@ -447,8 +455,7 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="../observe888-page-theme.css">
-  <link rel="canonical" href="https://www.observe888.com/visit/">
+  <link rel="stylesheet" href="../observe888-design-system.css">
   <script type="application/ld+json" id="observe888-local-business-jsonld">
 {
   "@context": "https://schema.org",
@@ -505,7 +512,7 @@
   </script>
 </head>
 <body>
-  <main id="widgetZone" class="hub-shell">
+  <main id="widgetZone" class="site-shell hub-shell">
     <section class="topbar">
       <div class="topbar-copy">
         <span id="heroEyebrow" class="eyebrow">見觀微縮官網 / 到店導航站</span>
@@ -520,11 +527,11 @@
       </div>
 
       <div class="cta-row">
-        <a id="heroPrimaryCta" class="button" href="#widgetMount">直接看導航</a>
-        <a id="heroSecondaryCta" class="button is-ghost" href="#whatWeDoSection">我們在做什麼</a>
-        <a id="heroTertiaryCta" class="button is-forest" href="../booking/?source=visit">查看近期時段</a>
-        <a id="heroQuaternaryCta" class="button is-ghost" href="../booking/?store=east&source=visit_east_quick">東區純預約 LINE</a>
-        <a id="heroQuinaryCta" class="button is-ghost" href="tel:0973728670">南區電話</a>
+        <a id="heroPrimaryCta" class="cta button" href="#widgetMount">直接看導航</a>
+        <a id="heroSecondaryCta" class="cta button is-ghost" href="#whatWeDoSection">我們在做什麼</a>
+        <a id="heroTertiaryCta" class="cta button is-forest" href="../booking/?source=visit">查看近期時段</a>
+        <a id="heroQuaternaryCta" class="cta button is-ghost" href="../booking/?store=east&source=visit_east_quick">東區純預約 LINE</a>
+        <a id="heroQuinaryCta" class="cta button is-ghost" href="tel:0973728670">南區電話</a>
       </div>
     </section>
 
@@ -555,8 +562,8 @@
       </div>
 
       <div class="first-visit-actions">
-        <a id="firstVisitPrimaryAction" class="button" href="#widgetMount">看雙店導航</a>
-        <a id="firstVisitSecondaryAction" class="button is-ghost" href="../booking/?source=visit_first_visit">查看近期時段</a>
+        <a id="firstVisitPrimaryAction" class="cta button" href="#widgetMount">看雙店導航</a>
+        <a id="firstVisitSecondaryAction" class="cta button is-ghost" href="../booking/?source=visit_first_visit">查看近期時段</a>
       </div>
     </section>
 
