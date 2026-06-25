@@ -199,6 +199,13 @@
 - 第一輪修正已完成於 commit `bce3084 site: humanize homepage and pricing copy`：首頁移除防衛式免責與機器核對裸露文案，公開主詞改為 `結構調理`，費用改成 `NT$300-400 / NT$500 / NT$800 / NT$1000` 分層，正式站已讀回新版。
 - 這只是第一輪，不是完整前端改版。下一輪北區或南區接手前先讀 `docs/homepage-human-readability-audit-2026-06-24.md`，以及總控 repo 的 `docs/OFFICIAL_SITE_FRONTEND_CRITIQUE_HANDOFF_2026-06-24.md`。
 - 後續不要把首頁改回法務式免責、`結構治療` 主詞、外部資料核對裸露文字、預約後台邏輯或單純症狀關鍵詞清單。
+
+## 2026-06-25 子頁設計系統重構
+
+- 已新增 `observe888-design-system.css`，把首頁定稿後的深檀木色、低陰影、8px 卡片、CTA 與手機斷行規則整理成共用設計系統。
+- 主要公開子頁、店點頁、服務頁、FAQ、短影音入口、筆記分類與筆記文章頁已改載共用設計系統；舊 `observe888-page-theme.css` 只保留相容 `@import`。
+- `/visit/` 已補專用 title、description、OG、Twitter 與 canonical，避免再被讀成品牌通用 title。
+- 詳細處理範圍與驗證紀錄見 `docs/official-site-design-system-refactor-2026-06-25.md`。
 - 2026-06-12 收到 Search Console「替代頁面（有適當的標準標記）」通知後，已把北區退場頁與舊 URL 清理方向改成直接 server-side 301 到最終頁；不要再把舊入口導到 `/north/` 或 `/north/pricing/` 這類已退場中繼頁。
 - 2026-05-21 已建立 `docs/maps-ranking-vendor-decision-2026-05-21.md`：使用者過去曾購買地圖排序服務但成效不明顯，後續不把「保證地圖排序」代操包列為預設方案；Maps 主戰場改看 GBP 類別、服務、描述、照片、評論、真實互動、距離與固定條件讀回。`observe.boostime.me` 舊站殘留已交外部公司處理，短期只列背景噪音與不可控風險，不列為內部驗收條件。
 - 依 `docs/google-business-backend-readback-2026-05-14.md` 處理兩店各 `1 筆 Google 資訊更新`；點開仍只進 `商家資訊`，未看到 accept/reject UI。

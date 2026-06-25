@@ -19,14 +19,14 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #f7f1e8;
-      --paper: #fffaf3;
-      --line: rgba(93, 70, 49, 0.16);
-      --text: #3c2b20;
-      --muted: #6f5b4a;
-      --accent: #a44f2a;
-      --forest: #2e5d49;
-      --shadow: 0 20px 54px rgba(62, 42, 26, 0.12);
+      --bg: var(--paper-bg);
+      --paper: var(--surface);
+      --line: var(--border-soft);
+      --text: var(--wood);
+      --muted: var(--muted-copy);
+      --accent: var(--copper);
+      --forest: var(--wood);
+      --shadow: none;
     }
 
     * { box-sizing: border-box; }
@@ -36,7 +36,7 @@
       min-height: 100vh;
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      background: linear-gradient(180deg, #fffaf4 0%, var(--bg) 58%, #efe3d2 100%);
+      background: var(--paper-bg);
     }
 
     a {
@@ -197,7 +197,7 @@
       .cta-strip { align-items: stretch; }
     }
   </style>
-  <link rel="stylesheet" href="../observe888-page-theme.css">
+  <link rel="stylesheet" href="../observe888-design-system.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -226,7 +226,7 @@
   </script>
 </head>
 <body>
-  <main class="shell">
+  <main class="site-shell shell">
     <nav class="topnav" aria-label="主要導覽">
       <a class="back-link" href="../">回到首頁</a>
       <a class="nav-link" href="../visit/?store=east">東區純預約</a>
@@ -239,10 +239,10 @@
       <h1>東區二樓工作室（純預約），地址在新樓街65號，先用 LINE 確認時段。</h1>
       <p>東區工作室（純預約）地址為台南市東區新樓街65號，是二樓預約制工作室，非固定駐點。南區店與東區工作室採同一費用分層：短單部位約 NT$300–400，一般 30 分鐘約 NT$500，較複雜或延長整理約 NT$800–1000。仍請先用 LINE 留下身體狀況、方便時段與聯絡方式。</p>
       <div class="actions">
-        <a class="button is-forest" href="../booking/?store=east&source=east_store">LINE 留預約需求</a>
-        <a class="button is-ghost" href="../visit/?store=east">查看東區純預約</a>
-        <a class="button is-ghost" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
-        <a class="button is-ghost" href="../south/">南區店資訊</a>
+        <a class="cta button is-forest" href="../booking/?store=east&source=east_store">LINE 留預約需求</a>
+        <a class="cta button is-ghost" href="../visit/?store=east">查看東區純預約</a>
+        <a class="cta button is-ghost" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
+        <a class="cta button is-ghost" href="../south/">南區店資訊</a>
       </div>
     </header>
 
@@ -270,8 +270,8 @@
         <p>先用 LINE 留需求，確認時段後再前往台南市東區新樓街65號；週六上午通常較容易安排。</p>
       </div>
       <div class="actions">
-        <a class="button is-forest" href="../booking/?store=east&source=east_bottom">LINE 留預約需求</a>
-        <a class="button is-ghost" href="../notes/">先看身體觀察筆記</a>
+        <a class="cta button is-forest" href="../booking/?store=east&source=east_bottom">LINE 留預約需求</a>
+        <a class="cta button is-ghost" href="../notes/">先看身體觀察筆記</a>
       </div>
     </section>
 

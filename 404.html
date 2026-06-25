@@ -8,14 +8,14 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #f7f1e8;
-      --paper: #fffaf3;
-      --text: #3f2e22;
-      --muted: #745f4e;
-      --accent: #a14f2a;
-      --forest: #2e5e4b;
-      --line: rgba(87, 63, 48, 0.16);
-      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+      --bg: var(--paper-bg);
+      --paper: var(--surface);
+      --text: var(--wood);
+      --muted: var(--muted-copy);
+      --accent: var(--copper);
+      --forest: var(--wood);
+      --line: var(--border-soft);
+      --shadow: none;
     }
 
     * {
@@ -30,9 +30,7 @@
       padding: 24px;
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      background:
-        radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0) 34%),
-        linear-gradient(180deg, #fbf6ee 0%, var(--bg) 100%);
+      background: var(--paper-bg);
     }
 
     main {
@@ -102,6 +100,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="observe888-design-system.css">
 </head>
 <body>
   <main>

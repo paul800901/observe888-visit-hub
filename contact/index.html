@@ -24,15 +24,15 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #f5eee4;
-      --paper: rgba(255, 251, 245, 0.92);
-      --line: rgba(87, 63, 48, 0.14);
-      --text: #3f2e22;
-      --muted: #6f5a49;
-      --accent: #a14f2a;
-      --forest: #2e5e4b;
-      --sand: #efe1ce;
-      --shadow: 0 24px 60px rgba(68, 45, 30, 0.12);
+      --bg: var(--paper-bg);
+      --paper: var(--surface);
+      --line: var(--border-soft);
+      --text: var(--wood);
+      --muted: var(--muted-copy);
+      --accent: var(--copper);
+      --forest: var(--wood);
+      --sand: var(--surface-muted);
+      --shadow: none;
     }
 
     * {
@@ -44,7 +44,7 @@
       min-height: 100vh;
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      background: linear-gradient(180deg, #fbf6ee 0%, var(--bg) 52%, #eee1d0 100%);
+      background: var(--paper-bg);
       overflow-x: hidden;
     }
 
@@ -282,7 +282,7 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="../observe888-page-theme.css">
+  <link rel="stylesheet" href="../observe888-design-system.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -401,7 +401,7 @@
   <link rel="stylesheet" href="../observe888-bottom-nav.css">
 </head>
 <body>
-  <main class="shell">
+  <main class="site-shell shell">
     <nav class="topnav" aria-label="站內導覽">
       <div class="brand-block">
         <span class="brand-kicker">見觀結構南區店</span>
@@ -421,9 +421,9 @@
       <h1>聯絡見觀結構南區店</h1>
       <p>見觀結構南區店位於 702 台南市南區明興路 673 號，電話 0973-728-670；到店前建議先填 LINE 預約需求，再用 Google Maps 確認路線。</p>
       <div class="actions">
-        <a class="button is-forest" href="/booking/?source=contact">LINE 留預約需求</a>
-        <a class="button" href="tel:+886973728670">撥打 0973-728-670</a>
-        <a class="button is-ghost" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F" target="_blank" rel="noopener noreferrer">Google Maps 導航</a>
+        <a class="cta button is-forest" href="/booking/?source=contact">LINE 留預約需求</a>
+        <a class="cta button" href="tel:+886973728670">撥打 0973-728-670</a>
+        <a class="cta button is-ghost" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F" target="_blank" rel="noopener noreferrer">Google Maps 導航</a>
       </div>
     </header>
 
@@ -499,8 +499,8 @@
         <li>服務安排：以 LINE 回覆、可配合時段與當次身體狀態確認，不以搜尋結果推論可直接到場。</li>
       </ul>
       <div class="actions">
-        <a class="button is-ghost" href="/visit/">查看到店導航</a>
-        <a class="button is-forest" href="/booking/?source=contact_local_area">LINE 留預約需求</a>
+        <a class="cta button is-ghost" href="/visit/">查看到店導航</a>
+        <a class="cta button is-forest" href="/booking/?source=contact_local_area">LINE 留預約需求</a>
       </div>
     </section>
 
@@ -526,8 +526,8 @@
       <h2 id="boundaryTitle">急性或明顯惡化狀況先就醫</h2>
       <p>見觀結構以身體結構觀察、傳統整復推拿、姿勢與承重線索整理為主，不作為醫療診斷、治療或療效承諾；急性、快速惡化或明顯神經學警訊應先就醫。</p>
       <div class="actions">
-        <a class="button is-ghost" href="/faq/">查看完整 FAQ</a>
-        <a class="button is-forest" href="/services/tainan-tuina/">台南整復推拿怎麼選</a>
+        <a class="cta button is-ghost" href="/faq/">查看完整 FAQ</a>
+        <a class="cta button is-forest" href="/services/tainan-tuina/">台南整復推拿怎麼選</a>
       </div>
     </section>
   </main>

@@ -18,14 +18,14 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #f7f1e8;
-      --paper: #fffaf3;
-      --line: rgba(93, 70, 49, 0.16);
-      --text: #3c2b20;
-      --muted: #6f5b4a;
-      --accent: #a44f2a;
-      --forest: #2e5d49;
-      --shadow: 0 20px 54px rgba(62, 42, 26, 0.12);
+      --bg: var(--paper-bg);
+      --paper: var(--surface);
+      --line: var(--border-soft);
+      --text: var(--wood);
+      --muted: var(--muted-copy);
+      --accent: var(--copper);
+      --forest: var(--wood);
+      --shadow: none;
     }
 
     * { box-sizing: border-box; }
@@ -35,7 +35,7 @@
       min-height: 100vh;
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      background: linear-gradient(180deg, #fffaf4 0%, var(--bg) 58%, #efe3d2 100%);
+      background: var(--paper-bg);
     }
 
     a {
@@ -210,7 +210,7 @@
       .cta-strip { align-items: stretch; }
     }
   </style>
-  <link rel="stylesheet" href="../observe888-page-theme.css">
+  <link rel="stylesheet" href="../observe888-design-system.css">
   <link rel="canonical" href="https://www.observe888.com/south/">
   <script type="application/ld+json">
 {
@@ -238,7 +238,7 @@
   </script>
 </head>
 <body>
-  <main class="shell">
+  <main class="site-shell shell">
     <nav class="topnav" aria-label="主要導覽">
       <a class="back-link" href="../">回到首頁</a>
       <a class="nav-link" href="../visit/?store=south">到店導航助手</a>
@@ -253,9 +253,9 @@
       <p class="hero-fee-note">費用參考 <strong>NT$300–1000</strong>｜依本次內容與時間分層</p>
       <p>南區是工作室形式，服務以身體結構觀察、傳統整復推拿、姿勢與承重線索整理為主。如果你是用南區推拿、南區整復推拿或明興路推拿找到這裡，請先確認本頁是明興路南區店入口，再填 LINE 預約需求表單或電話確認可安排時段。</p>
       <div class="actions">
-        <a class="button" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
-        <a class="button is-forest" href="../booking/?store=south&source=south_store">填預約需求表單</a>
-        <a class="button is-ghost" href="tel:0973728670">南區直接來電</a>
+        <a class="cta button" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
+        <a class="cta button is-forest" href="../booking/?store=south&source=south_store">填預約需求表單</a>
+        <a class="cta button is-ghost" href="tel:0973728670">南區直接來電</a>
       </div>
     </header>
 
@@ -285,8 +285,8 @@
         <p>可以先看身體觀察筆記，把感受、姿勢與生活情境整理清楚，再決定下一步。</p>
       </div>
       <div class="actions">
-        <a class="button is-ghost" href="../notes/">先看身體觀察筆記</a>
-        <a class="button is-forest" href="../visit/?store=south">回到南區導航助手</a>
+        <a class="cta button is-ghost" href="../notes/">先看身體觀察筆記</a>
+        <a class="cta button is-forest" href="../visit/?store=south">回到南區導航助手</a>
       </div>
     </section>
 
