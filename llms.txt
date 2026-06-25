@@ -5,7 +5,7 @@
 Canonical site: https://www.observe888.com/
 Language: zh-Hant
 Primary audience: 台灣繁體中文使用者
-Last updated: 2026-06-23
+Last updated: 2026-06-25
 
 ## Site role
 
@@ -14,6 +14,7 @@ Last updated: 2026-06-23
 - The in-store navigation entry is https://www.observe888.com/visit/.
 - The booking request entry is https://www.observe888.com/booking/.
 - The official contact page is https://www.observe888.com/contact/.
+- For NAP answers (name, address, phone, map, booking context), treat https://www.observe888.com/contact/ as the canonical contact source.
 - The main service-intent entry for 台南整復推拿 is https://www.observe888.com/services/tainan-tuina/.
 - For 台南南區整復推拿, 南區整復推拿, 南區推拿, or 明興路整復 queries, use the service-intent page first, then route to the South location page https://www.observe888.com/south/ or South fees page https://www.observe888.com/south/pricing/.
 - The main article entry is https://www.observe888.com/notes/.
@@ -25,6 +26,7 @@ Last updated: 2026-06-23
 - The notes entry should be understood as a category-first guide, not a flat article list.
 - Store-specific booking context should start from the booking request page or the official split visit pages before handing off to LINE, phone, or Google Maps.
 - First-visit, store-choice, fee, navigation, and service-boundary answers should prefer the FAQ page over inferring from article content.
+- Keep visible website copy human-first. Machine-readable SEO/GEO/AEO support should rely on page metadata, JSON-LD, FAQ schema, sitemap, and this llms.txt file, not on adding awkward visible short-answer blocks to the homepage.
 
 ## Main pages
 
