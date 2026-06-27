@@ -18,6 +18,15 @@
     return config.googleAdsConversion || {};
   }
 
+  function getGoogleAnalyticsConfig() {
+    const config = getConfig();
+    return config.googleAnalytics || {};
+  }
+
+  function getGoogleAnalyticsMeasurementId() {
+    return String(getGoogleAnalyticsConfig().measurementId || '').trim();
+  }
+
   function logDebug(message, payload) {
     const config = getConfig();
     if (!config.debug) {
@@ -231,7 +240,12 @@
     if (ctaType === 'line' || normalizedName.startsWith('click_line')) {
       return 'line_click';
     }
-    if (['call', 'map'].includes(ctaType) || normalizedName.startsWith('click_call') || normalizedName.startsWith('click_map')) {
+    if (['call', 'map', 'map_external', 'directions', 'booking', 'form', 'visit'].includes(ctaType)
+      || normalizedName.startsWith('click_call')
+      || normalizedName.startsWith('click_map')
+      || normalizedName.startsWith('click_booking')
+      || normalizedName.startsWith('click_form')
+      || normalizedName.startsWith('click_visit')) {
       return 'click';
     }
     if (eventCategory === 'cta_click' || normalizedName.startsWith('click_')) {
@@ -244,7 +258,10 @@
     const ctaType = String(extra && extra.cta_type || '').trim().toLowerCase();
     if (ctaType === 'line') return 'LINE';
     if (ctaType === 'call') return 'PHONE';
-    if (ctaType === 'map') return 'MAP';
+    if (['map', 'map_external', 'directions'].includes(ctaType)) return 'MAP';
+    if (ctaType === 'booking') return 'BOOKING';
+    if (ctaType === 'form') return 'FORM';
+    if (ctaType === 'visit') return 'VISIT';
     return '';
   }
 
@@ -355,10 +372,9 @@
       });
   }
 
-  function ensureGoogleAdsTag() {
-    const conversionConfig = getGoogleAdsConversionConfig();
-    const conversionId = String(conversionConfig.conversionId || '').trim();
-    if (!conversionId) {
+  function ensureGtag(tagId, datasetName) {
+    const normalizedTagId = String(tagId || '').trim();
+    if (!normalizedTagId) {
       return false;
     }
 
@@ -367,18 +383,46 @@
       window.dataLayer.push(arguments);
     };
 
-    if (!document.querySelector(`script[data-observe888-google-ads="${conversionId}"]`)) {
+    if (!document.querySelector(`script[${datasetName}="${normalizedTagId}"]`)) {
       const script = document.createElement('script');
       script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(conversionId)}`;
-      script.dataset.observe888GoogleAds = conversionId;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(normalizedTagId)}`;
+      script.setAttribute(datasetName, normalizedTagId);
       document.head.appendChild(script);
     }
 
-    if (!window.__observe888GoogleAdsConfigured) {
+    if (!window.__observe888GtagInitialized) {
       window.gtag('js', new Date());
+      window.__observe888GtagInitialized = true;
+    }
+
+    return typeof window.gtag === 'function';
+  }
+
+  function ensureGoogleAdsTag() {
+    const conversionConfig = getGoogleAdsConversionConfig();
+    const conversionId = String(conversionConfig.conversionId || '').trim();
+    if (!ensureGtag(conversionId, 'data-observe888-google-ads')) {
+      return false;
+    }
+
+    if (!window.__observe888GoogleAdsConfigured) {
       window.gtag('config', conversionId);
       window.__observe888GoogleAdsConfigured = true;
+    }
+
+    return typeof window.gtag === 'function';
+  }
+
+  function ensureGoogleAnalyticsTag() {
+    const measurementId = getGoogleAnalyticsMeasurementId();
+    if (!ensureGtag(measurementId, 'data-observe888-google-analytics')) {
+      return false;
+    }
+
+    if (!window.__observe888GoogleAnalyticsConfigured) {
+      window.gtag('config', measurementId);
+      window.__observe888GoogleAnalyticsConfigured = true;
     }
 
     return typeof window.gtag === 'function';
@@ -430,9 +474,35 @@
     return true;
   }
 
+  function reportGoogleAnalyticsEvent(eventName, extra, payload) {
+    if (!ensureGoogleAnalyticsTag()) {
+      return false;
+    }
+
+    window.gtag('event', eventName, {
+      event_category: payload.event_category || 'observe888',
+      event_label: payload.cta_position || payload.page_role || payload.page_path || '',
+      link_url: payload.href || '',
+      page_title: payload.page_title || '',
+      page_location: payload.page_url || '',
+      page_path: payload.page_path || '',
+      cta_type: payload.cta_type || '',
+      cta_position: payload.cta_position || '',
+      contact_channel: payload.contact_channel || '',
+      store: payload.store || '',
+      page_role: payload.page_role || '',
+      traffic_source: payload.traffic_source || '',
+      campaign_id: payload.campaign_id || '',
+      campaign_name: payload.campaign_name || ''
+    });
+    logDebug('google analytics event sent', { eventName, measurementId: getGoogleAnalyticsMeasurementId() });
+    return true;
+  }
+
   function track(eventName, extra, options) {
     const payload = buildPayload(eventName, extra);
     const result = sendPayload(payload);
+    reportGoogleAnalyticsEvent(eventName, extra, payload);
     reportGoogleAdsConversion(eventName, extra, payload, options && options.googleAdsCallback);
     return result;
   }
@@ -497,12 +567,153 @@
     });
   }
 
+  function runWhenReady(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+      return;
+    }
+    callback();
+  }
+
+  function normalizePath(pathname) {
+    return String(pathname || '').replace(/\/index\.html$/, '/');
+  }
+
+  function getUrlFromHref(href) {
+    try {
+      return new URL(href, window.location.href);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function inferStoreFromElement(element, url) {
+    const closestStore = element && typeof element.closest === 'function'
+      ? element.closest('[data-store]')
+      : null;
+    const closestStoreValue = closestStore && closestStore.dataset ? closestStore.dataset.store : '';
+    const bodyDataset = document.body ? document.body.dataset : {};
+    const path = normalizePath(url && url.pathname || window.location.pathname).toLowerCase();
+    const params = url ? url.searchParams : new URLSearchParams(window.location.search || '');
+    const storeParam = String(params.get('store') || '').trim().toLowerCase();
+
+    if (storeParam) return storeParam;
+    if (closestStoreValue) return String(closestStoreValue).trim().toLowerCase();
+    if (bodyDataset.store) return String(bodyDataset.store).trim().toLowerCase();
+    if (bodyDataset.entryVariant && ['south', 'east', 'north'].includes(String(bodyDataset.entryVariant).trim().toLowerCase())) {
+      return String(bodyDataset.entryVariant).trim().toLowerCase();
+    }
+    if (path.includes('/south/')) return 'south';
+    if (path.includes('/east/')) return 'east';
+    if (path.includes('/north/')) return 'north';
+    return '';
+  }
+
+  function inferPageRoleFromLocation() {
+    const bodyDataset = document.body ? document.body.dataset : {};
+    const path = normalizePath(window.location.pathname).toLowerCase();
+    if (bodyDataset.pageRole) return bodyDataset.pageRole;
+    if (path.includes('/booking/')) return 'booking';
+    if (path.includes('/visit/')) return 'visit';
+    if (path.includes('/south/pricing/')) return 'south_pricing';
+    if (path.includes('/south/')) return 'south_location';
+    if (path.includes('/east/')) return 'east_location';
+    if (path.includes('/services/')) return 'service_page';
+    if (path.includes('/notes/') && !path.endsWith('/notes/')) return 'note_article';
+    if (path.includes('/notes/')) return 'notes_index';
+    if (path.includes('/contact/')) return 'contact';
+    if (path.includes('/faq/')) return 'faq';
+    if (path.includes('/about/')) return 'about';
+    return 'observe_geo_home';
+  }
+
+  function classifyCta(element) {
+    const href = String(element && element.getAttribute('href') || '').trim();
+    if (!href || href.startsWith('#') || href.toLowerCase().startsWith('javascript:')) {
+      return null;
+    }
+
+    const url = getUrlFromHref(href);
+    if (!url) {
+      return null;
+    }
+
+    const absoluteHref = url.toString();
+    const normalizedHref = absoluteHref.toLowerCase();
+    const path = normalizePath(url.pathname).toLowerCase();
+    const host = url.hostname.toLowerCase();
+    const label = String(element.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80);
+    let ctaType = '';
+    let eventPrefix = '';
+
+    if (normalizedHref.startsWith('tel:')) {
+      ctaType = 'call';
+      eventPrefix = 'click_call';
+    } else if (host.includes('liff.line.me') || host.includes('line.me') || host.includes('lin.ee')) {
+      ctaType = 'line';
+      eventPrefix = 'click_line';
+    } else if ((host.includes('maps.google.') || (host.includes('google.com') && path.includes('/maps')) || host === 'maps.app.goo.gl')) {
+      ctaType = normalizedHref.includes('/dir/') || normalizedHref.includes('directions') ? 'directions' : 'map';
+      eventPrefix = 'click_map';
+    } else if (host.includes('docs.google.com') && path.includes('/forms/')) {
+      ctaType = 'form';
+      eventPrefix = 'click_form';
+    } else if (path.includes('/booking/')) {
+      ctaType = 'booking';
+      eventPrefix = 'click_booking';
+    } else if (path.includes('/visit/')) {
+      ctaType = 'visit';
+      eventPrefix = 'click_visit';
+    }
+
+    if (!ctaType) {
+      return null;
+    }
+
+    const store = inferStoreFromElement(element, url);
+    const pageRole = inferPageRoleFromLocation();
+    const eventSuffix = store || pageRole || 'site';
+
+    return {
+      eventName: `${eventPrefix}_${eventSuffix}`,
+      href: absoluteHref,
+      cta_type: ctaType,
+      cta_position: element.dataset.ctaPosition || element.id || String(element.className || '').trim() || 'auto',
+      cta_label: label,
+      store,
+      page_role: pageRole
+    };
+  }
+
+  function autoBindCtaLinks() {
+    const config = getConfig();
+    if (config.autoTrackCta === false) {
+      return;
+    }
+
+    Array.from(document.querySelectorAll('a[href]')).forEach((anchor) => {
+      if (anchor.dataset.observeBound === '1' || anchor.dataset.observeAutoTrack === '0') {
+        return;
+      }
+
+      const classified = classifyCta(anchor);
+      if (!classified) {
+        return;
+      }
+
+      bindTrackClick(anchor, classified);
+    });
+  }
+
   ensureGoogleAdsTag();
+  ensureGoogleAnalyticsTag();
+  runWhenReady(autoBindCtaLinks);
 
   window.Observe888Tracker = {
     track,
     trackPageView,
     bindTrackClick,
+    autoBindCtaLinks,
     isConfigured() {
       return Boolean(getEndpoint());
     }
