@@ -12,6 +12,10 @@ window.OBSERVE888_TRACKING_CONFIG = Object.assign(
         phone_click: 'AW-17875250530/G5IPCJXLu4ccEOLaystC'
       }
     },
+    googleAnalytics: {
+      measurementId: ''
+    },
+    autoTrackCta: true,
     debug: false
   },
   window.OBSERVE888_TRACKING_CONFIG || {}

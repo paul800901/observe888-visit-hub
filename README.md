@@ -24,6 +24,7 @@
 - `notes/index.html`：身體觀察筆記分類入口。
 - `notes/*/index.html`：公開文章與分類頁。
 - `docs/SOCIAL_SHORT_VIDEO_FUNNEL_2026-06-23.md`：短影音與文章發布時的官網回流規則。
+- `docs/cta-tracking-events-2026-06-28.md`：官網 LINE / 電話 / 地圖 / 預約 / 表單 / 導航 CTA 事件追蹤與 AdsControl 匯入規則。
 - `assets/gmb/`：Google 商家檔案與地圖曝光可用的公開圖片素材。
 - `docs/website-operations.md`：網站營運、Google 商家一致性、GEO / AEO 與驗證清單。
 - `llms.txt`：AI / 答案引擎補充導覽。
@@ -31,7 +32,7 @@
 
 ## 與 AdsControl 的邊界
 
-`AdsControl` 可以繼續讀取官網事件並同步 `observe888_public` 的 LINE / 電話 / 地圖弱訊號，但不主控官網內容。
+`AdsControl` 可以繼續讀取官網事件並同步 `observe888_public` 的 LINE / 電話 / 地圖 / 預約 / 表單 / 導航弱訊號，但不主控官網內容。
 
 下列工作應在本專案處理：
 
@@ -45,7 +46,7 @@
 
 - Google Ads API 同步、廣告提案、投放監測。
 - 公開站事件匯入與 lead sync。
-- 報表、告警、LINE / 電話 / 地圖弱訊號分析。
+- 報表、告警、LINE / 電話 / 地圖 / 預約 / 表單 / 導航弱訊號分析。
 
 ## 先讀
 
