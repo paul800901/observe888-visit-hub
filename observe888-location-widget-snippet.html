@@ -596,7 +596,7 @@
       <div class="observe-locator__intro">
         <span id="observeLocatorEyebrow" class="observe-locator__eyebrow">Visit Planner</span>
         <h2 id="observeLocatorTitle" class="observe-locator__title">雙店導航與到店規劃，一頁完成。</h2>
-        <p id="observeLocatorLead" class="observe-locator__lead">想前往南區店或東區工作室（純預約），可以先在這裡查看聯絡方式與到店資訊。兩個地點都可開啟 Google Maps；東區是二樓預約制工作室，非固定駐點，仍請先用 LINE 確認時段。</p>
+        <p id="observeLocatorLead" class="observe-locator__lead">想前往南區店或東區工作室（純預約），可以先在這裡查看聯絡方式與到店資訊。兩個地點都可開啟 Google Maps；東區是二樓預約制工作室，非固定駐點，仍請先確認時段。</p>
         <div class="observe-locator__chips">
           <span id="observeLocatorChip1" class="observe-locator__chip">雙店嵌入地圖</span>
           <span id="observeLocatorChip2" class="observe-locator__chip">一鍵開啟導航</span>
@@ -683,19 +683,19 @@
           badge: '二樓工作室 / 純預約',
           address: '台南市東區新樓街65號',
           addressQuery: '台南市東區新樓街65號',
-          phoneLabel: 'LINE 預約需求表單',
-          phoneHref: 'https://liff.line.me/2009616289-t4XZSol1?v=20260525-5&store=east&source=locator_east',
+          phoneLabel: '0973-728-670',
+          phoneHref: 'tel:0973728670',
           hours: '非固定駐點，僅開放已確認預約時段；週六上午通常較容易安排。',
-          note: '東區工作室（純預約）地址在台南市東區新樓街65號，為二樓預約制工作室；不建議未確認就直接前往，請先用 LINE 留下身體狀況、方便時段與聯絡方式。',
+          note: '東區工作室（純預約）地址在台南市東區新樓街65號，為二樓預約制工作室；不建議未確認就直接前往，請先用 LINE 或電話留下身體狀況、方便時段與聯絡方式。',
           mapEmbed: 'https://www.google.com/maps?q=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F&hl=zh-TW&z=17&output=embed',
           mapUrl: 'https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F',
           directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F&travelmode=driving',
           parking: [
             '東區工作室（純預約）地址為台南市東區新樓街65號，二樓工作室。',
-            '非固定駐點，請先留下希望安排的日期、時段與主要身體狀況。',
+            '非固定駐點，請先留下希望安排的日期、時段與主要身體狀況；可用 LINE 或電話確認。',
             '確認完成後再出發，避免臨時到場無法接待。'
           ],
-          mapNote: '東區可開啟 Google Maps；但仍是二樓純預約工作室，請先確認時段再出發。'
+          mapNote: '東區可開啟 Google Maps；但仍是二樓純預約工作室，請先用 LINE 或電話確認時段再出發。'
         }
       };
 
@@ -794,10 +794,10 @@
           introChip3.textContent = '輸入出發地直接導航';
         } else {
           introEyebrow.textContent = '東區工作室（純預約）入口';
-          introTitle.textContent = '東區二樓工作室（純預約），地址在新樓街65號，先用 LINE 確認時段。';
-          introLead.textContent = '東區工作室（純預約）是二樓預約制工作室，非固定駐點；請先確認時段再前往台南市東區新樓街65號。';
+          introTitle.textContent = '東區二樓工作室（純預約），地址在新樓街65號，先確認時段再前往。';
+          introLead.textContent = '東區工作室（純預約）是二樓預約制工作室，非固定駐點；請先用 LINE 或電話確認時段，再前往台南市東區新樓街65號。';
           introChip1.textContent = '二樓工作室';
-          introChip2.textContent = '先 LINE 確認';
+          introChip2.textContent = '先 LINE 或電話確認';
           introChip3.textContent = '新樓街65號';
         }
       }
