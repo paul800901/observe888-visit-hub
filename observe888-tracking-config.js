@@ -13,7 +13,7 @@ window.OBSERVE888_TRACKING_CONFIG = Object.assign(
       }
     },
     googleAnalytics: {
-      measurementId: ''
+      measurementId: 'G-VJ5LJNMW6Q'
     },
     autoTrackCta: true,
     debug: false

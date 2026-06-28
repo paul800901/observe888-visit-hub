@@ -31,13 +31,18 @@
 
 ```js
 googleAnalytics: {
-  measurementId: ''
+  measurementId: 'G-VJ5LJNMW6Q'
 }
 ```
 
-目前 AdsControl 透過 Google Ops API 可讀 GA4 property `482789617`，但 `properties/482789617/dataStreams` 讀回空陣列，代表目前沒有可填入官網的 Web data stream measurement ID。為避免把資料送到錯誤串流，這次不硬填 GA4 ID。
+AdsControl 透過 Google Ops API 已在 GA4 property `482789617` 建立 Web data stream：
 
-後續若在 GA4 建好 Web data stream，只要把 `measurementId` 補成 `G-...`，官網事件會同時送 GA4；不需要再改主追蹤程式。
+- data stream：`properties/482789617/dataStreams/15163650392`
+- display name：`Observe888 official website`
+- default URI：`https://www.observe888.com`
+- measurement ID：`G-VJ5LJNMW6Q`
+
+官網事件現在會同時送到既有 GAS / AdsControl 管線與 GA4。GA4 是否開始出現 rows，需等公開站部署後有真實 page view / CTA event 再讀回確認。
 
 ## AdsControl 判讀
 
