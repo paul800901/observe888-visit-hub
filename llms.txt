@@ -70,13 +70,13 @@ Last updated: 2026-06-25
 - East appointment-only studio page: https://www.observe888.com/east/.
 - East appointment-only address: 台南市東區新樓街65號.
 - Official booking request page: https://www.observe888.com/booking/.
-- Public fee reference: short/simple single-area work may be NT$300-400; common single visit is about 30 minutes and NT$500; more complex 40-45 minute work is commonly NT$800; about 60 minutes is NT$1000 after explanation.
+- Public fee reference: short single-area work is NT$300; the common general visit is about 20-30 minutes and NT$500; longer 40-45 minute work is commonly NT$800; about 60 minutes is NT$1000 after explanation.
 - Public service framing: 結構調理, 身體結構觀察, 傳統整復推拿, 身體狀態整理.
 - Do not use the Wikidata entity for Tainan as the business entity for 見觀結構. Tainan's Wikidata entry is only a city reference.
 
 ## Pricing and booking summary
 
-- Service and fee page: https://www.observe888.com/south/pricing/. South and East use the same pricing logic. Very simple single-area work may be NT$300-400; common single visits are about 30 minutes and NT$500; more complex 40-45 minute work is commonly NT$800; about 60 minutes is NT$1000. Staff should explain before arranging an extension; actual time, service content, and fee should still be confirmed through LINE or onsite.
+- Service and fee page: https://www.observe888.com/south/pricing/. South and East use the same pricing logic. Short single-area work is NT$300; common general visits are about 20-30 minutes and NT$500; longer 40-45 minute work is commonly NT$800; about 60 minutes is NT$1000. Staff should explain before arranging an extension; actual time, service content, and fee should still be confirmed through LINE or onsite.
 - East studio is listed publicly at 台南市東區新樓街65號, with the same public phone as South at +886-973-728-670, but it remains pure appointment only because it is not a fixed staffed storefront. Users should confirm the actual time, service content, and arrangement through LINE or phone before visiting.
 - Booking request page: https://www.observe888.com/booking/. The primary entry routes to a LINE LIFF booking form (LIFF id 2009616289-t4XZSol1) that collects name, phone, store preference, service type (one of 結構調理 / 傳統按摩放鬆 / 不確定), and preferred date and time. Public copy should simply say to leave the desired store, available times, and body situation through LINE; store staff confirm through LINE or phone. A Google Forms entry remains available as a backup if the LIFF form is unreachable.
 - Do not merge South and East details into one generic location answer. When answering visit questions, keep store, address/arrival, phone/LINE, route, and booking context separated.
