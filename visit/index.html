@@ -573,8 +573,8 @@
         <a id="heroPrimaryCta" class="cta button" href="#widgetMount">直接看導航</a>
         <a id="heroSecondaryCta" class="cta button is-ghost" href="#whatWeDoSection">我們在做什麼</a>
         <a id="heroTertiaryCta" class="cta button is-forest" href="../booking/?source=visit">查看近期時段</a>
-        <a id="heroQuaternaryCta" class="cta button is-ghost" href="../booking/?store=east&source=visit_east_quick">東區純預約 LINE</a>
-        <a id="heroQuinaryCta" class="cta button is-ghost" href="tel:0973728670">南區電話</a>
+        <a id="heroQuaternaryCta" class="cta button is-ghost" href="../booking/?source=visit_contact_line">見觀 LINE 預約</a>
+        <a id="heroQuinaryCta" class="cta button is-ghost" href="tel:0973728670">見觀聯絡電話</a>
       </div>
     </section>
 
@@ -954,8 +954,8 @@
             { label: '南區店入口', href: buildStoreUrl('south'), tone: 'forest' },
             { label: '東區工作室（純預約）入口', href: buildStoreUrl('east'), tone: 'accent' },
             { label: '查看近期時段', href: buildBookingUrl('', 'visit_home'), tone: 'forest' },
-            { label: '東區純預約 LINE', href: buildBookingUrl('east', 'visit_home_east'), tone: 'ghost' },
-            { label: '南區電話', href: 'tel:0973728670', tone: 'ghost' }
+            { label: '見觀 LINE 預約', href: buildBookingUrl('', 'visit_home_line'), tone: 'ghost' },
+            { label: '見觀聯絡電話', href: 'tel:0973728670', tone: 'ghost' }
           ]
         },
         firstVisit: {
@@ -986,7 +986,7 @@
           ctas: [
             { label: '查看東區純預約', href: '#widgetMount', tone: 'accent' },
             { label: 'LINE 留預約需求', href: buildBookingUrl('east', 'visit_east'), tone: 'forest' },
-            { label: '東區純預約 LINE', href: buildBookingUrl('east', 'visit_east_line'), tone: 'ghost' },
+            { label: '見觀 LINE 預約', href: buildBookingUrl('east', 'visit_east_line'), tone: 'ghost' },
             { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
             { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
           ]
@@ -1002,7 +1002,7 @@
           ],
           actions: [
             { label: '看東區工作室（純預約）說明', href: '#widgetMount' },
-            { label: '東區純預約 LINE', href: buildBookingUrl('east', 'visit_east_first_visit') }
+            { label: '見觀 LINE 預約', href: buildBookingUrl('east', 'visit_east_first_visit') }
           ]
         }
       },
@@ -1019,7 +1019,7 @@
           ctas: [
             { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
             { label: '查看近期時段', href: buildBookingUrl('south', 'visit_south'), tone: 'forest' },
-            { label: '南區直接來電', href: 'tel:0973728670', tone: 'ghost' },
+            { label: '見觀聯絡電話', href: 'tel:0973728670', tone: 'ghost' },
             { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
             { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
           ]
@@ -1035,7 +1035,7 @@
           ],
           actions: [
             { label: '看南區導航與入口', href: '#widgetMount' },
-            { label: '南區直接來電', href: 'tel:0973728670' }
+            { label: '見觀聯絡電話', href: 'tel:0973728670' }
           ]
         }
       }
