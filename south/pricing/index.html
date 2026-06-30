@@ -518,7 +518,8 @@
       <h1>南區店與東區工作室服務與費用</h1>
       <p>見觀不是用套餐硬切，而是依本次處理內容與時間自然分層。短單部位 NT$300；一般整理約 20–30 分鐘 NT$500；時間較長、需要做到 40–45 分鐘約 NT$800；延長到約 60 分鐘為 NT$1000。</p>
       <div class="hero-actions">
-        <a id="southPricingHeroLineCta" class="cta button" href="../../booking/?store=south&source=south_pricing_hero">LINE 留預約需求</a>
+        <a id="southPricingHeroCallCta" class="cta button" href="tel:0973728670">先撥 0973-728-670</a>
+        <a id="southPricingHeroLineCta" class="cta button is-forest" href="../../booking/?store=south&source=south_pricing_hero">LINE 留預約需求</a>
         <a id="southPricingHeroVisitCta" class="cta button is-ghost" href="../../visit/?store=south">南區到店導航</a>
         <a class="cta button is-ghost" href="../../services/tainan-tuina/">台南整復推拿怎麼選</a>
       </div>
@@ -556,22 +557,22 @@
       <p>南區店與東區工作室採同一套費用邏輯。實際費用依本次處理內容、時間長度與現場狀態確認。</p>
     </div>
 
-    <p class="notice">本頁費用為一般單次到店參考。時段、服務內容與實際安排，仍以 LINE 確認為主。</p>
+    <p class="notice">本頁費用為一般單次到店參考。時段、服務內容與實際安排，仍以電話或 LINE 確認為準。</p>
 
     <div class="info-card">
       <span class="info-card-label">工作室說明</span>
       <h2>一對一・預約制・獨立空間</h2>
       <p>南區店位於台南市南區明興路 673 號，適合正在比較台南南區整復推拿、南區整復、南區推拿與台南整復推薦的使用者先確認。見觀會先整理肩頸卡緊、腰背緊繃、久坐卡卡、落枕後轉頭不順等身體感受與生活情境，再依現場狀態安排。</p>
-      <p>南區店與東區工作室皆採預約制安排。適合希望一對一處理、節奏較慢、環境較安靜的朋友。若還在比較台南整復推拿、台南整骨推薦或見觀做法，先看 <a href="../../services/tainan-tuina/">台南整復推拿服務說明</a>；來店前再以 LINE 確認時段與服務內容。</p>
+      <p>南區店與東區工作室皆採預約制安排。適合希望一對一處理、節奏較慢、環境較安靜的朋友。若還在比較台南整復推拿、台南整骨推薦或見觀做法，先看 <a href="../../services/tainan-tuina/">台南整復推拿服務說明</a>；來店前再以電話或 LINE 確認時段與服務內容。</p>
     </div>
 
     <div class="cta-strip">
       <div class="cta-strip-copy">
-        <strong>先填 LINE 表單確認時段</strong>
-        <p>預約前先填 LINE 預約需求表單說明需求與時段，會比直接來電更順。</p>
+        <strong>電話可先聯絡，LINE 也能留需求</strong>
+        <p>想先快一點確認就直接來電；若要先整理身體狀況與可配合時段，也可以用 LINE 留預約需求。</p>
       </div>
-      <a id="southPricingLineCta" class="cta button" href="../../booking/?store=south&source=south_pricing">填預約需求表單</a>
-      <a id="southPricingCallCta" class="cta button is-ghost" href="tel:0973728670">見觀聯絡電話</a>
+      <a id="southPricingCallCta" class="cta button" href="tel:0973728670">先撥 0973-728-670</a>
+      <a id="southPricingLineCta" class="cta button is-forest" href="../../booking/?store=south&source=south_pricing">LINE 留預約需求</a>
     </div>
   </main>
 
@@ -598,6 +599,13 @@
         store: 'south',
         page_role: 'south_pricing',
         cta_type: 'line'
+      });
+
+      southPricingTracker.bindTrackClick(document.querySelector('#southPricingHeroCallCta'), {
+        eventName: 'click_call_south',
+        store: 'south',
+        page_role: 'south_pricing',
+        cta_type: 'call'
       });
 
       southPricingTracker.bindTrackClick(document.querySelector('#southPricingCallCta'), {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <title>台南南區整復推拿工作室入口｜見觀結構調理整復所</title>
-  <meta name="description" content="見觀結構南區店入口頁。台南南區傳統整復推拿、南區推拿、身體結構觀察與姿勢承重線索整理；短單部位 NT$300，一般整理約 20–30 分鐘 NT$500，可查看明興路地址、電話、Google Maps 導航與 LINE 預約方式。">
+  <meta name="description" content="見觀結構南區店入口頁。台南南區傳統整復推拿、南區推拿、身體結構觀察與姿勢承重線索整理；短單部位 NT$300，一般整理約 20–30 分鐘 NT$500，可先看明興路地址、電話、LINE 留需求與 Google Maps 導航。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:site_name" content="見觀結構">
@@ -265,11 +265,11 @@
       <p class="brand-name">見觀結構調理整復所-南區店</p>
       <h1>南區店，台南南區傳統整復推拿與預約制工作室入口。</h1>
       <p class="hero-fee-note">費用參考 <strong>NT$300–1000</strong>｜依本次內容與時間分層</p>
-      <p>見觀結構調理整復所-南區店是工作室形式，服務以身體結構觀察、傳統整復推拿、姿勢與承重線索整理為主。如果你是用南區推拿、南區整復推拿或明興路推拿找到這裡，請先確認本頁是明興路南區店入口，再填 LINE 預約需求表單或電話確認可安排時段。</p>
+      <p>見觀結構調理整復所-南區店是工作室形式，服務以身體結構觀察、傳統整復推拿、姿勢與承重線索整理為主。如果你是用南區推拿、南區整復推拿或明興路推拿找到這裡，請先確認本頁是明興路南區店入口，再看電話、LINE 留需求方式與可安排時段。</p>
       <div class="actions">
-        <a class="cta button" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
-        <a class="cta button is-forest" href="../booking/?store=south&source=south_store">填預約需求表單</a>
-        <a class="cta button is-ghost" href="tel:0973728670">見觀聯絡電話</a>
+        <a id="southHeroCallCta" class="cta button" href="tel:0973728670">先撥 0973-728-670</a>
+        <a id="southHeroBookingCta" class="cta button is-forest" href="../booking/?store=south&source=south_store">LINE 留預約需求</a>
+        <a id="southHeroMapCta" class="cta button is-ghost" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
       </div>
     </header>
 
@@ -283,7 +283,7 @@
       <article class="info-card">
         <strong>電話</strong>
         <p><a href="tel:0973728670">0973-728-670</a></p>
-        <p>建議先確認時段，再安排到店。</p>
+        <p>可先直接來電，或改用 LINE 留需求後再安排時段。</p>
       </article>
       <article class="info-card">
         <strong>服務與費用</strong>
@@ -304,7 +304,7 @@
       </div>
     </section>
 
-    <p class="notice">本頁整理官方店點入口資訊；實際時段、服務內容與費用仍以 LINE、電話或現場確認為準。</p>
+    <p class="notice">本頁整理官方店點入口資訊；實際時段、服務內容與費用仍以電話、LINE 或現場確認為準。</p>
   </main>
 
   <script src="../observe888-tracking-config.js"></script>
@@ -318,18 +318,25 @@
         page_role: 'south_location'
       });
 
-      southLocationTracker.bindTrackClick(document.querySelector('a[href^="https://line.me/"]'), {
-        eventName: 'click_line_south',
+      southLocationTracker.bindTrackClick(document.querySelector('#southHeroBookingCta'), {
+        eventName: 'click_booking_south',
         store: 'south',
         page_role: 'south_location',
-        cta_type: 'line'
+        cta_type: 'booking'
       });
 
-      southLocationTracker.bindTrackClick(document.querySelector('a[href^="tel:"]'), {
+      southLocationTracker.bindTrackClick(document.querySelector('#southHeroCallCta'), {
         eventName: 'click_call_south',
         store: 'south',
         page_role: 'south_location',
         cta_type: 'call'
+      });
+
+      southLocationTracker.bindTrackClick(document.querySelector('#southHeroMapCta'), {
+        eventName: 'click_map_south',
+        store: 'south',
+        page_role: 'south_location',
+        cta_type: 'map'
       });
     }
   </script>
