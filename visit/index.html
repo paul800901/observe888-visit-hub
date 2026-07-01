@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <title>到店導航與 Google Maps｜台南南區店與東區純預約工作室｜見觀結構</title>
-  <meta name="description" content="見觀結構到店導航。先選南區明興路門市或東區純預約工作室，再看 LINE 預約、電話與 Google Maps 路線。">
+  <meta name="description" content="見觀結構到店導航。先選南區明興路門市或東區純預約工作室；未確認時段先用電話或 LINE，已確認再開 Google Maps。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:site_name" content="見觀結構">
   <meta property="og:title" content="到店導航與 Google Maps｜台南南區店與東區純預約工作室｜見觀結構">
-  <meta property="og:description" content="先選南區明興路門市或東區純預約工作室，再看 LINE 預約、電話與 Google Maps 路線。">
+  <meta property="og:description" content="先選南區明興路門市或東區純預約工作室；未確認時段先用電話或 LINE，已確認再開 Google Maps。">
   <meta property="og:url" content="https://www.observe888.com/visit/">
   <meta property="og:image" content="https://www.observe888.com/assets/gmb/south-single-30-40-card-s0.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="1200">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="到店導航與 Google Maps｜台南南區店與東區純預約工作室｜見觀結構">
-  <meta name="twitter:description" content="先選南區明興路門市或東區純預約工作室，再看 LINE 預約、電話與 Google Maps 路線。">
+  <meta name="twitter:description" content="先選南區明興路門市或東區純預約工作室；未確認時段先用電話或 LINE，已確認再開 Google Maps。">
   <meta name="twitter:image" content="https://www.observe888.com/assets/gmb/south-single-30-40-card-s0.png">
   <link rel="canonical" href="https://www.observe888.com/visit/">
   <style>
@@ -523,7 +523,7 @@
       "@id": "https://www.observe888.com/visit/#webpage",
       "url": "https://www.observe888.com/visit/",
       "name": "到店導航與 Google Maps｜台南南區店與東區純預約工作室｜見觀結構",
-      "description": "見觀結構到店導航。先選南區明興路門市或東區純預約工作室，再看 LINE 預約、電話與 Google Maps 路線。",
+      "description": "見觀結構到店導航。先選南區明興路門市或東區純預約工作室；未確認時段先用電話或 LINE，已確認再開 Google Maps。",
       "inLanguage": "zh-Hant",
       "isPartOf": {
         "@id": "https://www.observe888.com/#website"
@@ -572,9 +572,9 @@
       <div class="cta-row">
         <a id="heroPrimaryCta" class="cta button" href="#widgetMount">直接看導航</a>
         <a id="heroSecondaryCta" class="cta button is-ghost" href="#whatWeDoSection">我們在做什麼</a>
-        <a id="heroTertiaryCta" class="cta button is-forest" href="../booking/?source=visit">查看近期時段</a>
-        <a id="heroQuaternaryCta" class="cta button is-ghost" href="../booking/?source=visit_contact_line">見觀 LINE 預約</a>
-        <a id="heroQuinaryCta" class="cta button is-ghost" href="tel:0973728670">見觀聯絡電話</a>
+        <a id="heroTertiaryCta" class="cta button is-forest" href="../booking/?source=visit">LINE 留預約需求</a>
+        <a id="heroQuaternaryCta" class="cta button is-ghost" href="../booking/?source=visit_contact_line">LINE 確認時段</a>
+        <a id="heroQuinaryCta" class="cta button is-ghost" href="tel:0973728670">撥打 0973-728-670</a>
       </div>
     </section>
 
@@ -606,7 +606,7 @@
 
       <div class="first-visit-actions">
         <a id="firstVisitPrimaryAction" class="cta button" href="#widgetMount">看雙店導航</a>
-        <a id="firstVisitSecondaryAction" class="cta button is-ghost" href="../booking/?source=visit_first_visit">查看近期時段</a>
+        <a id="firstVisitSecondaryAction" class="cta button is-ghost" href="../booking/?source=visit_first_visit">LINE 留預約需求</a>
       </div>
     </section>
 
@@ -745,25 +745,25 @@
 
     function bindDecisionCtaTracking(variantKey) {
       if (variantKey === 'east') {
-        bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
+        bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
           eventName: 'click_visit_locator_east',
           store: 'east',
           page_role: 'east_entry',
           cta_type: 'locator_anchor',
           cta_position: 'hero'
         });
-        bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
-          eventName: 'click_line_east',
-          store: 'east',
-          page_role: 'east_entry',
-          cta_type: 'line',
-          cta_position: 'hero'
-        });
-        bindTrackedClick(document.querySelector('#heroQuinaryCta'), {
+        bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
           eventName: 'click_visit_first_visit_east',
           store: 'east',
           page_role: 'east_entry',
           cta_type: 'section_anchor',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
+          eventName: 'click_pricing_east',
+          store: 'east',
+          page_role: 'east_entry',
+          cta_type: 'pricing',
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#firstVisitPrimaryAction'), {
@@ -777,7 +777,7 @@
       }
 
       if (variantKey === 'south') {
-        bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
+        bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
           eventName: 'click_visit_locator_south',
           store: 'south',
           page_role: 'south_entry',
@@ -785,13 +785,6 @@
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
-          eventName: 'click_visit_first_visit_south',
-          store: 'south',
-          page_role: 'south_entry',
-          cta_type: 'section_anchor',
-          cta_position: 'hero'
-        });
-        bindTrackedClick(document.querySelector('#heroQuinaryCta'), {
           eventName: 'click_pricing_south',
           store: 'south',
           page_role: 'south_entry',
@@ -836,43 +829,36 @@
       bindDecisionCtaTracking(variantKey);
 
       if (variantKey === 'east') {
-        bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
+        bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
           eventName: 'click_booking_east',
           store: 'east',
           page_role: 'east_entry',
           cta_type: 'booking',
           cta_position: 'hero'
         });
-        bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
-          eventName: 'click_line_east',
-          store: 'east',
-          page_role: 'east_entry',
-          cta_type: 'line',
-          cta_position: 'hero'
-        });
         bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), {
-          eventName: 'click_line_east',
+          eventName: 'click_booking_east',
           store: 'east',
           page_role: 'east_entry',
-          cta_type: 'line',
+          cta_type: 'booking',
           cta_position: 'first_visit'
         });
         return;
       }
 
       if (variantKey === 'south') {
+        bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
+          eventName: 'click_call_south',
+          store: 'south',
+          page_role: 'south_entry',
+          cta_type: 'call',
+          cta_position: 'hero'
+        });
         bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
           eventName: 'click_booking_south',
           store: 'south',
           page_role: 'south_entry',
           cta_type: 'booking',
-          cta_position: 'hero'
-        });
-        bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
-          eventName: 'click_call_south',
-          store: 'south',
-          page_role: 'south_entry',
-          cta_type: 'call',
           cta_position: 'hero'
         });
         bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), {
@@ -887,10 +873,10 @@
 
       bindTrackedClick(document.querySelector('#heroTertiaryCta'), Object.assign({ cta_position: 'hero' }, sharedHomeBooking));
       bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
-        eventName: 'click_line_east',
-        store: 'east',
+        eventName: 'click_call_south',
+        store: 'south',
         page_role: 'home',
-        cta_type: 'line',
+        cta_type: 'call',
         cta_position: 'hero'
       });
       bindTrackedClick(document.querySelector('#heroQuinaryCta'), {
@@ -953,9 +939,8 @@
           ctas: [
             { label: '南區店入口', href: buildStoreUrl('south'), tone: 'forest' },
             { label: '東區工作室（純預約）入口', href: buildStoreUrl('east'), tone: 'accent' },
-            { label: '查看近期時段', href: buildBookingUrl('', 'visit_home'), tone: 'forest' },
-            { label: '見觀 LINE 預約', href: buildBookingUrl('', 'visit_home_line'), tone: 'ghost' },
-            { label: '見觀聯絡電話', href: 'tel:0973728670', tone: 'ghost' }
+            { label: 'LINE 留預約需求', href: buildBookingUrl('', 'visit_home'), tone: 'forest' },
+            { label: '撥打 0973-728-670', href: 'tel:0973728670', tone: 'ghost' }
           ]
         },
         firstVisit: {
@@ -969,7 +954,7 @@
           ],
           actions: [
             { label: '看雙店導航', href: '#widgetMount' },
-            { label: '查看近期時段', href: buildBookingUrl('', 'visit_first_visit') }
+            { label: 'LINE 留預約需求', href: buildBookingUrl('', 'visit_first_visit') }
           ]
         }
       },
@@ -984,9 +969,8 @@
           lead: '東區工作室（純預約）不是固定駐點，只有已確認的預約時段會開放。地址在台南市東區新樓街65號，週六上午通常較容易安排；請先用 LINE 或電話留下身體狀況、方便時段與聯絡方式。',
           points: ['二樓工作室', '新樓街65號', '先確認時段'],
           ctas: [
-            { label: '查看東區純預約', href: '#widgetMount', tone: 'accent' },
-            { label: 'LINE 留預約需求', href: buildBookingUrl('east', 'visit_east'), tone: 'forest' },
-            { label: '見觀 LINE 預約', href: buildBookingUrl('east', 'visit_east_line'), tone: 'ghost' },
+            { label: 'LINE 確認東區時段', href: buildBookingUrl('east', 'visit_east'), tone: 'forest' },
+            { label: '已確認東區時段，再看入口', href: '#widgetMount', tone: 'accent' },
             { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
             { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
           ]
@@ -1002,25 +986,24 @@
           ],
           actions: [
             { label: '看東區工作室（純預約）說明', href: '#widgetMount' },
-            { label: '見觀 LINE 預約', href: buildBookingUrl('east', 'visit_east_first_visit') }
+            { label: 'LINE 確認東區時段', href: buildBookingUrl('east', 'visit_east_first_visit') }
           ]
         }
       },
       south: {
         mode: 'store',
         pageTitle: '見觀南區店入口 | 見觀結構調理整復所',
-        pageDescription: '南區店入口頁。先了解第一次來南區店大概會怎麼進行，再看路口、聯絡與導航方式，查看近期時段或直接來電。',
+        pageDescription: '南區店入口頁。還沒約好先撥電話或用 LINE 留需求；已確認要到南區，再看路口、聯絡與 Google Maps。',
         hero: {
           eyebrow: '見觀南區店入口',
-          title: '南區店，先確認時段再直接出發。',
+          title: '南區店，還沒約好先聯絡；已確認再開導航。',
           subtitle: '預約制工作室，先確認可安排時段與到店方式',
-          lead: '南區店第一次來，先看路口、聯絡方式和可安排時段，再查看近期時段或直接來電。',
-          points: ['先確認可安排時段', '先看路口與門牌', '導航 / 電話 / 預約'],
+          lead: '如果還沒約好，先撥電話或用 LINE 留下身體狀況與可配合時段；已經確認要到南區，再往下看入口與 Google Maps。',
+          points: ['未約先電話 / LINE', '已確認再導航', '南區明興路 673 號'],
           ctas: [
-            { label: '直接看導航', href: '#widgetMount', tone: 'accent' },
-            { label: '查看近期時段', href: buildBookingUrl('south', 'visit_south'), tone: 'forest' },
-            { label: '見觀聯絡電話', href: 'tel:0973728670', tone: 'ghost' },
-            { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
+            { label: '撥打 0973-728-670 確認時段', href: 'tel:0973728670', tone: 'forest' },
+            { label: 'LINE 留預約需求', href: buildBookingUrl('south', 'visit_south'), tone: 'accent' },
+            { label: '已確認要到南區，再看 Google Maps', href: '#widgetMount', tone: 'ghost' },
             { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
           ]
         },
@@ -1029,13 +1012,13 @@
           title: '先確認時段，來了一樣說哪裡不舒服就好。',
           lead: '南區是工作室形式，一對一比較細；建議先確認可安排時段，其他跟一般來店一樣。',
           steps: [
-            { title: '先確認有位子', body: '出發前先用預約頁或電話確認時段，省去臨時等候的情況。' },
+            { title: '先確認有位子', body: '出發前先用電話或 LINE 確認時段，省去臨時等候的情況。' },
             { title: '來了說清楚感受', body: '說哪裡卡、哪裡不順就夠了，不需要準備太多，接下來依現場狀態整理。' },
             { title: '帶回幾個延續方向', body: '調整完會補幾個簡單的活動方向，讓你知道回去之後怎麼繼續。' }
           ],
           actions: [
-            { label: '看南區導航與入口', href: '#widgetMount' },
-            { label: '見觀聯絡電話', href: 'tel:0973728670' }
+            { label: '已確認要到南區，再看入口', href: '#widgetMount' },
+            { label: '撥打 0973-728-670 確認時段', href: 'tel:0973728670' }
           ]
         }
       }

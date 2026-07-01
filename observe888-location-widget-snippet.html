@@ -626,9 +626,9 @@
           <ul class="observe-locator__list" id="observeLocatorParking"></ul>
 
           <div class="observe-locator__store-actions">
-            <a class="observe-locator__button" id="observeLocatorPrimaryMap" href="#" target="_blank" rel="noreferrer noopener">Google 地圖</a>
-            <a class="observe-locator__button observe-locator__button--ghost" id="observeLocatorDirections" href="#" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
-            <a class="observe-locator__button observe-locator__button--line" id="observeLocatorLineCta" href="https://line.me/ti/p/~@483yvmiw" target="_blank" rel="noreferrer noopener">LINE 預約</a>
+            <a class="observe-locator__button" id="observeLocatorPrimaryMap" href="#" target="_blank" rel="noreferrer noopener">已確認時段，再開 Google Maps</a>
+            <a class="observe-locator__button observe-locator__button--ghost" id="observeLocatorDirections" href="#" target="_blank" rel="noreferrer noopener">規劃路線</a>
+            <a class="observe-locator__button observe-locator__button--line" id="observeLocatorLineCta" href="/booking/?source=locator_widget">LINE 留預約需求</a>
           </div>
         </article>
       </section>
@@ -787,11 +787,11 @@
 
         if (store.id === 'south') {
           introEyebrow.textContent = '南區店導航入口';
-          introTitle.textContent = '南區店先看路口與聯絡方式，再直接導航或聯絡。';
-          introLead.textContent = '先看路口、聯絡方式和可安排時段，再直接開 Google Maps、來電或 LINE 預約。';
+          introTitle.textContent = '南區店還沒約好先聯絡；已確認再開導航。';
+          introLead.textContent = '如果還沒約好，先用電話或 LINE 確認時段；已經確認要到南區，再看路口、門牌與 Google Maps。';
           introChip1.textContent = '先確認可安排時段';
           introChip2.textContent = '先看路口與門牌';
-          introChip3.textContent = '輸入出發地直接導航';
+          introChip3.textContent = '已確認再導航';
         } else {
           introEyebrow.textContent = '東區工作室（純預約）入口';
           introTitle.textContent = '東區二樓工作室（純預約），地址在新樓街65號，先確認時段再前往。';
@@ -849,12 +849,12 @@
         primaryMap.href = store.mapUrl;
         externalMap.href = store.mapUrl;
         directionsLink.href = store.directionsUrl;
-        primaryMap.textContent = hasPublicMap ? `${store.shortName} 位置` : 'LINE 確認東區資訊';
-        externalMap.textContent = hasPublicMap ? `在 Google Maps 開啟${store.shortName}` : 'LINE 留預約需求';
-        directionsLink.textContent = hasPublicMap ? `導航到${store.shortName}` : '先用 LINE 確認';
+        primaryMap.textContent = hasPublicMap ? `已確認時段，再看${store.shortName}位置` : 'LINE 確認東區資訊';
+        externalMap.textContent = hasPublicMap ? `已確認時段，再開 Google Maps` : 'LINE 留預約需求';
+        directionsLink.textContent = hasPublicMap ? `已確認時段，再規劃到${store.shortName}` : '先用 LINE 確認';
         routeSelectedButton.hidden = !hasPublicMap;
         routeCurrentButton.hidden = !hasPublicMap;
-        routeSelectedButton.textContent = `Google Maps 導航到${store.shortName}`;
+        routeSelectedButton.textContent = `已確認時段，再導航到${store.shortName}`;
         meta.innerHTML = hasPublicMap
           ? `
             <div><strong>營業 / 服務方式：</strong>${htmlEscape(store.hours)}</div>
