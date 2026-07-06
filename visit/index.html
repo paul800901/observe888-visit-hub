@@ -572,8 +572,8 @@
       <div class="cta-row">
         <a id="heroPrimaryCta" class="cta button" href="#widgetMount">直接看導航</a>
         <a id="heroSecondaryCta" class="cta button is-ghost" href="#whatWeDoSection">我們在做什麼</a>
-        <a id="heroTertiaryCta" class="cta button is-forest" href="../booking/?source=visit">LINE 留預約需求</a>
-        <a id="heroQuaternaryCta" class="cta button is-ghost" href="../booking/?source=visit_contact_line">LINE 確認時段</a>
+        <a id="heroTertiaryCta" class="cta button is-forest" href="https://line.me/ti/p/~@483yvmiw">先進官方 LINE</a>
+        <a id="heroQuaternaryCta" class="cta button is-ghost" href="https://line.me/ti/p/~@483yvmiw">LINE 確認時段</a>
         <a id="heroQuinaryCta" class="cta button is-ghost" href="tel:0973728670">撥打 0973-728-670</a>
       </div>
     </section>
@@ -600,13 +600,13 @@
 
         <article class="first-visit-step">
           <strong id="firstVisitStep3Title">最後決定怎麼預約</strong>
-          <span id="firstVisitStep3Body">你可以先填預約詢問，也可以用電話確認，找到最適合自己的節奏。</span>
+          <span id="firstVisitStep3Body">你可以先進官方 LINE，也可以用電話確認，找到最適合自己的節奏。</span>
         </article>
       </div>
 
       <div class="first-visit-actions">
         <a id="firstVisitPrimaryAction" class="cta button" href="#widgetMount">看雙店導航</a>
-        <a id="firstVisitSecondaryAction" class="cta button is-ghost" href="../booking/?source=visit_first_visit">LINE 留預約需求</a>
+        <a id="firstVisitSecondaryAction" class="cta button is-ghost" href="https://line.me/ti/p/~@483yvmiw">先進官方 LINE</a>
       </div>
     </section>
 
@@ -623,7 +623,7 @@
         <ol class="signal-list">
           <li>南區店有明興路地址、電話與 Google Maps 導航。</li>
           <li>東區工作室（純預約）在新樓街65號二樓，非固定駐點，仍需先用 LINE 或電話確認時段。</li>
-          <li>選好分店後，再進單店頁看導航、電話和預約詢問。</li>
+          <li>選好分店後，再進單店頁看導航、電話與官方 LINE 入口。</li>
         </ol>
       </article>
     </section>
@@ -633,7 +633,7 @@
       <div class="site-link-row">
         <a class="site-link" href="../about/">認識見觀結構</a>
         <a class="site-link" href="../notes/">身體觀察筆記</a>
-        <a class="site-link" href="../booking/">預約詢問</a>
+        <a class="site-link" href="https://line.me/ti/p/~@483yvmiw">官方 LINE 入口</a>
         <a class="site-link" href="../south/pricing/">服務與費用</a>
         <a class="site-link" href="../east/">東區工作室（純預約）</a>
       </div>
@@ -652,6 +652,7 @@
       southstudio: 'south',
       studio: 'south'
     };
+    const officialLineUrl = 'https://line.me/ti/p/~@483yvmiw';
 
     function resolveEntryVariant() {
       try {
@@ -671,13 +672,8 @@
       return `${url.pathname}${url.search}`;
     }
 
-    function buildBookingUrl(storeKey, source) {
-      const url = new URL('../booking/', window.location.href);
-      if (storeKey) {
-        url.searchParams.set('store', storeKey);
-      }
-      url.searchParams.set('source', source || 'visit');
-      return `${url.pathname}${url.search}`;
+    function buildOfficialLineUrl() {
+      return officialLineUrl;
     }
 
     function applyLink(anchor, config) {
@@ -939,7 +935,7 @@
           ctas: [
             { label: '南區店入口', href: buildStoreUrl('south'), tone: 'forest' },
             { label: '東區工作室（純預約）入口', href: buildStoreUrl('east'), tone: 'accent' },
-            { label: 'LINE 留預約需求', href: buildBookingUrl('', 'visit_home'), tone: 'forest' },
+            { label: '先進官方 LINE', href: buildOfficialLineUrl(), tone: 'forest' },
             { label: '撥打 0973-728-670', href: 'tel:0973728670', tone: 'ghost' }
           ]
         },
@@ -950,11 +946,11 @@
           steps: [
             { title: '先選最近的地點', body: '南區店和東區工作室（純預約）都能安排，先選離你近、聯絡最順的地點。' },
             { title: '再看入口資訊', body: '第一次來不必硬記地址，先對一下門口、路口和門牌資訊，出發時比較安心。' },
-            { title: '最後決定怎麼預約', body: '你可以先填預約詢問，也可以用電話確認，找到最適合自己的節奏。' }
+            { title: '最後決定怎麼預約', body: '你可以先進官方 LINE，也可以用電話確認，找到最適合自己的節奏。' }
           ],
           actions: [
             { label: '看雙店導航', href: '#widgetMount' },
-            { label: 'LINE 留預約需求', href: buildBookingUrl('', 'visit_first_visit') }
+            { label: '先進官方 LINE', href: buildOfficialLineUrl() }
           ]
         }
       },
@@ -969,7 +965,7 @@
           lead: '東區工作室（純預約）不是固定駐點，只有已確認的預約時段會開放。地址在台南市東區新樓街65號，週六上午通常較容易安排；不知道怎麼描述也沒關係，先用 LINE 或電話問時間。',
           points: ['二樓工作室', '新樓街65號', '先確認時段'],
           ctas: [
-            { label: 'LINE 確認東區時段', href: buildBookingUrl('east', 'visit_east'), tone: 'forest' },
+            { label: '先進官方 LINE', href: buildOfficialLineUrl(), tone: 'forest' },
             { label: '已確認東區時段，再看入口', href: '#widgetMount', tone: 'accent' },
             { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
             { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
@@ -986,7 +982,7 @@
           ],
           actions: [
             { label: '看東區工作室（純預約）說明', href: '#widgetMount' },
-            { label: 'LINE 確認東區時段', href: buildBookingUrl('east', 'visit_east_first_visit') }
+            { label: '先進官方 LINE', href: buildOfficialLineUrl() }
           ]
         }
       },
@@ -1002,7 +998,7 @@
           points: ['未約先電話 / LINE', '已確認再導航', '南區明興路 673 號'],
           ctas: [
             { label: '撥打 0973-728-670 確認時段', href: 'tel:0973728670', tone: 'forest' },
-            { label: 'LINE 留預約需求', href: buildBookingUrl('south', 'visit_south'), tone: 'accent' },
+            { label: '先進官方 LINE', href: buildOfficialLineUrl(), tone: 'accent' },
             { label: '已確認要到南區，再看 Google Maps', href: '#widgetMount', tone: 'ghost' },
             { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
           ]

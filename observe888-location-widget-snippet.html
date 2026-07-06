@@ -628,7 +628,7 @@
           <div class="observe-locator__store-actions">
             <a class="observe-locator__button" id="observeLocatorPrimaryMap" href="#" target="_blank" rel="noreferrer noopener">已確認時段，再開 Google Maps</a>
             <a class="observe-locator__button observe-locator__button--ghost" id="observeLocatorDirections" href="#" target="_blank" rel="noreferrer noopener">規劃路線</a>
-            <a class="observe-locator__button observe-locator__button--line" id="observeLocatorLineCta" href="/booking/?source=locator_widget">LINE 留預約需求</a>
+            <a class="observe-locator__button observe-locator__button--line" id="observeLocatorLineCta" href="https://line.me/ti/p/~@483yvmiw">先進官方 LINE</a>
           </div>
         </article>
       </section>
@@ -850,7 +850,7 @@
         externalMap.href = store.mapUrl;
         directionsLink.href = store.directionsUrl;
         primaryMap.textContent = hasPublicMap ? `已確認時段，再看${store.shortName}位置` : 'LINE 確認東區資訊';
-        externalMap.textContent = hasPublicMap ? `已確認時段，再開 Google Maps` : 'LINE 留預約需求';
+        externalMap.textContent = hasPublicMap ? `已確認時段，再開 Google Maps` : '先進官方 LINE';
         directionsLink.textContent = hasPublicMap ? `已確認時段，再規劃到${store.shortName}` : '先用 LINE 確認';
         routeSelectedButton.hidden = !hasPublicMap;
         routeCurrentButton.hidden = !hasPublicMap;
