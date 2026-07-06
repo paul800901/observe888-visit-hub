@@ -1,6 +1,6 @@
 # 官網 CTA 事件追蹤補齊紀錄（2026-06-28）
 
-目的：讓官網 LINE、電話、Google Maps、預約入口、Google 表單、到店導航入口點擊，至少能進入既有 `observe888_public` 事件管線，再由 AdsControl 同步成可判讀的弱訊號。
+目的：讓官網 LINE、電話、Google Maps、預約入口、Google Calendar 預約頁、到店導航入口點擊，至少能進入既有 `observe888_public` 事件管線，再由 AdsControl 同步成可判讀的弱訊號。
 
 ## 追蹤入口
 
@@ -20,7 +20,7 @@
 | 電話 | `tel:` | `click_call_*` | `call` | `PHONE` |
 | Google Maps | `google.com/maps`、`maps.google.*`、`maps.app.goo.gl` | `click_map_*` | `map` / `directions` | `MAP` |
 | 預約入口 | URL path 含 `/booking/` | `click_booking_*` | `booking` | `BOOKING` |
-| Google 表單 | `docs.google.com/forms` | `click_form_*` | `form` | `FORM` |
+| Google Calendar 預約頁 | `calendar.app.google`、`calendar.google.com/calendar/.../appointments/schedules/` | `click_booking_calendar` | `calendar_booking` | `BOOKING` |
 | 到店導航入口 | URL path 含 `/visit/` | `click_visit_*` | `visit` | `VISIT` |
 
 若頁面已用 `Observe888Tracker.bindTrackClick()` 手動綁定，追蹤器會保留原本事件，不重複綁定。若單一連結要排除自動追蹤，可加 `data-observe-auto-track="0"`。
