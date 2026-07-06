@@ -14,7 +14,7 @@
 ## 目前結構
 
 - `index.html`：正式官網首頁。
-- `booking/index.html`：預約入口，主入口導向 LINE LIFF 預約需求表單，電話保留為快速確認，Google Calendar 預約頁取代舊 Google 表單作為 LINE 無法開啟時的備用入口。
+- `booking/index.html`：預約入口，主入口先導到官方 LINE；使用者進入 LINE 後再按「我要預約」開啟 LIFF 預約表單。電話保留為快速確認，Google Calendar 預約頁作為 LINE 無法開啟時的備用入口。
 - `visit/index.html`：到店導航入口，承接南區 / 東區選店、LINE、電話、地圖。
 - `south/index.html`、`east/index.html`：南區店與東區工作室店點資料頁。
 - `south/pricing/index.html`：南區服務與費用 / 預約說明。
