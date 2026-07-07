@@ -1,6 +1,11 @@
+> status: current
+> decided: 2026-07-07
+> superseded_by: none
+> note: Current handoff entry. Use this file to route the latest website work before opening older snapshots.
+
 # ObserveGeoPages 交接
 
-最後更新：2026-07-01
+最後更新：2026-07-07（補結構化狀態檔頭；交接內容仍以 2026-07-01 為最新）
 
 ## 2026-07-01 CTA 收斂與南區新客進線交接
 

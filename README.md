@@ -1,3 +1,8 @@
+> status: current
+> decided: 2026-07-07
+> superseded_by: none
+> note: Current repo entry for ObserveGeoPages website scope, boundaries, and primary file routing.
+
 # ObserveGeoPages 正式官網總控
 
 這個專案是見觀結構正式官網與網站營運資料的 source of truth。
