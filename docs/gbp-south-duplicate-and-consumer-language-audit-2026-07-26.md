@@ -118,7 +118,7 @@
 
 - 已完成：官方帳號管理清單、南區管理面板、Google Maps 公開頁、四個官網公開頁的唯讀讀回與一致性判斷。
 - 部分完成：現有服務項目與貼文庫存。受 `重複的地點`／重新核實狀態影響，這兩項目前無法可靠列全。
-- 未執行：GBP 驗證、申訴追問、欄位修改、貼文發布、網站部署、Git commit／push。
+- GBP 尚未執行：驗證、申訴追問、欄位修改與貼文發布。官網 source 的 Git commit／push、部署與公開讀回已於 2026-07-27 完成，見下方。
 
 ## 2026-07-26 23:58 官網補強
 
@@ -128,4 +128,13 @@
 - `south/pricing/index.html`：在 GBP 目前直接連結的費用頁加入「在找台南運動按摩或台南筋膜放鬆？」可見區塊，說明運動後緊繃、久坐卡住等需求如何回到見觀的結構調理做法，並連到服務頁與 FAQ。
 - 同步更新費用頁的 description、Twitter description 與 WebPage JSON-LD description，使機器摘要與可見內容一致；未新增第二份商家實體或關鍵字型 schema。
 
-本段只記錄本機 source 修改；尚未部署，因此不能宣稱公開官網已更新或 Maps 排名已受影響。
+本段在 2026-07-26 23:58 時只記錄本機 source 修改；後續發布狀態見下一節。官網發布不等於 Maps 排名已受影響。
+
+## 2026-07-27 08:09 官網發布與公開讀回
+
+- 官網修改與本盤點紀錄已提交至網站 repo `main`，commit：`29662a0 site: add sports massage and fascia guidance`。
+- GitHub Pages 已針對完整 commit `29662a065e629ab74fa663147ea927b84cb9366c` 建置完成，狀態為 `built`。
+- `https://www.observe888.com/south/` 公開讀回 `200`，已讀到「服務、常見需求與費用」、`運動按摩` 與 `筋膜放鬆`。
+- `https://www.observe888.com/south/pricing/` 公開讀回 `200`，已讀到「在找台南運動按摩或台南筋膜放鬆？」完整區塊。
+- `https://www.observe888.com/services/tainan-tuina/` 公開讀回 `200` 且存在 `#compareTitle`；`https://www.observe888.com/faq/` 公開讀回 `200` 且存在 `#search-terms`，兩個新增導流目標均有效。
+- 本次發布未修改 GBP、商家名稱、驗證、申訴或貼文；也未宣稱 Maps 排名因此改善。
