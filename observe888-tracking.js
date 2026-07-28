@@ -27,6 +27,15 @@
     return String(getGoogleAnalyticsConfig().measurementId || '').trim();
   }
 
+  function getMetaPixelConfig() {
+    const config = getConfig();
+    return config.metaPixel || {};
+  }
+
+  function getMetaPixelId() {
+    return String(getMetaPixelConfig().pixelId || '').trim();
+  }
+
   function logDebug(message, payload) {
     const config = getConfig();
     if (!config.debug) {
@@ -428,6 +437,87 @@
     return typeof window.gtag === 'function';
   }
 
+  function ensureMetaPixel() {
+    const pixelId = getMetaPixelId();
+    if (!pixelId) {
+      return false;
+    }
+
+    if (typeof window.fbq !== 'function') {
+      const fbq = function fbq() {
+        if (fbq.callMethod) {
+          fbq.callMethod.apply(fbq, arguments);
+          return;
+        }
+        fbq.queue.push(arguments);
+      };
+      fbq.push = fbq;
+      fbq.loaded = true;
+      fbq.version = '2.0';
+      fbq.queue = [];
+      window.fbq = fbq;
+      window._fbq = fbq;
+    }
+
+    if (!document.querySelector('script[data-observe888-meta-pixel]')) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      script.setAttribute('data-observe888-meta-pixel', pixelId);
+      document.head.appendChild(script);
+    }
+
+    if (!window.__observe888MetaPixelInitialized) {
+      window.fbq('init', pixelId);
+      window.fbq('track', 'PageView');
+      window.__observe888MetaPixelInitialized = true;
+    }
+
+    return typeof window.fbq === 'function';
+  }
+
+  function getMetaStandardEvent(eventName, extra, payload) {
+    const normalizedName = String(eventName || '').trim().toLowerCase();
+    const ctaType = String(extra && extra.cta_type || payload && payload.cta_type || '').trim().toLowerCase();
+    const contactChannel = String(payload && payload.contact_channel || '').trim().toUpperCase();
+
+    if (ctaType === 'line' || ctaType === 'call'
+      || contactChannel === 'LINE' || contactChannel === 'PHONE'
+      || normalizedName.startsWith('click_line') || normalizedName.startsWith('click_call')) {
+      return 'Contact';
+    }
+    if (ctaType === 'booking' || ctaType === 'form'
+      || contactChannel === 'BOOKING' || contactChannel === 'FORM'
+      || normalizedName.startsWith('click_booking') || normalizedName.startsWith('click_form')) {
+      return 'Schedule';
+    }
+    if (['map', 'map_external', 'directions', 'visit'].includes(ctaType)
+      || ['MAP', 'VISIT'].includes(contactChannel)
+      || normalizedName.startsWith('click_map') || normalizedName.startsWith('click_visit')) {
+      return 'FindLocation';
+    }
+    return '';
+  }
+
+  function reportMetaPixelEvent(eventName, extra, payload) {
+    const standardEvent = getMetaStandardEvent(eventName, extra, payload);
+    if (!standardEvent || !ensureMetaPixel()) {
+      return false;
+    }
+
+    window.fbq('track', standardEvent, {
+      content_name: eventName,
+      content_category: payload.cta_type || payload.contact_channel || 'cta',
+      store: payload.store || '',
+      page_role: payload.page_role || '',
+      cta_position: payload.cta_position || '',
+      campaign_name: payload.campaign_name || '',
+      campaign_content: payload.utm_content || ''
+    });
+    logDebug('meta pixel event sent', { eventName, standardEvent, pixelId: getMetaPixelId() });
+    return true;
+  }
+
   function getGoogleAdsSendTo(eventName, extra, payload) {
     const conversionConfig = getGoogleAdsConversionConfig();
     const sendTo = conversionConfig.sendTo || {};
@@ -504,6 +594,7 @@
     const result = sendPayload(payload);
     reportGoogleAnalyticsEvent(eventName, extra, payload);
     reportGoogleAdsConversion(eventName, extra, payload, options && options.googleAdsCallback);
+    reportMetaPixelEvent(eventName, extra, payload);
     return result;
   }
 
@@ -707,6 +798,7 @@
 
   ensureGoogleAdsTag();
   ensureGoogleAnalyticsTag();
+  ensureMetaPixel();
   runWhenReady(autoBindCtaLinks);
 
   window.Observe888Tracker = {

@@ -15,6 +15,9 @@ window.OBSERVE888_TRACKING_CONFIG = Object.assign(
     googleAnalytics: {
       measurementId: 'G-VJ5LJNMW6Q'
     },
+    metaPixel: {
+      pixelId: '1757114428809371'
+    },
     autoTrackCta: true,
     debug: false
   },
