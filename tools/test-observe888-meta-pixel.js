@@ -66,13 +66,16 @@ assert.equal(typeof window.fbq, 'function');
 assert.equal(appendedScripts.some((script) => script.src === 'https://connect.facebook.net/en_US/fbevents.js'), true);
 
 window.Observe888Tracker.track('click_line_south', { cta_type: 'line', store: 'south' });
+window.Observe888Tracker.track('click_call_south', { cta_type: 'call', store: 'south' });
 window.Observe888Tracker.track('click_booking_south', { cta_type: 'booking', store: 'south' });
 window.Observe888Tracker.track('click_map_south', { cta_type: 'map', store: 'south' });
 
 const queuedEvents = window.fbq.queue.map((args) => Array.from(args));
 assert.deepEqual(queuedEvents[0], ['init', '1757114428809371']);
 assert.deepEqual(queuedEvents[1], ['track', 'PageView']);
-assert.equal(queuedEvents.some((args) => args[1] === 'Contact'), true);
+assert.equal(queuedEvents.some((args) => args[0] === 'trackCustom' && args[1] === 'LineClick'), true);
+assert.equal(queuedEvents.some((args) => args[0] === 'track' && args[1] === 'Contact' && args[2].content_category === 'call'), true);
+assert.equal(queuedEvents.some((args) => args[0] === 'track' && args[1] === 'Contact' && args[2].content_category === 'line'), false);
 assert.equal(queuedEvents.some((args) => args[1] === 'Schedule'), true);
 assert.equal(queuedEvents.some((args) => args[1] === 'FindLocation'), true);
 
