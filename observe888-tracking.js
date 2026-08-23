@@ -476,36 +476,37 @@
     return typeof window.fbq === 'function';
   }
 
-  function getMetaStandardEvent(eventName, extra, payload) {
+  function getMetaPixelEvent(eventName, extra, payload) {
     const normalizedName = String(eventName || '').trim().toLowerCase();
     const ctaType = String(extra && extra.cta_type || payload && payload.cta_type || '').trim().toLowerCase();
     const contactChannel = String(payload && payload.contact_channel || '').trim().toUpperCase();
 
-    if (ctaType === 'line' || ctaType === 'call'
-      || contactChannel === 'LINE' || contactChannel === 'PHONE'
-      || normalizedName.startsWith('click_line') || normalizedName.startsWith('click_call')) {
-      return 'Contact';
+    if (ctaType === 'line' || contactChannel === 'LINE' || normalizedName.startsWith('click_line')) {
+      return { method: 'trackCustom', name: 'LineClick' };
+    }
+    if (ctaType === 'call' || contactChannel === 'PHONE' || normalizedName.startsWith('click_call')) {
+      return { method: 'track', name: 'Contact' };
     }
     if (ctaType === 'booking' || ctaType === 'form'
       || contactChannel === 'BOOKING' || contactChannel === 'FORM'
       || normalizedName.startsWith('click_booking') || normalizedName.startsWith('click_form')) {
-      return 'Schedule';
+      return { method: 'track', name: 'Schedule' };
     }
     if (['map', 'map_external', 'directions', 'visit'].includes(ctaType)
       || ['MAP', 'VISIT'].includes(contactChannel)
       || normalizedName.startsWith('click_map') || normalizedName.startsWith('click_visit')) {
-      return 'FindLocation';
+      return { method: 'track', name: 'FindLocation' };
     }
-    return '';
+    return null;
   }
 
   function reportMetaPixelEvent(eventName, extra, payload) {
-    const standardEvent = getMetaStandardEvent(eventName, extra, payload);
-    if (!standardEvent || !ensureMetaPixel()) {
+    const metaEvent = getMetaPixelEvent(eventName, extra, payload);
+    if (!metaEvent || !ensureMetaPixel()) {
       return false;
     }
 
-    window.fbq('track', standardEvent, {
+    window.fbq(metaEvent.method, metaEvent.name, {
       content_name: eventName,
       content_category: payload.cta_type || payload.contact_channel || 'cta',
       store: payload.store || '',
@@ -514,7 +515,12 @@
       campaign_name: payload.campaign_name || '',
       campaign_content: payload.utm_content || ''
     });
-    logDebug('meta pixel event sent', { eventName, standardEvent, pixelId: getMetaPixelId() });
+    logDebug('meta pixel event sent', {
+      eventName,
+      metaEventName: metaEvent.name,
+      metaEventMethod: metaEvent.method,
+      pixelId: getMetaPixelId()
+    });
     return true;
   }
 
