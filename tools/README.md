@@ -1,5 +1,15 @@
 # Website Tools
 
+## `validate-local-entity-graph.js`
+
+Validate the active website JSON-LD and `llms.txt` entity graph. The check keeps the brand Organization, South public location, and East appointment-only location on stable canonical IDs; verifies parent/child relationships, provider references, core NAP fields, and the two distinct Facebook sources; and rejects the retired `#local-business` ID.
+
+Run:
+
+```powershell
+node tools/validate-local-entity-graph.js
+```
+
 ## `analyze_gsc_export.py`
 
 Analyze Google Search Console CSV exports for the search-entry repair workflow.

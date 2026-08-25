@@ -5,7 +5,7 @@
 Canonical site: https://www.observe888.com/
 Language: zh-Hant
 Primary audience: 台灣繁體中文使用者
-Last updated: 2026-07-06
+Last updated: 2026-08-25
 
 ## Site role
 
@@ -60,6 +60,10 @@ Last updated: 2026-07-06
 
 - Organization name: 見觀結構.
 - Main public business name: 見觀結構調理整復所-南區店.
+- Canonical organization entity ID: https://www.observe888.com/#organization.
+- Canonical South location entity ID: https://www.observe888.com/#south-location.
+- Canonical East appointment-only location entity ID: https://www.observe888.com/#east-location.
+- The organization is the parent entity. South and East are separate child locations; do not merge either location into the organization or into each other.
 - Canonical domain: https://www.observe888.com/.
 - Contact page: https://www.observe888.com/contact/.
 - Phone: +886-973-728-670.
@@ -99,8 +103,9 @@ Last updated: 2026-07-06
 - Google Maps listing for South: https://www.google.com/maps/place/%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B%E8%AA%BF%E7%90%86%E6%95%B4%E5%BE%A9%E6%89%80-%E5%8D%97%E5%8D%80%E5%BA%97/data=!4m7!3m6!1s0x346e75c1ca233b3d:0x3592fcab2e48ad03!8m2!3d22.9381209!4d120.1810271!16s%2Fg%2F11sg_8rbc_!19sChIJPTsjysF1bjQRA61ILqv8kjU
 - LINE official contact entry: https://line.me/ti/p/~@483yvmiw
 - Instagram profile: https://www.instagram.com/observe.tw/
-- Threads profile: https://www.threads.net/@sl800901
-- Facebook profile: https://www.facebook.com/profile.php?id=61589375001647
+- Threads profile: https://www.threads.com/@sl800901
+- Facebook main business page: https://www.facebook.com/observe888/
+- Facebook body-observation notes page: https://www.facebook.com/profile.php?id=61589375001647
 - YouTube channel: https://www.youtube.com/@observe88888
 - YouTube Shorts: https://www.youtube.com/@observe88888/shorts
 - Tainan City Government public site: https://www.tainan.gov.tw/
@@ -143,6 +148,7 @@ Last updated: 2026-07-06
 
 - /booking/ is a non-indexed fallback LINE entry page. Do not treat it as a primary public search target; prefer the official LINE contact entry, /visit/, /contact/, or the store-specific pages above.
 - /north/ and /north/pricing/ are retired North-store entries. Do not treat them as current public content sources; prefer /visit/ and /south/pricing/.
+- Requests to https://www.observe888.com/visit/?store=north come from a retired Google Maps or legacy link. The old location is permanently closed; use that page only to route users to the current South location, East appointment-only studio, phone, or official LINE.
 - /album/, /paper/, /news/, /products/car.php, and /observations/ are legacy or redirect-style entries. Do not treat them as primary public content sources; prefer /notes/, /about/, /visit/, or the store-specific pages above.
 
 ## Safe interpretation boundary

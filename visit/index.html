@@ -459,28 +459,36 @@
     }
   </style>
   <link rel="stylesheet" href="../observe888-design-system.css">
-  <script type="application/ld+json" id="observe888-local-business-jsonld">
+<script type="application/ld+json" id="observe888-local-business-jsonld">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.observe888.com/#local-business",
-  "name": "見觀結構",
-  "alternateName": "見觀結構調理整復所",
-  "description": "見觀結構提供身體結構觀察、傳統整復推拿、姿勢與承重線索整理。",
-  "telephone": "+886-973-728-670",
-  "email": "observe88888@gmail.com",
-  "url": "https://www.observe888.com/visit/",
-  "areaServed": {
-    "@type": "Country",
-    "name": "台灣"
-  },
-  "department": [
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.observe888.com/#organization",
+      "name": "見觀結構",
+      "alternateName": "見觀結構調理整復所",
+      "url": "https://www.observe888.com/",
+      "telephone": "+886-973-728-670",
+      "email": "observe88888@gmail.com",
+      "subOrganization": [
+        {
+          "@id": "https://www.observe888.com/#south-location"
+        },
+        {
+          "@id": "https://www.observe888.com/#east-location"
+        }
+      ]
+    },
     {
       "@type": "LocalBusiness",
       "@id": "https://www.observe888.com/#south-location",
       "name": "見觀結構調理整復所-南區店",
       "url": "https://www.observe888.com/south/",
       "telephone": "+886-973-728-670",
+      "parentOrganization": {
+        "@id": "https://www.observe888.com/#organization"
+      },
       "address": {
         "@type": "PostalAddress",
         "postalCode": "702",
@@ -488,6 +496,11 @@
         "addressLocality": "南區",
         "streetAddress": "明興路 673 號",
         "addressCountry": "TW"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 22.9381209,
+        "longitude": 120.1810271
       },
       "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F"
     },
@@ -497,6 +510,9 @@
       "name": "見觀結構東區工作室（純預約）",
       "url": "https://www.observe888.com/east/",
       "telephone": "+886-973-728-670",
+      "parentOrganization": {
+        "@id": "https://www.observe888.com/#organization"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressRegion": "台南市",
@@ -504,10 +520,16 @@
         "streetAddress": "新樓街65號",
         "addressCountry": "TW"
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "台南市東區"
-      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "台南市"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "台南市東區"
+        }
+      ],
       "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F",
       "description": "台南東區工作室（純預約）位於台南市東區新樓街65號，為二樓預約制工作室，非固定駐點，可先用 LINE 或電話確認時段。"
     }
@@ -529,7 +551,10 @@
         "@id": "https://www.observe888.com/#website"
       },
       "about": {
-        "@id": "https://www.observe888.com/#local-business"
+        "@id": "https://www.observe888.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.observe888.com/#organization"
       }
     },
     {
@@ -647,6 +672,8 @@
       east: 'east',
       eaststudio: 'east',
       eastshop: 'east',
+      north: 'north-retired',
+      northstore: 'north-retired',
       south: 'south',
       southstore: 'south',
       southstudio: 'south',
@@ -726,6 +753,11 @@
         return;
       }
 
+      if (variantKey === 'north-retired') {
+        tracker.trackPageView('page_view_north_retired', { store: 'north_retired', page_role: 'retired_location_entry' });
+        return;
+      }
+
       if (variantKey === 'east') {
         tracker.trackPageView('page_view_east', { store: 'east', page_role: 'east_entry' });
         return;
@@ -740,6 +772,31 @@
     }
 
     function bindDecisionCtaTracking(variantKey) {
+      if (variantKey === 'north-retired') {
+        bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
+          eventName: 'click_visit_store_south',
+          store: 'south',
+          page_role: 'retired_location_entry',
+          cta_type: 'store_entry',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
+          eventName: 'click_visit_store_east',
+          store: 'east',
+          page_role: 'retired_location_entry',
+          cta_type: 'store_entry',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#firstVisitPrimaryAction'), {
+          eventName: 'click_visit_store_south',
+          store: 'south',
+          page_role: 'retired_location_entry',
+          cta_type: 'store_entry',
+          cta_position: 'first_visit'
+        });
+        return;
+      }
+
       if (variantKey === 'east') {
         bindTrackedClick(document.querySelector('#heroSecondaryCta'), {
           eventName: 'click_visit_locator_east',
@@ -823,6 +880,31 @@
 
       trackVariantPageView(variantKey);
       bindDecisionCtaTracking(variantKey);
+
+      if (variantKey === 'north-retired') {
+        bindTrackedClick(document.querySelector('#heroTertiaryCta'), {
+          eventName: 'click_booking_north_retired',
+          store: 'north_retired',
+          page_role: 'retired_location_entry',
+          cta_type: 'booking',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#heroQuaternaryCta'), {
+          eventName: 'click_call_north_retired',
+          store: 'north_retired',
+          page_role: 'retired_location_entry',
+          cta_type: 'call',
+          cta_position: 'hero'
+        });
+        bindTrackedClick(document.querySelector('#firstVisitSecondaryAction'), {
+          eventName: 'click_booking_north_retired',
+          store: 'north_retired',
+          page_role: 'retired_location_entry',
+          cta_type: 'booking',
+          cta_position: 'first_visit'
+        });
+        return;
+      }
 
       if (variantKey === 'east') {
         bindTrackedClick(document.querySelector('#heroPrimaryCta'), {
@@ -950,6 +1032,38 @@
           ],
           actions: [
             { label: '看雙店導航', href: '#widgetMount' },
+            { label: '先進官方 LINE', href: buildOfficialLineUrl() }
+          ]
+        }
+      },
+      'north-retired': {
+        mode: 'store',
+        pageTitle: '見觀舊店點已永久歇業｜請改選目前店點',
+        pageDescription: '你開啟的是見觀已永久歇業的舊店點連結。請勿前往舊址，改選南區店或東區工作室（純預約），並以目前官網、電話或官方 LINE 資料為準。',
+        hero: {
+          eyebrow: '見觀舊店點連結',
+          title: '這個舊店點已永久歇業，請不要再前往原址。',
+          subtitle: '目前請改選南區店或東區工作室（純預約）',
+          lead: '如果你是從舊 Google 地圖、舊搜尋摘要或舊連結進來，請以目前官網資料為準。南區店是主要公開到店點；東區工作室採純預約，先確認時段再前往。',
+          points: ['舊址已停止服務', '南區店為主要公開到店點', '東區工作室先確認時段'],
+          ctas: [
+            { label: '改看南區店入口', href: buildStoreUrl('south'), tone: 'forest' },
+            { label: '改看東區工作室（純預約）', href: buildStoreUrl('east'), tone: 'accent' },
+            { label: '先進官方 LINE', href: buildOfficialLineUrl(), tone: 'forest' },
+            { label: '撥打目前聯絡電話', href: 'tel:0973728670', tone: 'ghost' }
+          ]
+        },
+        firstVisit: {
+          label: '從舊連結來，先看這裡',
+          title: '不要前往舊址，先改選目前可聯絡的地點。',
+          lead: 'Google Maps 上的舊店點保留歷史評論並標示永久歇業；目前到店與預約資料請以本頁列出的南區店、東區工作室和官方 LINE 為準。',
+          steps: [
+            { title: '停止使用舊地址', body: '舊店點已永久歇業，不再提供到店服務，也不要依舊營業時間前往。' },
+            { title: '改選目前店點', body: '南區店有公開地址與 Google Maps；東區工作室為純預約，先聯絡確認時段。' },
+            { title: '核對目前聯絡方式', body: '目前公開電話為 0973-728-670，也可先進官方 LINE 留下需求與方便時段。' }
+          ],
+          actions: [
+            { label: '改看南區店入口', href: buildStoreUrl('south') },
             { label: '先進官方 LINE', href: buildOfficialLineUrl() }
           ]
         }
