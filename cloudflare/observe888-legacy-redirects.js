@@ -34,10 +34,93 @@ function withSecurityHeaders(response) {
   });
 }
 
+const githubRawBase =
+  "https://raw.githubusercontent.com/paul800901/observe888-visit-hub/main";
+
+const contentTypes = new Map([
+  [".css", "text/css; charset=utf-8"],
+  [".gif", "image/gif"],
+  [".html", "text/html; charset=utf-8"],
+  [".ico", "image/x-icon"],
+  [".jpeg", "image/jpeg"],
+  [".jpg", "image/jpeg"],
+  [".js", "text/javascript; charset=utf-8"],
+  [".json", "application/json; charset=utf-8"],
+  [".map", "application/json; charset=utf-8"],
+  [".mp4", "video/mp4"],
+  [".pdf", "application/pdf"],
+  [".png", "image/png"],
+  [".svg", "image/svg+xml; charset=utf-8"],
+  [".txt", "text/plain; charset=utf-8"],
+  [".webm", "video/webm"],
+  [".webp", "image/webp"],
+  [".woff", "font/woff"],
+  [".woff2", "font/woff2"],
+  [".xml", "application/xml; charset=utf-8"],
+]);
+
+function sourceCandidates(pathname) {
+  if (pathname === "/") {
+    return ["/index.html"];
+  }
+
+  if (pathname.endsWith("/")) {
+    return [`${pathname}index.html`];
+  }
+
+  const lastSegment = pathname.slice(pathname.lastIndexOf("/") + 1);
+  return lastSegment.includes(".")
+    ? [pathname]
+    : [pathname, `${pathname}/index.html`];
+}
+
+function contentTypeFor(pathname) {
+  const filename = pathname.toLowerCase();
+  const extensionIndex = filename.lastIndexOf(".");
+  const extension = extensionIndex === -1 ? "" : filename.slice(extensionIndex);
+  return contentTypes.get(extension);
+}
+
+async function fetchPublishedSource(request, pathname) {
+  let upstreamResponse;
+  let sourcePath;
+
+  for (const candidate of sourceCandidates(pathname)) {
+    sourcePath = candidate;
+    upstreamResponse = await fetch(`${githubRawBase}${candidate}`, {
+      cf: { cacheEverything: true, cacheTtl: 300 },
+      method: "GET",
+    });
+
+    if (upstreamResponse.status !== 404) {
+      break;
+    }
+  }
+
+  const headers = new Headers(upstreamResponse.headers);
+  const contentType = contentTypeFor(sourcePath);
+  if (contentType) {
+    headers.set("Content-Type", contentType);
+  }
+  headers.set("X-Observe-Origin", "github-raw-main");
+
+  return new Response(request.method === "HEAD" ? null : upstreamResponse.body, {
+    status: upstreamResponse.status,
+    statusText: upstreamResponse.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
     const path = url.pathname.toLowerCase();
+
+    if (url.hostname === "observe888.com") {
+      url.protocol = "https:";
+      url.hostname = "www.observe888.com";
+      return withSecurityHeaders(Response.redirect(url.toString(), 301));
+    }
 
     const redirect = (targetPath) => {
       const target = new URL(targetPath, url.origin);
@@ -105,6 +188,6 @@ export default {
       return redirect("/visit/");
     }
 
-    return withSecurityHeaders(await fetch(request));
+    return withSecurityHeaders(await fetchPublishedSource(request, url.pathname));
   },
 };

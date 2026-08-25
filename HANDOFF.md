@@ -1,11 +1,21 @@
 > status: current
-> decided: 2026-07-07
+> decided: 2026-08-17
 > superseded_by: none
-> note: Current handoff entry. Use this file to route the latest website work before opening older snapshots.
+> note: Current handoff entry. The latest live website recovery is the 2026-08-17 Cloudflare Worker origin bypass below.
 
 # ObserveGeoPages 交接
 
-最後更新：2026-07-07（補結構化狀態檔頭；交接內容仍以 2026-07-01 為最新）
+最後更新：2026-08-17
+
+## 2026-08-17 GitHub Pages 憑證過期與 Cloudflare 526 緊急修復
+
+- Google Ads 三支現役 Demand Gen 廣告同時被判 `DESTINATION_NOT_WORKING`；正式網址對一般瀏覽器、`AdsBot-Google`、`AdsBot-Google-Mobile` 皆回 Cloudflare `526`。
+- GitHub Pages API live readback：網站 build 正常，但憑證已於 `2026-08-10` 到期，`https_certificate.state=bad_authz`、`https_enforced=false`。Cloudflare 仍是 `Full (strict)`，因而無法驗證原站過期憑證。
+- 沒有降級 TLS、沒有改 DNS。既有 Worker `observe888-legacy-redirects` 改為直接從 GitHub 公開 `main` 的 raw 靜態檔讀取正式內容，保留原轉址與六組安全標頭。
+- Worker 已掛載 `www.observe888.com/*` 與 `observe888.com/*`；apex 固定 `301` 到 `www`。正式版本 ID：`735e83f1-999f-4ef4-9374-793923e69584`。
+- Live readback：首頁、`/south/`、`robots.txt`、`sitemap.xml` 均 `200`；apex `301 -> www`；廣告實際 URL 對一般瀏覽器、桌面 AdsBot、行動 AdsBot 均 `200`，HTML 與 CSS content type 正確。
+- 2026-08-26 Git 收尾前重新讀回：上述四個正式 URL 仍為 `200` 且帶 `X-Observe-Origin: github-raw-main`；apex 仍保留 path／query 後 `301` 到 `www`，桌面 AdsBot 仍為 `200`。
+- 尚未宣稱 GitHub Pages 憑證已根治；後續仍應在 Cloudflare 將 GitHub Pages 對應 DNS 短暫切為 DNS-only，依 GitHub 流程重新核發憑證，確認 `approved` / `https_enforced=true` 後再評估是否保留 raw-origin 備援。
 
 ## 2026-07-01 CTA 收斂與南區新客進線交接
 
