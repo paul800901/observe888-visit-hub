@@ -62,3 +62,10 @@ AdsControl 仍維持相容：公開站匯入後 `event_type` 主要為：
 - `visit` / `VISIT`
 
 這些只代表公開站 CTA 弱訊號，不等於正式預約、到店或 Google Ads conversion。
+
+## Meta Pixel 對應
+
+- LINE CTA 的第一方／GA 事件仍維持 `click_line_*` 與 `line_click`，但 Meta Pixel 改送標準事件 `Lead`。
+- 電話 CTA 仍送 Meta 標準事件 `Contact`，因此 Meta 的 LINE 最佳化不必混用電話事件。
+- 不再送自訂 `LineClick`；Meta Pixel 會抑制未驗證的自訂事件，不能拿它作為廣告組合的最佳化訊號。
+- LINE-only 落地頁改用 LINE 官方 `oaMessage` 深連結，直接開啟官方帳號對話並預填詢問時段文字，減少先加好友再自行輸入的摩擦。
