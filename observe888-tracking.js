@@ -482,7 +482,10 @@
     const contactChannel = String(payload && payload.contact_channel || '').trim().toUpperCase();
 
     if (ctaType === 'line' || contactChannel === 'LINE' || normalizedName.startsWith('click_line')) {
-      return { method: 'trackCustom', name: 'LineClick' };
+      // Meta suppresses unverified custom events. Keep the first-party/GA event
+      // name as click_line_* while reporting the verified standard Lead event
+      // to Meta so LINE clicks can be used for delivery optimization.
+      return { method: 'track', name: 'Lead' };
     }
     if (ctaType === 'call' || contactChannel === 'PHONE' || normalizedName.startsWith('click_call')) {
       return { method: 'track', name: 'Contact' };
