@@ -679,7 +679,8 @@
         east: {
           id: 'east',
           shortName: '東區工作室（純預約）',
-          name: '見觀結構東區工作室（純預約）',
+          name: '見觀結構-東區工作室',
+          placeId: 'ChIJ8wyQnwl3bjQRso6Wcs4NP1g',
           badge: '二樓工作室 / 純預約',
           address: '台南市東區新樓街65號',
           addressQuery: '台南市東區新樓街65號',
@@ -688,8 +689,8 @@
           hours: '非固定駐點，僅開放已確認預約時段；週六上午通常較容易安排。',
           note: '東區工作室（純預約）地址在台南市東區新樓街65號，為二樓預約制工作室；不建議未確認就直接前往，請先用 LINE 或電話留下身體狀況、方便時段與聯絡方式。',
           mapEmbed: 'https://www.google.com/maps?q=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F&hl=zh-TW&z=17&output=embed',
-          mapUrl: 'https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F',
-          directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E6%96%B0%E6%A8%93%E8%A1%9765%E8%99%9F&travelmode=driving',
+          mapUrl: 'https://www.google.com/maps/search/?api=1&query=%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B-%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4&query_place_id=ChIJ8wyQnwl3bjQRso6Wcs4NP1g',
+          directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B-%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4&destination_place_id=ChIJ8wyQnwl3bjQRso6Wcs4NP1g&travelmode=driving',
           parking: [
             '東區工作室（純預約）地址為台南市東區新樓街65號，二樓工作室。',
             '非固定駐點，請先留下希望安排的日期、時段與主要身體狀況；可用 LINE 或電話確認。',
@@ -814,6 +815,10 @@
           destination: destinationStore.addressQuery,
           travelmode: 'driving'
         });
+
+        if (destinationStore.placeId) {
+          params.set('destination_place_id', destinationStore.placeId);
+        }
 
         if (origin) {
           params.set('origin', origin);
