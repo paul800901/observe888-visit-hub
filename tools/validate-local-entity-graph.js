@@ -44,6 +44,7 @@ const ids = {
   south: 'https://www.observe888.com/#south-location',
   east: 'https://www.observe888.com/#east-location'
 };
+const eastMapsUrl = 'https://www.google.com/maps/search/?api=1&query=%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B-%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4&query_place_id=ChIJ8wyQnwl3bjQRso6Wcs4NP1g';
 
 const documents = new Map();
 let jsonLdBlockCount = 0;
@@ -141,12 +142,18 @@ assert.equal(south.parentOrganization['@id'], ids.organization);
 assert.equal(south.address.addressLocality, '南區');
 assert.equal(south.address.streetAddress.replace(/\s/g, ''), '明興路673號');
 
-assert.equal(east.name, '見觀結構東區工作室（純預約）');
+assert.equal(east.name, '見觀結構-東區工作室');
+assert.equal(east.alternateName, '見觀結構東區工作室（純預約）');
 assert.equal(east.url, 'https://www.observe888.com/east/');
 assert.equal(east.telephone, '+886-973-728-670');
 assert.equal(east.parentOrganization['@id'], ids.organization);
 assert.equal(east.address.addressLocality, '東區');
+assert.equal(east.address.postalCode, '70144');
 assert.equal(east.address.streetAddress.replace(/\s/g, ''), '新樓街65號');
+assert.equal(east.geo.latitude, 23.0357778);
+assert.equal(east.geo.longitude, 120.193024);
+assert.equal(east.hasMap, eastMapsUrl);
+assert.ok(east.sameAs.includes(eastMapsUrl));
 
 for (const [relativePath, entityId, type] of [
   ['contact/index.html', ids.south, 'LocalBusiness'],
@@ -162,6 +169,16 @@ const visitNodes = nodesByFile.get('visit/index.html');
 assert.ok(fullNode(visitNodes, ids.organization, 'Organization'), 'visit/index.html: Organization is missing');
 assert.ok(fullNode(visitNodes, ids.south, 'LocalBusiness'), 'visit/index.html: South location is missing');
 assert.ok(fullNode(visitNodes, ids.east, 'LocalBusiness'), 'visit/index.html: East location is missing');
+for (const relativePath of ['east/index.html', 'visit/index.html']) {
+  const eastNode = fullNode(nodesByFile.get(relativePath), ids.east, 'LocalBusiness');
+  assert.equal(eastNode.name, '見觀結構-東區工作室', `${relativePath}: East public name mismatch`);
+  assert.equal(eastNode.alternateName, '見觀結構東區工作室（純預約）', `${relativePath}: East alternate name mismatch`);
+  assert.equal(eastNode.address.postalCode, '70144', `${relativePath}: East postal code mismatch`);
+  assert.equal(eastNode.geo.latitude, 23.0357778, `${relativePath}: East latitude mismatch`);
+  assert.equal(eastNode.geo.longitude, 120.193024, `${relativePath}: East longitude mismatch`);
+  assert.equal(eastNode.hasMap, eastMapsUrl, `${relativePath}: East Maps URL mismatch`);
+  assert.ok(eastNode.sameAs.includes(eastMapsUrl), `${relativePath}: East sameAs mismatch`);
+}
 const visitSource = documents.get('visit/index.html');
 for (const requiredValue of [
   "north: 'north-retired'",
@@ -170,6 +187,17 @@ for (const requiredValue of [
   "tracker.trackPageView('page_view_north_retired'"
 ]) {
   assert.ok(visitSource.includes(requiredValue), `visit/index.html: retired-location routing is missing ${requiredValue}`);
+}
+
+const locationWidget = read('observe888-location-widget-snippet.html');
+for (const requiredValue of [
+  "name: '見觀結構-東區工作室'",
+  "placeId: 'ChIJ8wyQnwl3bjQRso6Wcs4NP1g'",
+  'query_place_id=ChIJ8wyQnwl3bjQRso6Wcs4NP1g',
+  'destination_place_id=ChIJ8wyQnwl3bjQRso6Wcs4NP1g',
+  "params.set('destination_place_id', destinationStore.placeId)"
+]) {
+  assert.ok(locationWidget.includes(requiredValue), `location widget: missing ${requiredValue}`);
 }
 
 for (const relativePath of ['about/index.html', 'shorts/index.html']) {

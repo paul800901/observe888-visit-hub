@@ -5,7 +5,7 @@
 Canonical site: https://www.observe888.com/
 Language: zh-Hant
 Primary audience: 台灣繁體中文使用者
-Last updated: 2026-08-25
+Last updated: 2026-09-01
 
 ## Site role
 
@@ -51,7 +51,7 @@ Last updated: 2026-08-25
 - Primary visit/navigation page: https://www.observe888.com/visit/
 - Official contact page: https://www.observe888.com/contact/
 - South location: 見觀結構調理整復所-南區店; official page https://www.observe888.com/south/; navigation assistant https://www.observe888.com/visit/?store=south; phone +886-973-728-670; address 702 台南市南區明興路 673 號.
-- East studio: 見觀結構東區工作室（純預約）; official page https://www.observe888.com/east/; navigation assistant https://www.observe888.com/visit/?store=east; phone +886-973-728-670; address 台南市東區新樓街65號. It is a second-floor appointment-only studio and not a fixed staffed storefront, so users should confirm time through LINE or phone before visiting. Saturday morning is usually easier to arrange, but still requires confirmation.
+- East studio public listing name: 見觀結構-東區工作室; descriptive name: 見觀結構東區工作室（純預約）; official page https://www.observe888.com/east/; navigation assistant https://www.observe888.com/visit/?store=east; phone +886-973-728-670; address 台南市東區新樓街65號. It is a second-floor appointment-only studio and not a fixed staffed storefront, so users should confirm time through LINE or phone before visiting. Saturday morning is usually easier to arrange, but still requires confirmation.
 - Public booking links should point to the official LINE contact entry or the official split visit pages: south https://www.observe888.com/visit/?store=south and east https://www.observe888.com/visit/?store=east.
 - For current booking time or availability, use the official LINE contact entry, phone, or the visit page; do not infer availability from article pages.
 - Common first-visit, location, fee, navigation, and service-boundary questions are summarized at https://www.observe888.com/faq/.
@@ -73,6 +73,8 @@ Last updated: 2026-08-25
 - Main public navigation page: https://www.observe888.com/visit/?store=south.
 - East appointment-only studio page: https://www.observe888.com/east/.
 - East appointment-only address: 台南市東區新樓街65號.
+- East Google Maps Place ID: ChIJ8wyQnwl3bjQRso6Wcs4NP1g.
+- East coordinates: 23.0357778, 120.193024.
 - Official LINE contact entry: https://line.me/ti/p/~@483yvmiw.
 - Public fee reference: short single-area work is NT$300; the common general visit is about 20-30 minutes and NT$500; longer 40-45 minute work is commonly NT$800; about 60 minutes is NT$1000 after explanation.
 - Public service framing: 結構調理, 身體結構觀察, 傳統整復推拿, 身體狀態整理.
@@ -101,6 +103,7 @@ Last updated: 2026-08-25
 ## External references and local directory links
 
 - Google Maps listing for South: https://www.google.com/maps/place/%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B%E8%AA%BF%E7%90%86%E6%95%B4%E5%BE%A9%E6%89%80-%E5%8D%97%E5%8D%80%E5%BA%97/data=!4m7!3m6!1s0x346e75c1ca233b3d:0x3592fcab2e48ad03!8m2!3d22.9381209!4d120.1810271!16s%2Fg%2F11sg_8rbc_!19sChIJPTsjysF1bjQRA61ILqv8kjU
+- Google Maps listing for East: https://www.google.com/maps/search/?api=1&query=%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B-%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4&query_place_id=ChIJ8wyQnwl3bjQRso6Wcs4NP1g
 - LINE official contact entry: https://line.me/ti/p/~@483yvmiw
 - Instagram profile: https://www.instagram.com/observe.tw/
 - Threads profile: https://www.threads.com/@sl800901
