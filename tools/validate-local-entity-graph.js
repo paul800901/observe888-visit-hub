@@ -179,6 +179,12 @@ for (const relativePath of ['east/index.html', 'visit/index.html']) {
   assert.equal(eastNode.hasMap, eastMapsUrl, `${relativePath}: East Maps URL mismatch`);
   assert.ok(eastNode.sameAs.includes(eastMapsUrl), `${relativePath}: East sameAs mismatch`);
 }
+const eastPageNode = fullNode(nodesByFile.get('east/index.html'), ids.east, 'LocalBusiness');
+assert.equal(eastPageNode.mainEntityOfPage, 'https://www.observe888.com/east/');
+assert.deepEqual(
+  eastPageNode.hasOfferCatalog.itemListElement.map((offer) => offer.itemOffered.name),
+  ['結構調理', '傳統整復推拿', '傳統按摩放鬆']
+);
 const visitSource = documents.get('visit/index.html');
 for (const requiredValue of [
   "north: 'north-retired'",
