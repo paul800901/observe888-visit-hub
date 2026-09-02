@@ -1,0 +1,30 @@
+query_group,query,status,source,notes
+service_intent,台南東區 傳統整復,not_measured,LUNA competitor-language review,下一輪 Search 與 Maps 同時測
+service_intent,台南東區 傳統整復推拿,not_measured,LUNA competitor-language review,下一輪 Search 與 Maps 同時測
+service_intent,台南東區 整復按摩,not_measured,LUNA competitor-language review,同行常見自然說法
+service_intent,台南東區 推拿按摩,not_measured,LUNA competitor-language review,同行常見自然說法
+service_intent,台南東區 脊椎調理,not_measured,LUNA competitor-language review,只作需求入口不作療效承諾
+service_intent,台南東區 脊椎平衡,not_measured,LUNA competitor-language review,只作需求入口不作療效承諾
+service_intent,台南東區 徒手,not_measured,LUNA competitor-language review,寬泛詞需觀察結果類型
+service_intent,台南東區 徒手放鬆,not_measured,LUNA competitor-language review,同行常見自然說法
+service_intent,台南東區 筋膜放鬆,not_measured,LUNA competitor-language review,既有核心詞的自然變體
+service_intent,台南東區 肌筋膜放鬆,not_measured,LUNA competitor-language review,同行常見自然說法
+service_intent,台南東區 運動按摩,not_measured,LUNA competitor-language review,既有核心詞
+service_intent,台南東區 肌肉放鬆,not_measured,LUNA competitor-language review,既有延伸詞
+service_intent,台南東區 肩頸放鬆,not_measured,LUNA competitor-language review,需求型入口
+service_intent,台南東區 腰酸背痛按摩,not_measured,LUNA competitor-language review,需求型入口不作診斷宣稱
+service_intent,台南東區 全身調理,not_measured,LUNA competitor-language review,既有延伸詞
+service_intent,台南東區 體態調整,not_measured,LUNA competitor-language review,同行常見自然說法
+service_intent,台南東區 姿勢調整,not_measured,LUNA competitor-language review,同行常見自然說法
+service_intent,台南東區 動作評估,not_measured,LUNA competitor-language review,與身體結構觀察相鄰
+service_intent,台南東區 骨盆調理,not_measured,LUNA competitor-language review,需求型入口
+service_intent,台南東區 預約制 徒手整復,not_measured,LUNA competitor-language review,符合東區純預約制
+geo_variant,東區 新樓醫院附近 整復推拿,not_measured,LUNA geographic variant,地標型查詢
+geo_variant,東區 單人工作室 整復,not_measured,LUNA geographic variant,場域型查詢
+geo_variant,台南東區 工作室 徒手調理,not_measured,LUNA geographic variant,場域與服務組合
+geo_variant,台南東區 預約制 推拿,not_measured,LUNA geographic variant,預約屬性查詢
+competitor_brand,台南東區 放筋鬆,not_measured,user-named competitor,只做競品監測不仿用
+competitor_brand,台南東區 懸壺,not_measured,user-named competitor,只做競品監測不仿用
+watch_only,台南東區 美式整復,already_measured,Day-1 baseline,見主報告；若未實際提供不得新增為服務
+watch_only,台南東區 整骨,already_measured,Day-1 baseline,見主報告；若未實際提供不得新增為服務
+watch_only,台南東區 筋膜刀,already_measured,Day-1 baseline,見主報告；若未實際提供不得新增為服務
