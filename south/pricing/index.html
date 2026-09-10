@@ -398,16 +398,21 @@
       "isPartOf": {
         "@id": "https://www.observe888.com/#website"
       },
-      "about": {
-        "@id": "https://www.observe888.com/#south-location"
-      },
+      "about": [
+        {
+          "@id": "https://www.observe888.com/#south-location"
+        },
+        {
+          "@id": "https://www.observe888.com/#east-location"
+        }
+      ],
       "mainEntity": {
         "@id": "https://www.observe888.com/south/pricing/#offer-catalog"
       },
       "potentialAction": {
         "@type": "ReserveAction",
-        "target": "https://www.observe888.com/visit/?store=south",
-        "name": "南區店預約與導航入口"
+        "target": "https://www.observe888.com/visit/",
+        "name": "雙店到店與預約入口"
       }
     },
     {
@@ -491,8 +496,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "南區店",
-          "item": "https://www.observe888.com/south/"
+          "name": "店點",
+          "item": "https://www.observe888.com/visit/"
         },
         {
           "@type": "ListItem",
@@ -509,7 +514,7 @@
 <body>
   <main class="site-shell shell">
     <nav class="topnav" aria-label="頁面導覽">
-      <a class="back-link" href="../../visit/?store=south">← 返回南區店</a>
+      <a class="back-link" href="../../visit/">← 返回到店導航</a>
       <span class="topnav-brand">見觀結構調理整復所</span>
     </nav>
 
@@ -520,12 +525,12 @@
       <div class="hero-actions">
         <a id="southPricingHeroLineCta" class="cta button is-forest" href="https://line.me/ti/p/~@483yvmiw">LINE 留需求，確認本次適合哪一種費用</a>
         <a id="southPricingHeroCallCta" class="cta button" href="tel:0973728670">撥打 0973-728-670 確認時段</a>
-        <a id="southPricingHeroVisitCta" class="cta button is-ghost" href="../../visit/?store=south">已確認時段，再看南區導航</a>
+        <a id="southPricingHeroVisitCta" class="cta button is-ghost" href="../../visit/">已確認時段，再看雙店導航</a>
         <a class="cta button is-ghost" href="../../services/tainan-tuina/">台南整復推拿怎麼選</a>
       </div>
     </header>
 
-    <div class="price-block">
+    <div id="pricing" class="price-block">
       <span class="price-block-label">常見費用</span>
       <div class="price-range"><span class="currency">NT$</span>500 / 800</div>
       <div class="price-meta">
@@ -569,14 +574,14 @@
     <div class="info-card">
       <span class="info-card-label">工作室說明</span>
       <h2>一對一・預約制・獨立空間</h2>
-      <p>南區店位於台南市南區明興路 673 號，適合正在比較台南南區整復推拿、南區整復、南區推拿與台南整復推薦的使用者先確認。見觀會先整理肩頸卡緊、腰背緊繃、久坐卡卡、落枕後轉頭不順等身體感受與生活情境，再依現場狀態安排。</p>
+      <p>南區店位於台南市南區明興路 673 號；東區工作室位於台南市東區新樓街 65 號二樓，非固定駐點，需先確認時段。見觀會先整理主要困擾與方便時段，再依現場狀態安排。</p>
       <p>南區店與東區工作室皆採預約制安排。適合希望一對一處理、節奏較慢、環境較安靜的朋友。若還在比較台南整復推拿、台南整骨推薦或見觀做法，先看 <a href="../../services/tainan-tuina/">台南整復推拿服務說明</a>；來店前再以電話或 LINE 確認時段與服務內容。</p>
     </div>
 
     <div class="cta-strip">
       <div class="cta-strip-copy">
         <strong>不用先自己判斷費用級距</strong>
-        <p>先留下位置、動作、左右差與可配合時段；想快一點確認南區時段，也可以直接來電。</p>
+        <p>先留下位置、動作、左右差與可配合時段；想快一點確認時段，也可以直接來電。</p>
       </div>
       <a id="southPricingLineCta" class="cta button is-forest" href="https://line.me/ti/p/~@483yvmiw">LINE 留需求，確認本次適合哪一種費用</a>
       <a id="southPricingCallCta" class="cta button" href="tel:0973728670">撥打 0973-728-670 確認時段</a>
@@ -589,36 +594,36 @@
     const southPricingTracker = window.Observe888Tracker;
 
     if (southPricingTracker) {
-      southPricingTracker.trackPageView('page_view_south_pricing', {
-        store: 'south',
-        page_role: 'south_pricing'
+      southPricingTracker.trackPageView('page_view_shared_pricing', {
+        store: '',
+        page_role: 'shared_pricing'
       });
 
       southPricingTracker.bindTrackClick(document.querySelector('#southPricingLineCta'), {
-        eventName: 'click_line_south',
-        store: 'south',
-        page_role: 'south_pricing',
+        eventName: 'click_line_shared_pricing',
+        store: '',
+        page_role: 'shared_pricing',
         cta_type: 'line'
       });
 
       southPricingTracker.bindTrackClick(document.querySelector('#southPricingHeroLineCta'), {
-        eventName: 'click_line_south',
-        store: 'south',
-        page_role: 'south_pricing',
+        eventName: 'click_line_shared_pricing',
+        store: '',
+        page_role: 'shared_pricing',
         cta_type: 'line'
       });
 
       southPricingTracker.bindTrackClick(document.querySelector('#southPricingHeroCallCta'), {
-        eventName: 'click_call_south',
-        store: 'south',
-        page_role: 'south_pricing',
+        eventName: 'click_call_shared_pricing',
+        store: '',
+        page_role: 'shared_pricing',
         cta_type: 'call'
       });
 
       southPricingTracker.bindTrackClick(document.querySelector('#southPricingCallCta'), {
-        eventName: 'click_call_south',
-        store: 'south',
-        page_role: 'south_pricing',
+        eventName: 'click_call_shared_pricing',
+        store: '',
+        page_role: 'shared_pricing',
         cta_type: 'call'
       });
     }

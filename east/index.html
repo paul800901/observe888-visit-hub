@@ -322,7 +322,7 @@
 }
   </script>
 </head>
-<body>
+<body data-store="east">
   <main class="site-shell shell">
     <nav class="topnav" aria-label="主要導覽">
       <a class="back-link" href="../">回到首頁</a>
@@ -336,7 +336,7 @@
       <h1>台南東區結構調理工作室，先看身體怎麼卡住，再整理。</h1>
       <p>見觀結構-東區工作室在台南市東區新樓街65號，是二樓預約制工作室。服務以結構調理、傳統整復推拿與傳統按摩放鬆為主；可先用 LINE 或電話留下主要身體狀況與方便時段，確認後再前往。</p>
       <div class="actions">
-        <a class="cta button is-forest" href="https://line.me/ti/p/~@483yvmiw">先進官方 LINE</a>
+        <a class="cta button is-forest" href="https://line.me/R/oaMessage/%40483yvmiw/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E5%8F%B0%E5%8D%97%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4%E8%BF%91%E6%9C%9F%E5%8F%AF%E4%BB%A5%E9%A0%90%E7%B4%84%E7%9A%84%E6%99%82%E6%AE%B5%E3%80%82">用 LINE 問東區時段</a>
         <a class="cta button is-ghost" href="tel:0973728670">見觀聯絡電話</a>
         <a class="cta button is-ghost" href="../visit/?store=east">查看東區純預約</a>
         <a class="cta button is-ghost" href="https://www.google.com/maps/search/?api=1&query=%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B-%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4&amp;query_place_id=ChIJ8wyQnwl3bjQRso6Wcs4NP1g" target="_blank" rel="noreferrer noopener">Google Maps 導航</a>
@@ -353,7 +353,7 @@
       <article class="info-card">
         <strong>聯絡方式</strong>
         <p><a href="tel:0973728670">0973-728-670</a></p>
-        <p><a href="https://line.me/ti/p/~@483yvmiw">官方 LINE 入口</a></p>
+        <p><a href="https://line.me/R/oaMessage/%40483yvmiw/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E5%8F%B0%E5%8D%97%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4%E8%BF%91%E6%9C%9F%E5%8F%AF%E4%BB%A5%E9%A0%90%E7%B4%84%E7%9A%84%E6%99%82%E6%AE%B5%E3%80%82">用 LINE 問東區時段</a></p>
         <p>可先電話或 LINE 留下主要身體狀況、希望日期與可配合時段。</p>
       </article>
       <article class="info-card">
@@ -397,7 +397,7 @@
         <p>先用 LINE 或電話確認時段，再前往台南市東區新樓街65號；週六上午通常較容易安排。</p>
       </div>
       <div class="actions">
-        <a class="cta button is-forest" href="https://line.me/ti/p/~@483yvmiw">先進官方 LINE</a>
+        <a class="cta button is-forest" href="https://line.me/R/oaMessage/%40483yvmiw/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E5%8F%B0%E5%8D%97%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4%E8%BF%91%E6%9C%9F%E5%8F%AF%E4%BB%A5%E9%A0%90%E7%B4%84%E7%9A%84%E6%99%82%E6%AE%B5%E3%80%82">用 LINE 問東區時段</a>
         <a class="cta button is-ghost" href="tel:0973728670">見觀聯絡電話</a>
         <a class="cta button is-ghost" href="../notes/">先看身體觀察筆記</a>
       </div>
@@ -415,13 +415,6 @@
       eastLocationTracker.trackPageView('page_view_east_location', {
         store: 'east',
         page_role: 'east_location'
-      });
-
-      eastLocationTracker.bindTrackClick(document.querySelector('a[href*="store=east"]'), {
-        eventName: 'click_line_east',
-        store: 'east',
-        page_role: 'east_location',
-        cta_type: 'line'
       });
     }
   </script>

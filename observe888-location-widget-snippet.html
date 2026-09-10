@@ -662,6 +662,7 @@
           badge: '到店入口 / 建議先聯絡',
           address: '702 台南市南區明興路 673 號',
           addressQuery: '台南市南區明興路673號',
+          lineHref: 'https://line.me/ti/p/~@483yvmiw',
           phoneLabel: '0973-728-670',
           phoneHref: 'tel:0973728670',
           hours: '建議先以 LINE 或電話確認可安排時段。',
@@ -684,6 +685,7 @@
           badge: '二樓工作室 / 純預約',
           address: '台南市東區新樓街65號',
           addressQuery: '台南市東區新樓街65號',
+          lineHref: 'https://line.me/R/oaMessage/%40483yvmiw/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E5%8F%B0%E5%8D%97%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4%E8%BF%91%E6%9C%9F%E5%8F%AF%E4%BB%A5%E9%A0%90%E7%B4%84%E7%9A%84%E6%99%82%E6%AE%B5%E3%80%82',
           phoneLabel: '0973-728-670',
           phoneHref: 'tel:0973728670',
           hours: '非固定駐點，僅開放已確認預約時段；週六上午通常較容易安排。',
@@ -854,6 +856,8 @@
         primaryMap.href = store.mapUrl;
         externalMap.href = store.mapUrl;
         directionsLink.href = store.directionsUrl;
+        lineLink.href = store.lineHref;
+        lineLink.textContent = store.id === 'east' ? '用 LINE 問東區時段' : '先進官方 LINE';
         primaryMap.textContent = hasPublicMap ? `已確認時段，再看${store.shortName}位置` : 'LINE 確認東區資訊';
         externalMap.textContent = hasPublicMap ? `已確認時段，再開 Google Maps` : '先進官方 LINE';
         directionsLink.textContent = hasPublicMap ? `已確認時段，再規劃到${store.shortName}` : '先用 LINE 確認';

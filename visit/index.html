@@ -12,13 +12,13 @@
   <meta property="og:title" content="到店導航與 Google Maps｜台南南區店與東區純預約工作室｜見觀結構">
   <meta property="og:description" content="先選南區明興路門市或東區純預約工作室；未確認時段先用電話或 LINE，已確認再開 Google Maps。">
   <meta property="og:url" content="https://www.observe888.com/visit/">
-  <meta property="og:image" content="https://www.observe888.com/assets/gmb/south-single-30-40-card-s0.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="1200">
+  <meta property="og:image" content="https://www.observe888.com/assets/brand/observe888-logo-square-2026-06-26.png">
+  <meta property="og:image:width" content="1254">
+  <meta property="og:image:height" content="1254">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="到店導航與 Google Maps｜台南南區店與東區純預約工作室｜見觀結構">
   <meta name="twitter:description" content="先選南區明興路門市或東區純預約工作室；未確認時段先用電話或 LINE，已確認再開 Google Maps。">
-  <meta name="twitter:image" content="https://www.observe888.com/assets/gmb/south-single-30-40-card-s0.png">
+  <meta name="twitter:image" content="https://www.observe888.com/assets/brand/observe888-logo-square-2026-06-26.png">
   <link rel="canonical" href="https://www.observe888.com/visit/">
   <style>
     :root {
@@ -669,7 +669,7 @@
       <div class="site-link-row">
         <a class="site-link" href="../about/">認識見觀結構</a>
         <a class="site-link" href="../notes/">身體觀察筆記</a>
-        <a class="site-link" href="https://line.me/ti/p/~@483yvmiw">官方 LINE 入口</a>
+        <a id="visitSharedLineCta" class="site-link" href="https://line.me/ti/p/~@483yvmiw">官方 LINE 入口</a>
         <a class="site-link" href="../south/pricing/">服務與費用</a>
         <a class="site-link" href="../east/">東區工作室（純預約）</a>
       </div>
@@ -691,6 +691,7 @@
       studio: 'south'
     };
     const officialLineUrl = 'https://line.me/ti/p/~@483yvmiw';
+    const eastLineUrl = 'https://line.me/R/oaMessage/%40483yvmiw/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E5%8F%B0%E5%8D%97%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4%E8%BF%91%E6%9C%9F%E5%8F%AF%E4%BB%A5%E9%A0%90%E7%B4%84%E7%9A%84%E6%99%82%E6%AE%B5%E3%80%82';
 
     function resolveEntryVariant() {
       try {
@@ -712,6 +713,10 @@
 
     function buildOfficialLineUrl() {
       return officialLineUrl;
+    }
+
+    function buildStoreLineUrl(storeKey) {
+      return storeKey === 'east' ? eastLineUrl : officialLineUrl;
     }
 
     function applyLink(anchor, config) {
@@ -1090,10 +1095,10 @@
           lead: '東區工作室（純預約）不是固定駐點，只有已確認的預約時段會開放。地址在台南市東區新樓街65號，週六上午通常較容易安排；不知道怎麼描述也沒關係，先用 LINE 或電話問時間。',
           points: ['二樓工作室', '新樓街65號', '先確認時段'],
           ctas: [
-            { label: '先進官方 LINE', href: buildOfficialLineUrl(), tone: 'forest' },
+            { label: '用 LINE 問東區時段', href: buildStoreLineUrl('east'), tone: 'forest' },
             { label: '已確認東區時段，再看入口', href: '#widgetMount', tone: 'accent' },
             { label: '第一次來先看這裡', href: '#firstVisitSection', tone: 'ghost' },
-            { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
+            { label: '服務與費用', href: '../south/pricing/#pricing', tone: 'ghost' }
           ]
         },
         firstVisit: {
@@ -1107,7 +1112,7 @@
           ],
           actions: [
             { label: '看東區工作室（純預約）說明', href: '#widgetMount' },
-            { label: '先進官方 LINE', href: buildOfficialLineUrl() }
+            { label: '用 LINE 問東區時段', href: buildStoreLineUrl('east') }
           ]
         }
       },
@@ -1178,6 +1183,11 @@
       document.querySelector('#firstVisitStep3Body').textContent = variant.firstVisit.steps[2].body;
       applyLink(document.querySelector('#firstVisitPrimaryAction'), variant.firstVisit.actions[0]);
       applyLink(document.querySelector('#firstVisitSecondaryAction'), variant.firstVisit.actions[1]);
+      const sharedLineCta = document.querySelector('#visitSharedLineCta');
+      if (sharedLineCta) {
+        sharedLineCta.href = variantKey === 'east' ? eastLineUrl : officialLineUrl;
+        sharedLineCta.textContent = variantKey === 'east' ? '用 LINE 問東區時段' : '官方 LINE 入口';
+      }
       bindVariantTracking(variantKey);
     }
 
