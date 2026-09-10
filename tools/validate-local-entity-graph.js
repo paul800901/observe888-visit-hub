@@ -150,8 +150,9 @@ assert.equal(east.parentOrganization['@id'], ids.organization);
 assert.equal(east.address.addressLocality, '東區');
 assert.equal(east.address.postalCode, '70144');
 assert.equal(east.address.streetAddress.replace(/\s/g, ''), '新樓街65號');
-assert.equal(east.geo.latitude, 23.0357778);
-assert.equal(east.geo.longitude, 120.193024);
+// Google Maps place ChIJ8wyQnwl3bjQRso6Wcs4NP1g, verified 2026-09-10.
+assert.equal(east.geo.latitude, 22.9896765);
+assert.equal(east.geo.longitude, 120.215769);
 assert.equal(east.hasMap, eastMapsUrl);
 assert.ok(east.sameAs.includes(eastMapsUrl));
 
@@ -174,8 +175,8 @@ for (const relativePath of ['east/index.html', 'visit/index.html']) {
   assert.equal(eastNode.name, '見觀結構-東區工作室', `${relativePath}: East public name mismatch`);
   assert.equal(eastNode.alternateName, '見觀結構東區工作室（純預約）', `${relativePath}: East alternate name mismatch`);
   assert.equal(eastNode.address.postalCode, '70144', `${relativePath}: East postal code mismatch`);
-  assert.equal(eastNode.geo.latitude, 23.0357778, `${relativePath}: East latitude mismatch`);
-  assert.equal(eastNode.geo.longitude, 120.193024, `${relativePath}: East longitude mismatch`);
+  assert.equal(eastNode.geo.latitude, 22.9896765, `${relativePath}: East latitude mismatch`);
+  assert.equal(eastNode.geo.longitude, 120.215769, `${relativePath}: East longitude mismatch`);
   assert.equal(eastNode.hasMap, eastMapsUrl, `${relativePath}: East Maps URL mismatch`);
   assert.ok(eastNode.sameAs.includes(eastMapsUrl), `${relativePath}: East sameAs mismatch`);
 }
