@@ -14,7 +14,7 @@
   --focus-ring: rgba(184, 142, 94, 0.32);
   --radius-card: 8px;
   --radius-pill: 999px;
-  --page-max: 1120px;
+  --page-max: 1040px;
   --page-pad-x: 28px;
   --shadow-soft: none;
 
@@ -52,7 +52,7 @@ a {
 .site-shell,
 .shell,
 .hub-shell {
-  width: min(var(--page-max), calc(100vw - var(--page-pad-x))) !important;
+  width: min(var(--page-max), calc(100% - var(--page-pad-x))) !important;
   max-width: 100% !important;
   min-width: 0 !important;
   margin-inline: auto !important;
@@ -159,7 +159,7 @@ small,
   text-align: center;
   text-decoration: none;
   white-space: normal;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   box-shadow: none !important;
 }
 
@@ -217,20 +217,20 @@ h3,
 .topnav-link,
 .back-link,
 .nav-pill {
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 @media (max-width: 720px) {
   :root {
-    --page-pad-x: 16px;
+    --page-pad-x: 40px;
   }
 
   .site-shell,
   .shell,
   .hub-shell {
-    width: calc(100vw - var(--page-pad-x)) !important;
-    max-width: calc(100vw - var(--page-pad-x)) !important;
+    width: calc(100% - var(--page-pad-x)) !important;
+    max-width: calc(100% - var(--page-pad-x)) !important;
     padding-block: max(12px, env(safe-area-inset-top)) calc(24px + env(safe-area-inset-bottom)) !important;
   }
 
@@ -274,9 +274,9 @@ h3,
   .button {
     max-width: 100%;
     white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-all;
-    line-break: anywhere;
+    overflow-wrap: break-word !important;
+    word-break: normal;
+    line-break: strict;
   }
 
   h1 {
@@ -301,3 +301,12 @@ h3,
     width: 100%;
   }
 }
+
+/* Keep page navigation compact; retain every destination without a mobile button stack. */
+.topnav.compact-topnav { display: flex !important; flex-wrap: wrap; align-items: center !important; justify-content: space-between; gap: 8px 14px; }
+.topnav.compact-topnav a { width: auto; }
+.topnav.compact-topnav .topnav-brand { width: auto; margin-right: auto !important; }
+.content-card p, .content-card li { font-size: 16px; line-height: 1.8; }
+summary { cursor: pointer; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--copper); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

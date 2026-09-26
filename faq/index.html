@@ -209,6 +209,14 @@
         order: -1;
       }
     }
+    .faq-grid { grid-template-columns: 1fr; gap: 8px; }
+    .faq-card { display: block; padding: 0; }
+    .faq-card summary { padding: 16px; color: var(--wood); font-weight: 800; line-height: 1.65; }
+    .faq-card p { padding: 0 16px 16px; margin: 0; }
+    details.content-card { display: block; }
+    details.content-card > summary { padding-block: 8px; color: var(--wood); font-size: 21px; font-weight: 800; line-height: 1.5; }
+    details.content-card[open] > summary { margin-bottom: 18px; }
+
   </style>
   <link rel="stylesheet" href="../observe888-design-system.css">
   <script type="application/ld+json">
@@ -234,7 +242,7 @@
           "name": "第一次來要先看哪一頁？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "如果你想安排到店，先看到店導航頁，確認南區店或東區工作室（純預約）、聯絡方式與到店資訊。若還在整理身體狀態，先看身體觀察筆記分類。"
+            "text": "已經要安排到店，先看 到店導航入口。頁面會整理南區店、東區工作室（純預約）、LINE、電話與 Google Maps。還在整理身體狀態，先從 身體觀察筆記 開始。"
           }
         },
         {
@@ -242,7 +250,7 @@
           "name": "南區店和東區工作室（純預約）怎麼選？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "先選交通、時間與聯絡比較順的地點。南區店在明興路，東區工作室（純預約）在新樓街65號二樓；東區非固定駐點，可先用 LINE 或電話確認時段。"
+            "text": "先選交通、時間與聯絡比較順的地點。南區店在明興路，平常主要在南區服務；週六上午在東區新樓街65號二樓。東區請先用 LINE 或電話確認預約時段。"
           }
         },
         {
@@ -250,15 +258,15 @@
           "name": "東區工作室（純預約）可以直接到現場嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "不建議直接到場。東區工作室（純預約）地址為台南市東區新樓街65號二樓，但不是固定駐點；只有已確認預約時段會開放，請先用 LINE 或電話留下需求與可配合時段，確認後再前往。"
+            "text": "不建議直接到場。東區工作室（純預約）地址為台南市東區新樓街65號二樓，週六上午在東區，其他時段依預約與可配合時間安排。請先用 LINE 或電話留下需求與可配合時段，確認後再前往。"
           }
         },
         {
           "@type": "Question",
-          "name": "南區店為什麼建議先確認？",
+          "name": "南區可以直接過去嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "南區店目前以工作室預約制為主，建議先確認可安排時段。可先看南區店頁或服務與費用頁。"
+            "text": "平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區請先預約確認。可先看 南區店頁 或 服務與費用。"
           }
         },
         {
@@ -266,7 +274,7 @@
           "name": "費用在哪裡看？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "南區店與東區工作室採同一套費用邏輯。短單部位 NT$300；一般整理約 20-30 分鐘 NT$500；時間較長 40-45 分鐘約 NT$800；延長到約 60 分鐘為 NT$1000。實際安排仍以 LINE 或現場確認為主。"
+            "text": "南區店與東區工作室採同一套費用邏輯。短單部位 NT$300；一般整理約 20–30 分鐘 NT$500；時間較長 40–45 分鐘約 NT$800；延長到約 60 分鐘為 NT$1000。南區店請看 服務與費用；東區工作室（純預約）請先看 東區工作室（純預約）入口。"
           }
         },
         {
@@ -274,7 +282,7 @@
           "name": "為什麼費用會分不同情況？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "因為每次處理範圍與時間不同。單一部位、狀態單純時是 NT$300；一般整理約 20-30 分鐘是 NT$500；時間較長做到 40-45 分鐘約 NT$800。這不是現場亂喊價，而是依本次處理內容與時間確認。"
+            "text": "因為每次處理範圍與時間不同。單一部位、狀態單純時是 NT$300；一般整理約 20–30 分鐘是 NT$500；時間較長做到 40–45 分鐘約 NT$800。這不是現場亂喊價，而是依本次處理內容與時間確認。"
           }
         },
         {
@@ -290,7 +298,7 @@
           "name": "南區店和東區工作室價格一樣嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "南區店與東區工作室採同一套費用邏輯。短單部位 NT$300；一般整理約 20-30 分鐘 NT$500；時間較長 40-45 分鐘約 NT$800；延長到約 60 分鐘為 NT$1000。"
+            "text": "南區店與東區工作室採同一套費用邏輯。短單部位 NT$300；一般整理約 20–30 分鐘 NT$500；時間較長 40–45 分鐘約 NT$800；延長到約 60 分鐘為 NT$1000。"
           }
         },
         {
@@ -298,7 +306,7 @@
           "name": "Google Maps 導航要點哪裡？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "先進到店導航入口，選南區店或東區工作室（純預約）。南區與東區都可使用 Google Maps 導航；東區地址為新樓街65號，但仍請先用 LINE 或電話確認時段。"
+            "text": "先進 到店導航入口，選南區店或東區工作室（純預約）。南區與東區都可使用 Google Maps 導航；東區地址為新樓街65號，但仍請先用 LINE 或電話確認時段。"
           }
         },
         {
@@ -306,7 +314,7 @@
           "name": "東區工作室（純預約）正式資料是什麼？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "東區工作室（純預約）位於台南市東區新樓街65號二樓，為非固定駐點的預約制工作室；見觀聯絡電話為 0973-728-670；週六上午通常較容易安排，但仍請先用 LINE 或電話確認時段再前往。"
+            "text": "東區工作室（純預約）位於台南市東區新樓街65號二樓，為二樓預約制工作室；見觀聯絡電話為 0973-728-670；週六上午在東區，其他時段依預約與可配合時間安排，請先用 LINE 或電話確認時段再前往。"
           }
         },
         {
@@ -314,7 +322,7 @@
           "name": "南區店正式資料是什麼？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "南區店是見觀結構調理整復所-南區店，地址為 702 台南市南區明興路 673 號，電話為 0973-728-670。"
+            "text": "南區店是「見觀結構調理整復所-南區店」，地址為 702 台南市南區明興路 673 號，電話為 0973-728-670。"
           }
         },
         {
@@ -322,7 +330,7 @@
           "name": "如果我只是看到骨刺、神經壓迫或腰椎退化報告，可以怎麼問？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "可以把檢查名詞當作入口，但不要只停在名詞。建議同時整理身體感受、出現時機、動作情境、左右差、承重方式與生活負荷。"
+            "text": "可以把檢查名詞當作入口，但建議同時整理「哪裡有感覺」、「什麼動作會出現」、「坐站走哪個比較明顯」、「左右承重是否不同」、「最近生活負荷有沒有改變」。本站的 檢查名詞與常見搜尋問法 會把這些名詞放回身體線索整理。"
           }
         },
         {
@@ -343,58 +351,10 @@
         },
         {
           "@type": "Question",
-          "name": "搜尋台南物理治療、徒手治療或復健時，見觀怎麼承接？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "這些詞常代表使用者正在比較不同專業與服務。物理治療、復健屬醫療專業範圍；若需求是了解結構調理、身體結構觀察、傳統整復推拿、徒手調理與日常使用線索，可以先看見觀做法，再確認是否適合安排。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "結構調理和身體結構觀察差在哪？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "結構調理是見觀公開主詞。身體結構觀察偏向先看姿勢、左右差、出力方式與身體張力；結構調理則是依本次狀態安排整理。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "筋膜放鬆、肌筋膜放鬆和運動按摩跟見觀有關嗎？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "有些人會用台南筋膜放鬆、肌筋膜放鬆或運動按摩搜尋肌肉張力、運動後放鬆或久坐緊繃。見觀會把這些感受放回身體結構觀察、承重與動作情境裡整理；若是急性受傷、醫療處置或明顯惡化，仍應先尋求醫療評估。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "搜尋體態矯正、骨盆矯正或高低肩矯正時，可以怎麼看？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "矯正類詞常代表使用者想改善外觀或左右差，但見觀不使用保證矯正或成功改善的說法。比較安全的看法是先觀察姿勢、承重、走路方式、坐站習慣與生活負荷，再判斷是否需要到店整理線索。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "肩頸、腰背、手麻或坐骨神經痛這些詞可以直接當預約理由嗎？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "可以把這些詞當作描述入口，但不要直接當診斷結論。若有急性外傷、明顯無力、大小便異常、發燒感染、快速惡化、劇烈或不尋常症狀，應先就醫；若只是想整理身體感受與使用線索，可先用 LINE 說明情況。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "為什麼 FAQ 會提到這麼多不同搜尋詞？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "因為使用者會用整復、推拿、整骨、台南整脊、喬骨、物理治療、徒手治療、結構調理、筋膜放鬆等不同詞找資料。FAQ 的目的，是把常見搜尋詞放回看得懂的見觀做法，幫助使用者判斷下一步。"
-          }
-        },
-        {
-          "@type": "Question",
           "name": "搜尋台南整復推拿推薦時，可以先看什麼？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "可以先看服務定位是否清楚、地址與店別是否明確、費用與預約方式是否公開，以及是否把身體感受、動作與生活情境一起整理，而不是只用單一名詞或保證式說法吸引預約。"
+            "text": "可以先看服務定位是否清楚、地址與店別是否明確、費用與預約方式是否公開，以及是否把身體感受、動作與生活情境一起整理，而不是只用單一名詞或保證式說法吸引預約。若想先了解見觀，可從 台南整復推拿服務說明 開始。"
           }
         },
         {
@@ -402,7 +362,7 @@
           "name": "搜尋台南整復推拿或台南南區整復推拿時，見觀要看哪裡？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "如果想找台南南區的整復推拿入口，可先看見觀結構南區店。南區店在台南市南區明興路 673 號，採預約制，公開費用、到店導航與見觀做法；若還在比較服務差異，先看台南整復推拿服務說明，再用 LINE 或電話確認是否適合安排。"
+            "text": "如果想找台南南區的整復推拿入口，可先看見觀結構南區店。南區店在台南市南區明興路 673 號，人在店內時可現場安排，出發前可先問時間；若還在比較服務差異，先看 台南整復推拿服務說明，再用 LINE 或電話確認是否適合安排。"
           }
         },
         {
@@ -431,18 +391,58 @@
         },
         {
           "@type": "Question",
-          "name": "什麼情況應該先就醫？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "若出現急性外傷、明顯無力、大小便異常、發燒感染、快速惡化、劇烈或不尋常症狀，應先尋求醫療評估。"
-          }
-        },
-        {
-          "@type": "Question",
           "name": "身體觀察筆記和到店服務有什麼關係？",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "身體觀察筆記是讓你先把感受、姿勢、承重、左右差與生活情境說清楚。到店時仍會依當下狀態、回測反應與實際情境整理方向，不會只用單一文章或單一名詞決定全部答案。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "搜尋台南物理治療、徒手治療或復健時，見觀怎麼承接？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "這些詞常代表使用者正在比較不同專業與服務。物理治療、復健屬醫療專業範圍；若需求是了解結構調理、身體結構觀察、傳統整復推拿、徒手調理與日常使用線索，可以先看見觀做法，再確認是否適合安排。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "結構調理和身體結構觀察差在哪？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "見觀會依當下狀況做結構調理。身體結構觀察偏向先看姿勢、左右差、出力方式與身體張力；結構調理則是依本次狀態安排整理。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "筋膜放鬆、肌筋膜放鬆和運動按摩跟見觀有關嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有些人會用台南筋膜放鬆、肌筋膜放鬆或運動按摩搜尋肌肉張力、運動後放鬆或久坐緊繃。見觀會把這些感受放回身體結構觀察、承重與動作情境裡整理。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "搜尋體態矯正、骨盆矯正或高低肩矯正時，可以怎麼看？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "矯正類詞常代表使用者想改善外觀或左右差，但見觀不使用保證矯正或成功改善的說法。比較安全的看法是先觀察姿勢、承重、走路方式、坐站習慣與生活負荷，再判斷是否需要到店整理線索。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "肩頸、腰背、手麻或坐骨神經痛這些詞可以直接當預約理由嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以把這些詞當作描述入口，但不要直接當診斷結論。可以先用 LINE 說明身體感受與最不順的動作。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "不知道該選哪種做法，怎麼問比較清楚？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先說哪裡卡、什麼動作最不順，以及最近的生活情境就好。見觀會先看當下的動作與反應，再一起討論這次怎麼整理。"
           }
         }
       ]
@@ -475,16 +475,15 @@
 </head>
 <body data-page-role="faq">
   <main class="site-shell shell">
-    <nav class="topnav" aria-label="頁面導覽">
+    <nav class="topnav compact-topnav" aria-label="頁面導覽">
       <a class="back-link" href="../">回到首頁</a>
-      <span class="topnav-brand">見觀結構</span>
       <a class="topnav-link" href="../notes/">筆記</a>
       <a class="topnav-link" href="../visit/">導航</a>
     </nav>
 
     <header class="hero">
       <span class="eyebrow">常見問題</span>
-      <h1>台南整復推拿、第一次來、南區東區怎麼選與結構調理</h1>
+      <h1>第一次來，想先問什麼？</h1>
       <p>這一頁先回答到店前最常卡住的問題。若你正在搜尋台南整復推拿、推拿推薦或身體結構觀察，可以先看見觀怎麼做；如果已經想安排，不用知道自己是什麼狀況，直接用 LINE 問時間也可以。</p>
       <div class="link-list" aria-label="主要入口">
         <a class="cta button is-forest" href="https://line.me/ti/p/~@483yvmiw">先進官方 LINE</a>
@@ -497,22 +496,18 @@
       <span class="eyebrow">到店前</span>
       <h2 id="visitFaqTitle">先把店別、導航、聯絡方式確認清楚</h2>
       <div class="faq-grid">
-        <article class="faq-card">
-          <strong>第一次來要先看哪一頁？</strong>
+        <details class="faq-card"><summary>第一次來要先看哪一頁？</summary>
           <p>已經要安排到店，先看 <a href="../visit/">到店導航入口</a>。頁面會整理南區店、東區工作室（純預約）、LINE、電話與 Google Maps。還在整理身體狀態，先從 <a href="../notes/">身體觀察筆記</a> 開始。</p>
-        </article>
-        <article class="faq-card">
-          <strong>南區店和東區工作室（純預約）怎麼選？</strong>
-          <p>先選交通、時間與聯絡比較順的地點。南區店在明興路；東區工作室（純預約）在新樓街65號二樓，非固定駐點，可先用 LINE 或電話確認時段。</p>
-        </article>
-        <article class="faq-card">
-          <strong>東區工作室（純預約）可以直接到現場嗎？</strong>
-          <p>不建議直接到場。東區工作室（純預約）地址為台南市東區新樓街65號二樓，但不是固定駐點；只有已確認預約時段會開放，請先用 LINE 或電話留下需求與可配合時段，確認後再前往。</p>
-        </article>
-        <article class="faq-card">
-          <strong>南區店為什麼建議先確認？</strong>
-          <p>南區店目前以工作室預約制為主，建議先確認可安排時段。可先看 <a href="../south/">南區店頁</a> 或 <a href="../south/pricing/">服務與費用</a>。</p>
-        </article>
+        </details>
+        <details class="faq-card"><summary>南區店和東區工作室（純預約）怎麼選？</summary>
+          <p>先選交通、時間與聯絡比較順的地點。南區店在明興路，平常主要在南區服務；週六上午在東區新樓街65號二樓。東區請先用 LINE 或電話確認預約時段。</p>
+        </details>
+        <details class="faq-card"><summary>東區工作室（純預約）可以直接到現場嗎？</summary>
+          <p>不建議直接到場。東區工作室（純預約）地址為台南市東區新樓街65號二樓，週六上午在東區，其他時段依預約與可配合時間安排。請先用 LINE 或電話留下需求與可配合時段，確認後再前往。</p>
+        </details>
+        <details class="faq-card"><summary>南區可以直接過去嗎？</summary>
+          <p>平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區請先預約確認。可先看 <a href="../south/">南區店頁</a> 或 <a href="../south/pricing/">服務與費用</a>。</p>
+        </details>
       </div>
     </section>
 
@@ -520,114 +515,84 @@
       <span class="eyebrow">費用與導航</span>
       <h2 id="priceFaqTitle">費用、地圖與店點入口</h2>
       <div class="faq-grid">
-        <article class="faq-card">
-          <strong>費用在哪裡看？</strong>
+        <details class="faq-card"><summary>費用在哪裡看？</summary>
           <p>南區店與東區工作室採同一套費用邏輯。短單部位 NT$300；一般整理約 20–30 分鐘 NT$500；時間較長 40–45 分鐘約 NT$800；延長到約 60 分鐘為 NT$1000。南區店請看 <a href="../south/pricing/">服務與費用</a>；東區工作室（純預約）請先看 <a href="../east/">東區工作室（純預約）入口</a>。</p>
-        </article>
-        <article class="faq-card">
-          <strong>為什麼費用會分不同情況？</strong>
+        </details>
+        <details class="faq-card"><summary>為什麼費用會分不同情況？</summary>
           <p>因為每次處理範圍與時間不同。單一部位、狀態單純時是 NT$300；一般整理約 20–30 分鐘是 NT$500；時間較長做到 40–45 分鐘約 NT$800。這不是現場亂喊價，而是依本次處理內容與時間確認。</p>
-        </article>
-        <article class="faq-card">
-          <strong>什麼情況會到 NT$1000？</strong>
+        </details>
+        <details class="faq-card"><summary>什麼情況會到 NT$1000？</summary>
           <p>如果結構較複雜，需要較多評估、處理與回測，時間延長至約 60 分鐘，當次費用為 NT$1000。這不是固定增加費用，而是依現場狀態先說明後安排。</p>
-        </article>
-        <article class="faq-card">
-          <strong>南區店和東區工作室價格一樣嗎？</strong>
+        </details>
+        <details class="faq-card"><summary>南區店和東區工作室價格一樣嗎？</summary>
           <p>南區店與東區工作室採同一套費用邏輯。短單部位 NT$300；一般整理約 20–30 分鐘 NT$500；時間較長 40–45 分鐘約 NT$800；延長到約 60 分鐘為 NT$1000。</p>
-        </article>
-        <article class="faq-card">
-          <strong>Google Maps 導航要點哪裡？</strong>
+        </details>
+        <details class="faq-card"><summary>Google Maps 導航要點哪裡？</summary>
           <p>先進 <a href="../visit/">到店導航入口</a>，選南區店或東區工作室（純預約）。南區與東區都可使用 Google Maps 導航；東區地址為新樓街65號，但仍請先用 LINE 或電話確認時段。</p>
-        </article>
-        <article class="faq-card">
-          <strong>東區工作室（純預約）正式資料是什麼？</strong>
-          <p>東區工作室（純預約）位於台南市東區新樓街65號二樓，為非固定駐點的預約制工作室；見觀聯絡電話為 0973-728-670；週六上午通常較容易安排，但仍請先用 LINE 或電話確認時段再前往。</p>
-        </article>
-        <article class="faq-card">
-          <strong>南區店正式資料是什麼？</strong>
+        </details>
+        <details class="faq-card"><summary>東區工作室（純預約）正式資料是什麼？</summary>
+          <p>東區工作室（純預約）位於台南市東區新樓街65號二樓，為二樓預約制工作室；見觀聯絡電話為 0973-728-670；週六上午在東區，其他時段依預約與可配合時間安排，請先用 LINE 或電話確認時段再前往。</p>
+        </details>
+        <details class="faq-card"><summary>南區店正式資料是什麼？</summary>
           <p>南區店是「見觀結構調理整復所-南區店」，地址為 702 台南市南區明興路 673 號，電話為 0973-728-670。</p>
-        </article>
+        </details>
       </div>
     </section>
 
-    <section class="content-card" aria-labelledby="boundaryFaqTitle">
-      <span class="eyebrow">結構調理與見觀做法</span>
-      <h2 id="boundaryFaqTitle">搜尋名詞可以當入口，但不能直接當結論</h2>
+    <details class="content-card" aria-labelledby="boundaryFaqTitle"><summary id="boundaryFaqTitle">見觀做法與常見說法</summary>
       <div class="faq-grid">
-        <article class="faq-card is-wide">
-          <strong>如果我只是看到骨刺、神經壓迫或腰椎退化報告，可以怎麼問？</strong>
+        <details class="faq-card is-wide"><summary>如果我只是看到骨刺、神經壓迫或腰椎退化報告，可以怎麼問？</summary>
           <p>可以把檢查名詞當作入口，但建議同時整理「哪裡有感覺」、「什麼動作會出現」、「坐站走哪個比較明顯」、「左右承重是否不同」、「最近生活負荷有沒有改變」。本站的 <a href="../notes/search-terms-overview/">檢查名詞與常見搜尋問法</a> 會把這些名詞放回身體線索整理。</p>
-        </article>
-        <article class="faq-card">
-          <strong>見觀結構是不是醫療院所？</strong>
+        </details>
+        <details class="faq-card"><summary>見觀結構是不是醫療院所？</summary>
           <p>見觀以結構調理、身體結構觀察與傳統整復推拿為主，先看你怎麼卡住，再決定本次怎麼整理。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>整復推拿、運動按摩和物理治療怎麼分？</strong>
+        </details>
+        <details class="faq-card is-wide"><summary>整復推拿、運動按摩和物理治療怎麼分？</summary>
           <p>見觀結構以結構調理、身體結構觀察與傳統整復推拿為主。運動按摩通常偏向運動後肌肉放鬆與恢復；物理治療所屬醫療專業，若是疾病、傷害或醫療處置需求，應依醫療規範先尋求醫師或物理治療專業評估。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>搜尋台南整復推拿推薦時，可以先看什麼？</strong>
+        </details>
+        <details class="faq-card is-wide"><summary>搜尋台南整復推拿推薦時，可以先看什麼？</summary>
           <p>可以先看服務定位是否清楚、地址與店別是否明確、費用與預約方式是否公開，以及是否把身體感受、動作與生活情境一起整理，而不是只用單一名詞或保證式說法吸引預約。若想先了解見觀，可從 <a href="../services/tainan-tuina/">台南整復推拿服務說明</a> 開始。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>搜尋台南整復推拿或台南南區整復推拿時，見觀要看哪裡？</strong>
-          <p>如果想找台南南區的整復推拿入口，可先看見觀結構南區店。南區店在台南市南區明興路 673 號，採預約制，公開費用、到店導航與見觀做法；若還在比較服務差異，先看 <a href="../services/tainan-tuina/">台南整復推拿服務說明</a>，再用 LINE 或電話確認是否適合安排。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>如果我搜尋的是台南整骨推薦，見觀怎麼說？</strong>
+        </details>
+        <details class="faq-card is-wide"><summary>搜尋台南整復推拿或台南南區整復推拿時，見觀要看哪裡？</summary>
+          <p>如果想找台南南區的整復推拿入口，可先看見觀結構南區店。南區店在台南市南區明興路 673 號，人在店內時可現場安排，出發前可先問時間；若還在比較服務差異，先看 <a href="../services/tainan-tuina/">台南整復推拿服務說明</a>，再用 LINE 或電話確認是否適合安排。</p>
+        </details>
+        <details class="faq-card is-wide"><summary>如果我搜尋的是台南整骨推薦，見觀怎麼說？</summary>
           <p>有些人會用整骨這個詞搜尋，但見觀結構對外使用結構調理、身體結構觀察與傳統整復推拿這類表述。到店前可以先看服務說明、FAQ、南區店與東區工作室（純預約）入口，再用 LINE 或電話確認是否適合安排。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>不同服務名稱的費用要怎麼看？</strong>
+        </details>
+        <details class="faq-card is-wide"><summary>不同服務名稱的費用要怎麼看？</summary>
           <p>先不要只比單次金額。建議一起看店別、服務範圍、時間安排、是否需要先預約，以及對方是不是只按痛點。見觀短單部位是 NT$300；一般整理約 NT$500；時間較長約 NT$800；延長到約 60 分鐘為 NT$1000。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>台南整脊、台南喬骨、美式整復、整脊這些詞和見觀有什麼關係？</strong>
+        </details>
+        <details class="faq-card is-wide"><summary>台南整脊、台南喬骨、美式整復、整脊這些詞和見觀有什麼關係？</summary>
           <p>台南整脊、台南喬骨、美式整復與整脊都是使用者常見搜尋語言，不代表每間店的服務方式相同。見觀以結構調理、身體結構觀察與傳統整復推拿為主，不把搜尋詞當成現場結論。</p>
-        </article>
-        <article class="faq-card">
-          <strong>什麼情況應該先就醫？</strong>
-          <p>若出現急性外傷、明顯無力、大小便異常、發燒感染、快速惡化、劇烈或不尋常症狀，應先尋求醫療評估。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>身體觀察筆記和到店服務有什麼關係？</strong>
+        </details>
+        <details class="faq-card is-wide"><summary>身體觀察筆記和到店服務有什麼關係？</summary>
           <p>身體觀察筆記是讓你先把感受、姿勢、承重、左右差與生活情境說清楚。到店時仍會依當下狀態、回測反應與實際情境整理方向，不會只用單一文章或單一名詞決定全部答案。</p>
-        </article>
+        </details>
       </div>
-    </section>
+    </details>
 
-    <section id="search-terms" class="content-card" aria-labelledby="keywordFaqTitle">
-      <span class="eyebrow">搜尋詞彙說明</span>
-      <h2 id="keywordFaqTitle">你搜尋的可能是物理治療、結構調理或筋膜放鬆，但要先分清楚需求</h2>
+    <details id="search-terms" class="content-card" aria-labelledby="keywordFaqTitle"><summary id="keywordFaqTitle">常見說法怎麼看</summary>
       <div class="faq-grid">
-        <article class="faq-card is-wide">
-          <strong>搜尋台南物理治療、徒手治療或復健時，見觀怎麼承接？</strong>
+        <details class="faq-card is-wide"><summary>搜尋台南物理治療、徒手治療或復健時，見觀怎麼承接？</summary>
           <p>這些詞常代表使用者正在比較不同專業與服務。物理治療、復健屬醫療專業範圍；若需求是了解結構調理、身體結構觀察、傳統整復推拿、徒手調理與日常使用線索，可以先看見觀做法，再確認是否適合安排。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>結構調理和身體結構觀察差在哪？</strong>
-          <p>結構調理是見觀公開主詞。身體結構觀察偏向先看姿勢、左右差、出力方式與身體張力；結構調理則是依本次狀態安排整理。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>筋膜放鬆、肌筋膜放鬆和運動按摩跟見觀有關嗎？</strong>
-          <p>有些人會用台南筋膜放鬆、肌筋膜放鬆或運動按摩搜尋肌肉張力、運動後放鬆或久坐緊繃。見觀會把這些感受放回身體結構觀察、承重與動作情境裡整理；若是急性受傷、醫療處置或明顯惡化，仍應先尋求醫療評估。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>搜尋體態矯正、骨盆矯正或高低肩矯正時，可以怎麼看？</strong>
+        </details>
+        <details class="faq-card is-wide"><summary>結構調理和身體結構觀察差在哪？</summary>
+          <p>見觀會依當下狀況做結構調理。身體結構觀察偏向先看姿勢、左右差、出力方式與身體張力；結構調理則是依本次狀態安排整理。</p>
+        </details>
+        <details class="faq-card is-wide"><summary>筋膜放鬆、肌筋膜放鬆和運動按摩跟見觀有關嗎？</summary>
+          <p>有些人會用台南筋膜放鬆、肌筋膜放鬆或運動按摩搜尋肌肉張力、運動後放鬆或久坐緊繃。見觀會把這些感受放回身體結構觀察、承重與動作情境裡整理。</p>
+        </details>
+        <details class="faq-card is-wide"><summary>搜尋體態矯正、骨盆矯正或高低肩矯正時，可以怎麼看？</summary>
           <p>矯正類詞常代表使用者想改善外觀或左右差，但見觀不使用保證矯正或成功改善的說法。比較安全的看法是先觀察姿勢、承重、走路方式、坐站習慣與生活負荷，再判斷是否需要到店整理線索。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>肩頸、腰背、手麻或坐骨神經痛這些詞可以直接當預約理由嗎？</strong>
-          <p>可以把這些詞當作描述入口，但不要直接當診斷結論。若有急性外傷、明顯無力、大小便異常、發燒感染、快速惡化、劇烈或不尋常症狀，應先就醫；若只是想整理身體感受與使用線索，可先用 LINE 說明情況。</p>
-        </article>
-        <article class="faq-card is-wide">
-          <strong>為什麼 FAQ 會提到這麼多不同搜尋詞？</strong>
-          <p>因為使用者會用整復、推拿、整骨、喬骨、物理治療、徒手治療、結構調理、筋膜放鬆等不同詞找資料。FAQ 的目的，是把常見搜尋詞放回看得懂的見觀做法，幫助使用者判斷下一步。</p>
-        </article>
+        </details>
+        <details class="faq-card is-wide"><summary>肩頸、腰背、手麻或坐骨神經痛這些詞可以直接當預約理由嗎？</summary>
+          <p>可以把這些詞當作描述入口，但不要直接當診斷結論。可以先用 LINE 說明身體感受與最不順的動作。</p>
+        </details>
+        <details class="faq-card is-wide"><summary>不知道該選哪種做法，怎麼問比較清楚？</summary>
+          <p>先說哪裡卡、什麼動作最不順，以及最近的生活情境就好。見觀會先看當下的動作與反應，再一起討論這次怎麼整理。</p>
+        </details>
       </div>
-    </section>
+    </details>
 
     <div class="cta-strip" aria-label="常見問題入口">
       <a class="cta button is-forest" href="https://line.me/ti/p/~@483yvmiw">先進官方 LINE</a>

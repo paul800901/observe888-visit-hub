@@ -5,7 +5,7 @@
 Canonical site: https://www.observe888.com/
 Language: zh-Hant
 Primary audience: 台灣繁體中文使用者
-Last updated: 2026-09-02
+Last updated: 2026-09-26
 
 ## Site role
 
@@ -50,7 +50,7 @@ Last updated: 2026-09-02
 
 - Primary visit/navigation page: https://www.observe888.com/visit/
 - Official contact page: https://www.observe888.com/contact/
-- South location: 見觀結構調理整復所-南區店; official page https://www.observe888.com/south/; navigation assistant https://www.observe888.com/visit/?store=south; phone +886-973-728-670; address 702 台南市南區明興路 673 號.
+- South location: 見觀結構調理整復所-南區店; official page https://www.observe888.com/south/; navigation assistant https://www.observe888.com/visit/?store=south; phone +886-973-728-670; address 702 台南市南區明興路 673 號. South is the primary service location. The practitioner is normally at South, except Saturday mornings at East. This describes the location arrangement, not fixed opening hours or immediate availability. Walk-in arrangements are available when the practitioner is onsite; visitors are advised to ask through LINE or phone before leaving. Do not infer fixed staffing or immediate availability.
 - East studio public listing name: 見觀結構-東區工作室; descriptive name: 見觀結構東區工作室（純預約）; official page https://www.observe888.com/east/; navigation assistant https://www.observe888.com/visit/?store=east; phone +886-973-728-670; address 台南市東區新樓街65號. It is a second-floor appointment-only studio and not a fixed staffed storefront, so users should confirm time through LINE or phone before visiting. Saturday morning is usually easier to arrange, but still requires confirmation.
 - Public booking links should point to the official LINE contact entry or the official split visit pages: south https://www.observe888.com/visit/?store=south and east https://www.observe888.com/visit/?store=east.
 - For current booking time or availability, use the official LINE contact entry, phone, or the visit page; do not infer availability from article pages.

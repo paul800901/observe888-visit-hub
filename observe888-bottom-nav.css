@@ -70,13 +70,9 @@
   background: var(--forest, #2e5e4b);
 }
 
-@media (min-width: 760px) {
+@media (min-width: 1280px) {
   .observe-bottom-nav-ready {
     padding-bottom: 0;
-  }
-
-  .observe-bottom-nav-ready .shell {
-    padding-right: 88px;
   }
 
   .observe-bottom-nav {
@@ -98,16 +94,6 @@
     padding: 7px 4px;
     border-radius: 18px;
     font-size: 12px;
-  }
-}
-
-@media (min-width: 1180px) {
-  .observe-bottom-nav-ready .shell {
-    padding-right: 0;
-  }
-
-  .observe-bottom-nav {
-    right: 24px;
   }
 }
 

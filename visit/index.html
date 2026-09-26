@@ -457,6 +457,11 @@
         font-size: 20px;
       }
     }
+    .visit-store-choices { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    .visit-store-choices .signal-card { display: grid; gap: 12px; }
+    body[data-entry-mode="store"] .visit-store-choices { display: none; }
+    body[data-entry-mode="root"] #whatWeDoSection, body[data-entry-mode="root"] .topbar .cta-row { display: none; }
+    @media (max-width:720px) { .visit-store-choices { grid-template-columns: 1fr; } }
   </style>
   <link rel="stylesheet" href="../observe888-design-system.css">
 <script type="application/ld+json" id="observe888-local-business-jsonld">
@@ -542,7 +547,7 @@
       "sameAs": [
         "https://www.google.com/maps/search/?api=1&query=%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B-%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4&query_place_id=ChIJ8wyQnwl3bjQRso6Wcs4NP1g"
       ],
-      "description": "台南東區工作室（純預約）位於台南市東區新樓街65號，為二樓預約制工作室，非固定駐點，可先用 LINE 或電話確認時段。"
+      "description": "台南東區工作室（純預約）位於台南市東區新樓街65號，為二樓預約制工作室，週六上午在東區，其他時段依預約與可配合時間安排，請先用 LINE 或電話確認時段。"
     }
   ]
 }
@@ -589,19 +594,21 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="../observe888-bottom-nav.css">
 </head>
 <body>
   <main id="widgetZone" class="site-shell hub-shell">
+    <nav class="topnav compact-topnav" aria-label="頁面導覽"><a class="back-link" href="../">回到首頁</a><a href="../south/pricing/">服務與費用</a></nav>
     <section class="topbar">
       <div class="topbar-copy">
-        <span id="heroEyebrow" class="eyebrow">見觀微縮官網 / 到店導航站</span>
-        <h1 id="heroTitle">見觀結構</h1>
-        <p id="heroSubtitle" class="hero-subtitle">身體結構觀察、傳統整復推拿與姿勢承重線索整理</p>
-        <p id="heroLead">見觀結構協助把身體感受、姿勢、承重、張力與生活負荷，整理成較清楚的觀察線索。請選擇方便前往的地點，或先閱讀服務方式與身體觀察筆記。</p>
+        <span id="heroEyebrow" class="eyebrow">到店導航</span>
+        <h1 id="heroTitle">南區與東區怎麼到</h1>
+        <p id="heroSubtitle" class="hero-subtitle">先看你怎麼卡住，再整理</p>
+        <p id="heroLead">平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區請先預約確認。</p>
         <div class="hero-points" aria-label="這頁可以做什麼">
           <span id="heroPoint1" class="hero-point">身體結構觀察</span>
           <span id="heroPoint2" class="hero-point">傳統整復推拿</span>
-          <span id="heroPoint3" class="hero-point">姿勢與承重線索整理</span>
+          <span id="heroPoint3" class="hero-point">動作觀察</span>
         </div>
       </div>
 
@@ -612,6 +619,11 @@
         <a id="heroQuaternaryCta" class="cta button is-ghost" href="https://line.me/ti/p/~@483yvmiw">LINE 確認時段</a>
         <a id="heroQuinaryCta" class="cta button is-ghost" href="tel:0973728670">撥打 0973-728-670</a>
       </div>
+    </section>
+
+    <section class="visit-store-choices" aria-label="選擇到店地點">
+      <article class="signal-card"><h2>南區明興路門市</h2><p><strong>台南市南區明興路 673 號</strong></p><p>一樓店面。平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區請先預約確認。</p><a class="cta button is-forest" data-visit-store="south" href="?store=south">查看南區地址與導航</a></article>
+      <article class="signal-card"><h2>東區新樓街工作室</h2><p><strong>台南市東區新樓街 65 號 2F</strong></p><p>二樓工作室、沒有對外招牌。週六上午在東區，其他時段依預約與可配合時間安排；請先確認時段再來。</p><a class="cta button is-ghost" data-visit-store="east" href="?store=east">查看東區地址與到店方式</a></article>
     </section>
 
     <div id="widgetMount" class="widget-frame"></div>
@@ -649,7 +661,7 @@
     <section id="whatWeDoSection" class="signal-grid" aria-label="見觀快速說明">
       <article class="signal-card">
         <span class="signal-label">我們在做什麼</span>
-        <h2>以身體結構觀察、傳統整復推拿與姿勢承重線索整理為核心。</h2>
+        <h2>以先看你怎麼卡住，再整理為核心。</h2>
         <p>見觀結構協助把常見卻說不太清楚的身體感受，連同姿勢、承重、張力與生活負荷一起整理。你不用先懂很多術語，先知道服務方式，再決定要去哪一間就夠了。</p>
       </article>
 
@@ -658,7 +670,7 @@
         <h2>兩間都能到店，先選離你近、聯絡方便的一間。</h2>
         <ol class="signal-list">
           <li>南區店有明興路地址、電話與 Google Maps 導航。</li>
-          <li>東區工作室（純預約）在新樓街65號二樓，非固定駐點，仍需先用 LINE 或電話確認時段。</li>
+          <li>東區工作室（純預約）在新樓街65號二樓，週六上午在東區，其他時段依預約與可配合時間安排，請先用 LINE 或電話確認時段。</li>
           <li>選好分店後，再進單店頁看導航、電話與官方 LINE 入口。</li>
         </ol>
       </article>
@@ -710,6 +722,10 @@
       url.hash = '';
       return `${url.pathname}${url.search}`;
     }
+
+    document.querySelectorAll('[data-visit-store]').forEach((link) => {
+      link.href = buildStoreUrl(link.dataset.visitStore);
+    });
 
     function buildOfficialLineUrl() {
       return officialLineUrl;
@@ -1023,13 +1039,13 @@
       default: {
         mode: 'root',
         pageTitle: '見觀結構｜身體結構觀察與傳統整復推拿',
-        pageDescription: '見觀結構提供身體結構觀察、傳統整復推拿、姿勢與承重線索整理，協助把身體感受、張力變化與生活負荷整理成更清楚的觀察方向。',
+        pageDescription: '見觀結構提供身體結構觀察、傳統整復推拿、動作觀察，協助把身體感受、張力變化與生活負荷整理成更清楚的觀察方向。',
         hero: {
-          eyebrow: '見觀微縮官網 / 到店導航站',
-          title: '見觀結構',
-          subtitle: '身體結構觀察、傳統整復推拿與姿勢承重線索整理',
-          lead: '見觀結構協助把身體感受、姿勢、承重、張力與生活負荷，整理成較清楚的觀察線索。請選擇方便前往的地點，或先閱讀服務方式與身體觀察筆記。',
-          points: ['身體結構觀察', '傳統整復推拿', '姿勢與承重線索整理'],
+          eyebrow: '到店導航',
+          title: '南區與東區怎麼到',
+          subtitle: '先看你怎麼卡住，再整理',
+          lead: '平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區請先預約確認。',
+          points: ['身體結構觀察', '傳統整復推拿', '動作觀察'],
           ctas: [
             { label: '南區店入口', href: buildStoreUrl('south'), tone: 'forest' },
             { label: '東區工作室（純預約）入口', href: buildStoreUrl('east'), tone: 'accent' },
@@ -1087,12 +1103,12 @@
       east: {
         mode: 'store',
         pageTitle: '見觀東區工作室（純預約）入口 | 見觀結構',
-        pageDescription: '東區工作室（純預約）入口頁。地址在台南市東區新樓街65號，二樓預約制工作室，非固定駐點，先用 LINE 或電話確認時段。',
+        pageDescription: '東區工作室（純預約）入口頁。地址在台南市東區新樓街65號，二樓預約制工作室，週六上午在東區，先用 LINE 或電話確認時段。',
         hero: {
           eyebrow: '見觀東區工作室（純預約）入口',
           title: '東區二樓工作室（純預約），地址在新樓街65號，先確認時段再前往。',
           subtitle: '台南市東區新樓街65號，二樓預約制工作室',
-          lead: '東區工作室（純預約）不是固定駐點，只有已確認的預約時段會開放。地址在台南市東區新樓街65號，週六上午通常較容易安排；不知道怎麼描述也沒關係，先用 LINE 或電話問時間。',
+          lead: '東區工作室（純預約）在台南市東區新樓街65號二樓。週六上午在東區，其他時段依預約與可配合時間安排；不知道怎麼描述也沒關係，先用 LINE 或電話問時間。',
           points: ['二樓工作室', '新樓街65號', '先確認時段'],
           ctas: [
             { label: '用 LINE 問東區時段', href: buildStoreLineUrl('east'), tone: 'forest' },
@@ -1103,11 +1119,11 @@
         },
         firstVisit: {
           label: '第一次來，先看東區',
-          title: '東區是二樓工作室，地址公開，但不是固定駐點。',
+          title: '東區是二樓預約制工作室，請先確認時段。',
           lead: '東區是純預約制工作室，只有已確認時段會開放。可以先用 LINE 或電話直接問時間，確認後再前往新樓街65號。',
           steps: [
             { title: '說清楚哪裡不對勁', body: '不用醫學詞彙，就說哪裡痠、緊、卡、怪，你的主觀感受最有參考價值。' },
-            { title: '地址公開，但先不要直接到場', body: '東區工作室（純預約）地址為台南市東區新樓街65號二樓；非固定駐點，請先確認時段，避免臨時到場無法接待。' },
+            { title: '地址公開，但先不要直接到場', body: '東區工作室（純預約）地址為台南市東區新樓街65號二樓；週六上午在東區，仍請先預約確認時段，避免臨時到場無法接待。' },
             { title: '帶幾個方向回去', body: '結束後補上活動或整理方向，讓你知道這次做完之後怎麼延續。' }
           ],
           actions: [
@@ -1119,31 +1135,31 @@
       south: {
         mode: 'store',
         pageTitle: '見觀南區店入口 | 見觀結構調理整復所',
-        pageDescription: '南區店入口頁。還沒約好先撥電話或用 LINE 留需求；已確認要到南區，再看路口、聯絡與 Google Maps。',
+        pageDescription: '南區店入口頁。平常主要在南區，週六上午在東區；南區人在店內時可現場安排，可先電話或 LINE 問時間，再看路口、聯絡與 Google Maps。',
         hero: {
           eyebrow: '見觀南區店入口',
-          title: '南區店，還沒約好先聯絡；已確認再開導航。',
-          subtitle: '預約制工作室，先確認可安排時段與到店方式',
-          lead: '如果還沒約好，先撥電話或用 LINE 問南區時段；不知道怎麼描述也可以，只說哪裡不舒服或想約看看。已經確認要到南區，再往下看入口與 Google Maps。',
-          points: ['未約先電話 / LINE', '已確認再導航', '南區明興路 673 號'],
+          title: '南區店怎麼到',
+          subtitle: '明興路 673 號一樓店面，平常主要在南區服務',
+          lead: '平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區請先預約確認。',
+          points: ['南區主要服務據點', '人在店內可現場安排', '明興路 673 號'],
           ctas: [
             { label: '撥打 0973-728-670 確認時段', href: 'tel:0973728670', tone: 'forest' },
             { label: '先進官方 LINE', href: buildOfficialLineUrl(), tone: 'accent' },
-            { label: '已確認要到南區，再看 Google Maps', href: '#widgetMount', tone: 'ghost' },
+            { label: '查看南區 Google Maps', href: '#widgetMount', tone: 'ghost' },
             { label: '服務與費用', href: '../south/pricing/', tone: 'ghost' }
           ]
         },
         firstVisit: {
           label: '第一次來，先看南區',
           title: '先確認時段，來了一樣說哪裡不舒服就好。',
-          lead: '南區是工作室形式，一對一比較細；建議先確認可安排時段，其他跟一般來店一樣。',
+          lead: '平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區請先預約確認。',
           steps: [
             { title: '先確認有位子', body: '出發前先用電話或 LINE 確認時段，省去臨時等候的情況。' },
             { title: '不用先懂問題', body: '你只要說哪裡不舒服就夠了，不需要準備專業說法，接下來依現場狀態整理。' },
             { title: '帶回幾個延續方向', body: '調整完會補幾個簡單的活動方向，讓你知道回去之後怎麼繼續。' }
           ],
           actions: [
-            { label: '已確認要到南區，再看入口', href: '#widgetMount' },
+            { label: '查看南區入口', href: '#widgetMount' },
             { label: '撥打 0973-728-670 確認時段', href: 'tel:0973728670' }
           ]
         }
@@ -1227,5 +1243,6 @@
       });
     }
   </script>
+  <script src="../observe888-bottom-nav.js"></script>
 </body>
 </html>

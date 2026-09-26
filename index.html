@@ -67,7 +67,7 @@
     }
 
     .site-shell {
-      width: min(1040px, calc(100vw - 32px));
+      width: min(1040px, calc(100% - 40px));
       margin: 0 auto;
       padding: 28px 0 64px;
       display: grid;
@@ -140,7 +140,7 @@
     }
 
     .eyebrow-line {
-      color: var(--gold);
+      color: #7a5b3a;
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 0.08em;
@@ -226,7 +226,8 @@
     .hero-photo img {
       display: block;
       width: 100%;
-      height: 220px;
+      height: auto;
+      aspect-ratio: 1;
       object-fit: cover;
     }
 
@@ -309,7 +310,7 @@
     }
 
     .price-figure {
-      color: var(--gold);
+      color: var(--accent);
       font-size: 24px;
       font-weight: 900;
       white-space: nowrap;
@@ -356,8 +357,9 @@
     .shorts-card img {
       display: block;
       width: 100%;
-      height: clamp(320px, 42vw, 500px);
-      object-fit: cover;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
       border-radius: 6px;
       background: var(--sand);
     }
@@ -370,15 +372,16 @@
     }
 
     .diff-section-clean {
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-      padding: 58px max(16px, calc((100vw - 1040px) / 2));
+      padding: 32px;
+      border-radius: 8px;
       background: var(--wood);
       color: var(--cream);
     }
 
     .diff-section-clean .site-shell {
+      width: 100%;
       padding: 0;
+      gap: 24px;
     }
 
     .diff-section-clean .section-head h2 {
@@ -465,7 +468,7 @@
     }
 
     .seo-footer {
-      width: min(1040px, calc(100vw - 32px));
+      width: min(1040px, calc(100% - 40px));
       margin: 0 auto 36px;
       padding: 0;
       color: var(--muted);
@@ -539,7 +542,7 @@
 
     @media (max-width: 560px) {
       .site-shell {
-        width: calc(100vw - 20px);
+        width: calc(100% - 40px);
         padding-top: 16px;
         gap: 36px;
       }
@@ -583,6 +586,57 @@
         font-size: 22px;
       }
     }
+
+    h1, h2, h3, p, li { word-break: normal; line-break: strict; overflow-wrap: break-word; }
+    h1, h2, h3 { text-wrap: balance; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .process-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 0; margin: 0; list-style: none; }
+    .process-list li { border-top: 2px solid var(--accent); padding-top: 14px; }
+    .process-list strong { display: block; font-size: 19px; color: var(--wood); margin-bottom: 8px; }
+    .process-list p { color: var(--muted); font-size: 16px; line-height: 1.8; }
+    .process-number { color: var(--accent); margin-right: 8px; font-size: 14px; }
+    .place-card img { display: block; width: 100%; height: 220px; object-fit: cover; border-radius: 6px; margin-bottom: 16px; }
+    .place-card p + p { margin-top: 12px; }
+    .place-card .place-address { color: var(--wood); font-weight: 700; }
+    .place-card--east { display: flex; flex-direction: column; justify-content: center; }
+    .place-label { color: var(--accent); font-size: 14px; font-weight: 800; margin-bottom: 16px; }
+    .note-grid { gap: 0 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .note-card { min-height: 0; padding: 16px 0; border: 0; border-bottom: 1px solid rgba(33,25,21,.12); border-radius: 0; background: none; }
+    .faq-grid-clean { grid-template-columns: 1fr; gap: 0; }
+    .faq-card-clean { padding: 0; border: 0; border-bottom: 1px solid rgba(33,25,21,.12); border-radius: 0; background: none; }
+    .faq-card-clean summary { padding: 16px 0; color: var(--wood); font-weight: 800; line-height: 1.7; cursor: pointer; }
+    .faq-card-clean p { padding: 0 0 16px; }
+    .shorts-card .video-destination { color: var(--accent); font-size: 14px; text-decoration: underline; text-underline-offset: .2em; }
+    @media (max-width: 720px) {
+      .quiet-links { display: none; }
+      .process-list { grid-template-columns: 1fr; gap: 18px; }
+      .diff-section-clean { padding: 24px 20px; }
+      .note-grid { grid-template-columns: 1fr; }
+      .home-hero h1 { font-size: clamp(28px, 7.8vw, 34px); line-height: 1.35; }
+      .hero-actions-clean { grid-template-columns: minmax(0, 1fr) auto; }
+      .hero-actions-clean .cta { padding-inline: 18px; }
+      .price-card { grid-template-columns: minmax(0, 1fr) auto; gap: 16px; }
+      .shorts-card img { max-height: 340px; }
+    }
+    @media (min-width: 721px) and (max-width: 860px) {
+      .home-hero { grid-template-columns: minmax(0, 1fr) 220px; gap: 24px; }
+      .home-hero h1 { font-size: 34px; }
+    }
+    @media (min-width: 721px) { .shorts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 720px) {
+      .hero-side { grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); align-items: center; gap: 16px; }
+      .hero-side-copy { padding: 0; border: 0; }
+      .hero-side strong { font-size: 15px; }
+      .shorts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .shorts-card { padding: 12px; gap: 8px; align-content: start; }
+      .shorts-card img { max-height: none; }
+      .shorts-card span { font-size: 15px; }
+      .shorts-card .video-destination { font-size: 12px; }
+      .shorts-card small { display: none; }
+      .seo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 18px; }
+      .seo-col:first-child { grid-column: 1 / -1; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
   <link rel="canonical" href="https://www.observe888.com/">
   <link rel="alternate" type="text/plain" title="llms.txt" href="https://www.observe888.com/llms.txt">
@@ -892,7 +946,7 @@
       "sameAs": [
         "https://www.google.com/maps/search/?api=1&query=%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B-%E6%9D%B1%E5%8D%80%E5%B7%A5%E4%BD%9C%E5%AE%A4&query_place_id=ChIJ8wyQnwl3bjQRso6Wcs4NP1g"
       ],
-      "description": "台南東區工作室（純預約）位於台南市東區新樓街65號，為二樓預約制工作室，非固定駐點，可先用 LINE 或電話確認時段。"
+      "description": "台南東區工作室（純預約）位於台南市東區新樓街65號，為二樓預約制工作室，週六上午在東區，其他時段依預約與可配合時間安排，請先用 LINE 或電話確認時段。"
     },
     {
       "@type": "CreativeWork",
@@ -932,7 +986,7 @@
           "name": "見觀結構南區店在哪裡？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "見觀結構調理整復所-南區店位於 702 台南市南區明興路 673 號。可先看南區店頁或到店導航入口，再用 Google Maps 導航。"
+            "text": "702 台南市南區明興路 673 號。可先看南區店頁或到店導航入口，再用 Google Maps 導航。"
           }
         },
         {
@@ -940,7 +994,7 @@
           "name": "第一次來要先預約嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "建議先進官方 LINE，加入好友或進入對話後按「我要預約」，再留下身體狀況、想安排的店點與可配合時段，見觀確認後回覆。"
+            "text": "平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區工作室請先確認時段再來。要預約可進官方 LINE，按「我要預約」留下需求。"
           }
         },
         {
@@ -953,10 +1007,10 @@
         },
         {
           "@type": "Question",
-          "name": "搜尋台南整復推拿推薦時，可以先看什麼？",
+          "name": "第一次來，可以先確認什麼？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "可以先看店名、地址、費用與預約方式是否清楚，也可以看對方是否會說明本次怎麼整理。見觀會先看卡住的動作、左右差、出力方式與生活習慣，再判斷本次怎麼整理。"
+            "text": "可以先看店點、費用與預約方式，再了解見觀會怎麼觀察動作、安排本次整理。"
           }
         },
         {
@@ -964,7 +1018,7 @@
           "name": "見觀跟一般按一按差在哪？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "見觀會先看卡住的動作、左右差、出力方式與生活習慣，再判斷本次怎麼整理。"
+            "text": "見觀會先看卡住的動作、左右差與出力方式，再做結構調理。整理後會請你再做一次原本的動作，依反應調整方向。"
           }
         }
       ]
@@ -1009,30 +1063,41 @@
 
     <header class="home-hero">
       <div>
-        <span class="eyebrow-line">台南・結構調理・預約制</span>
-        <h1>肩頸腰背四肢卡住，<br>先把身體狀態整理清楚</h1>
-        <p class="hero-lead">落枕轉頭不順、久坐起身卡住、閃到腰後不敢出力，都可以先用白話講，現場再看怎麼整理。</p>
+        <span class="eyebrow-line">台南南區・東區｜結構調理</span>
+        <h1>肩頸腰背卡住，<br>先看你怎麼動，再整理</h1>
+        <p class="hero-lead">落枕轉頭不順、久坐起身卡住、閃到腰不敢出力，用你自己的話說就好。整理完，會請你再做一次剛才卡住的動作，一起看有沒有變化。</p>
         <div class="hero-actions-clean">
-          <a id="homeBookingCta" class="cta cta-primary" href="https://line.me/ti/p/~@483yvmiw">先進官方 LINE</a>
+          <a id="homeBookingCta" class="cta cta-primary" href="https://line.me/ti/p/~@483yvmiw">先用 LINE 問時間</a>
           <a class="cta cta-secondary" href="#pricing">看費用</a>
         </div>
-        <p class="hero-follow">還想先確認？<a id="homeVisitCta" href="/visit/">到店導航</a>｜<a href="#difference">見觀差異</a></p>
+        <p class="hero-follow"><a id="homeVisitCta" href="/visit/?store=south">南區怎麼到</a>・<a href="/east/">東區工作室</a>・<a href="#difference">見觀怎麼看</a></p>
       </div>
       <aside class="hero-side" aria-label="店點與費用摘要">
         <figure class="hero-photo">
-          <img src="/assets/gmb/photo-refresh-2026-05-19/south/02-south-storefront-front.jpg" alt="見觀結構南區明興路一樓門市門口" width="1080" height="1080" decoding="async" fetchpriority="high">
+          <img src="/assets/gmb/photo-refresh-2026-05-19/south/01-south-storefront-building.jpg" alt="見觀結構南區一樓店面與直立招牌" width="1080" height="1080" decoding="async" fetchpriority="high">
         </figure>
         <div class="hero-side-copy">
-          <strong>南區明興路門市，一樓獨立店面。</strong>
-          <p class="quiet-note">另有東區新樓街純預約工作室。多數人是一般整理，約 20-30 分鐘 NT$500。</p>
+          <strong>南區｜明興路 673 號一樓店面</strong>
+          <p class="quiet-note">另有東區新樓街純預約工作室。一般整理約 20-30 分鐘，NT$500。</p>
         </div>
       </aside>
     </header>
 
+    <section class="section-clean" aria-labelledby="processTitle">
+      <div class="section-head">
+        <h2 id="processTitle">第一次來，會怎麼整理？</h2>
+      </div>
+      <ol class="process-list">
+        <li><strong><span class="process-number">01</span>先看你怎麼動</strong><p>轉頭、彎腰、起身、抬手，先一起看哪個動作最卡。</p></li>
+        <li><strong><span class="process-number">02</span>再做結構調理</strong><p>依剛才看到的狀況決定本次重點，不照固定流程全身按一輪。</p></li>
+        <li><strong><span class="process-number">03</span>馬上再動一次</strong><p>重做剛才的動作，一起比較感覺與出力的變化，再決定接著怎麼整理。</p></li>
+      </ol>
+    </section>
+
     <section class="section-clean" id="pricing" aria-labelledby="pricingTitle">
       <div class="section-head">
         <h2 id="pricingTitle">先看大概費用</h2>
-        <p>費用會先說明，不臨時亂加。多數人是一般整理，約 20-30 分鐘 NT$500。範圍較大或時間較長時，會先說明後安排。</p>
+        <p>費用會先說明，不臨時亂加。</p>
       </div>
       <div class="price-list-clean">
         <article class="price-card">
@@ -1068,49 +1133,23 @@
 
     <section class="section-clean" id="locations" aria-labelledby="locationsTitle">
       <div class="section-head">
-        <h2 id="locationsTitle">南區與東區怎麼選</h2>
-        <p>南區是主要公開到店點；東區是純預約二樓空間。兩邊都先約，再出發。</p>
+        <h2 id="locationsTitle">南區門市，或東區工作室</h2>
+        <p>先看地點與到店方式，再用 LINE 確認方便的時間。</p>
       </div>
       <div class="place-grid">
         <article class="place-card">
+          <img src="/assets/gmb/photo-refresh-2026-05-19/south/02-south-storefront-front.jpg" alt="南區明興路門市正面與入口" loading="lazy" decoding="async" width="1080" height="1080">
           <h3>南區明興路門市</h3>
-          <p>主要公開到店點，一樓獨立店面。第一次來、想要導航清楚，先看南區。</p>
-          <p><a class="inline-link" href="/visit/?store=south">南區到店導航</a></p>
+          <p class="place-address">台南市南區明興路 673 號</p>
+          <p>一樓獨立店面，平常主要在這裡服務，週六上午在東區。南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。</p>
+          <p><a class="inline-link" href="/visit/?store=south">南區到店導航</a>・<a class="inline-link" href="/south/">門市完整資訊</a></p>
         </article>
-        <article class="place-card">
+        <article class="place-card place-card--east">
+          <span class="place-label">二樓空間・先確認時段再來</span>
           <h3>東區新樓街工作室</h3>
-          <p>純預約二樓空間，沒有對外招牌。請先用 LINE 確認時段與到店提醒。</p>
-          <p><a class="inline-link" href="/east/">東區工作室完整資訊</a></p>
-        </article>
-      </div>
-      <p class="body-copy">不確定去哪裡，可以先進 <a class="inline-link" href="https://line.me/ti/p/~@483yvmiw">官方 LINE</a>，再請見觀協助你確認。</p>
-    </section>
-
-    <section class="section-clean" aria-labelledby="arrivalTitle">
-      <div class="section-head">
-        <h2 id="arrivalTitle">第一次來，先認門口、空間與現場情境</h2>
-        <p>南區門市是一樓獨立店面，第一次來可先看門口、室內與現場整理情境。東區工作室為純預約二樓空間，沒有對外招牌，預約確認後會用 LINE 提供到店提醒。</p>
-      </div>
-      <div class="arrival-grid">
-        <article class="arrival-card">
-          <img src="/assets/gmb/photo-refresh-2026-05-19/south/02-south-storefront-front.jpg" alt="見觀結構南區明興路門市正面與招牌" loading="lazy" decoding="async" width="1080" height="1080">
-          <h3>南區門口</h3>
-          <p>明興路 673 號，一樓店面。</p>
-        </article>
-        <article class="arrival-card">
-          <img src="/assets/gmb/photo-refresh-2026-05-19/south/03-south-interior-entry.jpg" alt="見觀結構南區室內入口與服務空間局部" loading="lazy" decoding="async" width="1080" height="1080">
-          <h3>南區室內</h3>
-          <p>安靜、單純，第一次來先不用猜空間長什麼樣子。</p>
-        </article>
-        <article class="arrival-card">
-          <img src="/assets/gmb/photo-refresh-2026-05-19/south/05-south-service-leg.jpg" alt="見觀結構南區現場動作觀察與討論情境" loading="lazy" decoding="async" width="1080" height="1080">
-          <h3>現場怎麼看</h3>
-          <p>會先聽你怎麼描述，再回到動作、左右差與出力方式。</p>
-        </article>
-        <article class="arrival-card">
-          <img src="/assets/gmb/photo-refresh-2026-05-19/south/06-south-consult-room.jpg" alt="見觀結構南區室內說明與動作確認情境" loading="lazy" decoding="async" width="1080" height="1080">
-          <h3>說明後再安排</h3>
-          <p>費用、時間與本次重點會先說清楚，再進到實際整理。</p>
+          <p class="place-address">台南市東區新樓街 65 號 2F</p>
+          <p>週六上午在東區，採預約安排，沒有對外招牌。請先用 LINE 確認時段，預約確認後會提供到店提醒。</p>
+          <p><a class="inline-link" href="/east/">查看東區資訊與預約方式</a></p>
         </article>
       </div>
     </section>
@@ -1137,11 +1176,33 @@
               <li>先看哪個動作最卡。</li>
               <li>再看哪邊不敢用力、哪邊一直替別的地方出力。</li>
               <li>本次先整理最影響你的那一段。</li>
-              <li>不照固定流程全身按一輪。</li>
+              <li>整理後再做一次原本的動作，依反應調整方向。</li>
             </ul>
           </article>
         </div>
       </div>
+    </section>
+
+    <section class="section-clean" aria-labelledby="shortsPreviewTitle">
+      <div class="section-head">
+        <h2 id="shortsPreviewTitle">看一次現場怎麼重測</h2>
+        <p>從現場片段，看我們怎麼觀察動作、再做一次比較。點封面會開啟對應的影片。</p>
+      </div>
+      <div class="shorts-grid">
+        <a class="shorts-card" href="https://www.facebook.com/reel/2164525001060828/" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/homepage/shorts-2026-06-24/standing-foot-tension-preview-v2.jpg" alt="站久腳緊短影音現場回測畫面" loading="lazy" decoding="async" width="720" height="1280">
+          <span>站久腳緊，先看怎麼回測</span>
+          <span class="video-destination">在 Facebook 看影片 ↗</span>
+          <small>從腳跟前後、腳內側壓力與站姿感覺，回到可以描述的身體線索。</small>
+        </a>
+        <a class="shorts-card" href="https://www.youtube.com/shorts/ywGbGYyoV34" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/homepage/shorts-2026-06-24/wrist-motion-recheck-preview-v2.jpg" alt="手腕手指短影音動作回測畫面" loading="lazy" decoding="async" width="720" height="720">
+          <span>手腕手指，先看動作能不能跟上</span>
+          <span class="video-destination">在 YouTube 看影片 ↗</span>
+          <small>不是先套病名，而是先看哪個動作不順、哪個位置卡住。</small>
+        </a>
+      </div>
+      <p><a class="inline-link" href="/shorts/">更多短影音與到店資訊</a></p>
     </section>
 
     <section class="section-clean" aria-labelledby="notesTitle">
@@ -1172,33 +1233,9 @@
         </a>
         <a class="note-card" href="/shorts/">
           <span>短影音</span>
-          <small>從 FB / IG / YouTube Shorts 回來的人，可快速看費用、導航、預約與服務差異。</small>
+          <small>看現場動作觀察與重測影片。</small>
         </a>
       </div>
-      <div class="search-note">
-        <h3>搜到這些詞，也可以先這樣描述</h3>
-        <p class="body-copy">很多人會用推拿、整復、落枕、閃腰、肩頸卡、手麻、坐骨神經痛、骨刺、椎間盤突出這些詞找到我們。這些詞可以當入口，方便你描述狀況。現場不會直接把搜尋名詞當結論，而是回到位置、開始時間、哪個動作最不順，以及身體平常怎麼使用。</p>
-      </div>
-    </section>
-
-    <section class="section-clean" aria-labelledby="shortsPreviewTitle">
-      <div class="section-head">
-        <h2 id="shortsPreviewTitle">短影音先看現場怎麼說</h2>
-        <p>有些人是先在 FB、IG 或 YouTube Shorts 看到我們。短影音會用現場語言示範怎麼描述卡緊、怎麼回測動作，再導回費用、導航與預約。</p>
-      </div>
-      <div class="shorts-grid">
-        <a class="shorts-card" href="/shorts/?source=home_shorts_preview">
-          <img src="/assets/homepage/shorts-2026-06-24/standing-foot-tension-preview-v2.jpg" alt="站久腳緊短影音現場回測畫面" loading="lazy" decoding="async" width="720" height="1280">
-          <span>站久腳緊，先看怎麼回測</span>
-          <small>從腳跟前後、腳內側壓力與站姿感覺，回到可以描述的身體線索。</small>
-        </a>
-        <a class="shorts-card" href="/shorts/?source=home_shorts_preview">
-          <img src="/assets/homepage/shorts-2026-06-24/wrist-motion-recheck-preview-v2.jpg" alt="手腕手指短影音動作回測畫面" loading="lazy" decoding="async" width="720" height="720">
-          <span>手腕手指，先看動作能不能跟上</span>
-          <small>不是先套病名，而是先看哪個動作不順、哪個位置卡住。</small>
-        </a>
-      </div>
-      <p><a class="inline-link" href="/shorts/">看短影音回流入口</a></p>
     </section>
 
     <section class="section-clean" aria-labelledby="homeFaqTitle">
@@ -1206,26 +1243,26 @@
         <h2 id="homeFaqTitle">第一次來常見問題</h2>
       </div>
       <div class="faq-grid-clean">
-        <article class="faq-card-clean">
-          <h3>見觀結構南區店在哪裡？</h3>
+        <details class="faq-card-clean">
+          <summary>見觀結構南區店在哪裡？</summary>
           <p>702 台南市南區明興路 673 號。可先看南區店頁或到店導航入口，再用 Google Maps 導航。</p>
-        </article>
-        <article class="faq-card-clean">
-          <h3>第一次來要先預約嗎？</h3>
-          <p>建議先進官方 LINE，說明身體卡緊的位置、想安排的店點與可配合時段，店家確認後回覆。</p>
-        </article>
-        <article class="faq-card-clean">
-          <h3>費用怎麼看？</h3>
-          <p>短單部位 NT$300、一般整理約 20-30 分鐘 NT$500、時間較長 NT$800、延長整理 NT$1000。會先說明後安排。</p>
-        </article>
-        <article class="faq-card-clean">
-          <h3>搜尋台南整復推拿推薦時，可以先看什麼？</h3>
-          <p>可以先看店名、地址、費用與預約方式是否清楚，也可以看對方是否會說明本次怎麼整理。</p>
-        </article>
-        <article class="faq-card-clean">
-          <h3>見觀跟一般按一按差在哪？</h3>
-          <p>見觀會先看卡住的動作、左右差、出力方式與生活習慣，再判斷本次怎麼整理。</p>
-        </article>
+        </details>
+        <details class="faq-card-clean">
+          <summary>第一次來要先預約嗎？</summary>
+          <p>平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區工作室請先確認時段再來。要預約可進官方 LINE，按「我要預約」留下需求。</p>
+        </details>
+        <details class="faq-card-clean">
+          <summary>費用怎麼看？</summary>
+          <p>短單部位 NT$300；一般整理約 20-30 分鐘 NT$500；時間較長、需要做到 40-45 分鐘時約 NT$800；延長整理約 60 分鐘 NT$1000，會先說明後再安排。</p>
+        </details>
+        <details class="faq-card-clean">
+          <summary>第一次來，可以先確認什麼？</summary>
+          <p>可以先看店點、費用與預約方式，再了解見觀會怎麼觀察動作、安排本次整理。</p>
+        </details>
+        <details class="faq-card-clean">
+          <summary>見觀跟一般按一按差在哪？</summary>
+          <p>見觀會先看卡住的動作、左右差與出力方式，再做結構調理。整理後會請你再做一次原本的動作，依反應調整方向。</p>
+        </details>
       </div>
       <p><a class="inline-link" href="/faq/">查看完整 FAQ</a></p>
     </section>

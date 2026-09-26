@@ -183,6 +183,7 @@
         grid-template-columns: 1fr;
       }
     }
+    body { align-items: flex-start; }
   </style>
   <link rel="stylesheet" href="../observe888-design-system.css">
   <script type="application/ld+json">
@@ -225,9 +226,11 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="../observe888-bottom-nav.css">
 </head>
 <body data-page-role="booking">
   <main class="site-shell panel">
+    <nav class="topnav compact-topnav" aria-label="頁面導覽"><a class="back-link" href="../">回到首頁</a><a href="../visit/">看店點</a></nav>
     <span class="label">LINE Booking</span>
     <h1>先進官方 LINE，再按「我要預約」</h1>
     <p>官網這裡先把你帶到見觀官方 LINE。還沒加好友就先加入；已經是好友也一樣從這裡進。進到 LINE 後，按選單裡的「我要預約」，才會開啟正式預約表單。</p>
@@ -276,5 +279,6 @@
       }
     }());
   </script>
+  <script src="../observe888-bottom-nav.js"></script>
 </body>
 </html>

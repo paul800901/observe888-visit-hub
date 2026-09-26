@@ -232,6 +232,9 @@
         font-size: 16px;
       }
     }
+    .approach-list { display: grid; gap: 22px; padding-left: 1.5em; margin: 0; }
+    .approach-list li::marker { color: var(--copper); font-weight: 800; }
+    .approach-list h3 { font-size: 18px; margin-bottom: 6px; }
   </style>
   <link rel="stylesheet" href="../observe888-design-system.css">
   <link rel="canonical" href="https://www.observe888.com/about/">
@@ -295,31 +298,27 @@
     <header class="hero">
       <span class="eyebrow">關於見觀</span>
       <div class="hero-copy">
-        <h1>認識見觀結構</h1>
-        <p>見觀結構不是只看單一不舒服的位置，而是協助把身體感受、姿勢、承重、張力與生活負荷整理成可觀察的線索。</p>
-        <p>我們以身體結構觀察、傳統整復推拿、姿勢與承重線索整理為核心，協助來訪者在到店前後，更清楚理解自己的身體狀態。</p>
+        <h1>先看你怎麼動，再決定怎麼整理</h1>
+        <p>轉頭卡住、久坐起身不順，或某個地方總是不敢用力。你用自己的話說，我們一起從動作看起。</p>
+        <p>結構調理之後，會請你再做一次剛才的動作。把整理前後的感覺放在一起比較，再決定下一步。</p>
       </div>
     </header>
 
-    <section class="content-card">
-      <h2>見觀怎麼看身體狀態</h2>
-      <p>很多人會帶著一個名詞進來，例如骨刺、手麻、神經壓迫、腰椎退化、坐骨神經痛或足底筋膜炎。這些名詞可以幫助描述方向，但不應該直接取代身體實際呈現的狀態。</p>
-      <p>見觀結構會先把「哪裡有感覺」、「什麼動作會出現」、「左右承重是否不同」、「工作與生活習慣是否重複累積」分開整理，再回到整體結構與日常使用方式觀察。</p>
+    <section class="content-card" aria-labelledby="approachTitle">
+      <h2 id="approachTitle">從你最困擾的動作開始</h2>
+      <ol class="approach-list">
+        <li><h3>先聽你說</h3><p>哪裡卡、什麼時候開始、哪個動作最不順？不用先找專業名詞。</p></li>
+        <li><h3>一起看動作</h3><p>轉頭、彎腰、起身或抬手，看左右差異，以及哪裡不敢用力、哪裡一直幫忙出力。</p></li>
+        <li><h3>決定本次整理重點</h3><p>依剛才看到的狀況做結構調理，費用、時間與本次重點會先說清楚。</p></li>
+        <li><h3>馬上再做一次</h3><p>回到原本卡住的動作，一起比較現在的感覺、活動與出力方式。</p></li>
+        <li><h3>依反應調整方向</h3><p>有變化就再確認，變化不大就重新看，不只問一句「有沒有比較鬆」就結束。</p></li>
+      </ol>
     </section>
 
     <section class="content-card">
-      <h2>可以先從哪裡開始</h2>
-      <ul>
-        <li>想先理解服務方式，可以從這一頁與身體觀察筆記開始。</li>
-        <li>想整理自己的感受，可以先記下發生時間、姿勢、承重方向與左右差。</li>
-        <li>已經要安排到店，再回到導航頁選方便前往的南區店或東區工作室（純預約）。</li>
-        <li>到店前後都可以把左右差、承重感與張力變化當作觀察線索。</li>
-      </ul>
-    </section>
-
-    <section class="content-card">
-      <h2>急性或快速惡化先就醫</h2>
-      <p>本站文章可以幫你整理身體觀察方向。若出現急性外傷、快速惡化、明顯無力、大小便異常、發燒感染，或麻木、疼痛、無力突然加重等明顯神經學警訊，請先就醫或向醫療專業諮詢。</p>
+      <h2>來之前，記得一個動作就好</h2>
+      <p>例如「早上轉頭只能轉一邊」、「坐久站起來要等一下」。把你最想處理的日常困擾帶來，比先替自己找一個名詞更有幫助。</p>
+      <p>想先看看我們怎麼觀察，可以讀<a href="../notes/">身體觀察筆記</a>，或看<a href="../shorts/">現場短影音</a>。</p>
     </section>
 
     <div class="cta-strip" aria-label="頁面入口">

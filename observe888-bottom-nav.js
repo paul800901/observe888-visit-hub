@@ -33,11 +33,11 @@
 
   function inferActiveKey() {
     if (currentPath.indexOf('/booking/') !== -1) return 'booking';
-    if (currentPath.indexOf('/visit/') !== -1) return 'visit';
+    if (currentPath.indexOf('/visit/') !== -1) return '';
     if (currentPath.indexOf('/faq/') !== -1) return 'faq';
     if (currentPath.indexOf('/about/') !== -1) return 'about';
     if (currentPath.indexOf('/notes/') !== -1) return 'notes';
-    return 'home';
+    return currentPath === rootUrl.pathname ? 'home' : '';
   }
 
   function inferPageRole() {

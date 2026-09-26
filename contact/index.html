@@ -282,6 +282,8 @@
         white-space: normal;
       }
     }
+    .compact-topnav .nav-links { display: flex; flex-wrap: wrap; }
+    .source-drawer > summary { font-weight: 800; padding: 8px 0; } .source-drawer[open] > summary { margin-bottom: 16px; }
   </style>
   <link rel="stylesheet" href="../observe888-design-system.css">
   <script type="application/ld+json">
@@ -433,7 +435,7 @@
 </head>
 <body>
   <main class="site-shell shell">
-    <nav class="topnav" aria-label="站內導覽">
+    <nav class="topnav compact-topnav" aria-label="站內導覽">
       <div class="brand-block">
         <span class="brand-kicker">見觀結構南區店</span>
         <span class="brand-title">聯絡、地址、電話與到店地圖</span>
@@ -450,16 +452,16 @@
     <header class="hero">
       <span class="eyebrow">台南市南區明興路 673 號</span>
       <h1>聯絡見觀結構南區店</h1>
-      <p>見觀結構南區店位於 702 台南市南區明興路 673 號，電話 0973-728-670；還沒約好先直接來電或先進官方 LINE，已確認要到南區再開 Google Maps。</p>
+      <p>見觀結構南區店位於 702 台南市南區明興路 673 號，電話 0973-728-670；平常主要在南區服務，週六上午在東區。南區人在店內時可現場安排，出發前可先來電或 LINE 問時間。</p>
       <div class="actions">
         <a class="cta button" href="tel:0973728670">撥打 0973-728-670 確認時段</a>
         <a class="cta button is-forest" href="https://line.me/ti/p/~@483yvmiw">先進官方 LINE</a>
-        <a class="cta button is-ghost" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F" target="_blank" rel="noopener noreferrer">已確認要到南區，再開 Google Maps</a>
+        <a class="cta button is-ghost" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E6%98%8E%E8%88%88%E8%B7%AF673%E8%99%9F" target="_blank" rel="noopener noreferrer">開啟南區 Google Maps</a>
       </div>
     </header>
 
     <section class="panel" aria-labelledby="contactDataTitle">
-      <span class="panel-label">NAP</span>
+      <span class="panel-label">南區店資料</span>
       <h2 id="contactDataTitle">南區店公開聯絡資料</h2>
       <p>南區店是目前主要公開到店點；東區工作室維持純預約安排，請先確認時段與地點，不要直接把兩個地址混在一起。</p>
       <div class="contact-grid">
@@ -495,7 +497,7 @@
             </div>
             <div>
               <dt>營業方式</dt>
-              <dd>採預約制，現場安排不以固定候位為準；請先用電話或 LINE 確認。</dd>
+              <dd>平常主要在南區，週六上午在東區；南區人在店內時可現場安排，出發前可先用 LINE 或電話問時間。東區請先預約確認。</dd>
             </div>
           </dl>
         </div>
@@ -536,10 +538,8 @@
       </div>
     </section>
 
-    <section class="panel" aria-labelledby="sourceTitle">
-      <span class="panel-label">外部目錄與公共來源</span>
-      <h2 id="sourceTitle">外部連結用來核對地點與公共資訊</h2>
-      <p>外部資料不是療效背書，只用來協助核對地圖、台南地理與公共健康資訊；正式預約、費用與服務內容仍以見觀官網與 LINE 確認為準。</p>
+    <details class="panel source-drawer">
+      <summary id="sourceTitle">核對資料</summary>
       <div class="source-card">
         <ul class="source-list">
           <li><a href="https://www.google.com/maps/place/%E8%A6%8B%E8%A7%80%E7%B5%90%E6%A7%8B%E8%AA%BF%E7%90%86%E6%95%B4%E5%BE%A9%E6%89%80-%E5%8D%97%E5%8D%80%E5%BA%97/data=!4m7!3m6!1s0x346e75c1ca233b3d:0x3592fcab2e48ad03!8m2!3d22.9381209!4d120.1810271!16s%2Fg%2F11sg_8rbc_!19sChIJPTsjysF1bjQRA61ILqv8kjU" target="_blank" rel="noopener noreferrer">Google Maps：見觀結構調理整復所-南區店</a></li>
@@ -551,17 +551,8 @@
           <li><a href="https://www.instagram.com/observe.tw/" target="_blank" rel="noopener noreferrer">Instagram：observe.tw</a>、<a href="https://www.threads.com/@sl800901" target="_blank" rel="noopener noreferrer">Threads：sl800901</a>、<a href="https://www.facebook.com/observe888/" target="_blank" rel="noopener noreferrer">Facebook：見觀結構整復所主粉專</a>、<a href="https://www.facebook.com/profile.php?id=61589375001647" target="_blank" rel="noopener noreferrer">Facebook：見觀結構觀察筆記</a></li>
         </ul>
       </div>
-    </section>
+    </details>
 
-    <section class="panel" aria-labelledby="boundaryTitle">
-      <span class="panel-label">服務邊界</span>
-      <h2 id="boundaryTitle">急性或明顯惡化狀況先就醫</h2>
-      <p>急性、快速惡化，或出現明顯神經學警訊時，請先就醫或向醫療專業諮詢；其他一般卡緊、痠緊與活動不順，可以先用 LINE 說明狀況。</p>
-      <div class="actions">
-        <a class="cta button is-ghost" href="/faq/">查看完整 FAQ</a>
-        <a class="cta button is-forest" href="/services/tainan-tuina/">台南整復推拿怎麼選</a>
-      </div>
-    </section>
   </main>
 
   <script src="../observe888-tracking-config.js"></script>
