@@ -51,16 +51,4 @@ Modes:
 
 Use `-NoOpen` for script tests without opening Chrome, Explorer, or popup windows.
 
-## `register_seo_recurring_tasks.ps1`
-
-Register the local Windows Scheduled Tasks:
-
-- `見觀 SEO 週檢`
-- `見觀 SEO 雙週修復窗口`
-- `見觀搜尋入口月盤點`
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File tools\register_seo_recurring_tasks.ps1
-```
-
-Operational details are documented in `docs/seo-recurring-ops-2026-06-07.md`.
+Scheduling is handled by K chat schedules that call this script with `-NoOpen`; Windows Scheduled Tasks are no longer used.
